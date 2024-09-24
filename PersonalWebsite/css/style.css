@@ -136,3 +136,20 @@ footer a:hover {
         height: 100%;
         aspect-ratio: 16 / 9; 
         }
+/* footer */
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa; /* Light background color */
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Adds a light shadow */
+  }
+  .mb-0 {
+    margin-bottom: 0;
+    color: #333; /* Text color */
+    font-family: 'Roboto', sans-serif; /* Optional font family */
+  }
+   
