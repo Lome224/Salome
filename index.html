@@ -94,7 +94,8 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 .work .meta{margin:0 0 14px;opacity:.7}
 .work .vid{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:10px;overflow:hidden;margin:4px 0 16px;
   box-shadow:inset 0 0 0 1px rgba(0,0,0,.6)}
-.work .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.work .vid iframe,.work .vid video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;object-fit:contain}
+.work figure.side img{max-height:46vh}
 .work figure{margin:4px 0 16px;text-align:center}
 .work figure img{max-width:100%;max-height:62vh;border-radius:8px;box-shadow:0 1px 0 rgba(255,255,255,.6),0 6px 18px rgba(0,0,0,.25)}
 .work figure figcaption{font-size:11.5px;opacity:.6;margin-top:6px}
@@ -656,9 +657,20 @@ window.SITE = {
      "Porcelain",
      "Projection"
     ],
+    "vimeo": "1246046001",
+    "image": {
+     "src": "media/works/P01_the-blue-left-spinning__spinning-poster.jpg",
+     "alt": "The Blue Left Spinning · Flohaus Gallery exhibition poster"
+    },
     "audio": [],
     "docs": [],
-    "links": []
+    "links": [
+     {
+      "label": "Max/MSP patch & hardware documentation on GitHub",
+      "href": "https://github.com/Lome224/The-Blue-Left-Spinning"
+     }
+    ],
+    "imageWithVideo": true
    },
    "in-between": {
     "title": "In-Between",
@@ -678,6 +690,11 @@ window.SITE = {
      "Installation",
      "Moving Image"
     ],
+    "vimeo": "1246046014",
+    "image": {
+     "src": "media/works/P03_in-between__in-between.mp4",
+     "alt": "In-Between — still from the project video"
+    },
     "audio": [],
     "docs": [],
     "links": []
@@ -702,9 +719,25 @@ window.SITE = {
      "Perception"
     ],
     "vimeo": "1061473361",
-    "audio": [],
-    "docs": [],
-    "links": []
+    "image": {
+     "src": "media/works/P07_the-whispering-room__whispering-room-documentation-preview.jpg",
+     "alt": "The Whispering Room — system documentation"
+    },
+    "audio": [
+     {
+      "title": "Perpetuum Interrupted · later music version",
+      "src": "media/works/P07_the-whispering-room__whispering-room.mp3",
+      "dur": 458
+     }
+    ],
+    "docs": [
+     {
+      "label": "System & composition documentation",
+      "href": "media/works/P07_the-whispering-room__whispering-room-documentation.pdf"
+     }
+    ],
+    "links": [],
+    "imageWithVideo": true
    },
    "dawn": {
     "title": "Dawn",
@@ -723,9 +756,29 @@ window.SITE = {
      "Gaia Quartet"
     ],
     "vimeo": "1238460376",
-    "audio": [],
-    "docs": [],
-    "links": []
+    "image": {
+     "src": "media/works/P09_dawn__dawn-gaia-poster.jpg",
+     "alt": "GAIA Quartet Canadian tour concert poster featuring Salome Yichi Zhang at Canadian Music Centre"
+    },
+    "audio": [
+     {
+      "title": "Dawn · recording",
+      "src": "media/audio/dawn.mp3",
+      "dur": 316
+     }
+    ],
+    "docs": [
+     {
+      "label": "Read the score",
+      "href": "media/works/P09_dawn__dawn-score.pdf"
+     },
+     {
+      "label": "Program & performance notes",
+      "href": "media/works/P09_dawn__dawn-program-note.pdf"
+     }
+    ],
+    "links": [],
+    "imageWithVideo": true
    },
    "connecting-lines": {
     "title": "Connecting Lines",
@@ -745,6 +798,11 @@ window.SITE = {
      "Interactive Installation",
      "MassArt"
     ],
+    "vimeo": "1246046020",
+    "image": {
+     "src": "media/works/P06_connecting-lines__connecting-lines.mp4",
+     "alt": "Connecting Lines — still from the project video"
+    },
     "audio": [],
     "docs": [],
     "links": []
@@ -766,9 +824,19 @@ window.SITE = {
      "Bedford Trio"
     ],
     "vimeo": "977413062",
+    "image": {
+     "src": "media/works/P14_blue__blue-bedford-poster.jpg",
+     "alt": "Bedford Trio presents Immersed 2.0 · April 2, 2023 · 918 Bathurst Street, Toronto"
+    },
     "audio": [],
-    "docs": [],
-    "links": []
+    "docs": [
+     {
+      "label": "Read the score",
+      "href": "media/works/P14_blue__blue-score.pdf"
+     }
+    ],
+    "links": [],
+    "imageWithVideo": true
    },
    "event-matcher": {
     "title": "Event Matcher",
@@ -804,6 +872,11 @@ window.SITE = {
      "VR",
      "Accessibility"
     ],
+    "vimeo": "1246046027",
+    "image": {
+     "src": "media/works/P08_project-prakash__project-prakash.mp4",
+     "alt": "Project Prakash VR prototype · space environment and interactive meteor assessment"
+    },
     "audio": [],
     "docs": [],
     "links": [
@@ -823,8 +896,19 @@ window.SITE = {
      "A custom electronic instrument combining Max/MSP, an Arduino Uno and photoresistors to connect sensor input with sound control. The prototype was presented at Fenway Art Studio in Boston in March 2025, bringing together Zhang’s interests in physical interaction, instrument building and electronic sound."
     ],
     "tags": [],
+    "vimeo": "1246046036",
+    "image": {
+     "src": "media/works/L05_cloud__cloud-performance.mp4",
+     "alt": "CLOUD instrument performance"
+    },
     "audio": [],
-    "docs": [],
+    "docs": [
+     {
+      "label": "Download original CLOUD Max patch",
+      "href": "media/works/L05_cloud__cloud.maxpat",
+      "download": true
+     }
+    ],
     "links": []
    },
    "csound-plugin-01": {
@@ -837,8 +921,24 @@ window.SITE = {
      "A sampler prototype developed in Csound and Cabbage, bringing sample playback, envelope control and delay processing into a single interface. The project connects code with listening through adjustable sound parameters and documents Zhang’s exploration of sample processing and custom audio tools."
     ],
     "tags": [],
-    "audio": [],
-    "docs": [],
+    "image": {
+     "src": "media/works/L03_csound-plugin-01__csound-sampler-interface.png",
+     "alt": "Original sampler interface"
+    },
+    "audio": [
+     {
+      "title": "Reconstructed playback-core demonstration; not an archival plugin recording",
+      "src": "media/works/L03_csound-plugin-01__RECONSTRUCTED-sampler-demo.mp3",
+      "dur": 12
+     }
+    ],
+    "docs": [
+     {
+      "label": "Sampler · interface, playback & Csound code",
+      "href": "media/works/L03_csound-plugin-01__csound-sampler.csd",
+      "download": true
+     }
+    ],
     "links": []
    },
    "csound-plugin-02": {
@@ -851,8 +951,24 @@ window.SITE = {
      "An FM synthesis instrument developed in Csound and Cabbage, with independent carrier and modulation envelopes, presets and output metering. The project translates synthesis logic into a playable interface, exploring electronic timbre through modulation and envelope shaping. Its documentation includes the original audio demonstration, interface and complete source code."
     ],
     "tags": [],
-    "audio": [],
-    "docs": [],
+    "image": {
+     "src": "media/works/L04_csound-plugin-02__csound-fm.csd",
+     "alt": "FM Synthesis · original interface"
+    },
+    "audio": [
+     {
+      "title": "FM Synthesis · original demo",
+      "src": "media/works/L04_csound-plugin-02__csound-fm-demo.mp3",
+      "dur": 21
+     }
+    ],
+    "docs": [
+     {
+      "label": "Download complete FM instrument source",
+      "href": "media/works/L04_csound-plugin-02__csound-fm.csd",
+      "download": true
+     }
+    ],
     "links": []
    },
    "machine-learning-for-musicians": {
@@ -865,8 +981,26 @@ window.SITE = {
      "A midterm experiment in machine learning for musicians, using a convolutional neural network to classify ten music genres. Audio is converted into mel-spectrograms, with separate notebooks covering preprocessing, training and prediction. Example predictions and a confusion matrix help examine the patterns learned by the model and the genres it still confuses."
     ],
     "tags": [],
+    "image": {
+     "src": "media/works/L07_machine-learning-for-musicians__ml-musicians-classification.png",
+     "alt": "Music genre classifier · original midterm prediction example"
+    },
+    "image2": {
+     "src": "media/works/L07_machine-learning-for-musicians__ml-musicians-confusion.png",
+     "alt": "Original midterm classifier confusion matrix"
+    },
     "audio": [],
-    "docs": [],
+    "docs": [
+     {
+      "label": "Explore the classifier and results",
+      "href": "media/works/L07_machine-learning-for-musicians__ml-musicians-notes.html"
+     },
+     {
+      "label": "Download midterm notebooks and documentation",
+      "href": "media/works/L07_machine-learning-for-musicians__machine-learning-for-musicians-source.zip",
+      "download": true
+     }
+    ],
     "links": []
    },
    "once-upon-a-time-in-boston": {
@@ -887,9 +1021,20 @@ window.SITE = {
      "Original Score",
      "Songwriting"
     ],
-    "audio": [],
+    "image": {
+     "src": "media/works/P02_once-upon-a-time-in-boston__boston-poster.jpg",
+     "alt": "Once Upon a Time in Boston · original film poster"
+    },
+    "audio": [
+     {
+      "title": "Before Rain · score excerpt",
+      "src": "media/audio/before-rain.mp3",
+      "dur": 329
+     }
+    ],
     "docs": [],
-    "links": []
+    "links": [],
+    "imageWithVideo": true
    },
    "ju": {
     "title": "JU",
@@ -908,7 +1053,17 @@ window.SITE = {
      "Film Music"
     ],
     "vimeo": "1238273066",
-    "audio": [],
+    "image": {
+     "src": "media/works/P05_ju__ju.jpg",
+     "alt": "JU — still from the project video"
+    },
+    "audio": [
+     {
+      "title": "JU · original music",
+      "src": "media/works/P05_ju__ju-score.mp3",
+      "dur": 713
+     }
+    ],
     "docs": [],
     "links": []
    },
@@ -951,9 +1106,20 @@ window.SITE = {
      "Minimalism"
     ],
     "vimeo": "1061076055",
-    "audio": [],
+    "image": {
+     "src": "media/works/P04_beyond-the-glass__beyond-the-glass-poster.jpg",
+     "alt": "Beyond the Glass · film poster"
+    },
+    "audio": [
+     {
+      "title": "Beyond the Glass · original music · extended credits version",
+      "src": "media/works/P04_beyond-the-glass__beyond-the-glass.mp3",
+      "dur": 1234
+     }
+    ],
     "docs": [],
-    "links": []
+    "links": [],
+    "imageWithVideo": true
    },
    "the-light-within": {
     "title": "The Light Within",
@@ -1007,6 +1173,10 @@ window.SITE = {
      "Sound Leadership",
      "Upcoming"
     ],
+    "image": {
+     "src": "media/works/P10_in-the-blue__in-the-blue-still.jpg",
+     "alt": "In the Blue · supplied film still"
+    },
     "audio": [],
     "docs": [],
     "links": []
@@ -1029,9 +1199,14 @@ window.SITE = {
      "Songwriting",
      "Upcoming"
     ],
+    "image": {
+     "src": "media/works/P11_farewell-the-ocean-wave__farewell-ocean-poster.jpg",
+     "alt": "Farewell, the Ocean Waves · supplied poster"
+    },
     "audio": [],
     "docs": [],
-    "links": []
+    "links": [],
+    "imageWithVideo": true
    },
    "gift": {
     "title": "Gift",
@@ -1051,9 +1226,14 @@ window.SITE = {
      "Chamber Music"
     ],
     "vimeo": "971152713",
+    "image": {
+     "src": "media/works/P12_gift__gift-poster.jpg",
+     "alt": "Gift · film poster"
+    },
     "audio": [],
     "docs": [],
-    "links": []
+    "links": [],
+    "imageWithVideo": true
    },
    "farewell": {
     "title": "Farewell",
@@ -1073,7 +1253,17 @@ window.SITE = {
      "Sound Mixing"
     ],
     "vimeo": "1115618350",
-    "audio": [],
+    "image": {
+     "src": "media/works/P13_farewell__farewell-still.jpg",
+     "alt": "Farewell — animation still"
+    },
+    "audio": [
+     {
+      "title": "Farewell · master audio",
+      "src": "media/works/P13_farewell__farewell.mp3",
+      "dur": 180
+     }
+    ],
     "docs": [],
     "links": []
    },
@@ -1089,7 +1279,13 @@ window.SITE = {
     ],
     "tags": [],
     "vimeo": "1002630267",
-    "audio": [],
+    "audio": [
+     {
+      "title": "Cheat-code · original music",
+      "src": "media/works/F03_cheat-code__cheat-code-score.mp3",
+      "dur": 874
+     }
+    ],
     "docs": [],
     "links": []
    },
@@ -1120,6 +1316,10 @@ window.SITE = {
      "Additional music for the feature film Enjoy Your Journey. Zhang contributed through Shi Music Studio under music director Shimu Chen, bringing her work in film composition into a larger collaborative scoring process."
     ],
     "tags": [],
+    "image": {
+     "src": "media/works/F06_enjoy-your-journey__enjoy-your-journey-poster.jpg",
+     "alt": "Enjoy Your Journey· release poster"
+    },
     "audio": [],
     "docs": [],
     "links": [
@@ -1127,7 +1327,8 @@ window.SITE = {
       "label": "Film details · IMDb",
       "href": "https://www.imdb.com/title/tt28106059/"
      }
-    ]
+    ],
+    "imageWithVideo": true
    },
    "the-depth-of-wumeng": {
     "title": "The Depth of Wumeng",
@@ -1140,6 +1341,10 @@ window.SITE = {
      "Television scoring that combines original composition with electronic sound creation. Zhang contributed additional music and synthesizer sound design to The Depth of Wumeng, working on both musical material and the creation of electronic timbres."
     ],
     "tags": [],
+    "image": {
+     "src": "media/works/F07_the-depth-of-wumeng__wumeng-poster.jpg",
+     "alt": "· poster"
+    },
     "audio": [],
     "docs": [],
     "links": [
@@ -1147,7 +1352,8 @@ window.SITE = {
       "label": "Watch on CCTV",
       "href": "https://tv.cctv.com/2025/12/17/VIDEXPixngcGkSBYqqNW1Vk3251217.shtml"
      }
-    ]
+    ],
+    "imageWithVideo": true
    },
    "sleep-all-day": {
     "title": "Sleep All Day",
@@ -1161,7 +1367,13 @@ window.SITE = {
     ],
     "tags": [],
     "vimeo": "1026021118",
-    "audio": [],
+    "audio": [
+     {
+      "title": "Sleep All Day · original music",
+      "src": "media/works/F08_sleep-all-day__sleep-all-day-score.mp3",
+      "dur": 816
+     }
+    ],
     "docs": [],
     "links": []
    },
@@ -1177,7 +1389,13 @@ window.SITE = {
     ],
     "tags": [],
     "vimeo": "1210659346",
-    "audio": [],
+    "audio": [
+     {
+      "title": "Love Tears and Choice · original music",
+      "src": "media/works/F09_love-tears-and-choice__love-tears-choice-score.mp3",
+      "dur": 776
+     }
+    ],
     "docs": [],
     "links": []
    },
@@ -1191,7 +1409,13 @@ window.SITE = {
      "A piano-sextet theme for the debut short by Toronto-based director Anthony Francis. The music gently traces the protagonist’s struggle between his own desires and the expectations of his family, particularly his father. The film takes a magical-realist turn when he encounters an omnipresent god who is ultimately revealed to be himself."
     ],
     "tags": [],
-    "audio": [],
+    "audio": [
+     {
+      "title": "Ochiho’s Theme · score cue",
+      "src": "media/works/A01_ochihos-theme__ochihos-theme.mp3",
+      "dur": 196
+     }
+    ],
     "docs": [],
     "links": []
    },
@@ -1276,8 +1500,28 @@ window.SITE = {
      "An orchestral rescoring study using scenes from The Wild Robot, featuring cue 1m27, I Can Use a Boost, and cue 1m36, Robot vs. the Wild. The project explores the relationship between orchestral music and animated images through newly composed scores, with full notation, synchronized video and standalone audio."
     ],
     "tags": [],
-    "audio": [],
-    "docs": [],
+    "vimeo": "1246046047",
+    "image": {
+     "src": "media/works/L01_the-wild-robot__wild-robot-1m27.mp4",
+     "alt": "The Wild Robot · 1m27 I Can Use a Boost"
+    },
+    "audio": [
+     {
+      "title": "1m36 · Robot vs. the Wild · audio",
+      "src": "media/works/L01_the-wild-robot__wild-robot-1m36.mp3",
+      "dur": 102
+     }
+    ],
+    "docs": [
+     {
+      "label": "1m27 · I Can Use a Boost · full score",
+      "href": "media/works/L01_the-wild-robot__wild-robot-1m27-score.pdf"
+     },
+     {
+      "label": "1m36 · Robot vs. the Wild · full score",
+      "href": "media/works/L01_the-wild-robot__wild-robot-1m36-score.pdf"
+     }
+    ],
     "links": []
    },
    "farmers-of-america": {
@@ -1318,9 +1562,14 @@ window.SITE = {
      "Sound post-production for the space documentary Blue Planet Outside the Window. Zhang’s work included Foley, sound effects, recording synchronization, editing, sound design and mixing, connecting detailed sound work with the screen image. Built around footage captured by astronauts aboard China’s space station, the film presents life in space and a view of Earth from orbit."
     ],
     "tags": [],
+    "image": {
+     "src": "media/works/F05_blue-planet-outside-the-window__blue-planet-poster.jpg",
+     "alt": "Blue Planet Outside the Window · poster"
+    },
     "audio": [],
     "docs": [],
-    "links": []
+    "links": [],
+    "imageWithVideo": true
    }
   },
 
@@ -1494,18 +1743,26 @@ window.SITE = {
   function workView(k) {
     var w = S.works && S.works[k];
     if (!w) return null;
-    return { title: w.title, wide: true, quiet: !!(w.vimeo || (w.audio && w.audio.length)), html: function () {
+    return { title: w.title, wide: true, quiet: !!(w.vimeo || w.video || (w.audio && w.audio.length)), html: function () {
       var h = '<a class="lr-link" href="#' + w.parent + '">← ' + esc(PARENT[w.parent] || 'Back') + '</a><div class="work">';
       h += '<h2>' + esc(w.title) + '</h2>' + (w.sub ? '<p class="meta">' + esc(w.sub) + '</p>' : '');
       if (w.vimeo) {
         h += '<div class="vid"><iframe src="https://player.vimeo.com/video/' + esc(w.vimeo) +
              '?dnt=1&title=0&byline=0&portrait=0&color=ffd27a" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy" title="' + esc(w.title) + '"></iframe></div>';
       }
-      if (w.image && (!w.vimeo || w.imageWithVideo)) {
-        h += '<figure><img src="' + esc(w.image.src) + '" alt="' + esc(w.image.alt || w.title) + '" loading="lazy">' +
-             (w.image.alt ? '<figcaption>' + esc(w.image.alt) + '</figcaption>' : '') + '</figure>';
+      else if (w.video) {
+        h += '<div class="vid"><video controls playsinline preload="metadata"' + (w.video.poster ? ' poster="' + esc(w.video.poster) + '"' : '') +
+             ' src="' + esc(w.video.src) + '"></video></div>';
       }
+      function fig(im, cls) {
+        return '<figure' + (cls ? ' class="' + cls + '"' : '') + '><img src="' + esc(im.src) + '" alt="' + esc(im.alt || w.title) + '" loading="lazy">' +
+               (im.alt ? '<figcaption>' + esc(im.alt) + '</figcaption>' : '') + '</figure>';
+      }
+      var hasVid = !!(w.vimeo || w.video);
+      if (w.image && !hasVid) h += fig(w.image);
       (w.desc || []).forEach(function (p) { h += '<p>' + esc(p) + '</p>'; });
+      if (w.image && hasVid && w.imageWithVideo) h += fig(w.image, 'side');
+      if (w.image2) h += fig(w.image2);
       var f = [['Year', w.year], ['Role', w.role], ['Details', w.note]].filter(function (x) { return x[1]; });
       if (f.length) h += '<dl class="facts">' + f.map(function (x) { return '<dt>' + x[0] + '</dt><dd>' + esc(x[1]) + '</dd>'; }).join('') + '</dl>';
       if (w.audio && w.audio.length) {
@@ -1520,7 +1777,7 @@ window.SITE = {
         return '<a class="lr-link" href="' + esc(d.href) + '" target="_blank" rel="noopener"' + (d.download ? ' download' : '') + '>' + esc(d.label) + ' ↗</a>';
       }).join('') + '</div>';
       if (w.tags && w.tags.length) h += '<div class="tags">' + w.tags.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('') + '</div>';
-      if (!w.vimeo && !w.image && !(w.audio && w.audio.length) && !(w.desc && w.desc.length)) h += '<p class="soon">Media coming soon.</p>';
+      if (!hasVid && !w.image && !(w.audio && w.audio.length) && !(w.desc && w.desc.length)) h += '<p class="soon">Media coming soon.</p>';
       return h + '</div>';
     } };
   }
