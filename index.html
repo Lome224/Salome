@@ -180,7 +180,7 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 </section>
 
 <div class="controls">
-  <button class="glass glowable" id="snd" type="button">SOUND ON</button>
+  <button class="glass glowable" id="snd" type="button">SOUND OFF</button>
   <button class="glass glowable" id="codeBtn" type="button">CODE</button>
 </div>
 <pre class="win" id="codepanel"></pre>
@@ -766,14 +766,14 @@ window.SITE = {
     setTimeout(function () { $('enter').style.display = 'none'; }, 750);
   }
   function showEnter() { $('enter').style.display = 'flex'; $('enter').style.opacity = '1'; $('enter').style.pointerEvents = 'auto'; }
-  if (seen()) $('enter').style.display = 'none';
+  /* ENTER always shows on arrival: browsers only allow sound after a click */
   $('skip').addEventListener('click', hideEnter);
   $('go').addEventListener('click', boot);
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' && $('enter').style.display !== 'none' && $('enter').style.opacity !== '0' && !$('go').disabled) { e.preventDefault(); boot(); }
   });
   $('snd').addEventListener('click', function () {
-    if (!cs) { showEnter(); return; }
+    if (!cs) { boot(); return; }
     muted = !muted; $('snd').textContent = muted ? 'SOUND OFF' : 'SOUND ON'; applyVol();
   });
   var codeOpen = false;
