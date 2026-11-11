@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Machine Learning for Musicians — Salome Yichi Zhang</title><link rel="stylesheet" href="../Website_Reference/styles.css"><style>
+body.study-notes{padding:0}.study-notes main{max-width:1050px;margin:auto;padding:48px 24px 80px}.study-notes h1{font:400 clamp(38px,7vw,72px)/1.05 var(--display);letter-spacing:-.035em;margin:25px 0}.study-notes h2{font:400 clamp(27px,4vw,40px)/1.15 var(--display);margin:48px 0 18px}.study-notes p{max-width:760px;line-height:1.75}.study-notes figure{margin:28px 0}.study-notes img{display:block;width:100%;height:auto}.study-notes figcaption{font-size:12px;line-height:1.6;margin-top:10px;color:var(--muted)}.study-notes .study-meta{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}.study-notes a{overflow-wrap:anywhere}
+</style></head><body class="study-notes"><main>
+<a class="resource-link" href="../Website_Reference/index.html#lab">← Back to Lab</a>
+<p class="study-meta">Midterm experiment · Machine learning for musicians</p>
+<h1>Music Genre<br>Classification</h1>
+<p>A midterm experiment in using a convolutional neural network to classify music from mel-spectrograms. The project explores how patterns in an audio signal can support music classification, and where genre boundaries remain difficult for a model to distinguish.</p>
+<h2>From sound to prediction</h2>
+<p>Separate Python notebooks cover audio preprocessing, CNN training and genre prediction. The classifier learns from ten genres in the GTZAN collection: blues, classical, country, disco, hip-hop, jazz, metal, pop, reggae and rock.</p>
+<figure><img src="../../01_Images/L07_machine-learning-for-musicians__ml-musicians-classification.png" alt="Original midterm prediction showing a mel-spectrogram and genre probabilities"><figcaption>An example prediction from the midterm experiment. The probabilities shown belong to this individual example.</figcaption></figure>
+<h2>Examining the results</h2>
+<p>The study includes a confusion matrix and an analysis of commonly confused genre pairs, treating errors as part of understanding what the model has learned.</p>
+<figure><img src="../../01_Images/L07_machine-learning-for-musicians__ml-musicians-confusion.png" loading="lazy" alt="Original midterm confusion matrix showing correct and confused genre predictions"><figcaption>Evaluation output from the music-genre classifier.</figcaption></figure>
+<h2>Notebooks and documentation</h2>
+<p>The download contains the original midterm implementation, including preprocessing, training and inference notebooks, screenshots and project documentation. Python dependencies, the dataset and trained model are required to reproduce the experiment; consult the included README for those resources.</p>
+<a class="resource-link" href="L07_machine-learning-for-musicians__machine-learning-for-musicians-source.zip" download>Download midterm notebooks and documentation ↓</a>
+</main></body></html>
