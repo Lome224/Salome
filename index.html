@@ -696,6 +696,7 @@ window.SITE = {
   player.addEventListener('timeupdate', function () { if (cur && !seeking) paint(cur, player.currentTime); });
   player.addEventListener('loadedmetadata', function () { if (cur) paint(cur, player.currentTime); });
   player.addEventListener('ended', stopTracks);
+  ['play', 'pause', 'ended'].forEach(function (n) { player.addEventListener(n, applyVol); });
 
   /* ---------- draggable statement ---------- */
   var root = document.documentElement, drag = null;
@@ -753,7 +754,9 @@ window.SITE = {
   /* ---------- Tide: generative Csound ---------- */
   var CSD = $('csd').textContent.trim();
   var cs = null, muted = false, VOL = 0.8;
-  function applyVol() { if (cs) { try { cs.setControlChannel('vol', (muted || current) ? 0 : VOL); } catch (e) {} } }
+  /* Tide plays everywhere except the Listening Room or while a track is playing */
+  function quiet() { return current === 'listening-room' || (typeof player !== 'undefined' && player && !player.paused); }
+  function applyVol() { if (cs) { try { cs.setControlChannel('vol', (muted || quiet()) ? 0 : VOL); } catch (e) {} } }
   function seen() { try { return sessionStorage.getItem('tideSeen') === '1'; } catch (e) { return false; } }
   function markSeen() { try { sessionStorage.setItem('tideSeen', '1'); } catch (e) {} }
   function hideEnter() {
