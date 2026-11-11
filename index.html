@@ -433,13 +433,18 @@ window.SITE = {
     ['The Depth of Wumeng', 'Television Series', '', 'Additional Music · Synth Design'],
     ['Sleep All Day', 'Short Film', '2025', 'Composer'],
     ['Love Tears and Choice', 'Short Film', '2026', 'Composer'],
-    ['The Wild Robot (re-score study)', 'Re-score Study', '2026', 'Composer'],
     ['Sound Design Reel', 'Game', '2026', 'Sound Designer · Foley'],
     ['Ochiho’s Theme', 'Short Film', '2023', 'Composer'],
     ['August 3', 'Short Film', '2025', 'Composer'],
     ['Rose Garden Dance', 'Short Film', '2024', 'Composer'],
     ['Mu Dan Yuan', 'Documentary', '2023', 'Composer'],
     ['Little Buddha Sunshine', 'Documentary', '2023', 'Composer']
+  ],
+
+  /* Rescore: re-scores of existing films */
+  filmRescore: [
+    ['The Wild Robot', 'Rescore', '2026', 'Composer'],
+    ['Farmers of America', 'Rescore', '', 'Composer']
   ],
 
   /* Listening Room: title, year, file in media/audio/ */
@@ -543,6 +548,16 @@ window.SITE = {
 
   /* ---------- windows ---------- */
   function rows(list) {
+    /* newest first: by end year ('present' = now), then start year; undated last */
+    function yrs(y) {
+      var m = String(y || '').match(/\d{4}/g) || [];
+      var end = /present/i.test(y) ? 9999 : (m.length ? +m[m.length - 1] : -1);
+      return [end, m.length ? +m[0] : -1];
+    }
+    list = list.map(function (r, k) { return [r, k]; }).sort(function (a, b) {
+      var A = yrs(a[0][2]), B = yrs(b[0][2]);
+      return (B[0] - A[0]) || (B[1] - A[1]) || (a[1] - b[1]);
+    }).map(function (x) { return x[0]; });
     return '<div class="rows">' + list.map(function (r) {
       return '<div class="row"><div>' + esc(r[0]) + '<br><span class="m">' + esc(r[1]) + '</span></div>' +
              '<div class="y">' + esc(r[2]) + '</div><div class="r">' + esc(r[3]) + '</div></div>';
@@ -559,7 +574,8 @@ window.SITE = {
     'film-music': { title: 'Film Music', html: function () {
       return '<a class="lr-link" href="#listening-room">Listening Room →</a>' +
              '<div class="sub">Selected</div>' + rows(S.filmSelected) +
-             '<div class="sub">All Film</div>' + rows(S.filmAll);
+             '<div class="sub">All Film</div>' + rows(S.filmAll) +
+             '<div class="sub">Rescore</div>' + rows(S.filmRescore);
     } },
     'listening-room': { title: 'Listening Room', html: function () {
       return '<div class="track-row" style="opacity:.6"><div>#</div><div>Name</div><div>Player</div><div>Year</div></div>' +
