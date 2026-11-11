@@ -181,6 +181,7 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 
 <div class="controls">
   <button class="glass glowable" id="snd" type="button">SOUND OFF</button>
+  <button class="glass glowable" id="binBtn" type="button" title="Binaural 3D sound (HRTF). Best with headphones; switch off for speakers.">3D ON</button>
   <button class="glass glowable" id="codeBtn" type="button">CODE</button>
 </div>
 <pre class="win" id="codepanel"></pre>
@@ -219,6 +220,13 @@ gaDryL init 0
 gaDryR init 0
 gaRevL init 0
 gaRevR init 0
+
+; ---------- binaural (HRTF) ----------
+; Measured head-related transfer functions (Csound's data set for the running
+; sample rate: 44.1, 48 or 96 kHz). Sources are placed around the listener's head;
+; "bin" = 1 for binaural, 0 for plain stereo.
+gSHL sprintf "hrtf-%d-left.dat", sr
+gSHR sprintf "hrtf-%d-right.dat", sr
 
 ; D major pentatonic, two octaves (semitones from root)
 giScale ftgen 0, 0, -8, -2, 0, 2, 4, 7, 9, 12, 14, 16
@@ -267,9 +275,14 @@ instr 2
   idet random -0.3, 0.3
   ifreq = cpsmidinn(62 + isemi + 12*ioct + idet)
   iamp random 0.04, 0.13
-  ; gentle placement: 30% toward left or right, side chosen at random per drop
+  ; stereo placement: 30% toward left or right, side chosen at random per drop
   iside random 0, 1
   ipan = (iside > 0.5 ? 0.65 : 0.35)
+  ; binaural placement: anywhere around the head, a little above ear level,
+  ; drifting downward as it rings, like a drop falling past you
+  iaz random 0, 360
+  iel random -5, 45
+  kel line iel, p3, iel - 22
   kf expseg ifreq*0.62, 0.035, ifreq, p3-0.035, ifreq*1.015
   aenv expseg 0.0001, 0.004, 1, p3-0.004, 0.0001
   aen2 expseg 0.0001, 0.003, 1, p3*0.35, 0.0001, p3*0.65, 0.0001
@@ -282,7 +295,12 @@ instr 2
   kcut = (kcut < 200 ? 3750 : kcut)
   asig butlp asig, kcut
   asig butlp asig, kcut
-  aL, aR pan2 asig, ipan
+  kbin chnget "bin"
+  kbin port kbin, 0.3
+  aSL, aSR pan2 asig, ipan
+  aBL, aBR hrtfmove2 asig, iaz, kel, gSHL, gSHR, 4, 9, sr
+  aL = aSL*(1-kbin) + aBL*kbin*1.25
+  aR = aSR*(1-kbin) + aBR*kbin*1.25
   gaDryL = gaDryL + aL*0.3
   gaDryR = gaDryR + aR*0.3
   gaRevL = gaRevL + aL*0.85
@@ -326,6 +344,14 @@ instr 4
   ipanA = (iside > 0.5 ? 0.5 - ioff : 0.5 + ioff)
   ipanB = 1 - ipanA
   kpan line ipanA, p3, ipanB
+  ; binaural: each tone travels 60-140 degrees around the head over its life
+  iaz0 random 0, 360
+  isweep random 60, 140
+  idir random 0, 1
+  isweep = (idir > 0.5 ? isweep : -isweep)
+  kaz line iaz0, p3, iaz0 + isweep
+  kaz wrap kaz, 0, 360
+  iel random -10, 25
   iatt = p3*0.4
   aenv linseg 0, iatt, 1, p3-2*iatt, 1, iatt, 0
   irate random 0.05, 0.2
@@ -336,7 +362,12 @@ instr 4
   a3 poscil 0.25, ifreq*2.003
   a4 poscil 0.08, ifreq*3.01
   asig = (a1 + a2 + (a3 + a4)*(0.6 + ktone)) * aenv * 0.04
-  aL, aR pan2 asig, kpan
+  kbin chnget "bin"
+  kbin port kbin, 0.3
+  aSL, aSR pan2 asig, kpan
+  aBL, aBR hrtfmove2 asig, kaz, iel, gSHL, gSHR, 4, 9, sr
+  aL = aSL*(1-kbin) + aBL*kbin*1.25
+  aR = aSR*(1-kbin) + aBR*kbin*1.25
   gaDryL = gaDryL + aL*0.6
   gaDryR = gaDryR + aR*0.6
   gaRevL = gaRevL + aL*0.5
@@ -776,6 +807,11 @@ window.SITE = {
     if (!cs) { boot(); return; }
     muted = !muted; $('snd').textContent = muted ? 'SOUND OFF' : 'SOUND ON'; applyVol();
   });
+  $('binBtn').addEventListener('click', function () {
+    bin = bin ? 0 : 1;
+    $('binBtn').textContent = bin ? '3D ON' : '3D OFF';
+    if (cs) { try { cs.setControlChannel('bin', bin); } catch (e) {} }
+  });
   var codeOpen = false;
   $('codeBtn').addEventListener('click', function () {
     var pre = $('codepanel');
@@ -790,6 +826,21 @@ window.SITE = {
     pre.style.display = codeOpen ? 'block' : 'none';
     $('codeBtn').textContent = codeOpen ? 'HIDE CODE' : 'CODE';
   });
+  /* HRTF data sets, one per sample rate; 44.1 and 48 kHz are preloaded */
+  var hrtfCache = {};
+  function hrtfSet(rate) {
+    if (!hrtfCache[rate]) {
+      hrtfCache[rate] = Promise.all(['left', 'right'].map(function (ear) {
+        var f = 'hrtf-' + rate + '-' + ear + '.dat';
+        return fetch('media/hrtf/' + f).then(function (r) { if (!r.ok) throw new Error(f); return r.arrayBuffer(); })
+          .then(function (b) { return [f, new Uint8Array(b)]; });
+      }));
+      hrtfCache[rate].catch(function () {});
+    }
+    return hrtfCache[rate];
+  }
+  hrtfSet(44100); hrtfSet(48000);
+  var bin = 1;
   var modP = import('https://cdn.jsdelivr.net/npm/@csound/browser@6.18.7/dist/csound.js');
   modP.catch(function () {});
   async function boot() {
@@ -799,6 +850,11 @@ window.SITE = {
       var make = async function (opts) {
         var c = await mod.Csound(opts);
         if (await c.compileCsdText(CSD) !== 0) throw new Error('compile failed');
+        var rate = Math.round(await c.getSr());
+        var set = [44100, 48000, 96000].indexOf(rate) >= 0 ? await hrtfSet(rate) : [];
+        if (!set.length) { bin = 0; $('binBtn').textContent = '3D OFF'; }  /* unusual rate: fall back to stereo */
+        for (var k = 0; k < set.length; k++) await c.fs.writeFile(set[k][0], set[k][1]);
+        await c.setControlChannel('bin', bin);
         await c.setControlChannel('vol', 0);
         await c.setControlChannel('cut', 3750);
         await c.start();

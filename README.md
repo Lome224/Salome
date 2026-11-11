@@ -8,7 +8,7 @@ Live at **https://salomezhang.com** (hosted with GitHub Pages).
 
 The site is a single static page styled as a black-and-white Frutiger Aero desktop: glass folders for Art, Research, Film Music, About, CV and Contact, a draggable `readme.txt` statement, and a looping video backdrop.
 
-Pressing **ENTER** starts *Tide*, a generative Csound piece that runs live in the browser (via [@csound/browser](https://www.npmjs.com/package/@csound/browser)). It fades out whenever a window is open.
+Pressing **ENTER** starts *Tide*, a generative Csound piece that runs live in the browser (via [@csound/browser](https://www.npmjs.com/package/@csound/browser)). It is **binaural**: droplets and chord tones are placed around the listener's head with Csound's HRTF opcodes (`hrtfmove2`, using Csound's measured HRTF data in `media/hrtf/`, matched to the browser's sample rate). The **3D** button switches between binaural (for headphones) and plain stereo (for speakers). Tide keeps playing in every window and fades out only in the Listening Room or while a track plays.
 
 The **Listening Room** plays ten tracks with seekable players.
 
@@ -22,6 +22,7 @@ The **Listening Room** plays ten tracks with seekable players.
 | `media/salome.jpg` | About photo |
 | `media/CV_Salome_Zhang.pdf` | CV |
 | `media/audio/` | Listening Room tracks (128 kbps MP3) |
+| `media/hrtf/` | Csound HRTF data (44.1, 48 and 96 kHz) for binaural Tide |
 | `CNAME` | Custom domain for GitHub Pages |
 
 ## Editing

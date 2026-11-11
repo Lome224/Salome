@@ -14,6 +14,13 @@ gaDryR init 0
 gaRevL init 0
 gaRevR init 0
 
+; ---------- binaural (HRTF) ----------
+; Measured head-related transfer functions (Csound's data set for the running
+; sample rate: 44.1, 48 or 96 kHz). Sources are placed around the listener's head;
+; "bin" = 1 for binaural, 0 for plain stereo.
+gSHL sprintf "hrtf-%d-left.dat", sr
+gSHR sprintf "hrtf-%d-right.dat", sr
+
 ; D major pentatonic, two octaves (semitones from root)
 giScale ftgen 0, 0, -8, -2, 0, 2, 4, 7, 9, 12, 14, 16
 
@@ -61,9 +68,14 @@ instr 2
   idet random -0.3, 0.3
   ifreq = cpsmidinn(62 + isemi + 12*ioct + idet)
   iamp random 0.04, 0.13
-  ; gentle placement: 30% toward left or right, side chosen at random per drop
+  ; stereo placement: 30% toward left or right, side chosen at random per drop
   iside random 0, 1
   ipan = (iside > 0.5 ? 0.65 : 0.35)
+  ; binaural placement: anywhere around the head, a little above ear level,
+  ; drifting downward as it rings, like a drop falling past you
+  iaz random 0, 360
+  iel random -5, 45
+  kel line iel, p3, iel - 22
   kf expseg ifreq*0.62, 0.035, ifreq, p3-0.035, ifreq*1.015
   aenv expseg 0.0001, 0.004, 1, p3-0.004, 0.0001
   aen2 expseg 0.0001, 0.003, 1, p3*0.35, 0.0001, p3*0.65, 0.0001
@@ -76,7 +88,12 @@ instr 2
   kcut = (kcut < 200 ? 3750 : kcut)
   asig butlp asig, kcut
   asig butlp asig, kcut
-  aL, aR pan2 asig, ipan
+  kbin chnget "bin"
+  kbin port kbin, 0.3
+  aSL, aSR pan2 asig, ipan
+  aBL, aBR hrtfmove2 asig, iaz, kel, gSHL, gSHR, 4, 9, sr
+  aL = aSL*(1-kbin) + aBL*kbin*1.25
+  aR = aSR*(1-kbin) + aBR*kbin*1.25
   gaDryL = gaDryL + aL*0.3
   gaDryR = gaDryR + aR*0.3
   gaRevL = gaRevL + aL*0.85
@@ -120,6 +137,14 @@ instr 4
   ipanA = (iside > 0.5 ? 0.5 - ioff : 0.5 + ioff)
   ipanB = 1 - ipanA
   kpan line ipanA, p3, ipanB
+  ; binaural: each tone travels 60-140 degrees around the head over its life
+  iaz0 random 0, 360
+  isweep random 60, 140
+  idir random 0, 1
+  isweep = (idir > 0.5 ? isweep : -isweep)
+  kaz line iaz0, p3, iaz0 + isweep
+  kaz wrap kaz, 0, 360
+  iel random -10, 25
   iatt = p3*0.4
   aenv linseg 0, iatt, 1, p3-2*iatt, 1, iatt, 0
   irate random 0.05, 0.2
@@ -130,7 +155,12 @@ instr 4
   a3 poscil 0.25, ifreq*2.003
   a4 poscil 0.08, ifreq*3.01
   asig = (a1 + a2 + (a3 + a4)*(0.6 + ktone)) * aenv * 0.04
-  aL, aR pan2 asig, kpan
+  kbin chnget "bin"
+  kbin port kbin, 0.3
+  aSL, aSR pan2 asig, kpan
+  aBL, aBR hrtfmove2 asig, kaz, iel, gSHL, gSHR, 4, 9, sr
+  aL = aSL*(1-kbin) + aBL*kbin*1.25
+  aR = aSR*(1-kbin) + aBR*kbin*1.25
   gaDryL = gaDryL + aL*0.6
   gaDryR = gaDryR + aR*0.6
   gaRevL = gaRevL + aL*0.5
