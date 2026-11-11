@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salome Yichi Zhang · Creative Technologist, Researcher, Composer</title>
+<meta name="description" content="Salome Yichi Zhang: creative technologist, researcher and composer working across kinetic sound sculpture, generative sound, music cognition and film.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bri:.57; --sat:1.4; --con:1.14; --icon:.55;
+  --rx:16px; --ry:60vh;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --sys:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --glass:linear-gradient(to bottom, rgba(255,255,255,.22), rgba(255,255,255,.06) 50%, rgba(255,255,255,.02) 51%, rgba(255,255,255,.08));
+  --glass-edge:rgba(255,255,255,.25);
+  --glow:linear-gradient(to bottom, rgba(255,226,150,.30), rgba(255,206,110,.12) 50%, rgba(255,196,90,.08) 51%, rgba(255,214,120,.16));
+  --glow-edge:rgba(255,222,150,.55);
+  --dark:linear-gradient(to bottom, rgba(110,110,110,.86), rgba(45,45,45,.86) 50%, rgba(20,20,20,.86) 51%, rgba(38,38,38,.86));
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#000;color:#fff;font-family:var(--mono);font-size:13px;overflow:hidden}
+button{font:inherit;color:inherit}
+a{color:inherit}
+
+/* backdrop */
+#bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;
+  filter:brightness(var(--bri)) saturate(var(--sat)) contrast(var(--con));background:#000}
+
+/* shared glass */
+.glass{background:var(--glass);border:1px solid var(--glass-edge);border-radius:10px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.9);
+  transition:background .25s, border-color .25s, box-shadow .25s, color .25s}
+.glowable:hover,.glowable:focus-visible,.icon:hover .label,.icon:focus-visible .label{
+  background:var(--glow);border-color:var(--glow-edge);color:#fff6dc;outline:none;
+  box-shadow:inset 0 1px 0 rgba(255,244,210,.55), 0 0 18px rgba(255,200,90,.32)}
+
+/* banner */
+.banner{position:fixed;left:16px;right:16px;top:14px;height:30px;z-index:20;overflow:hidden;cursor:default;
+  display:flex;align-items:center;user-select:none}
+.banner .track{display:flex;white-space:nowrap;animation:scroll 60s linear infinite;will-change:transform}
+.banner .track span{padding-right:0;font-size:14px;letter-spacing:.02em}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* desktop */
+.icons{position:fixed;right:16px;top:62px;bottom:16px;width:132px;z-index:5;display:flex;flex-direction:column;
+  align-items:center;gap:14px;overflow-y:auto;transition:opacity .25s}
+.icon{display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;background:none;border:0;padding:0;
+  cursor:pointer;text-decoration:none}
+.icon img{width:96px;height:72px;object-fit:contain;transition:transform .2s;
+  filter:contrast(calc(1 - var(--icon) * .6)) brightness(calc(1 + var(--icon) * .35))}
+.icon:hover img{transform:translateY(-2px)}
+.icon .label{width:100%;padding:3px 0;text-align:center;font-size:13px}
+
+/* windows */
+.win{position:fixed;z-index:10;border:1px solid #000;border-radius:8px;overflow:hidden;
+  background:rgba(255,255,255,.84);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);
+  box-shadow:0 12px 34px rgba(0,0,0,.7);color:#111;text-shadow:none}
+.win .bar{position:relative;height:26px;display:flex;align-items:center;justify-content:center;
+  background:var(--dark);border-bottom:1px solid #000;box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+  color:#fff;text-shadow:0 1px 1px #000;font-size:12px;letter-spacing:.04em;user-select:none}
+.win .dot,.win .x{position:absolute;left:9px;top:6px;width:13px;height:13px;border-radius:50%;border:1px solid #000;
+  background:radial-gradient(circle at 35% 30%, #fff, #bdbdbd 45%, #3a3a3a);padding:0;cursor:pointer}
+.win .x:hover{background:radial-gradient(circle at 35% 30%, #fff8e0, #f0c66a 45%, #6b4a10)}
+.win .body{padding:14px 16px;overflow:auto}
+
+#readme{left:var(--rx);top:var(--ry);width:min(600px, calc(100vw - 200px));transition:opacity .25s}
+#readme .bar{cursor:grab}
+#readme.dragging .bar{cursor:grabbing}
+#readme .body{font-size:13.5px;line-height:1.55}
+#readme p{margin:0 0 1em}#readme p:last-child{margin:0}
+
+#panel{left:50%;top:50%;transform:translate(-50%,-50%) scale(.97);opacity:0;pointer-events:none;
+  width:min(600px, 92vw);max-height:80vh;display:flex;flex-direction:column;transition:opacity .2s, transform .2s}
+#panel.wide{width:min(860px, 94vw)}
+#panel.show{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+#panel .body{font-size:12px;line-height:1.45}
+body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
+
+.rows{border-top:1px solid rgba(0,0,0,.75)}
+.row{display:grid;grid-template-columns:6fr 2fr 4fr;gap:8px;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.75)}
+.row .y{text-align:center}.row .r{text-align:right}
+.row .m{opacity:.65}
+.sub{margin:18px 0 6px;font-weight:500;letter-spacing:.06em}
+.lr-link{display:inline-block;margin:2px 0 14px;padding:4px 12px;border-radius:999px;text-decoration:none;
+  border:1px solid rgba(0,0,0,.6);background:rgba(0,0,0,.06)}
+.lr-link:hover{background:rgba(255,206,110,.35);border-color:rgba(160,110,20,.7)}
+.track-row{display:grid;grid-template-columns:2.2em minmax(0,1fr) minmax(190px,15em) 5.5em;gap:12px;align-items:center;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.75)}
+.play{border:1px solid rgba(0,0,0,.6);border-radius:999px;background:rgba(0,0,0,.06);padding:3px 10px;cursor:pointer;font-size:11px}
+.play:hover{background:rgba(255,206,110,.35)}
+.play[disabled]{opacity:.35;cursor:default}
+.pl{display:flex;align-items:center;gap:8px;height:28px;padding:0 10px 0 3px;border-radius:999px;
+  border:1px solid rgba(0,0,0,.45);background:linear-gradient(rgba(255,255,255,.55),rgba(0,0,0,.05));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+.pl.on{border-color:rgba(160,110,20,.7);background:linear-gradient(rgba(255,236,190,.55),rgba(255,206,110,.18))}
+.pl .pb{flex:none;width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,.55);cursor:pointer;padding:0;
+  background:radial-gradient(circle at 50% 30%,#4a4a4a,#0d0d0d 70%);color:#eee;font-size:9px;line-height:20px;text-align:center}
+.pl .pb:hover{box-shadow:0 0 8px 2px var(--glow,rgba(255,214,120,.55))}
+.pl .bar{flex:1;height:6px;border-radius:3px;background:rgba(0,0,0,.18);position:relative;cursor:pointer;touch-action:none}
+.pl .bar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:3px;background:linear-gradient(#5a5a5a,#111)}
+.pl .bar::after{content:'';position:absolute;inset:-8px 0}
+.pl .t{flex:none;font-size:11px;font-variant-numeric:tabular-nums;opacity:.8;min-width:5.6em;text-align:right}
+.pl.bad{opacity:.4}
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:18px}
+.about img{width:100%;border-radius:4px;display:block}
+.about.nophoto{grid-template-columns:1fr}
+.about h2{font-size:15px;margin:0 0 2px}
+.about .roles{font-style:italic;margin:0 0 12px}
+.about p{margin:0 0 10px}
+.sec{margin-top:16px;padding-top:12px;border-top:1px solid rgba(0,0,0,.75)}
+.sec h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px}
+.ent{display:grid;grid-template-columns:7em 1fr;gap:10px;margin-bottom:10px}
+.ent ul{margin:4px 0 0;padding-left:1.1em}
+.cvlink{display:inline-block;margin-top:16px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.contact .k{opacity:.6;margin-bottom:4px}
+
+/* bottom controls */
+.controls{position:fixed;left:16px;bottom:16px;z-index:30;display:flex;gap:8px}
+.controls button{padding:5px 12px;font-size:11px;letter-spacing:.12em;cursor:pointer}
+#codepanel{position:fixed;left:16px;bottom:56px;z-index:30;display:none;width:min(560px, calc(100vw - 32px));
+  max-height:min(62vh,560px);overflow:auto;margin:0;padding:12px 14px;font-size:10.5px;line-height:1.5;color:#111;
+  white-space:pre;border-radius:8px}
+#codepanel .c{color:#8a8a8a}
+
+/* enter screen */
+#enter{position:fixed;inset:0;z-index:100;background:#000;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:18px;letter-spacing:.08em;transition:opacity .7s}
+#enter .go{padding:10px 30px;font-size:13px;letter-spacing:.25em;cursor:pointer}
+#enter .sub{opacity:.6;letter-spacing:.04em;margin:0;font-weight:400}
+#enter .skip{background:none;border:0;opacity:.5;text-decoration:underline;cursor:pointer;font-size:12px}
+#enter .note{opacity:.6;min-height:1em;font-size:12px}
+
+/* tuning panel */
+#tune{position:fixed;right:16px;bottom:16px;z-index:40;width:270px;padding:10px 12px;border-radius:8px;
+  background:#fff;color:#000;border:1px solid #000;box-shadow:0 10px 30px rgba(0,0,0,.6);font-size:11px;line-height:1.5;display:none}
+#tune h4{margin:6px 0 4px;font-weight:500;letter-spacing:.14em;font-size:11px}
+#tune label{display:flex;align-items:center;gap:8px;margin:3px 0}
+#tune label span{width:90px}#tune input{flex:1}
+#tune output{display:block;margin-top:8px;padding-top:6px;border-top:1px solid #000}
+
+/* phones and small windows */
+@media (max-width:600px){
+  html,body{overflow:auto}
+  .banner{position:sticky;top:0;left:0;right:0;margin:10px 10px 0}
+  .icons{position:static;width:auto;flex-direction:row;flex-wrap:wrap;justify-content:center;padding:14px 10px;gap:10px;overflow:visible}
+  .icon{width:96px}.icon img{width:72px;height:56px}
+  #readme{position:relative;left:auto;top:auto;width:auto;margin:12px}
+  #readme .bar{cursor:default}
+  #panel{width:94vw;max-height:84vh}
+  .row{grid-template-columns:1fr auto}.row .r{grid-column:1 / -1;text-align:left;opacity:.75}
+  .about{grid-template-columns:1fr}
+  .controls{position:fixed}
+}
+@media (prefers-reduced-motion:reduce){.banner .track{animation:none}}
+</style>
+</head>
+<body>
+<video id="bg" muted loop playsinline autoplay preload="auto"></video>
+
+<header class="banner glass" id="banner" aria-label="Salome Yichi Zhang · Creative Technologist · Researcher · Composer">
+  <div class="track" id="track"></div>
+</header>
+
+<section class="win" id="readme" aria-label="Artist statement">
+  <div class="bar" id="readmeBar"><span class="dot" aria-hidden="true"></span>readme.txt</div>
+  <div class="body" id="statement"></div>
+</section>
+
+<nav class="icons" id="icons" aria-label="Sections"></nav>
+
+<section class="win" id="panel" role="dialog" aria-modal="false" aria-labelledby="panelTitle">
+  <div class="bar"><button class="x" id="close" aria-label="Close"></button><span id="panelTitle"></span></div>
+  <div class="body" id="panelBody"></div>
+</section>
+
+<div class="controls">
+  <button class="glass glowable" id="snd" type="button">SOUND ON</button>
+  <button class="glass glowable" id="codeBtn" type="button">CODE</button>
+</div>
+<pre class="win" id="codepanel"></pre>
+
+<div id="enter">
+  <button class="go glass glowable" id="go" type="button">ENTER</button>
+  <p class="sub">Sound on. Best with headphones.</p>
+  <button class="skip" id="skip" type="button">enter without sound</button>
+  <div class="note" id="note"></div>
+</div>
+
+<div id="tune">
+  <h4>BACKDROP</h4>
+  <label><span>Brightness</span><input type="range" min="0" max="1" step=".01" data-k="bri"></label>
+  <label><span>Colour</span><input type="range" min="0" max="1.5" step=".01" data-k="sat"></label>
+  <label><span>Contrast</span><input type="range" min=".5" max="2" step=".01" data-k="con"></label>
+  <h4>INTERFACE</h4>
+  <label><span>Icon grey</span><input type="range" min="0" max="1" step=".01" data-k="icon"></label>
+  <h4>STATEMENT</h4>
+  <div>Drag the readme.txt bar to move it.</div>
+  <output id="tuneOut"></output>
+</div>
+
+<script type="text/plain" id="csd"><CsoundSynthesizer>
+<CsOptions>
+-odac -d -m0
+</CsOptions>
+<CsInstruments>
+sr = 48000
+ksmps = 64
+nchnls = 2
+0dbfs = 1
+seed 0
+
+gaDryL init 0
+gaDryR init 0
+gaRevL init 0
+gaRevR init 0
+
+; D major pentatonic, two octaves (semitones from root)
+giScale ftgen 0, 0, -8, -2, 0, 2, 4, 7, 9, 12, 14, 16
+
+; ---------- conductor: decides when drops and harmonic tides happen ----------
+instr 1
+  kTime timeinsts
+  kNextDrop init 0.2
+  kNextPad init 0
+  kSlow oscili 0.5, 1/97
+  kSlow = kSlow + 0.5
+  if kTime >= kNextDrop then
+    kdur random 1.4, 3.8
+    event "i", 2, 0, kdur
+    kc random 0, 1
+    if kc > 0.86 then
+      event "i", 2, 0.08, kdur*0.8
+      event "i", 2, 0.19, kdur*0.6
+    endif
+    kgap random 0.25, 2.6
+    kNextDrop = kTime + kgap*(1.7 - 1.25*kSlow)
+  endif
+  if kTime >= kNextPad then
+    kpd random 42, 62
+    kr1 random 0, 4.99
+    kr2 random 0, 7.99
+    kr3 random 0, 7.99
+    kn1 table int(kr1), giScale
+    kn2 table int(kr2), giScale
+    kn3 table int(kr3), giScale
+    event "i", 4, 0, kpd, 38 + kn1
+    event "i", 4, 0.7, kpd, 50 + kn2
+    event "i", 4, 1.6, kpd, 57 + kn3
+    kgp random 24, 36
+    kNextPad = kTime + kgp
+  endif
+endin
+
+; ---------- droplet: bubble chirp + inharmonic porcelain partials ----------
+instr 2
+  irnd random 0, 7.99
+  isemi table int(irnd), giScale
+  ; pitch varies over three octaves (lower ones more likely), slightly detuned each time
+  io random 0, 1
+  ioct = (io < 0.4 ? 0 : (io < 0.8 ? 1 : 2))
+  idet random -0.3, 0.3
+  ifreq = cpsmidinn(62 + isemi + 12*ioct + idet)
+  iamp random 0.04, 0.13
+  ; gentle placement: 30% toward left or right, side chosen at random per drop
+  iside random 0, 1
+  ipan = (iside > 0.5 ? 0.65 : 0.35)
+  kf expseg ifreq*0.62, 0.035, ifreq, p3-0.035, ifreq*1.015
+  aenv expseg 0.0001, 0.004, 1, p3-0.004, 0.0001
+  aen2 expseg 0.0001, 0.003, 1, p3*0.35, 0.0001, p3*0.65, 0.0001
+  a1 poscil aenv, kf
+  a2 poscil aen2*0.2, kf*2.756
+  a3 poscil aen2*0.08, kf*5.404
+  asig = (a1 + a2 + a3) * iamp
+  ; high cut on the droplets only
+  kcut chnget "cut"
+  kcut = (kcut < 200 ? 3750 : kcut)
+  asig butlp asig, kcut
+  asig butlp asig, kcut
+  aL, aR pan2 asig, ipan
+  gaDryL = gaDryL + aL*0.3
+  gaDryR = gaDryR + aR*0.3
+  gaRevL = gaRevL + aL*0.85
+  gaRevR = gaRevR + aR*0.85
+endin
+
+; ---------- water: band-passed noise breathing like waves ----------
+instr 3
+  kw1 oscili 1, 1/11.3
+  kw2 oscili 1, 1/17.9
+  kw3 oscili 1, 1/61
+  kamp = 0.55 + 0.25*kw1 + 0.2*kw2
+  kamp port kamp, 0.4
+  kcf = 380 + 700*kamp + 250*kw3
+  aNL noise 0.5, 0.7
+  aNR noise 0.5, 0.7
+  aL butbp aNL, kcf, kcf*0.7
+  aR butbp aNR, kcf*1.07, kcf*0.7
+  aSh noise 0.04, 0
+  aSh butbp aSh, 3200 + 800*kw2, 1500
+  kgain = kamp*kamp*0.9
+  aL = aL*kgain + aSh*kamp*0.3
+  aR = aR*kgain + aSh*kamp*0.3
+  ; slow wave-like drift between left and right (about 26 s per cycle)
+  kwp oscili 0.36, 1/26
+  kwpan = 0.5 + kwp
+  aL = aL * sqrt(2*(1-kwpan))
+  aR = aR * sqrt(2*kwpan)
+  gaDryL = gaDryL + aL*0.55
+  gaDryR = gaDryR + aR*0.55
+  gaRevL = gaRevL + aL*0.35
+  gaRevR = gaRevR + aR*0.35
+endin
+
+; ---------- tide: slow sine chord tones that swell and fade ----------
+instr 4
+  ifreq = cpsmidinn(p4)
+  ; each chord tone drifts slowly from one side to the other over its life
+  iside random 0, 1
+  ioff random 0.28, 0.42
+  ipanA = (iside > 0.5 ? 0.5 - ioff : 0.5 + ioff)
+  ipanB = 1 - ipanA
+  kpan line ipanA, p3, ipanB
+  iatt = p3*0.4
+  aenv linseg 0, iatt, 1, p3-2*iatt, 1, iatt, 0
+  irate random 0.05, 0.2
+  kdrift oscili 0.0025, irate
+  ktone oscili 0.5, 1/23
+  a1 poscil 1, ifreq*(1+kdrift)
+  a2 poscil 0.7, ifreq*1.004
+  a3 poscil 0.25, ifreq*2.003
+  a4 poscil 0.08, ifreq*3.01
+  asig = (a1 + a2 + (a3 + a4)*(0.6 + ktone)) * aenv * 0.04
+  aL, aR pan2 asig, kpan
+  gaDryL = gaDryL + aL*0.6
+  gaDryR = gaDryR + aR*0.6
+  gaRevL = gaRevL + aL*0.5
+  gaRevR = gaRevR + aR*0.5
+endin
+
+; ---------- master: reverb, volume, fade-in, soft limit ----------
+instr 99
+  kvol chnget "vol"
+  kvol port kvol, 0.25
+  kfade linseg 0, 1.5, 1
+  aRL, aRR reverbsc gaRevL, gaRevR, 0.9, 7000
+  aL = (gaDryL + aRL*0.9) * kvol * kfade
+  aR = (gaDryR + aRR*0.9) * kvol * kfade
+  aL = tanh(aL)
+  aR = tanh(aR)
+  krms rms aL + aR
+  chnset krms, "level"
+  outs aL, aR
+  clear gaDryL, gaDryR, gaRevL, gaRevR
+endin
+</CsInstruments>
+<CsScore>
+i 1 0 z
+i 3 0 z
+i 99 0 z
+</CsScore>
+</CsoundSynthesizer>
+</script>
+<script>
+/*
+  Everything visitors read lives in this file.
+  Edit the text here; the layout updates on its own.
+*/
+window.SITE = {
+  name: 'Salome Yichi Zhang',
+  roles: 'Creative Technologist · Researcher · Composer',
+
+  statement:
+    '<p>Hi! I build systems that make music, asking one question: how does sound carry meaning and nuance where words cannot?</p>' +
+    '<p>I pursue it both as an artist and as a researcher, studying how listeners connect sound to image and feeling. In <i>The Blue Left Spinning</i>, porcelain fragments from my family’s kilns become a self-playing composition, where the machine’s pauses are as composed as its sounds. I work by suggestion rather than statement, letting listeners feel what is not said.</p>',
+
+  /* Files the site loads. Put them in the media/ folder with these names. */
+  media: {
+    video: 'media/backdrop.mp4',
+    photo: 'media/salome.jpg',
+    cv: 'media/CV_Salome_Zhang.pdf'
+  },
+
+  /* Desktop icons, top to bottom. kind: folder | file | mail. */
+  icons: [
+    { label: 'Art', kind: 'folder', open: 'art' },
+    { label: 'Research', kind: 'folder', open: 'research' },
+    { label: 'Film Music', kind: 'folder', open: 'film-music' },
+    { label: 'About', kind: 'file', open: 'about' },
+    { label: 'CV', kind: 'file', link: 'cv' },
+    { label: 'Contact', kind: 'mail', open: 'contact' }
+  ],
+
+  art: [
+    ['The Blue Left Spinning', 'Kinetic Sound Sculpture', '2026–present', 'Artist · Composer · Creative Technologist'],
+    ['In-Between', 'Audiovisual Work', '2025–present', 'Composer · Sound Designer'],
+    ['The Whispering Room', 'Sound Installation', '2024–2025', 'Composer · Sound Designer'],
+    ['Dawn', 'String Quartet', '2025', 'Composer'],
+    ['Connecting Lines', 'Interactive Installation', '2025', 'Artist · Composer · Creative Technologist'],
+    ['Blue', 'Piano Trio', '2023', 'Composer']
+  ],
+
+  research: [
+    ['Music Cognition / Creative Intent', 'Research Proposal', '2025', 'Researcher'],
+    ['Project Prakash', 'Interactive VR', '2024', 'Spatial Audio Designer · Composer'],
+    ['CLOUD', 'Electronic Instrument', '2025', 'Creative Technologist'],
+    ['Csound Plugin 01', 'Audio Plugin', '2024', 'Creative Technologist'],
+    ['Csound Plugin 02', 'Audio Plugin', '2024', 'Creative Technologist'],
+    ['Machine Learning for Musicians', 'Machine Learning Study', '2025', 'Researcher · Developer']
+  ],
+
+  filmSelected: [
+    ['Once Upon a Time in Boston', 'Feature Film', '2025–2026', 'Music Director · Composer · Songwriter'],
+    ['JU', 'Short Film', '2026', 'Composer'],
+    ['1HR22MIN', 'Short Film', '2024', 'Composer · Audio Director'],
+    ['Beyond the Glass', 'Short Film', '2024', 'Composer']
+  ],
+
+  filmAll: [
+    ['In the Blue', 'Feature Film', '2026–present', 'Composer · Sound Team Lead'],
+    ['Farewell the Ocean Wave', 'Short Film', '2026–present', 'Composer · Sound Team Lead · Songwriter'],
+    ['Gift', 'Short Film', '2024', 'Composer'],
+    ['Farewell', 'Animation', '2025', 'Composer · Sound Mixer'],
+    ['Fetter', 'Short Film', '2025', 'Music · Dialogue Editing · Sound Design · Foley'],
+    ['Cheat-code', 'Short Film', '2024', 'Composer · Sound Designer'],
+    ['Red Herring', 'Game', '2023', 'Composer · Lead Sound Designer'],
+    ['Blue Planet Outside the Window', 'Documentary', '2025', 'Foley · Sound Post'],
+    ['Enjoy Your Journey', 'Feature Film', '2026', 'Additional Music'],
+    ['The Depth of Wumeng', 'Television Series', '', 'Additional Music · Synth Design'],
+    ['Sleep All Day', 'Short Film', '2025', 'Composer'],
+    ['Love Tears and Choice', 'Short Film', '2026', 'Composer'],
+    ['The Wild Robot (re-score study)', 'Re-score Study', '2026', 'Composer'],
+    ['Sound Design Reel', 'Game', '2026', 'Sound Designer · Foley'],
+    ['Ochiho’s Theme', 'Short Film', '2023', 'Composer'],
+    ['August 3', 'Short Film', '2025', 'Composer'],
+    ['Rose Garden Dance', 'Short Film', '2024', 'Composer'],
+    ['Mu Dan Yuan', 'Documentary', '2023', 'Composer'],
+    ['Little Buddha Sunshine', 'Documentary', '2023', 'Composer']
+  ],
+
+  /* Listening Room: title, year, file in media/audio/ */
+  tracks: [
+    ['Before Rain', '2026', 'media/audio/before-rain.mp3', 331],
+    ['Beyond The Glass-Flowing Sun', '2024', 'media/audio/beyond-the-glass-flowing-sun.mp3', 156],
+    ['DarkAsia_Memory', '2026', 'media/audio/darkasia-memory.mp3', 257],
+    ['DarkAsia_Omnious', '2026', 'media/audio/darkasia-omnious.mp3', 218],
+    ['In Between No Voice', '2025', 'media/audio/in-between-no-voice.mp3', 305],
+    ['Love, Tears and Choice-Confrontation', '2025', 'media/audio/love-tears-and-choice.mp3', 210],
+    ['Once Upon a Time in Boston', '2025–2026', 'media/audio/once-upon-a-time-in-boston.mp3', 204],
+    ['Project Prakash-Embarking', '2024', 'media/audio/project-prakash-embarking.mp3', 121],
+    ['Wind Across The Ocean Plane', '2026', 'media/audio/wind-across-the-ocean-plane.mp3', 163],
+    ['Dawn', '2025', 'media/audio/dawn.mp3', 320]
+  ],
+
+  contact: {
+    email: 'asnadlome@gmail.com',
+    phone: '(857) 200-9009',
+    based: 'Toronto / Vancouver'
+  },
+
+  about: {
+    bio: [
+      'Salome Yichi Zhang (b. 2002) is an award-winning Chinese-Canadian composer and sound artist working across sound art, film, and music technology. In New York City, her multichannel and multimedia works have been presented at THE BLANC, Flohaus Gallery, and NYU’s Audio Lab, including work produced by Michael Schumacher. While studying in Boston, her work was presented at Cyber Arts Gallery, Emerson Media Art Studio, and Fenway Art Studio.',
+      'Zhang began her composition studies at the University of Toronto on a top-level scholarship before transferring to Berklee College of Music as a recipient of its World Tour Scholarship Award. She earned a B.M. in Electronic Production and Design and Film Scoring and was mentored by Neil Leonard at the Berklee Interdisciplinary Arts Institute. After graduation, she continued working with Leonard as a production assistant on <i>Midtown Sound: Listening Legacy</i>, his solo exhibition at THE BLANC.',
+      'She has contributed music and sound to independent features, television productions, and more than 20 short films and animations. She was one of the sound designers on <i>Blue Planet Outside the Window</i>, the first live-action 8K documentary filmed entirely in space, and contributed to <i>Hope You Have a Good Trip</i>, the final feature by internationally acclaimed Tibetan filmmaker Pema Tseden, alongside projects with iQIYI and MIT’s Project Prakash. In 2025, her string quartet composition was featured on the Gaia Quartet’s Canadian tour and presented at the Canadian Music Centre in Toronto.'
+    ],
+    sections: [
+      { title: 'Research', text: [
+        'Zhang studies how music carries meaning where words cannot, especially where it meets image and machines. Her research combines music perception with machine learning to understand how composers and listeners align sound with picture, down to where a film’s musical accents land. She also studies how an autonomous system can make music that still feels intentional. Her goal is to build tools that extend a composer’s intuition rather than replace it.'
+      ] },
+      { title: 'Education', rows: [
+        ['2023–2026', 'Berklee College of Music', 'Boston, USA', 'Bachelor of Music in Electronic Production and Design & Film Scoring | GPA 3.7', ['Minor in Creative Coding', 'Specialization in Sound Design for Video Games', 'Affiliation: Berklee Interdisciplinary Arts Institute', 'Berklee College of Music World Tour Scholarship']],
+        ['2020–2023', 'University of Toronto', 'Toronto, Canada', 'Bachelor of Music in Composition | GPA 3.8', ['Focused on orchestration, chamber writing, and interdisciplinary collaboration', 'University of Toronto Entrance Scholarship']]
+      ] },
+      { title: 'Professional Experience', rows: [
+        ['2026', 'THE BLANC', 'New York, USA', 'Confluence: A Berklee Interdisciplinary Arts Institute Showcase', ['Production Assistant', 'Curated and artistically directed by Neil Leonard; the first collaboration between THE BLANC and BIAI.']],
+        ['2025–2026', 'THE BLANC', 'New York, USA', 'Midtown Sound: Listening Legacy', ['Production Assistant', 'Neil Leonard’s inaugural New York solo exhibition and THE BLANC’s inaugural artist-in-residence exhibition.']],
+        ['2025–2026', 'Berklee Interdisciplinary Arts Institute (BIAI)', 'Boston, USA', 'Interdisciplinary Artist / Production Assistant', ['Mentored by Neil Leonard; developed interdisciplinary projects including Connecting Lines, CLOUD, and In-Between, integrating composition, spatial audio, interactive systems, and installation.']]
+      ] },
+      { title: 'Awards & Honors', rows: [
+        ['2025', 'ICMC Call for student multichannel work', '', '', ['Finalist']],
+        ['2024', 'Vivaldi International Competition', '', '', ['Winner']],
+        ['2024', 'Denny Awards International Electronic Music Competition', '', '', ['Finalist']],
+        ['2023', 'LevelUp Showcase, presented by Ubisoft', '', '', ['Honorable Mention']],
+        ['2023', 'Berklee College of Music World Tour Scholarship', '', '', ['Recipient']],
+        ['2020', 'University of Toronto Entrance Scholarship', '', '', ['Recipient']]
+      ] },
+      { title: 'Selected Works & Recognitions', rows: [
+        ['2025', 'Gaia Quartet', '', '', ['Finalist']],
+        ['2025', 'IMMERSED 2.0 — Bedford Trio', '', '', ['Finalist']]
+      ] },
+      { title: 'Press & Features', rows: [
+        ['2026', 'Berklee Electronic Production and Design Newsletter', '', '“EPD Graduate in the News”', ['Featured The Blue Left Spinning and its Art Mag coverage']],
+        ['2026', 'Berklee Electronic Production and Design Instagram', '', '“What Are You Making?”', ['Artist Spotlight — The Blue Left Spinning']],
+        ['2026', 'Art Mag', '', '“Salome Yichi Zhang: Blue Left Spinning”', ['Art Critique']]
+      ] },
+      { title: 'Performance & Other Creative Experience', rows: [
+        ['2026', 'WaterFire Arts Center', 'Providence, RI, USA', 'RIFT — Yuval Gar', ['Live Electronics & Keyboard Performer']],
+        ['2025', 'THE BLANC', 'New York, USA', 'Metamorphosis — Ophelia Ariadne', ['Pianist']],
+        ['2023–2024', 'El Mocambo / Queen Elizabeth Theatre / Victoria College', 'Toronto, Canada', 'Indie Rock Band Performances', ['Bass Guitarist']]
+      ] }
+    ]
+  }
+};
+</script>
+<script>
+(function () {
+  var S = window.SITE;
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+
+  /* ---------- static content ---------- */
+  var line = S.name + ' · ' + S.roles.split(' · ').join(' · ') + ' · ';
+  var half = '<span>' + esc(line).repeat(8) + '</span>';
+  $('track').innerHTML = half + half;
+  $('statement').innerHTML = S.statement;
+
+  var bg = $('bg');
+  bg.src = S.media.video;
+  bg.addEventListener('error', function () { bg.removeAttribute('src'); });
+  var p = bg.play(); if (p && p.catch) p.catch(function () {});
+
+  var ICON = { folder: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMTA0Ij4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iYmsiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM1YTVhNWEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwYzBjMGMiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImZyIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjOGE4YThhIi8+PHN0b3Agb2Zmc2V0PSIwLjQyIiBzdG9wLWNvbG9yPSIjMmIyYjJiIi8+PHN0b3Agb2Zmc2V0PSIwLjQzIiBzdG9wLWNvbG9yPSIjMTIxMjEyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDAwMDAwIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJnbCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjc1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuMDQiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InBwIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjY2ZjZmNmIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJyaW0iIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNkOGQ4ZDgiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMzYTNhM2EiLz48L2xpbmVhckdyYWRpZW50Pgo8cmFkaWFsR3JhZGllbnQgaWQ9InNoIiBjeD0iMC41IiBjeT0iMC41IiByPSIwLjUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzAwMCIgc3RvcC1vcGFjaXR5PSIwLjYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CjxyYWRpYWxHcmFkaWVudCBpZD0iZ2xvdyIgY3g9IjAuNSIgY3k9IjEiIHI9IjAuNTUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjI4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50Pgo8L2RlZnM+CjxlbGxpcHNlIGN4PSI4MCIgY3k9Ijk4IiByeD0iNjYiIHJ5PSI1LjUiIGZpbGw9InVybCgjc2gpIi8+CjxwYXRoIGQ9Ik0xOCAxNCBRMTggOCAyNCA4IEg1OCBRNjIgOCA2NSAxMSBMNzEgMTcgSDEzNiBRMTQyIDE3IDE0MiAyMyBWODYgSDE4IFoiIGZpbGw9InVybCgjYmspIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yIi8+CjxwYXRoIGQ9Ik0yMCAxNSBRMjAgMTAgMjUgMTAgSDU3IiBzdHJva2U9IiNiZGJkYmQiIHN0cm9rZS1vcGFjaXR5PSIwLjciIHN0cm9rZS13aWR0aD0iMS4yIiBmaWxsPSJub25lIi8+CjxyZWN0IHg9IjMwIiB5PSIyMiIgd2lkdGg9Ijk4IiBoZWlnaHQ9IjUyIiByeD0iMiIgZmlsbD0idXJsKCNwcCkiIHRyYW5zZm9ybT0icm90YXRlKC0zIDc5IDQ4KSIgc3Ryb2tlPSIjOGM4YzhjIiBzdHJva2Utd2lkdGg9IjAuOCIvPgo8cmVjdCB4PSIzNiIgeT0iMjgiIHdpZHRoPSI5MiIgaGVpZ2h0PSI1MCIgcng9IjIiIGZpbGw9IiNmZmZmZmYiIHRyYW5zZm9ybT0icm90YXRlKDIgODIgNTMpIiBzdHJva2U9IiM5YTlhOWEiIHN0cm9rZS13aWR0aD0iMC44Ii8+CjxwYXRoIGQ9Ik0xMCAzOCBRMTAgMzMgMTUgMzMgSDE0NSBRMTUwIDMzIDE1MCAzOCBMMTQ2IDg4IFExNDUuNSA5NCAxMzkuNSA5NCBIMjAuNSBRMTQuNSA5NCAxNCA4OCBaIiBmaWxsPSJ1cmwoI2ZyKSIgc3Ryb2tlPSJ1cmwoI3JpbSkiIHN0cm9rZS13aWR0aD0iMS40Ii8+CjxwYXRoIGQ9Ik0xMC42IDM4IFExMC42IDMzLjYgMTUgMzMuNiBIMTQ1IFExNDkuNCAzMy42IDE0OS40IDM4IEwxNDggNTUgUTgwIDYyIDEyIDU1IFoiIGZpbGw9InVybCgjZ2wpIi8+CjxwYXRoIGQ9Ik0xNCA4OCBMMTIuNSA2NiBRODAgNzQgMTQ3LjUgNjYgTDE0NiA4OCBRMTQ1LjUgOTQgMTM5LjUgOTQgSDIwLjUgUTE0LjUgOTQgMTQgODggWiIgZmlsbD0idXJsKCNnbG93KSIvPgo8cGF0aCBkPSJNMTYgMzQuOCBIMTQ0IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjk1IiBzdHJva2Utd2lkdGg9IjEuMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=', file: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDQgMTI4Ij4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGciIHgxPSIwIiB5MT0iMCIgeDI9IjAuNiIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzVjNWM1YyIvPjxzdG9wIG9mZnNldD0iMC40NSIgc3RvcC1jb2xvcj0iIzFlMWUxZSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwMCIvPjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0iY24iIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM4ZThlOGUiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImdsIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJsbiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIyNiIgeTE9IjAiIHgyPSI3OCIgeTI9IjAiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzhhOGE4YSIvPjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icmltIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZDBkMGQwIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjM2EzYTNhIi8+PC9saW5lYXJHcmFkaWVudD4KPHJhZGlhbEdyYWRpZW50IGlkPSJzaCIgY3g9IjAuNSIgY3k9IjAuNSIgcj0iMC41Ij48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMwMDAiIHN0b3Atb3BhY2l0eT0iMC42Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDAwIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50Pgo8L2RlZnM+CjxlbGxpcHNlIGN4PSI1MiIgY3k9IjEyMiIgcng9IjQwIiByeT0iNSIgZmlsbD0idXJsKCNzaCkiLz4KPHBhdGggZD0iTTE4IDggSDY2IEw5MCAzMiBWMTEyIFE5MCAxMTcgODUgMTE3IEgxOSBRMTQgMTE3IDE0IDExMiBWMTIgUTE0IDggMTggOCBaIiBmaWxsPSJ1cmwoI3BnKSIgc3Ryb2tlPSJ1cmwoI3JpbSkiIHN0cm9rZS13aWR0aD0iMS40Ii8+CjxwYXRoIGQ9Ik02NiA4IFYyNyBRNjYgMzIgNzEgMzIgSDkwIFoiIGZpbGw9InVybCgjY24pIiBzdHJva2U9IiM1NTUiIHN0cm9rZS13aWR0aD0iMS4xIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxnIHN0cm9rZT0idXJsKCNsbikiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjc1Ij4KPHBhdGggZD0iTTI2IDUwIEg3OCIvPjxwYXRoIGQ9Ik0yNiA2MiBINzgiLz48cGF0aCBkPSJNMjYgNzQgSDcwIi8+PHBhdGggZD0iTTI2IDg2IEg3OCIvPjxwYXRoIGQ9Ik0yNiA5OCBINjAiLz4KPC9nPgo8cGF0aCBkPSJNMTggOS41IEg2NSBWMzAgUTUwIDQ0IDE1LjUgNDYgVjEyIFExNS41IDkuNSAxOCA5LjUgWiIgZmlsbD0idXJsKCNnbCkiLz4KPC9zdmc+Cg==', mail: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNTAgMTEyIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iYmQiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM3YTdhN2EiLz48c3RvcCBvZmZzZXQ9IjAuNDUiIHN0b3AtY29sb3I9IiMyNjI2MjYiLz48c3RvcCBvZmZzZXQ9IjAuNDYiIHN0b3AtY29sb3I9IiMxMTEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDAiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImZsIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOWM5YzljIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJnbCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjg1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InJpbSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2QwZDBkMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNhM2EzYSIvPjwvbGluZWFyR3JhZGllbnQ+CjxyYWRpYWxHcmFkaWVudCBpZD0ic2giIGN4PSIwLjUiIGN5PSIwLjUiIHI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDAwIiBzdG9wLW9wYWNpdHk9IjAuNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD4KPHJhZGlhbEdyYWRpZW50IGlkPSJkb3QiIGN4PSIwLjM1IiBjeT0iMC4zIiByPSIwLjc1Ij48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI2JkYmRiZCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNjM2MzYyIvPjwvcmFkaWFsR3JhZGllbnQ+CjwvZGVmcz4KPGVsbGlwc2UgY3g9Ijc1IiBjeT0iMTA1IiByeD0iNjAiIHJ5PSI1IiBmaWxsPSJ1cmwoI3NoKSIvPgo8cmVjdCB4PSIxMiIgeT0iMjIiIHdpZHRoPSIxMjYiIGhlaWdodD0iNzgiIHJ4PSI5IiBmaWxsPSJ1cmwoI2JkKSIgc3Ryb2tlPSJ1cmwoI3JpbSkiIHN0cm9rZS13aWR0aD0iMS40Ii8+CjxwYXRoIGQ9Ik0xNCA5NiBMNjIgNTggUTc1IDQ5IDg4IDU4IEwxMzYgOTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMzUiIHN0cm9rZS13aWR0aD0iMiIvPgo8cGF0aCBkPSJNMTYgMjYgTDY2IDYzIFE3NSA3MCA4NCA2MyBMMTM0IDI2IFExMzIgMjMgMTI4IDIzIEgyMiBRMTggMjMgMTYgMjYgWiIgZmlsbD0idXJsKCNmbCkiIHN0cm9rZT0iIzRhNGE0YSIgc3Ryb2tlLXdpZHRoPSIxLjEiLz4KPHBhdGggZD0iTTIxIDIzLjUgSDEyOSBRMTM0IDIzLjUgMTM1LjUgMjggTDEyOCAzNCBRNzUgNDYgMjIgMzQgTDE0LjUgMjggUTE2IDIzLjUgMjEgMjMuNSBaIiBmaWxsPSJ1cmwoI2dsKSIvPgo8Y2lyY2xlIGN4PSIxMjgiIGN5PSIyNCIgcj0iMTIiIGZpbGw9InVybCgjZG90KSIgc3Ryb2tlPSIjMjIyIiBzdHJva2Utd2lkdGg9IjEuMSIvPgo8ZWxsaXBzZSBjeD0iMTI1IiBjeT0iMTkiIHJ4PSI2IiByeT0iMy41IiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuODUiLz4KPC9zdmc+Cg==' };
+  S.icons.forEach(function (it) {
+    var el;
+    if (it.link) {
+      el = document.createElement('a');
+      el.href = it.link === 'cv' ? S.media.cv : it.link;
+      el.target = '_blank'; el.rel = 'noopener';
+    } else {
+      el = document.createElement('button');
+      el.type = 'button';
+      el.addEventListener('click', function () { openWin(it.open); });
+    }
+    el.className = 'icon';
+    el.innerHTML = '<img src="' + ICON[it.kind] + '" alt=""><span class="label glass">' + esc(it.label) + '</span>';
+    $('icons').appendChild(el);
+  });
+
+  /* ---------- windows ---------- */
+  function rows(list) {
+    return '<div class="rows">' + list.map(function (r) {
+      return '<div class="row"><div>' + esc(r[0]) + '<br><span class="m">' + esc(r[1]) + '</span></div>' +
+             '<div class="y">' + esc(r[2]) + '</div><div class="r">' + esc(r[3]) + '</div></div>';
+    }).join('') + '</div>';
+  }
+  function ent(r) {
+    var head = '<b>' + esc(r[1]) + '</b>' + (r[2] ? '<br>' + esc(r[2]) : '') + (r[3] ? '<br><i>' + esc(r[3]) + '</i>' : '');
+    var pts = r[4] && r[4].length ? '<ul>' + r[4].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' : '';
+    return '<div class="ent"><div>' + esc(r[0]) + '</div><div>' + head + pts + '</div></div>';
+  }
+  var VIEWS = {
+    'art': { title: 'Art', html: function () { return rows(S.art); } },
+    'research': { title: 'Research', html: function () { return rows(S.research); } },
+    'film-music': { title: 'Film Music', html: function () {
+      return '<a class="lr-link" href="#listening-room">Listening Room →</a>' +
+             '<div class="sub">Selected</div>' + rows(S.filmSelected) +
+             '<div class="sub">All Film</div>' + rows(S.filmAll);
+    } },
+    'listening-room': { title: 'Listening Room', html: function () {
+      return '<div class="track-row" style="opacity:.6"><div>#</div><div>Name</div><div>Player</div><div>Year</div></div>' +
+        S.tracks.map(function (t, i) {
+          var n = (i + 1 < 10 ? '0' : '') + (i + 1);
+          return '<div class="track-row"><div>' + n + '</div><div>' + esc(t[0]) + '</div>' +
+                 '<div class="pl" data-src="' + esc(t[2]) + '" data-d="' + (t[3] || 0) + '"><button class="pb" type="button" aria-label="Play">▶</button>' +
+                 '<div class="bar"><i></i></div><span class="t">0:00 / ' + fmt(t[3] || 0) + '</span></div>' +
+                 '<div>' + esc(t[1]) + '</div></div>';
+        }).join('');
+    } },
+    'about': { title: S.name, wide: true, html: function () {
+      var A = S.about;
+      var secs = A.sections.map(function (s) {
+        var inner = s.text ? s.text.map(function (t) { return '<p>' + t + '</p>'; }).join('') : s.rows.map(ent).join('');
+        return '<div class="sec"><h3>' + esc(s.title) + '</h3>' + inner + '</div>';
+      }).join('');
+      return '<div class="about"><div><img src="' + esc(S.media.photo) + '" alt="Salome Yichi Zhang" onerror="var a=this.closest(\'.about\');a.classList.add(\'nophoto\');this.parentNode.remove()"></div>' +
+             '<div><h2>' + esc(S.name) + '</h2><p class="roles">' + esc(S.roles) + '</p>' +
+             A.bio.map(function (t) { return '<p>' + t + '</p>'; }).join('') + '</div></div>' + secs +
+             '<a class="cvlink lr-link" href="' + esc(S.media.cv) + '" target="_blank" rel="noopener">View Full CV ↗</a>';
+    } },
+    'contact': { title: 'Contact', html: function () {
+      var C = S.contact;
+      return '<div class="contact"><div><div class="k">Contact</div>' +
+             '<a href="mailto:' + esc(C.email) + '">' + esc(C.email) + '</a><br><br>' + esc(C.phone) + '</div>' +
+             '<div><div class="k">Based in</div>' + esc(C.based) + '</div></div>' +
+             '<p style="margin-top:18px;opacity:.6">© 2026 ' + esc(S.name) + '</p>';
+    } }
+  };
+
+  var current = null;
+  function openWin(name) {
+    var v = VIEWS[name];
+    if (!v) { closeWin(); return; }
+    stopTracks();
+    current = name;
+    $('panelTitle').textContent = v.title;
+    $('panelBody').innerHTML = v.html();
+    $('panelBody').scrollTop = 0;
+    $('panel').classList.toggle('wide', !!v.wide);
+    $('panel').classList.add('show');
+    document.body.classList.add('has-window');
+    if (location.hash !== '#' + name) { try { history.replaceState(null, '', '#' + name); } catch (e) {} }
+    applyVol();
+  }
+  function closeWin() {
+    stopTracks();
+    current = null;
+    $('panel').classList.remove('show');
+    document.body.classList.remove('has-window');
+    if (location.hash && location.hash !== '#tune') { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
+    applyVol();
+  }
+  $('close').addEventListener('click', closeWin);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeWin(); });
+  window.addEventListener('hashchange', route);
+  function route() {
+    var h = location.hash.slice(1);
+    if (VIEWS[h]) openWin(h); else if (current) closeWin();
+  }
+
+  /* listening room players */
+  function fmt(x) { x = Math.max(0, Math.floor(x || 0)); return Math.floor(x / 60) + ':' + ('0' + x % 60).slice(-2); }
+  var player = new Audio(), cur = null;
+  player.preload = 'auto';
+  function dur(pl) { return (isFinite(player.duration) && cur === pl && player.duration) || +pl.getAttribute('data-d') || 0; }
+  function paint(pl, t) {
+    var d = dur(pl);
+    pl.querySelector('.bar i').style.width = (d ? Math.min(100, t / d * 100) : 0) + '%';
+    pl.querySelector('.t').textContent = fmt(t) + ' / ' + fmt(d);
+  }
+  function setBtn(pl, playing) {
+    var b = pl.querySelector('.pb'); b.textContent = playing ? '❚❚' : '▶';
+    b.setAttribute('aria-label', playing ? 'Pause' : 'Play'); pl.classList.toggle('on', playing);
+  }
+  function stopTracks() { player.pause(); if (cur) { setBtn(cur, false); paint(cur, 0); } cur = null; }
+  function load(pl) {
+    if (cur === pl) return;
+    stopTracks(); cur = pl; player.src = pl.getAttribute('data-src');
+  }
+  function play(pl) {
+    load(pl);
+    player.play().then(function () { setBtn(pl, true); })
+      .catch(function () { pl.classList.add('bad'); pl.querySelector('.t').textContent = 'unavailable'; });
+  }
+  $('panelBody').addEventListener('click', function (e) {
+    var b = e.target.closest('.pb'); if (!b) return;
+    var pl = b.closest('.pl');
+    if (cur === pl && !player.paused) { player.pause(); setBtn(pl, false); } else play(pl);
+  });
+  var seeking = null;
+  function seekTo(e) {
+    var r = seeking.querySelector('.bar').getBoundingClientRect();
+    var t = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * dur(seeking);
+    paint(seeking, t);
+    if (cur === seeking) { try { player.currentTime = t; } catch (x) {} }
+    return t;
+  }
+  $('panelBody').addEventListener('pointerdown', function (e) {
+    var bar = e.target.closest('.bar'); if (!bar) return;
+    var pl = bar.closest('.pl'); seeking = pl;
+    bar.setPointerCapture(e.pointerId); e.preventDefault();
+    var wasPlaying = cur === pl && !player.paused;
+    if (cur !== pl) { load(pl); var t = seekTo(e); player.addEventListener('loadedmetadata', function f() { player.removeEventListener('loadedmetadata', f); player.currentTime = t; }); play(pl); }
+    else { seekTo(e); if (!wasPlaying) play(pl); }
+  });
+  $('panelBody').addEventListener('pointermove', function (e) { if (seeking) seekTo(e); });
+  ['pointerup', 'pointercancel'].forEach(function (n) { $('panelBody').addEventListener(n, function () { seeking = null; }); });
+  player.addEventListener('timeupdate', function () { if (cur && !seeking) paint(cur, player.currentTime); });
+  player.addEventListener('loadedmetadata', function () { if (cur) paint(cur, player.currentTime); });
+  player.addEventListener('ended', stopTracks);
+
+  /* ---------- draggable statement ---------- */
+  var root = document.documentElement, drag = null;
+  var tuneMode = /tune/.test(location.search) || location.hash === '#tune';
+  function pos() {
+    var r = $('readme').getBoundingClientRect();
+    return [Math.round(r.left / innerWidth * 1000) / 10, Math.round(r.top / innerHeight * 1000) / 10];
+  }
+  $('readmeBar').addEventListener('pointerdown', function (e) {
+    if (innerWidth <= 600) return;
+    var r = $('readme').getBoundingClientRect();
+    drag = { dx: e.clientX - r.left, dy: e.clientY - r.top };
+    $('readme').classList.add('dragging');
+    $('readmeBar').setPointerCapture(e.pointerId);
+    e.preventDefault();
+  });
+  $('readmeBar').addEventListener('pointermove', function (e) {
+    if (!drag) return;
+    var w = $('readme').offsetWidth, h = $('readme').offsetHeight;
+    var x = Math.min(Math.max(e.clientX - drag.dx, 8), innerWidth - w - 8);
+    var y = Math.min(Math.max(e.clientY - drag.dy, 52), innerHeight - h - 8);
+    root.style.setProperty('--rx', (x / innerWidth * 100) + 'vw');
+    root.style.setProperty('--ry', (y / innerHeight * 100) + 'vh');
+    showTune();
+  });
+  var moved = false;
+  function placeDefault() {
+    if (moved || innerWidth <= 600) return;
+    var h = $('readme').offsetHeight;
+    var y = Math.max(56, Math.min(innerHeight * 0.6, innerHeight - h - 70));
+    root.style.setProperty('--ry', y + 'px');
+  }
+  placeDefault(); addEventListener('resize', placeDefault);
+  if (document.fonts) document.fonts.ready.then(placeDefault);
+  function endDrag() { if (drag) moved = true; drag = null; $('readme').classList.remove('dragging'); }
+  $('readmeBar').addEventListener('pointerup', endDrag);
+  $('readmeBar').addEventListener('pointercancel', endDrag);
+
+  /* ---------- tuning panel (?tune or #tune) ---------- */
+  var T = { bri: .57, sat: 1.4, con: 1.14, icon: .55 };
+  function showTune() {
+    if (!tuneMode) return;
+    var p = pos();
+    $('tuneOut').textContent = 'BRI ' + T.bri + '  SAT ' + T.sat + '  CON ' + T.con + '  ICON ' + T.icon + '  POS ' + p[0] + ' ' + p[1];
+  }
+  if (tuneMode) {
+    $('tune').style.display = 'block';
+    [].forEach.call(document.querySelectorAll('#tune input'), function (inp) {
+      var k = inp.getAttribute('data-k'); inp.value = T[k];
+      inp.addEventListener('input', function () { T[k] = parseFloat(inp.value); root.style.setProperty('--' + k, T[k]); showTune(); });
+    });
+    showTune();
+  }
+
+  /* ---------- Tide: generative Csound ---------- */
+  var CSD = $('csd').textContent.trim();
+  var cs = null, muted = false, VOL = 0.8;
+  function applyVol() { if (cs) { try { cs.setControlChannel('vol', (muted || current) ? 0 : VOL); } catch (e) {} } }
+  function seen() { try { return sessionStorage.getItem('tideSeen') === '1'; } catch (e) { return false; } }
+  function markSeen() { try { sessionStorage.setItem('tideSeen', '1'); } catch (e) {} }
+  function hideEnter() {
+    markSeen();
+    $('enter').style.opacity = '0'; $('enter').style.pointerEvents = 'none';
+    setTimeout(function () { $('enter').style.display = 'none'; }, 750);
+  }
+  function showEnter() { $('enter').style.display = 'flex'; $('enter').style.opacity = '1'; $('enter').style.pointerEvents = 'auto'; }
+  if (seen()) $('enter').style.display = 'none';
+  $('skip').addEventListener('click', hideEnter);
+  $('go').addEventListener('click', boot);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && $('enter').style.display !== 'none' && $('enter').style.opacity !== '0' && !$('go').disabled) { e.preventDefault(); boot(); }
+  });
+  $('snd').addEventListener('click', function () {
+    if (!cs) { showEnter(); return; }
+    muted = !muted; $('snd').textContent = muted ? 'SOUND OFF' : 'SOUND ON'; applyVol();
+  });
+  var codeOpen = false;
+  $('codeBtn').addEventListener('click', function () {
+    var pre = $('codepanel');
+    if (!pre.innerHTML) {
+      pre.innerHTML = '<span style="letter-spacing:.1em">Csound · generated live in your browser, never the same twice</span>\n\n' +
+        CSD.split('\n').map(function (l) {
+          var i = l.indexOf(';');
+          return i < 0 ? esc(l) : esc(l.slice(0, i)) + '<span class="c">' + esc(l.slice(i)) + '</span>';
+        }).join('\n');
+    }
+    codeOpen = !codeOpen;
+    pre.style.display = codeOpen ? 'block' : 'none';
+    $('codeBtn').textContent = codeOpen ? 'HIDE CODE' : 'CODE';
+  });
+  var modP = import('https://cdn.jsdelivr.net/npm/@csound/browser@6.18.7/dist/csound.js');
+  modP.catch(function () {});
+  async function boot() {
+    $('go').disabled = true; $('note').textContent = 'starting…';
+    try {
+      var mod = await modP;
+      var make = async function (opts) {
+        var c = await mod.Csound(opts);
+        if (await c.compileCsdText(CSD) !== 0) throw new Error('compile failed');
+        await c.setControlChannel('vol', 0);
+        await c.setControlChannel('cut', 3750);
+        await c.start();
+        return c;
+      };
+      try { cs = await make({}); }
+      catch (e1) { $('note').textContent = 'switching audio mode…'; cs = await make({ useSPN: true }); }
+      muted = false; $('snd').textContent = 'SOUND ON'; applyVol();
+      hideEnter();
+    } catch (e) {
+      console.error('Tide:', e);
+      $('note').textContent = 'Sound could not start in this browser.';
+      setTimeout(hideEnter, 1800);
+    }
+  }
+
+  route();
+})();
+</script>
+</body>
+</html>
