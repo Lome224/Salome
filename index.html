@@ -109,6 +109,10 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 .work .wd{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
 .work .wd .lr-link{margin:0}
 .work .soon{opacity:.55;font-style:italic;margin:12px 0}
+.work .pdf{height:min(78vh,900px);margin:6px 0 8px;border-radius:8px;overflow:hidden;background:#fff;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.55),0 6px 18px rgba(0,0,0,.18)}
+.work .pdf iframe{width:100%;height:100%;border:0;display:block}
+.work .pdfcap{margin:12px 0 2px;font-size:12.5px;opacity:.75}
 .lr-link{display:inline-block;margin:2px 0 14px;padding:4px 12px;border-radius:999px;text-decoration:none;
   border:1px solid rgba(0,0,0,.6);background:rgba(0,0,0,.06)}
 .lr-link:hover{background:rgba(255,206,110,.35);border-color:rgba(160,110,20,.7)}
@@ -762,7 +766,7 @@ window.SITE = {
     },
     "audio": [
      {
-      "title": "Dawn · recording",
+      "title": "Album Recording",
       "src": "media/audio/dawn.mp3",
       "dur": 316
      }
@@ -1772,7 +1776,16 @@ window.SITE = {
                  '<div class="bar"><i></i></div><span class="t">0:00 / ' + fmt(a.dur || 0) + '</span></div></div>';
         }).join('') + '</div>';
       }
-      var L = (w.docs || []).concat(w.links || []);
+      /* scores are shown inline so visitors can read them on the page */
+      var scores = (w.docs || []).filter(function (d) { return /\.pdf$/i.test(d.href) && /score/i.test(d.label); });
+      if (scores.length) {
+        h += '<div class="sub">' + (scores.length > 1 ? 'Scores' : 'Score') + '</div>' + scores.map(function (d) {
+          return (scores.length > 1 ? '<div class="pdfcap">' + esc(d.label.replace(/\s*·\s*full score$/i, '')) + '</div>' : '') +
+                 '<div class="pdf"><iframe src="' + esc(d.href) + '#view=FitH&navpanes=0" title="' + esc(d.label) + '" loading="lazy"></iframe></div>' +
+                 '<a class="lr-link" href="' + esc(d.href) + '" target="_blank" rel="noopener">Open full score ↗</a>';
+        }).join('');
+      }
+      var L = (w.docs || []).filter(function (d) { return scores.indexOf(d) < 0; }).concat(w.links || []);
       if (L.length) h += '<div class="wd">' + L.map(function (d) {
         return '<a class="lr-link" href="' + esc(d.href) + '" target="_blank" rel="noopener"' + (d.download ? ' download' : '') + '>' + esc(d.label) + ' ↗</a>';
       }).join('') + '</div>';
