@@ -388,7 +388,7 @@ window.SITE = {
   /* Desktop icons, top to bottom. kind: folder | file | mail. */
   icons: [
     { label: 'Art', kind: 'folder', open: 'art' },
-    { label: 'Research', kind: 'folder', open: 'research' },
+    { label: 'Lab', kind: 'folder', open: 'lab' },
     { label: 'Film Music', kind: 'folder', open: 'film-music' },
     { label: 'About', kind: 'file', open: 'about' },
     { label: 'CV', kind: 'file', link: 'cv' },
@@ -405,8 +405,7 @@ window.SITE = {
   ],
 
   research: [
-    ['The Blue Left Spinning', 'Generative Music System · Thesis', '2026–present', 'Researcher · Creative Technologist'],
-    ['Music Cognition / Creative Intent', 'Research Proposal', '2025', 'Researcher'],
+    ['EventMatcher', 'Research Project', '2025', 'Researcher'],
     ['Project Prakash', 'Interactive VR', '2024', 'Spatial Audio Designer · Composer'],
     ['CLOUD', 'Electronic Instrument', '2025', 'Developer'],
     ['Csound Plugin 01', 'Audio Plugin', '2024', 'Developer'],
@@ -556,7 +555,7 @@ window.SITE = {
   }
   var VIEWS = {
     'art': { title: 'Art', html: function () { return rows(S.art); } },
-    'research': { title: 'Research', html: function () { return rows(S.research); } },
+    'lab': { title: 'Lab', html: function () { return rows(S.research); } },
     'film-music': { title: 'Film Music', html: function () {
       return '<a class="lr-link" href="#listening-room">Listening Room →</a>' +
              '<div class="sub">Selected</div>' + rows(S.filmSelected) +
