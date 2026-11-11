@@ -86,6 +86,28 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 .row .y{text-align:center}.row .r{text-align:right}
 .row .m{opacity:.65}
 .sub{margin:18px 0 6px;font-weight:500;letter-spacing:.06em}
+/* clickable work titles in folder lists */
+.row a.wl{color:inherit;text-decoration:none;border-bottom:1px dotted rgba(0,0,0,.45)}
+.row a.wl:hover{background:rgba(255,206,110,.35);box-shadow:0 0 0 3px rgba(255,206,110,.35);border-radius:3px;border-bottom-color:transparent}
+/* work page (third layer) */
+.work h2{margin:2px 0 4px;font-size:20px;letter-spacing:.01em}
+.work .meta{margin:0 0 14px;opacity:.7}
+.work .vid{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:10px;overflow:hidden;margin:4px 0 16px;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.6)}
+.work .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.work figure{margin:4px 0 16px;text-align:center}
+.work figure img{max-width:100%;max-height:62vh;border-radius:8px;box-shadow:0 1px 0 rgba(255,255,255,.6),0 6px 18px rgba(0,0,0,.25)}
+.work figure figcaption{font-size:11.5px;opacity:.6;margin-top:6px}
+.work .facts{margin:14px 0;padding:10px 0;border-top:1px solid rgba(0,0,0,.75);border-bottom:1px solid rgba(0,0,0,.75);
+  display:grid;grid-template-columns:7em 1fr;gap:6px 12px;font-size:12.5px}
+.work .facts dt{opacity:.6}.work .facts dd{margin:0}
+.work .tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}
+.work .tags span{font-size:11px;padding:2px 9px;border-radius:999px;border:1px solid rgba(0,0,0,.35);background:rgba(255,255,255,.35)}
+.work .wa{margin:16px 0 6px}
+.work .wa .track-row{grid-template-columns:minmax(0,1fr) minmax(190px,15em)}
+.work .wd{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.work .wd .lr-link{margin:0}
+.work .soon{opacity:.55;font-style:italic;margin:12px 0}
 .lr-link{display:inline-block;margin:2px 0 14px;padding:4px 12px;border-radius:999px;text-decoration:none;
   border:1px solid rgba(0,0,0,.6);background:rgba(0,0,0,.06)}
 .lr-link:hover{background:rgba(255,206,110,.35);border-color:rgba(160,110,20,.7)}
@@ -595,7 +617,7 @@ window.SITE = {
     ['Love Tears and Choice', 'Short Film', '2026', 'Composer'],
     ['Ochiho’s Theme', 'Short Film', '2023', 'Composer'],
     ['August Third', 'Short Film', '2025', 'Composer'],
-    ['Rose Garden Dance', 'Short Film', '2024', 'Composer'],
+    ['Rose Garden', 'Short Film', '2024', 'Composer'],
     ['Mu Dan Yuan', 'Documentary', '2023', 'Composer'],
     ['Little Buddha Sunshine', 'Documentary', '2023', 'Composer']
   ],
@@ -611,6 +633,668 @@ window.SITE = {
     ['The Wild Robot', 'Rescore', '2026', 'Composer'],
     ['Farmers of America', 'Rescore', '2025', 'Composer']
   ],
+
+  /* Work pages (third layer): generated from the works spreadsheet */
+  works: {
+   "the-blue-left-spinning": {
+    "title": "The Blue Left Spinning",
+    "parent": "art",
+    "sub": "Kinetic sound sculpture · Solo exhibition · 2026",
+    "year": "2026–present",
+    "role": "Artist · Composer · Creative Technologist",
+    "note": "Flohaus Gallery, New York · Curated by Neil Leonard",
+    "desc": [
+     "A kinetic sound work in which broken porcelain, mechanical motion, silence, and spatial audio become a shifting compositional system.",
+     "The Blue Left Spinning brings together kinetic sculpture, projection, sensor-driven behavior, and generative sound. Porcelain fragments and motor states become material for a system in which pauses, resets, and restricted rhythmic relationships articulate musical form.",
+     "The work was presented as Zhang’s solo exhibition in New York. The project sits at the center of her current practice: composition is not separated from object, movement, memory, or technology, but distributed across them."
+    ],
+    "tags": [
+     "Kinetic Sound",
+     "Spatial Audio",
+     "Generative System",
+     "Porcelain",
+     "Projection"
+    ],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "in-between": {
+    "title": "In-Between",
+    "parent": "art",
+    "sub": "Audiovisual experimental media · 2025—present",
+    "year": "2025–present",
+    "role": "Composer · Sound Designer",
+    "note": "New York · Spain · Dallas · Cannes Indie Shorts semifinalist",
+    "desc": [
+     "An audiovisual work circulating between gallery installation, digital exhibition, and moving-image contexts.",
+     "In-Between has appeared across exhibition and festival contexts, including Cubicten’s The Ultimate Prototype Digital Forest in New York, SMTH’s Poetic Architecture program across multiple Spanish cities, AURORA Video Art Night in Dallas, and the Cannes Indie Shorts Award.",
+     "Its multi-context presentation reflects Zhang’s interest in works that can move between screen, space, and sound without being reduced to a single format."
+    ],
+    "tags": [
+     "Audiovisual",
+     "Experimental Media",
+     "Installation",
+     "Moving Image"
+    ],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "the-whispering-room": {
+    "title": "The Whispering Room",
+    "parent": "art",
+    "sub": "Experimental audiovisual work · Ten-channel spatial sound",
+    "year": "2024–2025",
+    "role": "Composer · Sound Designer",
+    "note": "Whispering Space · Later music version: Perpetuum Interrupted",
+    "desc": [
+     "A ten-channel spatial work developed through choreography, movement, and the instability of perception.",
+     "The Whispering Room explores how sound shifts when listening becomes physical and spatial. The project connects choreography and multichannel composition, treating the listener’s position and attention as part of the work.",
+     "It premiered at Emerson Media Art Studio in Boston and later had a multichannel presentation at the Diapason Sound Art Archive NYU.",
+     "The audiovisual version is presented as Whispering Space. The later music version is titled Perpetuum Interrupted."
+    ],
+    "tags": [
+     "10-Channel",
+     "Spatial Sound",
+     "Choreography",
+     "Perception"
+    ],
+    "vimeo": "1061473361",
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "dawn": {
+    "title": "Dawn",
+    "parent": "art",
+    "sub": "String quartet · 2025",
+    "year": "2025",
+    "role": "Composer",
+    "note": "Gaia Quartet · Canadian tour · Canadian Music Centre",
+    "desc": [
+     "A string quartet connecting Zhang’s concert-composition background with the sensitivity to pacing and color that carries into her film and installation work.",
+     "Dawn was written for Gaia Quartet and premiered in 2025. It was featured on the ensemble’s Canadian tour and presented at the Canadian Music Centre in Toronto."
+    ],
+    "tags": [
+     "String Quartet",
+     "Concert Music",
+     "Gaia Quartet"
+    ],
+    "vimeo": "1238460376",
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "connecting-lines": {
+    "title": "Connecting Lines",
+    "parent": "art",
+    "sub": "Site-specific interactive installation · 2025",
+    "year": "2025",
+    "role": "Artist · Composer · Creative Technologist",
+    "note": "MassArt collaboration · Cyber Arts Gallery, Boston · THE BLANC, New York",
+    "desc": [
+     "A site-specific interactive installation that transforms the imagined movement of Boston’s Orange Line into a meditative sound environment.",
+     "Developed in collaboration with MassArt, Connecting Lines uses Max/MSP and spatial sound architecture to translate transit, movement, and repetition into an immersive listening experience.",
+     "The work was exhibited at Cyber Arts Gallery in Boston and later at THE BLANC in New York."
+    ],
+    "tags": [
+     "Max/MSP",
+     "Spatial Sound",
+     "Interactive Installation",
+     "MassArt"
+    ],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "blue": {
+    "title": "Blue",
+    "parent": "art",
+    "sub": "Piano trio · 2023",
+    "year": "2023",
+    "role": "Composer",
+    "note": "Bedford Trio · IMMERSED 2.0",
+    "desc": [
+     "A piano trio written for Bedford Trio and selected through the IMMERSED 2.0 call for works.",
+     "Blue sits within Zhang’s recurring use of blue as a visual and emotional motif across otherwise different media."
+    ],
+    "tags": [
+     "Piano Trio",
+     "Concert Music",
+     "Bedford Trio"
+    ],
+    "vimeo": "977413062",
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "event-matcher": {
+    "title": "Event Matcher",
+    "parent": "lab",
+    "sub": "Research Project · 2026",
+    "year": "2026",
+    "role": "Researcher",
+    "desc": [
+     "An early-stage research proposal on how directors and musicians communicate musical intent through emotional, contextual and metaphorical language, and how those descriptions might relate to interpretable changes in music. The proposal grows out of Zhang’s film-scoring collaborations and her interest in the relationship between music cognition, emotion and creative decision-making. It is presented as a research concept."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "project-prakash": {
+    "title": "Project Prakash",
+    "parent": "lab",
+    "sub": "MIT collaboration · Spatial Audio Designer",
+    "year": "2024",
+    "role": "Spatial Audio Designer · Composer",
+    "note": "Unity · Wwise · Csound · VR accessibility",
+    "desc": [
+     "Spatial-audio designer and composer for a VR research collaboration supporting visually impaired children transitioning to sight.",
+     "Zhang designed and implemented a 3D spatial sound system in Unity and Wwise, developed generative audio prototypes in Csound, and worked with custom Foley recordings for virtual navigation.",
+     "The project demonstrates her technical practice in service of accessibility, perception, and embodied interaction rather than technology as an end in itself."
+    ],
+    "tags": [
+     "MIT",
+     "Unity",
+     "Wwise",
+     "Csound",
+     "VR",
+     "Accessibility"
+    ],
+    "audio": [],
+    "docs": [],
+    "links": [
+     {
+      "label": "Unity project packages",
+      "href": "https://drive.google.com/drive/folders/1DS9XRKzQWYaVILkY6YolrEa85-rEwiU5"
+     }
+    ]
+   },
+   "cloud": {
+    "title": "CLOUD",
+    "parent": "lab",
+    "sub": "Electronic Instrument · 2025",
+    "year": "2025",
+    "role": "Developer",
+    "desc": [
+     "A custom electronic instrument combining Max/MSP, an Arduino Uno and photoresistors to connect sensor input with sound control. The prototype was presented at Fenway Art Studio in Boston in March 2025, bringing together Zhang’s interests in physical interaction, instrument building and electronic sound."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "csound-plugin-01": {
+    "title": "Csound Plugin 01",
+    "parent": "lab",
+    "sub": "Audio Plugin · 2024",
+    "year": "2024",
+    "role": "Developer",
+    "desc": [
+     "A sampler prototype developed in Csound and Cabbage, bringing sample playback, envelope control and delay processing into a single interface. The project connects code with listening through adjustable sound parameters and documents Zhang’s exploration of sample processing and custom audio tools."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "csound-plugin-02": {
+    "title": "Csound Plugin 02",
+    "parent": "lab",
+    "sub": "Audio Plugin · 2024",
+    "year": "2024",
+    "role": "Developer",
+    "desc": [
+     "An FM synthesis instrument developed in Csound and Cabbage, with independent carrier and modulation envelopes, presets and output metering. The project translates synthesis logic into a playable interface, exploring electronic timbre through modulation and envelope shaping. Its documentation includes the original audio demonstration, interface and complete source code."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "machine-learning-for-musicians": {
+    "title": "Machine Learning for Musicians",
+    "parent": "lab",
+    "sub": "Machine Learning Study · 2025",
+    "year": "2025",
+    "role": "Researcher · Developer",
+    "desc": [
+     "A midterm experiment in machine learning for musicians, using a convolutional neural network to classify ten music genres. Audio is converted into mel-spectrograms, with separate notebooks covering preprocessing, training and prediction. Example predictions and a confusion matrix help examine the patterns learned by the model and the genres it still confuses."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "once-upon-a-time-in-boston": {
+    "title": "Once Upon a Time in Boston",
+    "parent": "scoring-post",
+    "sub": "Feature film · Music Director Composer Songwriter",
+    "year": "2025–2026",
+    "role": "Music Director · Composer · Songwriter",
+    "note": "2h 44m · More than one hour of original music · 2 original theme songs",
+    "desc": [
+     "A large-scale feature score spanning more than one hour of original music, with Zhang overseeing the musical direction of the film and writing two original theme songs.",
+     "As Music Director and Composer, Zhang is responsible for the film’s overall musical language across a 2 hour 44 minute runtime. The project includes more than one hour of original music and two original theme songs.",
+     "The film has received an award at a Beijing film festival."
+    ],
+    "tags": [
+     "Feature Film",
+     "Music Direction",
+     "Original Score",
+     "Songwriting"
+    ],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "ju": {
+    "title": "JU",
+    "parent": "scoring-post",
+    "sub": "Short film · Composer",
+    "year": "2026",
+    "role": "Composer",
+    "note": "Hybrid scoring · Extensive synth design",
+    "desc": [
+     "A hybrid score centered on synthesis, designed texture, and the friction between electronic and cinematic gesture.",
+     "JU is one of Zhang’s strongest examples of hybrid scoring and custom synthesis. Its palette is built not only through composition but through extensive sound design inside the score itself."
+    ],
+    "tags": [
+     "Hybrid Score",
+     "Synth Design",
+     "Film Music"
+    ],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "1hr22min": {
+    "title": "1HR22MIN",
+    "parent": "scoring-post",
+    "sub": "Short Film · 2024",
+    "year": "2024",
+    "role": "Composer · Audio Director",
+    "note": "Directed by Andy Liu · 11 min original score · 5.1 surround",
+    "desc": [
+     "An original score and 5.1 surround sound project for Andy Liu’s film 1HR22MIN. As composer and audio director, Zhang wrote eleven minutes of original music and collaborated with Zhang Yimou’s post-production team and Los Angeles film studio 24K Onions. The project combines composition with multichannel mixing to shape the film’s spatial sound, using Frame.io to coordinate post-production."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": [
+     {
+      "label": "1HR22MIN · original music",
+      "href": "https://drive.google.com/file/d/17-QD_70OyJvn48OFeMkXjjZ0IjTyt45K/view"
+     }
+    ]
+   },
+   "beyond-the-glass": {
+    "title": "Beyond the Glass",
+    "parent": "scoring-post",
+    "sub": "Short film · Composer",
+    "year": "2024",
+    "role": "Composer",
+    "note": "Ambient minimalist score · LA Shorts selection · Nollywood selection",
+    "desc": [
+     "A restrained ambient score built around space, atmosphere, and minimal musical intervention.",
+     "Beyond the Glass represents the quieter end of Zhang’s film language: an ambient, minimalist approach in which the score supports emotional space rather than continuously announcing narrative direction.",
+     "The film was selected by LA Shorts and a Nollywood festival."
+    ],
+    "tags": [
+     "Film Score",
+     "Ambient",
+     "Minimalism"
+    ],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "fetter": {
+    "title": "Fetter",
+    "parent": "scoring-post",
+    "sub": "Short Film · 2025",
+    "year": "2025",
+    "role": "Composer · Dialogue Editing · Sound Design · Foley",
+    "note": "Screen post-production work",
+    "desc": [
+     "Set in northeastern China under the one-child policy and the looming threat of unemployment and coal shortages, Fetter follows Yufen and her daughter under the weight of her husband’s oppression and his disappointment at not having a son. His unexpected death brings an anticlimactic end to the conflict, leaving no act of revenge.",
+     "Zhang’s work spans composition, dialogue editing, sound design and Foley. The restrained score combines live free improvisation for drum kit and piano, shaped by Chinese musical influences, with Beijing opera and improvised vocals."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "in-the-blue": {
+    "title": "In the Blue",
+    "parent": "scoring-post",
+    "sub": "Upcoming feature · Composer Sound Team Lead",
+    "year": "2026–present",
+    "role": "Composer · Sound Team Lead",
+    "note": "~1 hour feature · Los Angeles-based production",
+    "desc": [
+     "An upcoming feature for which Zhang is responsible for both the original music and the broader sound team.",
+     "In the Blue extends Zhang’s role beyond composition into responsibility for the film’s larger sonic identity. She is composing the score while leading the sound team across the project."
+    ],
+    "tags": [
+     "Feature Film",
+     "Composition",
+     "Sound Leadership",
+     "Upcoming"
+    ],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "farewell-the-ocean-wave": {
+    "title": "Farewell the Ocean Wave",
+    "parent": "scoring-post",
+    "sub": "Upcoming mid-length film · Composer Sound Team Lead Songwriter",
+    "year": "2026–present",
+    "role": "Composer · Sound Team Lead · Songwriter",
+    "note": "~40 minutes · Original score · Theme song",
+    "desc": [
+     "An upcoming mid-length narrative project combining original score, full sound responsibility, and an original theme song.",
+     "For Farewell the Ocean Wave, Zhang is responsible for the music and the wider sound team, while also writing an original theme song. The project demonstrates an increasingly integrated approach to narrative sound."
+    ],
+    "tags": [
+     "Mid-Length Film",
+     "Music",
+     "Sound",
+     "Songwriting",
+     "Upcoming"
+    ],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "gift": {
+    "title": "Gift",
+    "parent": "scoring-post",
+    "sub": "Film · Composer",
+    "year": "2024",
+    "role": "Composer",
+    "note": "String quartet + piano · Tokyo film festival semifinalist",
+    "desc": [
+     "A chamber-led film score using string quartet and piano as its primary emotional language.",
+     "Gift shows the acoustic side of Zhang’s film practice, translating chamber-writing instincts into screen music through a focused palette of string quartet and piano."
+    ],
+    "tags": [
+     "Film Score",
+     "String Quartet",
+     "Piano",
+     "Chamber Music"
+    ],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "farewell": {
+    "title": "Farewell",
+    "parent": "scoring-post",
+    "sub": "Animation · Composer Sound Mixer",
+    "year": "2025",
+    "role": "Composer · Sound Mixer",
+    "note": "Minimalist piano writing · Ghibli-influenced aesthetic",
+    "desc": [
+     "An intimate animated short shaped by restrained piano writing and a soft, hand-drawn emotional world.",
+     "Farewell pairs minimalist piano writing with Zhang’s responsibility for sound mixing. Its musical language is intentionally small-scale and emotionally direct."
+    ],
+    "tags": [
+     "Animation",
+     "Piano",
+     "Minimalism",
+     "Sound Mixing"
+    ],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "cheat-code": {
+    "title": "Cheat Code",
+    "parent": "scoring-post",
+    "sub": "Short Film · 2024",
+    "year": "2024",
+    "role": "Composer · Sound Designer",
+    "note": "Denny Awards — Best Film Score",
+    "desc": [
+     "A film project bringing together original composition and sound design. Zhang composed the score and contributed sound design for Jiting Yao’s Cheat-code. The score received the Best Film Score award at the Denny Awards International Electronic Music Competition."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "red-herring": {
+    "title": "Red Herring",
+    "parent": "scoring-post",
+    "sub": "Game · 2023",
+    "year": "2023",
+    "role": "Composer · Lead Sound Designer",
+    "note": "Unity + Wwise adaptive game audio",
+    "desc": [
+     "A game-audio project built around adaptive music and sound-based puzzles. As composer and lead sound designer, Zhang developed music systems in Unity and Wwise that respond to gameplay and integrated sound into puzzle design. Red Herring received an Honorable Mention for Best Game 2023 at the LevelUp Showcase presented by Ubisoft."
+    ],
+    "tags": [],
+    "vimeo": "871135172",
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "enjoy-your-journey": {
+    "title": "Enjoy Your Journey",
+    "parent": "scoring-post",
+    "sub": "Feature Film · 2025",
+    "year": "2025",
+    "role": "Additional Music",
+    "note": "Feature film contribution",
+    "desc": [
+     "Additional music for the feature film Enjoy Your Journey. Zhang contributed through Shi Music Studio under music director Shimu Chen, bringing her work in film composition into a larger collaborative scoring process."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": [
+     {
+      "label": "Film details · IMDb",
+      "href": "https://www.imdb.com/title/tt28106059/"
+     }
+    ]
+   },
+   "the-depth-of-wumeng": {
+    "title": "The Depth of Wumeng",
+    "parent": "scoring-post",
+    "sub": "Television Series · 2025",
+    "year": "2025",
+    "role": "Additional Music · Synth Design",
+    "note": "Television series",
+    "desc": [
+     "Television scoring that combines original composition with electronic sound creation. Zhang contributed additional music and synthesizer sound design to The Depth of Wumeng, working on both musical material and the creation of electronic timbres."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": [
+     {
+      "label": "Watch on CCTV",
+      "href": "https://tv.cctv.com/2025/12/17/VIDEXPixngcGkSBYqqNW1Vk3251217.shtml"
+     }
+    ]
+   },
+   "sleep-all-day": {
+    "title": "Sleep All Day",
+    "parent": "scoring-post",
+    "sub": "Film music",
+    "year": "2025",
+    "role": "Composer",
+    "note": "Greenpoint Festival · 2026",
+    "desc": [
+     "Original music for Sleep All Day, presented as an audio-only score so listeners can experience Zhang’s music independently of the film. The film was selected for the 2026 Greenpoint Film Festival."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "love-tears-and-choice": {
+    "title": "Love Tears and Choice",
+    "parent": "scoring-post",
+    "sub": "Film music",
+    "year": "2026",
+    "role": "Composer",
+    "note": "Directed by Hazel Gu",
+    "desc": [
+     "Original music for Love Tears and Choice, directed by Hazel Gu. The music-only presentation offers a way to hear Zhang’s score independently of the film’s dialogue and images."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "ochihos-theme": {
+    "title": "Ochiho’s Theme",
+    "parent": "scoring-post",
+    "sub": "Theme music",
+    "year": "2023",
+    "role": "Composer",
+    "desc": [
+     "A piano-sextet theme for the debut short by Toronto-based director Anthony Francis. The music gently traces the protagonist’s struggle between his own desires and the expectations of his family, particularly his father. The film takes a magical-realist turn when he encounters an omnipresent god who is ultimately revealed to be himself."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "august-third": {
+    "title": "August Third",
+    "parent": "scoring-post",
+    "sub": "Original music · 2025 · Sunni Mo · Premiered at SAIC",
+    "year": "2025",
+    "role": "Composer",
+    "desc": [
+     "Original music for Sunni Mo’s film August 3, composed in 2025 and premiered at the School of the Art Institute of Chicago (SAIC). Presented here without the film, the score offers a standalone listening experience."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": [
+     {
+      "label": "August 3· original music · 2025",
+      "href": "https://drive.google.com/file/d/1n9cq0RvysR4FjqOH_eMn6YYYsasPZexA/view?usp=sharing"
+     }
+    ]
+   },
+   "rose-garden": {
+    "title": "Rose Garden",
+    "parent": "scoring-post",
+    "sub": "Short film · Piano and cello · 2024",
+    "year": "2024",
+    "role": "Composer",
+    "desc": [
+     "A theme for director and actor Katherine Landry's thesis short. Written as an intimate, waltz-like duet for piano and cello, the music accompanies a scene in which the protagonists dance together."
+    ],
+    "tags": [],
+    "audio": [
+     {
+      "title": "Rose Garden Dance",
+      "src": "media/works/rose-garden/rose-garden-dance.mp3",
+      "dur": 100
+     },
+     {
+      "title": "Adagio Faye",
+      "src": "media/works/rose-garden/adagio-faye.mp3",
+      "dur": 118
+     }
+    ],
+    "docs": [],
+    "links": []
+   },
+   "mu-dan-yuan": {
+    "title": "Mu Dan Yuan",
+    "parent": "scoring-post",
+    "sub": "Documentary · 2023",
+    "year": "2023",
+    "role": "Composer",
+    "desc": [
+     "Music for Director Sifan Liu’s film, a documentary about the life of a gay couple in Beijing, China, the film is selected as USC"
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "little-buddha-sunshine": {
+    "title": "Little Buddha Sunshine",
+    "parent": "scoring-post",
+    "sub": "Documentary · 2023",
+    "year": "2023",
+    "role": "Composer",
+    "desc": [],
+    "tags": [],
+    "vimeo": "871141918",
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "the-wild-robot": {
+    "title": "The Wild Robot",
+    "parent": "scoring-post",
+    "sub": "Rescore · 2026",
+    "year": "2026",
+    "role": "Composer",
+    "desc": [
+     "An orchestral rescoring study using scenes from The Wild Robot, featuring cue 1m27, I Can Use a Boost, and cue 1m36, Robot vs. the Wild. The project explores the relationship between orchestral music and animated images through newly composed scores, with full notation, synchronized video and standalone audio."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "farmers-of-america": {
+    "title": "Farmers of America",
+    "parent": "scoring-post",
+    "sub": "Rescore · 2025",
+    "year": "2025",
+    "role": "Composer",
+    "desc": [],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "sound-design-reel": {
+    "title": "Sound Design Reel",
+    "parent": "scoring-post",
+    "sub": "Game · 2026",
+    "year": "2026",
+    "role": "Sound Designer · Foley",
+    "desc": [
+     "A sound-design reel developed from Zhang’s Elden Ring sound-redesign study. The project rebuilds sound against existing game footage and brings the exercise into a focused presentation of her approach to game sound redesign."
+    ],
+    "tags": [],
+    "vimeo": "1238505077",
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "blue-planet-outside-the-window": {
+    "title": "Blue Planet Outside the Window",
+    "parent": "scoring-post",
+    "sub": "Documentary · 2025",
+    "year": "2025",
+    "role": "Foley · Sound Post",
+    "note": "CCTV",
+    "desc": [
+     "Sound post-production for the space documentary Blue Planet Outside the Window. Zhang’s work included Foley, sound effects, recording synchronization, editing, sound design and mixing, connecting detailed sound work with the screen image. Built around footage captured by astronauts aboard China’s space station, the film presents life in space and a view of Earth from orbit."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   }
+  },
 
   /* Listening Room: title, style, file in media/audio/, length in seconds */
   tracks: [
@@ -712,6 +1396,7 @@ window.SITE = {
   });
 
   /* ---------- windows ---------- */
+  function slug(t) { return String(t).toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   function rows(list) {
     /* newest first: by end year ('present' = now), then start year; undated last */
     function yrs(y) {
@@ -724,7 +1409,9 @@ window.SITE = {
       return (B[0] - A[0]) || (B[1] - A[1]) || (a[1] - b[1]);
     }).map(function (x) { return x[0]; });
     return '<div class="rows">' + list.map(function (r) {
-      return '<div class="row"><div>' + esc(r[0]) + '<br><span class="m">' + esc(r[1]) + '</span></div>' +
+      var k = slug(r[0]);
+      var t = (S.works && S.works[k]) ? '<a class="wl" href="#w/' + k + '">' + esc(r[0]) + '</a>' : esc(r[0]);
+      return '<div class="row"><div>' + t + '<br><span class="m">' + esc(r[1]) + '</span></div>' +
              '<div class="y">' + esc(r[2]) + '</div><div class="r">' + esc(r[3]) + '</div></div>';
     }).join('') + '</div>';
   }
@@ -774,12 +1461,48 @@ window.SITE = {
     } }
   };
 
-  var current = null;
+  /* ---------- work pages (third layer) ---------- */
+  var PARENT = { art: 'Art', lab: 'Lab', 'scoring-post': 'Scoring & Post' };
+  function workView(k) {
+    var w = S.works && S.works[k];
+    if (!w) return null;
+    return { title: w.title, wide: true, quiet: !!(w.vimeo || (w.audio && w.audio.length)), html: function () {
+      var h = '<a class="lr-link" href="#' + w.parent + '">← ' + esc(PARENT[w.parent] || 'Back') + '</a><div class="work">';
+      h += '<h2>' + esc(w.title) + '</h2>' + (w.sub ? '<p class="meta">' + esc(w.sub) + '</p>' : '');
+      if (w.vimeo) {
+        h += '<div class="vid"><iframe src="https://player.vimeo.com/video/' + esc(w.vimeo) +
+             '?dnt=1&title=0&byline=0&portrait=0&color=ffd27a" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy" title="' + esc(w.title) + '"></iframe></div>';
+      }
+      if (w.image && (!w.vimeo || w.imageWithVideo)) {
+        h += '<figure><img src="' + esc(w.image.src) + '" alt="' + esc(w.image.alt || w.title) + '" loading="lazy">' +
+             (w.image.alt ? '<figcaption>' + esc(w.image.alt) + '</figcaption>' : '') + '</figure>';
+      }
+      (w.desc || []).forEach(function (p) { h += '<p>' + esc(p) + '</p>'; });
+      var f = [['Year', w.year], ['Role', w.role], ['Details', w.note]].filter(function (x) { return x[1]; });
+      if (f.length) h += '<dl class="facts">' + f.map(function (x) { return '<dt>' + x[0] + '</dt><dd>' + esc(x[1]) + '</dd>'; }).join('') + '</dl>';
+      if (w.audio && w.audio.length) {
+        h += '<div class="wa"><div class="sub" style="margin-top:0">Listen</div>' + w.audio.map(function (a) {
+          return '<div class="track-row"><div>' + esc(a.title) + '</div>' +
+                 '<div class="pl" data-src="' + esc(a.src) + '" data-d="' + (a.dur || 0) + '"><button class="pb" type="button" aria-label="Play">▶</button>' +
+                 '<div class="bar"><i></i></div><span class="t">0:00 / ' + fmt(a.dur || 0) + '</span></div></div>';
+        }).join('') + '</div>';
+      }
+      var L = (w.docs || []).concat(w.links || []);
+      if (L.length) h += '<div class="wd">' + L.map(function (d) {
+        return '<a class="lr-link" href="' + esc(d.href) + '" target="_blank" rel="noopener"' + (d.download ? ' download' : '') + '>' + esc(d.label) + ' ↗</a>';
+      }).join('') + '</div>';
+      if (w.tags && w.tags.length) h += '<div class="tags">' + w.tags.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('') + '</div>';
+      if (!w.vimeo && !w.image && !(w.audio && w.audio.length) && !(w.desc && w.desc.length)) h += '<p class="soon">Media coming soon.</p>';
+      return h + '</div>';
+    } };
+  }
+
+  var current = null, currentQuiet = false;
   function openWin(name) {
-    var v = VIEWS[name];
+    var v = VIEWS[name] || (name.indexOf('w/') === 0 ? workView(name.slice(2)) : null);
     if (!v) { closeWin(); return; }
     stopTracks();
-    current = name;
+    current = name; currentQuiet = !!v.quiet;
     $('panelTitle').textContent = v.title;
     $('panelBody').innerHTML = v.html();
     $('panelBody').scrollTop = 0;
@@ -791,7 +1514,7 @@ window.SITE = {
   }
   function closeWin() {
     stopTracks();
-    current = null;
+    current = null; currentQuiet = false;
     $('panel').classList.remove('show');
     document.body.classList.remove('has-window');
     if (location.hash && location.hash !== '#tune') { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
@@ -805,7 +1528,7 @@ window.SITE = {
   window.addEventListener('hashchange', route);
   function route() {
     var h = location.hash.slice(1);
-    if (VIEWS[h]) openWin(h); else if (current) closeWin();
+    if (VIEWS[h] || (h.indexOf('w/') === 0 && workView(h.slice(2)))) openWin(h); else if (current) closeWin();
   }
 
   /* listening room players */
@@ -916,8 +1639,8 @@ window.SITE = {
   /* ---------- Tide: generative Csound ---------- */
   var CSD = $('csd').textContent.trim();
   var cs = null, muted = false, VOL = 0.8;
-  /* Tide plays everywhere except the Listening Room or while a track is playing */
-  function quiet() { return current === 'listening-room' || (typeof player !== 'undefined' && player && !player.paused); }
+  /* Tide plays everywhere except the Listening Room, work pages with video/audio, or while a track plays */
+  function quiet() { return current === 'listening-room' || currentQuiet || (typeof player !== 'undefined' && player && !player.paused); }
   function applyVol() { if (cs) { try { cs.setControlChannel('vol', (muted || quiet()) ? 0 : VOL); } catch (e) {} } }
   function seen() { try { return sessionStorage.getItem('tideSeen') === '1'; } catch (e) { return false; } }
   function markSeen() { try { sessionStorage.setItem('tideSeen', '1'); } catch (e) {} }
