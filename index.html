@@ -89,7 +89,7 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 .lr-link{display:inline-block;margin:2px 0 14px;padding:4px 12px;border-radius:999px;text-decoration:none;
   border:1px solid rgba(0,0,0,.6);background:rgba(0,0,0,.06)}
 .lr-link:hover{background:rgba(255,206,110,.35);border-color:rgba(160,110,20,.7)}
-.track-row{display:grid;grid-template-columns:2.2em minmax(0,1fr) minmax(190px,15em) 5.5em;gap:12px;align-items:center;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.75)}
+.track-row{display:grid;grid-template-columns:2.2em minmax(0,1fr) minmax(190px,15em) minmax(9em,1.25fr);gap:12px;align-items:center;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.75)}
 .play{border:1px solid rgba(0,0,0,.6);border-radius:999px;background:rgba(0,0,0,.06);padding:3px 10px;cursor:pointer;font-size:11px}
 .play:hover{background:rgba(255,206,110,.35)}
 .play[disabled]{opacity:.35;cursor:default}
@@ -105,6 +105,7 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 .pl .bar::after{content:'';position:absolute;inset:-8px 0}
 .pl .t{flex:none;font-size:11px;font-variant-numeric:tabular-nums;opacity:.8;min-width:5.6em;text-align:right}
 .pl.bad{opacity:.4}
+.track-row > div:last-child{font-size:11.5px;line-height:1.35;opacity:.85}
 .about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:18px}
 .about img{width:100%;border-radius:4px;display:block}
 .about.nophoto{grid-template-columns:1fr}
@@ -451,18 +452,18 @@ window.SITE = {
     ['Farmers of America', 'Rescore', '2025', 'Composer']
   ],
 
-  /* Listening Room: title, year, file in media/audio/ */
+  /* Listening Room: title, style, file in media/audio/, length in seconds */
   tracks: [
-    ['Before Rain', '2026', 'media/audio/before-rain.mp3', 331],
-    ['Beyond The Glass-Flowing Sun', '2024', 'media/audio/beyond-the-glass-flowing-sun.mp3', 156],
-    ['DarkAsia_Memory', '2026', 'media/audio/darkasia-memory.mp3', 257],
-    ['DarkAsia_Omnious', '2026', 'media/audio/darkasia-omnious.mp3', 218],
-    ['In Between No Voice', '2025', 'media/audio/in-between-no-voice.mp3', 305],
-    ['Love, Tears and Choice-Confrontation', '2025', 'media/audio/love-tears-and-choice.mp3', 210],
-    ['Once Upon a Time in Boston', '2025–2026', 'media/audio/once-upon-a-time-in-boston.mp3', 204],
-    ['Project Prakash-Embarking', '2024', 'media/audio/project-prakash-embarking.mp3', 121],
-    ['Wind Across The Ocean Plane', '2026', 'media/audio/wind-across-the-ocean-plane.mp3', 163],
-    ['Dawn', '2025', 'media/audio/dawn.mp3', 320]
+    ['Before Rain', 'Acoustic · Youthful · Wistful', 'media/audio/before-rain.mp3', 329],
+    ['Dawn', 'String Quartet · Contemporary Classical', 'media/audio/dawn.mp3', 316],
+    ['Embarking', 'Epic · Orchestral', 'media/audio/embarking.mp3', 121],
+    ['Family', 'Asian-influenced Electronic · Dark Ambient · Vocal', 'media/audio/family.mp3', 218],
+    ['Flowing Sun', 'Ambient Electronics · Cinematic', 'media/audio/flowing-sun.mp3', 153],
+    ['In the Threshold', 'Electroacoustic · Experimental', 'media/audio/in-the-threshold.mp3', 305],
+    ['Memory of our Bonds', 'Asian-influenced Electronic · Dark Ambient · Hybrid Score', 'media/audio/memory-of-our-bonds.mp3', 257],
+    ['Once Upon a Time In Boston', 'Orchestral · Acoustic · Film Score', 'media/audio/once-upon-a-time-in-boston.mp3', 204],
+    ['Truth or Dare', 'Hybrid Score · Tension / Thriller · Jazz', 'media/audio/truth-or-dare.mp3', 210],
+    ['Wind Across the Ocean Plane', 'Ambient Acoustics · Melancholy · Witty', 'media/audio/wind-across-the-ocean-plane.mp3', 163]
   ],
 
   contact: {
@@ -582,8 +583,8 @@ window.SITE = {
              '<div class="sub">Rescore</div>' + rows(S.filmRescore) +
              '<div class="sub">Sound Design & Post</div>' + rows(S.filmPost);
     } },
-    'listening-room': { title: 'Listening Room', html: function () {
-      return '<div class="track-row" style="opacity:.6"><div>#</div><div>Name</div><div>Player</div><div>Year</div></div>' +
+    'listening-room': { title: 'Listening Room', wide: true, html: function () {
+      return '<div class="track-row" style="opacity:.6"><div>#</div><div>Name</div><div>Player</div><div>Style</div></div>' +
         S.tracks.map(function (t, i) {
           var n = (i + 1 < 10 ? '0' : '') + (i + 1);
           return '<div class="track-row"><div>' + n + '</div><div>' + esc(t[0]) + '</div>' +
