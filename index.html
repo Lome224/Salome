@@ -584,7 +584,8 @@ window.SITE = {
              '<div class="sub">Sound Design & Post</div>' + rows(S.filmPost);
     } },
     'listening-room': { title: 'Listening Room', wide: true, html: function () {
-      return '<div class="track-row" style="opacity:.6"><div>#</div><div>Name</div><div>Player</div><div>Style</div></div>' +
+      return '<a class="lr-link" href="#scoring-post">← Scoring & Post</a>' +
+             '<div class="track-row" style="opacity:.6"><div>#</div><div>Name</div><div>Player</div><div>Style</div></div>' +
         S.tracks.map(function (t, i) {
           var n = (i + 1 < 10 ? '0' : '') + (i + 1);
           return '<div class="track-row"><div>' + n + '</div><div>' + esc(t[0]) + '</div>' +
