@@ -407,9 +407,9 @@ window.SITE = {
   research: [
     ['Music Cognition / Creative Intent', 'Research Proposal', '2025', 'Researcher'],
     ['Project Prakash', 'Interactive VR', '2024', 'Spatial Audio Designer · Composer'],
-    ['CLOUD', 'Electronic Instrument', '2025', 'Creative Technologist'],
-    ['Csound Plugin 01', 'Audio Plugin', '2024', 'Creative Technologist'],
-    ['Csound Plugin 02', 'Audio Plugin', '2024', 'Creative Technologist'],
+    ['CLOUD', 'Electronic Instrument', '2025', 'Developer'],
+    ['Csound Plugin 01', 'Audio Plugin', '2024', 'Developer'],
+    ['Csound Plugin 02', 'Audio Plugin', '2024', 'Developer'],
     ['Machine Learning for Musicians', 'Machine Learning Study', '2025', 'Researcher · Developer']
   ],
 
@@ -615,6 +615,9 @@ window.SITE = {
     applyVol();
   }
   $('close').addEventListener('click', closeWin);
+  document.addEventListener('click', function (e) {
+    if (current && !e.target.closest('#panel, #icons, #banner, .controls, #codepanel, #tune, #enter')) closeWin();
+  });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeWin(); });
   window.addEventListener('hashchange', route);
   function route() {
