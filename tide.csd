@@ -29,6 +29,7 @@ instr 1
   kTime timeinsts
   kNextDrop init 0.2
   kNextPad init 0
+  kNextSh init 3
   kSlow oscili 0.5, 1/97
   kSlow = kSlow + 0.5
   if kTime >= kNextDrop then
@@ -56,6 +57,13 @@ instr 1
     kgp random 24, 36
     kNextPad = kTime + kgp
   endif
+  ; shimmer: a sparkling source that circles the head
+  if kTime >= kNextSh then
+    ksd random 14, 22
+    event "i", 5, 0, ksd
+    ksg random 25, 45
+    kNextSh = kTime + ksg
+  endif
 endin
 
 ; ---------- droplet: bubble chirp + inharmonic porcelain partials ----------
@@ -74,8 +82,19 @@ instr 2
   ; binaural placement: anywhere around the head, a little above ear level,
   ; drifting downward as it rings, like a drop falling past you
   iaz random 0, 360
-  iel random -5, 45
-  kel line iel, p3, iel - 22
+  iel random -5, 50
+  kel line iel, p3, iel - 30
+  ; each drop also travels 50-130 degrees around you while it rings
+  itrav random 50, 130
+  itd random 0, 1
+  itrav = (itd > 0.5 ? itrav : -itrav)
+  kaz line iaz, p3, iaz + itrav
+  kaz wrap kaz, 0, 360
+  ; distance: near drops are louder and dry, far drops quieter and wetter
+  inear random 0, 1
+  igain = 0.55 + 1.1*inear
+  idry = 0.35 + 0.9*inear
+  iwet = 0.95 - 0.7*inear
   kf expseg ifreq*0.62, 0.035, ifreq, p3-0.035, ifreq*1.015
   aenv expseg 0.0001, 0.004, 1, p3-0.004, 0.0001
   aen2 expseg 0.0001, 0.003, 1, p3*0.35, 0.0001, p3*0.65, 0.0001
@@ -83,21 +102,30 @@ instr 2
   a2 poscil aen2*0.2, kf*2.756
   a3 poscil aen2*0.08, kf*5.404
   asig = (a1 + a2 + a3) * iamp
-  ; high cut on the droplets only
-  kcut chnget "cut"
-  kcut = (kcut < 200 ? 3750 : kcut)
-  asig butlp asig, kcut
-  asig butlp asig, kcut
   kbin chnget "bin"
   kbin port kbin, 0.3
+  ; high cut: soft (3.75 kHz) in stereo; opened up in 3D, because the
+  ; ear's direction cues (above / behind / in front) live above 4 kHz
+  kcut chnget "cut"
+  kcut = (kcut < 200 ? 3750 : kcut)
+  kcut = kcut + (11000 - kcut)*kbin
+  asig butlp asig, kcut
+  asig butlp asig, kcut
+  ; a tiny bright tick at the start of each drop gives the ear an exact position
+  atk expseg 1, 0.006, 0.0001, p3-0.006, 0.0001
+  an noise 1, 0
+  an buthp an, 2500
+  asig = asig + an*atk*iamp*0.5*kbin
   aSL, aSR pan2 asig, ipan
-  aBL, aBR hrtfmove2 asig, iaz, kel, gSHL, gSHR, 4, 9, sr
-  aL = aSL*(1-kbin) + aBL*kbin*1.25
-  aR = aSR*(1-kbin) + aBR*kbin*1.25
-  gaDryL = gaDryL + aL*0.3
-  gaDryR = gaDryR + aR*0.3
-  gaRevL = gaRevL + aL*0.85
-  gaRevR = gaRevR + aR*0.85
+  aBL, aBR hrtfmove2 asig*igain, kaz, kel, gSHL, gSHR, 4, 9, sr
+  aL = aSL*(1-kbin) + aBL*kbin*1.4
+  aR = aSR*(1-kbin) + aBR*kbin*1.4
+  kdry = 0.3 + (idry - 0.3)*kbin
+  kwet = 0.85 + (iwet - 0.85)*kbin
+  gaDryL = gaDryL + aL*kdry
+  gaDryR = gaDryR + aR*kdry
+  gaRevL = gaRevL + aL*kwet
+  gaRevR = gaRevR + aR*kwet
 endin
 
 ; ---------- water: band-passed noise breathing like waves ----------
@@ -122,10 +150,13 @@ instr 3
   kwpan = 0.5 + kwp
   aL = aL * sqrt(2*(1-kwpan))
   aR = aR * sqrt(2*kwpan)
-  gaDryL = gaDryL + aL*0.55
-  gaDryR = gaDryR + aR*0.55
-  gaRevL = gaRevL + aL*0.35
-  gaRevR = gaRevR + aR*0.35
+  kbw chnget "bin"
+  kbw port kbw, 0.3
+  kwg = 1 - 0.4*kbw
+  gaDryL = gaDryL + aL*0.55*kwg
+  gaDryR = gaDryR + aR*0.55*kwg
+  gaRevL = gaRevL + aL*0.35*kwg
+  gaRevR = gaRevR + aR*0.35*kwg
 endin
 
 ; ---------- tide: slow sine chord tones that swell and fade ----------
@@ -139,7 +170,7 @@ instr 4
   kpan line ipanA, p3, ipanB
   ; binaural: each tone travels 60-140 degrees around the head over its life
   iaz0 random 0, 360
-  isweep random 60, 140
+  isweep random 150, 300
   idir random 0, 1
   isweep = (idir > 0.5 ? isweep : -isweep)
   kaz line iaz0, p3, iaz0 + isweep
@@ -154,9 +185,13 @@ instr 4
   a2 poscil 0.7, ifreq*1.004
   a3 poscil 0.25, ifreq*2.003
   a4 poscil 0.08, ifreq*3.01
-  asig = (a1 + a2 + (a3 + a4)*(0.6 + ktone)) * aenv * 0.04
   kbin chnget "bin"
   kbin port kbin, 0.3
+  ; airy upper shimmer (only in 3D): gives the ear something above 2 kHz to track
+  aair noise 1, 0
+  aair butbp aair, ifreq*8, ifreq*1.5
+  aair = aair * (0.5 + 0.5*ktone) * 0.35 * kbin
+  asig = (a1 + a2 + (a3 + a4)*(0.6 + ktone) + aair) * aenv * 0.04
   aSL, aSR pan2 asig, kpan
   aBL, aBR hrtfmove2 asig, kaz, iel, gSHL, gSHR, 4, 9, sr
   aL = aSL*(1-kbin) + aBL*kbin*1.25
@@ -167,14 +202,55 @@ instr 4
   gaRevR = gaRevR + aR*0.5
 endin
 
+; ---------- shimmer: sparkles circling the head ----------
+instr 5
+  ; one or two full turns around the listener, rising and dipping
+  iaz random 0, 360
+  iturns random 1, 2
+  idir random 0, 1
+  iturns = (idir > 0.5 ? iturns : -iturns)
+  kaz line iaz, p3, iaz + 360*iturns
+  kaz wrap kaz, 0, 360
+  kel oscili 25, 1/7.3
+  kel = kel + 15
+  aenv linseg 0, p3*0.25, 1, p3*0.5, 1, p3*0.25, 0
+  ; sparse bright grains, tuned to the scale
+  irnd random 0, 7.99
+  isemi table int(irnd), giScale
+  ifreq = cpsmidinn(86 + isemi)
+  kdens randomi 9, 22, 0.5
+  agr dust2 1, kdens
+  ar1 reson agr, ifreq, ifreq*0.02, 1
+  ar2 reson agr, ifreq*2.01, ifreq*0.03, 1
+  ahi buthp agr, 5000
+  asig = (ar1*0.6 + ar2*0.3 + ahi*0.25) * aenv * 0.35
+  kbin chnget "bin"
+  kbin port kbin, 0.3
+  ; stereo: follow the same circle with a simple pan
+  kpan = 0.5 + 0.45*sin(kaz*$M_PI/180)
+  aSL, aSR pan2 asig*0.6, kpan
+  aBL, aBR hrtfmove2 asig, kaz, kel, gSHL, gSHR, 4, 9, sr
+  aL = aSL*(1-kbin) + aBL*kbin*1.4
+  aR = aSR*(1-kbin) + aBR*kbin*1.4
+  gaDryL = gaDryL + aL*0.7
+  gaDryR = gaDryR + aR*0.7
+  gaRevL = gaRevL + aL*0.25
+  gaRevR = gaRevR + aR*0.25
+endin
+
 ; ---------- master: reverb, volume, fade-in, soft limit ----------
 instr 99
   kvol chnget "vol"
   kvol port kvol, 0.25
   kfade linseg 0, 1.5, 1
-  aRL, aRR reverbsc gaRevL, gaRevR, 0.9, 7000
-  aL = (gaDryL + aRL*0.9) * kvol * kfade
-  aR = (gaDryR + aRR*0.9) * kvol * kfade
+  kbm chnget "bin"
+  kbm port kbm, 0.3
+  aRL, aRR reverbsc gaRevL, gaRevR, 0.9 - 0.08*kbm, 7000 + 4000*kbm
+  krv = 0.9 - 0.3*kbm
+  ; loudness match: the binaural mix measures quieter, so lift it to stereo level
+  kmk = 1 + 1.3*kbm
+  aL = (gaDryL + aRL*krv) * kvol * kfade * kmk
+  aR = (gaDryR + aRR*krv) * kvol * kfade * kmk
   aL = tanh(aL)
   aR = tanh(aR)
   krms rms aL + aR
