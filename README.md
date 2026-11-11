@@ -8,7 +8,7 @@ Live at **https://salomezhang.com** (hosted with GitHub Pages).
 
 The site is a single static page styled as a black-and-white Frutiger Aero desktop: glass folders for Art, Research, Film Music, About, CV and Contact, a draggable `readme.txt` statement, and a looping video backdrop.
 
-Pressing **ENTER** starts *Tide*, a generative Csound piece that runs live in the browser (via [@csound/browser](https://www.npmjs.com/package/@csound/browser)). It is **binaural**: droplets and chord tones are placed around the listener's head with Csound's HRTF opcodes (`hrtfmove2`, using Csound's measured HRTF data in `media/hrtf/`, matched to the browser's sample rate). The **3D** button switches between binaural (for headphones) and plain stereo (for speakers). Tide keeps playing in every window and fades out only in the Listening Room or while a track plays.
+Pressing **ENTER** starts *Tide*, a generative Csound piece that runs live in the browser (via [@csound/browser](https://www.npmjs.com/package/@csound/browser)). It is **binaural**: droplets and chord tones are placed around the listener's head with Csound's HRTF opcodes (`hrtfmove2`, using Csound's measured HRTF data in `media/hrtf/`, matched to the browser's sample rate). Sounds sit in a virtual binaural room: four `hrtfearly` room models give each sound wall, floor and ceiling reflections from its own side, and `hrtfreverb` adds a binaural late tail. The **3D** button switches between binaural (for headphones) and plain stereo (for speakers). Tide keeps playing in every window and fades out only in the Listening Room or while a track plays.
 
 The **Listening Room** plays ten tracks with seekable players.
 
