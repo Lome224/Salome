@@ -779,7 +779,28 @@ window.SITE = {
      }
     ],
     "links": [],
-    "imageWithVideo": true
+    "doc": {
+     "sub": "Technical documentation",
+     "linkLabel": "Technical documentation",
+     "sections": [
+      {
+       "title": "Visual elements",
+       "html": "<figure><a href=\"media/works/P07_the-whispering-room__visual-elements-full.jpg\" target=\"_blank\" rel=\"noopener\" title=\"Open full size\"><img src=\"media/works/P07_the-whispering-room__visual-elements.jpg\" alt=\"Visual elements in Whispering Space · audio-visual interaction in TouchDesigner\" loading=\"lazy\"></a><figcaption>Visual elements in Whispering Space: audio-visual interaction in TouchDesigner. Click to enlarge.</figcaption></figure>"
+      },
+      {
+       "title": "Gestural control: TouchDesigner to Max/MSP",
+       "html": "<p>Salome also built a TouchDesigner patch that sends gestural control to Max/MSP. It was never used in the piece. The hope was to develop it further toward actual dance movement, as in the concept video, but that never happened.</p>"
+      },
+      {
+       "title": "Later music version: Perpetuum, Interrupted",
+       "html": "<div class=\"wa\" style=\"margin-top:0\"><div class=\"track-row\"><div>Perpetuum Interrupted · later music version</div><div class=\"pl\" data-src=\"media/works/P07_the-whispering-room__whispering-room.mp3\" data-d=\"458\"><button class=\"pb\" type=\"button\" aria-label=\"Play\">▶</button><div class=\"bar\"><i></i></div><span class=\"t\">0:00 / 7:38</span></div></div></div>"
+      },
+      {
+       "title": "System & composition documentation",
+       "html": "<div class=\"pdf\"><iframe src=\"media/works/P07_the-whispering-room__documentation.pdf#view=FitH&navpanes=0\" title=\"System and composition documentation\" loading=\"lazy\"></iframe></div><a class=\"lr-link\" href=\"media/works/P07_the-whispering-room__documentation.pdf\" target=\"_blank\" rel=\"noopener\">Open full document ↗</a>"
+      }
+     ]
+    }
    },
    "dawn": {
     "title": "Dawn",
@@ -1907,7 +1928,8 @@ window.SITE = {
       });
       var f = [['Year', w.year], ['Role', w.role], ['Details', w.note]].filter(function (x) { return x[1]; });
       if (f.length) h += '<dl class="facts">' + f.map(function (x) { return '<dt>' + x[0] + '</dt><dd>' + esc(x[1]) + '</dd>'; }).join('') + '</dl>';
-      var L = (w.docs || []).concat(w.links || []);
+      var used = (d.sections || []).map(function (x) { return x.html; }).join(' ');
+      var L = (w.docs || []).concat(w.links || []).filter(function (x) { return used.indexOf(x.href) < 0; });
       if (L.length) h += '<div class="wd">' + L.map(function (x) {
         return '<a class="lr-link" href="' + esc(x.href) + '" target="_blank" rel="noopener"' + (x.download ? ' download' : '') + '>' + esc(x.label) + ' ↗</a>';
       }).join('') + '</div>';
@@ -1941,7 +1963,7 @@ window.SITE = {
       if (w.image && !hasVid) h += fig(w.image);
       (w.desc || []).forEach(function (p) { h += '<p>' + esc(p) + '</p>'; });
       /* works with a documentation page (fourth layer) keep this page to the video and description */
-      if (w.doc) return h + '<a class="lr-link doclink" href="#w/' + k + '/documentation">Process &amp; technical documentation →</a></div>';
+      if (w.doc) return h + '<a class="lr-link doclink" href="#w/' + k + '/documentation">' + esc(w.doc.linkLabel || 'Process & technical documentation') + ' →</a></div>';
       if (w.image && hasVid && w.imageWithVideo) h += fig(w.image, 'side');
       /* longer write-ups (trusted HTML written for the site) */
       (w.sections || []).forEach(function (sec) {
