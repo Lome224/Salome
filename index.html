@@ -114,6 +114,24 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
   box-shadow:inset 0 0 0 1px rgba(0,0,0,.55),0 6px 18px rgba(0,0,0,.18)}
 .work .pdf iframe{width:100%;height:100%;border:0;display:block}
 .work .pdfcap{margin:12px 0 2px;font-size:12.5px;opacity:.75}
+/* write-up sections */
+.work .sec2{margin:22px 0 8px;padding-top:12px;border-top:1px solid rgba(0,0,0,.75)}
+.work .sec2 h3{margin:0 0 8px;font-size:14px;letter-spacing:.04em}
+.work .sec2 h4{margin:16px 0 6px;font-size:12.5px;letter-spacing:.06em;opacity:.75;text-transform:uppercase}
+.work .sec2 ul{margin:6px 0;padding-left:18px}.work .sec2 li{margin:3px 0}
+.work .sec2 code{font-size:11.5px;padding:0 4px;border-radius:4px;background:rgba(255,255,255,.55);border:1px solid rgba(0,0,0,.15)}
+.work .credits{display:grid;grid-template-columns:max-content 1fr;gap:4px 14px;font-size:12.5px;margin:8px 0}
+.work .credits dt{opacity:.6}.work .credits dd{margin:0}
+.work .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:10px 0 6px}
+.work .flow .n{flex:1 1 120px;min-width:110px;padding:8px 10px;border-radius:10px;border:1px solid rgba(0,0,0,.45);
+  background:linear-gradient(rgba(255,255,255,.7),rgba(0,0,0,.05));box-shadow:inset 0 1px 0 rgba(255,255,255,.85);font-size:11.5px;line-height:1.35}
+.work .flow .n b{display:block;font-size:12px;margin-bottom:2px}
+.work .flow .n.me{border-color:rgba(160,110,20,.7);background:linear-gradient(rgba(255,236,190,.65),rgba(255,206,110,.2))}
+.work .flow .a{align-self:center;opacity:.55;font-size:14px}
+.work table.map{width:100%;border-collapse:collapse;font-size:12px;margin:6px 0}
+.work table.map td,.work table.map th{padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.25);text-align:left;vertical-align:top}
+.work table.map th{font-weight:500;opacity:.65}
+@media (max-width:600px){.work .flow .a{transform:rotate(90deg);flex-basis:100%;text-align:center}}
 .lr-link{display:inline-block;margin:2px 0 14px;padding:4px 12px;border-radius:999px;text-decoration:none;
   border:1px solid rgba(0,0,0,.6);background:rgba(0,0,0,.06)}
 .lr-link:hover{background:rgba(255,206,110,.35);border-color:rgba(160,110,20,.7)}
@@ -811,7 +829,38 @@ window.SITE = {
     },
     "audio": [],
     "docs": [],
-    "links": []
+    "links": [
+     {
+      "label": "Download the sound system (Max patches + Arduino sketch)",
+      "href": "media/works/P06_connecting-lines__sound-system.zip"
+     },
+     {
+      "label": "Arduino sketch (.ino)",
+      "href": "media/works/P06_connecting-lines__handle-sensors.ino"
+     }
+    ],
+    "sections": [
+     {
+      "title": "Credits",
+      "html": "<dl class=\"credits\">\n<dt>Concept, video, structure</dt><dd>Mariana</dd>\n<dt>Projections, sensor setup</dt><dd>Miaowen (Moen) Liu</dd>\n<dt>Sound design, Max/MSP</dt><dd>Salome Yichi Zhang</dd>\n<dt>Field recordings</dt><dd>Malachi Del Rosario</dd>\n<dt>Structure &amp; fabrics</dt><dd>MassArt metal workshop and Fashion Design department, Mehvish Ali</dd>\n</dl>"
+     },
+     {
+      "title": "How it works",
+      "html": "<p>Visitors step behind a semi-translucent curtain into a small space framed like a train car. Holding one of the train handles changes the projections and the sound. Each handle is a capacitive touch sensor, so the gesture needs no instructions: people reach for the handles out of habit.</p>\n<div class=\"flow\" role=\"img\" aria-label=\"Signal flow: train handles to Circuit Playground to TouchDesigner to Max/MSP to speakers\">\n <div class=\"n\"><b>Train handles</b>4 capacitive touch pads</div><div class=\"a\">→</div>\n <div class=\"n\"><b>Circuit Playground</b>Arduino; reads all 4 pads every 100 ms, sends them over serial at 9600 baud</div><div class=\"a\">→</div>\n <div class=\"n\"><b>TouchDesigner</b>drives the side projections and forwards the values as OSC</div><div class=\"a\">→</div>\n <div class=\"n me\"><b>Max/MSP</b>OSC on UDP port 8000; values scaled from 1–200 and smoothed</div><div class=\"a\">→</div>\n <div class=\"n\"><b>Speakers</b>stereo soundscape inside the curtain</div>\n</div><h4>What each handle controls</h4><table class=\"map\"><tr><th>Handle</th><th>Controls</th><th>What you hear</th></tr>\n<tr><td>T1</td><td>Ambient melody</td><td>Brings the harmony in, or lets it rest. A chord generator picks notes from a scale table across three octaves, stepping every 125 ms, and plays them on six multichannel synth voices.</td></tr>\n<tr><td>T2</td><td>Drum</td><td>Shapes the rhythm and intensity of a looping kick, which runs through a chain of six phaser stages (phase-inverting feedback delays and state-variable filters swept by an LFO), with depth, feedback and resonance controls.</td></tr>\n<tr><td>T3 / T4</td><td>Foley wheel</td><td>The X and Y position on a four-point wheel that crossfades between field-recording beds of waterside, birds, lake and wind. Entering the first zone also triggers a recording of a passing train.</td></tr>\n</table><h4>Sound layers</h4><ul>\n<li><b>Ambient melody</b>: slow, meditative harmony that answers the first handle.</li>\n<li><b>Drum</b>: the train's mechanical pulse, softened into a filtered, phasing rhythm.</li>\n<li><b>Field recordings</b>: Boston station sounds and natural ambiences, blended so the train and the landscape blur together.</li>\n</ul>"
+     },
+     {
+      "title": "From Boston to New York",
+      "html": "<p>The piece was first shown at CyberArts Gallery, inside a Boston train station, in spring 2025, then rebuilt for THE BLANC in New York (opening November 8, 2025). For New York the sound system was reworked:</p>\n<ul>\n<li><b>Simpler OSC addressing.</b> Messages moved from <code>/T1 /T2 /movX /movY</code> to <code>/chan1–3</code>, with each sensor's raw 1–200 range scaled directly to the control it drives.</li>\n<li><b>A soundscape that never sits still.</b> A randomizer keeps the field-recording wheel drifting when nobody is holding a handle, and every control now initializes on load, so the room sounds alive from the moment the patch opens.</li>\n<li><b>Tuned smoothing.</b> Each sensor passes through a one-pole low-pass smoother (coefficient 0.98: higher is slower). Removing it made the sound jump constantly, with no resting mood. Keeping it lets changes swell and settle.</li>\n<li><b>Self-recovering sensors.</b> The Arduino sketch gained a 60-second reset marker, so the system can recalibrate after the capacitive pads drift.</li>\n</ul>"
+     },
+     {
+      "title": "Problems and fixes",
+      "html": "<ul>\n<li><b>Sensor drift.</b> The capacitive pads sometimes stopped responding during long gallery days. The New York version addresses this with a periodic reset in the Arduino sketch and with smoothing on the Max side.</li>\n<li><b>One computer, two heavy programs.</b> TouchDesigner and Max/MSP competed for resources on the same machine, and passing sensor data from Arduino to both programs added delay. For New York the sensor values reach Max as OSC on a single port, which keeps the sound side independent of the visuals.</li>\n<li><b>Change you can hear.</b> Early tests were too subtle, so the melody and drum layers were reworked to respond more audibly when a handle is held.</li>\n</ul>"
+     },
+     {
+      "title": "The Max/MSP patch",
+      "html": "<figure><a href=\"media/works/P06_connecting-lines__max-patch-full.jpg\" target=\"_blank\" rel=\"noopener\" title=\"Open full size\"><img src=\"media/works/P06_connecting-lines__max-patch.jpg\" alt=\"Max/MSP patch: ambient melody, drum, field-recording wheel and OSC receiver\" loading=\"lazy\"></a><figcaption>Max/MSP patch (New York version): ambient melody (left), drum (top right), field-recording wheel (bottom), OSC receiver (right). Click to enlarge.</figcaption></figure>"
+     }
+    ]
    },
    "blue": {
     "title": "Blue",
@@ -1770,6 +1819,8 @@ window.SITE = {
       if (w.image && !hasVid) h += fig(w.image);
       (w.desc || []).forEach(function (p) { h += '<p>' + esc(p) + '</p>'; });
       if (w.image && hasVid && w.imageWithVideo) h += fig(w.image, 'side');
+      /* longer write-ups (trusted HTML written for the site) */
+      (w.sections || []).forEach(function (sec) { h += '<div class="sec2"><h3>' + esc(sec.title) + '</h3>' + sec.html + '</div>'; });
       if (w.image2) h += fig(w.image2);
       var f = [['Year', w.year], ['Role', w.role], ['Details', w.note]].filter(function (x) { return x[1]; });
       if (f.length) h += '<dl class="facts">' + f.map(function (x) { return '<dt>' + x[0] + '</dt><dd>' + esc(x[1]) + '</dd>'; }).join('') + '</dl>';
