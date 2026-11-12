@@ -147,6 +147,9 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 .work figure.svgfig figcaption{margin-top:4px}
 .work table.map{width:100%;border-collapse:collapse;font-size:12px;margin:6px 0}
 .work table.map td,.work table.map th{padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.25);text-align:left;vertical-align:top}
+.work.plain .sec2{border-top:0;padding-top:0;margin-top:32px}
+.work.plain table.map td{border-bottom:0}
+.work.plain .facts{border:0;padding:0}
 .work table.map th{font-weight:500;opacity:.65}
 @media (max-width:600px){.work .flow .a{transform:rotate(90deg);flex-basis:100%;text-align:center}
   .work figure.svgfig{overflow-x:auto;-webkit-overflow-scrolling:touch}.work figure.svgfig svg{min-width:620px}}
@@ -803,7 +806,8 @@ window.SITE = {
        "title": "Credits",
        "html": "<dl class=\"credits\"><dt>Amber Yang</dt><dd>Concept, choreography, TouchDesigner visuals, projection, concept video</dd><dt>Salome Yichi Zhang</dt><dd>Sound (Max/MSP), gesture control (TouchDesigner)</dd><dt>Ling Ran Zhang</dt><dd>Performer</dd></dl>"
       }
-     ]
+     ],
+     "plain": true
     }
    },
    "dawn": {
@@ -1924,7 +1928,7 @@ window.SITE = {
     var w = S.works && S.works[k], d = w && w.doc;
     if (!d) return null;
     return { title: w.title + ' · Documentation', wide: true, quiet: false, html: function () {
-      var h = '<a class="lr-link" href="#w/' + k + '">← ' + esc(w.title) + '</a><div class="work">';
+      var h = '<a class="lr-link" href="#w/' + k + '">← ' + esc(w.title) + '</a><div class="work' + (d.plain ? ' plain' : '') + '">';
       h += '<h2>' + esc(w.title) + '</h2><p class="meta">' + esc(d.sub || 'Documentation') + '</p>';
       if (d.lead) h += '<p class="lead">' + esc(d.lead) + '</p>';
       (d.sections || []).forEach(function (sec) {
