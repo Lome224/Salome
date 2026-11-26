@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-tide-embed>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -190,10 +190,77 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 /* bottom controls */
 .controls{position:fixed;left:16px;bottom:16px;z-index:30;display:flex;gap:8px}
 .controls button{padding:5px 12px;font-size:11px;letter-spacing:.12em;cursor:pointer}
-#codepanel{position:fixed;left:16px;bottom:56px;z-index:30;display:none;width:min(560px, calc(100vw - 32px));
-  max-height:min(62vh,560px);overflow:auto;margin:0;padding:12px 14px;font-size:10.5px;line-height:1.5;color:#111;
-  white-space:pre;border-radius:8px}
-#codepanel .c{color:#8a8a8a}
+/* Tide on the home page: a bar of glass controls, and its controller above it */
+#tide{flex-direction:column;align-items:flex-start;gap:8px;right:16px;pointer-events:none}
+#tide > *{pointer-events:auto}
+.tide-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tide-bar button,.tide-bar a,.tide-bar label{padding:5px 12px;font-size:11px;letter-spacing:.12em;cursor:pointer;text-decoration:none}
+.tide-bar label{display:flex;align-items:center;gap:8px;cursor:default}
+.tide-bar input[type=range]{width:96px;accent-color:#d8d8d8;cursor:pointer}
+.tide-bar output{opacity:.7;min-width:2.6em}
+/* the presets open upward from one button */
+.tide-menu{position:relative;display:inline-flex}
+#presets{position:absolute;left:0;bottom:calc(100% + 8px);display:flex;flex-direction:column;gap:6px;min-width:100%;
+  padding:8px;border-radius:12px;border:1px solid var(--glass-edge);background:rgba(0,0,0,.82);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 12px 34px rgba(0,0,0,.7)}
+#presets[hidden]{display:none}
+#presets button{text-align:left;white-space:nowrap}
+#controller .readmore{align-self:flex-start;color:#e8e8e8;font-size:11px;letter-spacing:.1em;text-decoration:none;
+  border:1px solid #333;border-radius:999px;padding:6px 14px;transition:border-color .2s,color .2s,box-shadow .2s}
+#controller .readmore:hover,#controller .readmore:focus-visible{border-color:#ffd98a;color:#fff6dc;outline:none;box-shadow:0 0 14px rgba(255,200,90,.25)}
+#presets button{background:var(--glass);border:1px solid var(--glass-edge);border-radius:10px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.9);transition:background .25s, border-color .25s, box-shadow .25s, color .25s}
+#presets button:hover,#presets button:focus-visible,#presets button[aria-pressed="true"],#bin[aria-pressed="true"]{
+  background:var(--glow);border-color:var(--glow-edge);color:#fff6dc;outline:none;
+  box-shadow:inset 0 1px 0 rgba(255,244,210,.55), 0 0 18px rgba(255,200,90,.32)}
+.tide-now{font-size:11px;letter-spacing:.04em;text-shadow:0 1px 2px #000;opacity:.85;min-height:1.4em}
+.tide-now b{font-weight:500}
+.tide-now .meter{display:inline-block;width:70px;height:2px;margin:0 8px 3px 0;background:rgba(255,255,255,.2);border-radius:2px;overflow:hidden;vertical-align:middle}
+.tide-now .meter i{display:block;height:100%;width:0;background:#fff;transition:width .1s}
+#controller{flex-direction:column;gap:14px;width:min(660px, calc(100vw - 32px));max-height:calc(100vh - 190px);overflow:auto;
+  padding:14px;border-radius:10px;border:1px solid var(--glass-edge);background:rgba(0,0,0,.84);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 12px 34px rgba(0,0,0,.7);font-size:12px;line-height:1.5}
+#controller .panel{border:1px solid #333;border-radius:10px;padding:12px 14px 10px}
+#controller h2{margin:0 0 8px;font-weight:400;font-size:11px;letter-spacing:.2em;color:#8a8a8a}
+#controller button,#controller select{font:inherit;letter-spacing:.1em;color:#e8e8e8;background:#111;border:1px solid #333;
+  border-radius:999px;padding:6px 14px;cursor:pointer;transition:border-color .2s,color .2s,box-shadow .2s}
+#controller button:hover,#controller button:focus-visible{border-color:#ffd98a;color:#fff6dc;outline:none;box-shadow:0 0 14px rgba(255,200,90,.25)}
+#controller button[aria-pressed="true"]{border-color:#bbb;background:#1c1c1c}
+#controller .grid{display:grid;grid-template-columns:6.4em minmax(0,1fr);gap:6px;align-items:end;margin-top:8px}
+#controller .lab{font-size:10px;letter-spacing:.14em;color:#8a8a8a;align-self:center;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+#controller .when{display:inline-block;white-space:nowrap;font-size:9px;letter-spacing:.04em;color:#000;background:#9a9a9a;border-radius:4px;padding:0 5px}
+#controller .when.later{background:#ffd98a}
+#controller h2 .when,#controller .hs .when{margin-left:6px}
+#controller .cols{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+#controller .vbtn{padding:6px 0;font-size:9.5px;letter-spacing:.02em;border-radius:8px;width:100%;overflow:hidden}
+#controller .vbtn .short{display:none}
+#controller .vbtn[aria-pressed="false"]{color:#666;border-color:#222;background:#080808}
+#controller .vbtn.run{box-shadow:inset 0 -3px 0 #ffd98a}
+#controller .ms{display:grid;grid-template-columns:repeat(var(--n,8),minmax(0,1fr));gap:6px;height:84px;touch-action:none;cursor:ns-resize;user-select:none}
+#controller .ms.short{height:64px}
+#controller .ms .b{position:relative;background:#0c0c0c;border:1px solid #222;border-radius:6px;overflow:hidden}
+#controller .ms .b:focus-visible{outline:1px solid #ffd98a}
+#controller .ms .b i{position:absolute;left:0;right:0;bottom:0;background:#cfcfcf;opacity:.85}
+#controller .ms .b.off i{background:#3a3a3a}
+#controller .ms .b.pend{border:1px dashed #ffd98a}
+#controller .ms .b.pend i{background:#ffd98a}
+#controller .ms .b span{position:absolute;left:0;right:0;top:3px;text-align:center;font-size:9px;color:#bbb;mix-blend-mode:difference}
+#controller .ms .b .ft{top:auto;bottom:3px}
+#controller .tabs,#controller .trow{display:flex;gap:6px 16px;flex-wrap:wrap;align-items:center;margin:0 0 8px}
+#controller .trow{margin:10px 0 0}
+#controller .tabs button{padding:4px 10px;font-size:10px;letter-spacing:.06em;border-radius:8px}
+#controller .tabs button[aria-pressed="true"]{background:#d6d6d6;color:#000;border-color:#d6d6d6}
+#controller .hs{display:flex;align-items:center;gap:8px;letter-spacing:.12em;font-size:11px}
+#controller .hs input{width:130px;accent-color:#d8d8d8;cursor:pointer}
+#controller .ends{font-size:10px;color:#8a8a8a;letter-spacing:.02em}
+#controller .hint{font-size:10.5px;color:#8a8a8a;margin:8px 0 0}
+#controller .pendmsg{font-size:10.5px;color:#ffd98a;margin:6px 0 0;min-height:1.4em}
+@media (max-width:600px){
+  #controller .grid{grid-template-columns:minmax(0,1fr)}
+  #controller .vbtn .long{display:none}#controller .vbtn .short{display:inline}
+  #controller .lab{flex-direction:row;align-items:center;gap:6px}
+}
 
 /* enter screen */
 #enter{position:fixed;inset:0;z-index:100;background:#000;display:flex;flex-direction:column;align-items:center;
@@ -246,12 +313,57 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
   <div class="body" id="panelBody"></div>
 </section>
 
-<div class="controls">
-  <button class="glass glowable" id="snd" type="button">SOUND OFF</button>
-  <button class="glass glowable" id="binBtn" type="button" title="Binaural 3D sound (HRTF). Best with headphones; switch off for speakers.">3D ON</button>
-  <button class="glass glowable" id="codeBtn" type="button">CODE</button>
+<!-- Tide: the generative piece that plays on this site. Its code lives at tide.salomezhang.com;
+     the controls below are wired up by the script loaded at the end of the page. -->
+<div class="controls" id="tide">
+  <div id="controller" hidden style="display:none">
+    <section class="panel" aria-label="Voices">
+      <h2>VOICES · EACH ON ITS OWN CYCLE</h2>
+      <div class="grid"><div class="lab">ON / OFF<span class="when">now</span></div><div class="cols" id="toggles"></div></div>
+      <div class="grid"><div class="lab">ACTIVITY<span class="when later">next phrase</span></div><div class="ms" id="msAct" style="--n:7" role="group" aria-label="Activity per voice"></div></div>
+      <div class="grid"><div class="lab">LEVEL<span class="when">now</span></div><div class="ms" id="msLvl" style="--n:7" role="group" aria-label="Level per voice"></div></div>
+      <p class="pendmsg" id="pendAct"></p>
+      <div class="trow">
+        <label class="hs" for="tonic">ROOT <select id="tonic"></select><span class="when later">next silence</span></label>
+        <label class="hs" for="mood">HARMONY <select id="mood"></select><span class="when later">next silence</span></label>
+      </div>
+      <div class="trow">
+        <label class="hs" for="drift" title="How much longer each voice's phrase is than the one before it">DRIFT
+          <span class="ends">together</span><input type="range" id="drift" min="0" max="1" step="0.01"><span class="ends">apart</span><span class="when later">next phrase</span></label>
+        <label class="hs" for="room" title="How much binaural room">ROOM
+          <span class="ends">dry</span><input type="range" id="room" min="0" max="1" step="0.01"><span class="ends">wet</span><span class="when">now</span></label>
+      </div>
+      <p class="hint">Drag across the bars. A voice's button is underlined while it plays a phrase. A changed
+        bar turns yellow until that voice's next phrase. Changing the root or harmony gathers the voices
+        into a shared silence (about 20 seconds), then the piece begins again in the new key.</p>
+    </section>
+    <section class="panel" aria-label="Rhythm">
+      <h2>RHYTHM · ONE PATTERN PER VOICE<span class="when later">next phrase</span></h2>
+      <div class="tabs" id="divTabs" role="group" aria-label="Voice for rhythm"></div>
+      <div class="ms short" id="msDiv" role="group" aria-label="Notes in each beat"></div>
+      <p class="pendmsg" id="pendDiv"></p>
+      <p class="hint" id="divHint"></p>
+    </section>
+    <section class="panel" aria-label="Breath">
+      <h2>BREATH · ONE PATTERN PER VOICE<span class="when later">next phrase</span></h2>
+      <div class="tabs" id="waitTabs" role="group" aria-label="Voice for breath"></div>
+      <div class="ms" id="msWait" role="group" aria-label="Rest after each phrase"></div>
+      <p class="pendmsg" id="pendWait"></p>
+      <p class="hint">Each bar is how long this voice rests after one of its phrases (about 1 to 9 seconds).
+        A full bar reads WAIT: the voice stays silent until counter, bass and chords are all waiting; then
+        the harmony changes and everyone begins again together.</p>
+    </section>
+    <a class="readmore" href="https://github.com/Lome224/Tide" target="_blank" rel="noopener">READ MORE · how Tide works, and its code, on GitHub</a>
+  </div>
+  <div class="tide-now"><span class="meter" aria-hidden="true"><i id="meter"></i></span><span id="status"></span> <span id="now"></span></div>
+  <div class="tide-bar">
+    <button class="glass glowable" id="play" type="button">PLAY</button>
+    <label class="glass" for="vol">VOLUME <input type="range" id="vol" min="0" max="1" step="0.01"><output id="volOut"></output></label>
+    <span class="tide-menu"><button class="glass glowable" id="presetBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="presets" title="Choose a sound">TIDE ▾</button><span id="presets" role="group" aria-label="Sound" hidden></span></span>
+    <button class="glass glowable" id="bin" type="button" aria-pressed="true" title="Binaural (HRTF) spatial audio: sounds move around your head. Headphones recommended; switch off for speakers."><span id="binTxt">BINAURAL ON</span></button>
+    <button class="glass glowable" id="ctlBtn" type="button" aria-expanded="false" aria-controls="controller">OPEN CONTROLLER</button>
+  </div>
 </div>
-<pre class="win" id="codepanel"></pre>
 
 <div id="enter">
   <button class="go glass glowable" id="go" type="button">ENTER</button>
@@ -272,328 +384,6 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
   <output id="tuneOut"></output>
 </div>
 
-<script type="text/plain" id="csd"><CsoundSynthesizer>
-<CsOptions>
--odac -d -m0
-</CsOptions>
-<CsInstruments>
-sr = 48000
-ksmps = 64
-nchnls = 2
-0dbfs = 1
-seed 0
-
-gaDryL init 0
-gaDryR init 0
-gaRevL init 0
-gaRevR init 0
-
-; ---------- binaural (HRTF) ----------
-; Measured head-related transfer functions (Csound's data set for the running
-; sample rate: 44.1, 48 or 96 kHz). Sources are placed around the listener's head;
-; "bin" = 1 for binaural, 0 for plain stereo.
-gSHL sprintf "hrtf-%d-left.dat", sr
-gSHR sprintf "hrtf-%d-right.dat", sr
-
-; ---------- binaural room ----------
-; Four room buses, one per quarter around the listener (front-right, back-right,
-; back-left, front-left). Each feeds an hrtfearly room model, so a sound's wall,
-; floor and ceiling reflections arrive from its own side of the room. A shared
-; hrtfreverb gives the binaural late tail.
-gaQ1 init 0
-gaQ2 init 0
-gaQ3 init 0
-gaQ4 init 0
-
-opcode RoomSend, 0, akk
-  asig, kaz, kamt xin
-  k1 = cos((kaz - 45)*$M_PI/180)
-  k2 = cos((kaz - 135)*$M_PI/180)
-  k3 = cos((kaz - 225)*$M_PI/180)
-  k4 = cos((kaz - 315)*$M_PI/180)
-  k1 = (k1 < 0 ? 0 : k1)
-  k2 = (k2 < 0 ? 0 : k2)
-  k3 = (k3 < 0 ? 0 : k3)
-  k4 = (k4 < 0 ? 0 : k4)
-  gaQ1 = gaQ1 + asig*k1*kamt
-  gaQ2 = gaQ2 + asig*k2*kamt
-  gaQ3 = gaQ3 + asig*k3*kamt
-  gaQ4 = gaQ4 + asig*k4*kamt
-endop
-
-; D major pentatonic, two octaves (semitones from root)
-giScale ftgen 0, 0, -8, -2, 0, 2, 4, 7, 9, 12, 14, 16
-
-; ---------- conductor: decides when drops and harmonic tides happen ----------
-instr 1
-  kTime timeinsts
-  kNextDrop init 0.2
-  kNextPad init 0
-  kNextSh init 3
-  kSlow oscili 0.5, 1/97
-  kSlow = kSlow + 0.5
-  if kTime >= kNextDrop then
-    kdur random 1.4, 3.8
-    event "i", 2, 0, kdur
-    kc random 0, 1
-    if kc > 0.86 then
-      event "i", 2, 0.08, kdur*0.8
-      event "i", 2, 0.19, kdur*0.6
-    endif
-    kgap random 0.25, 2.6
-    kNextDrop = kTime + kgap*(1.7 - 1.25*kSlow)
-  endif
-  if kTime >= kNextPad then
-    kpd random 42, 62
-    kr1 random 0, 4.99
-    kr2 random 0, 7.99
-    kr3 random 0, 7.99
-    kn1 table int(kr1), giScale
-    kn2 table int(kr2), giScale
-    kn3 table int(kr3), giScale
-    event "i", 4, 0, kpd, 38 + kn1
-    event "i", 4, 0.7, kpd, 50 + kn2
-    event "i", 4, 1.6, kpd, 57 + kn3
-    kgp random 24, 36
-    kNextPad = kTime + kgp
-  endif
-  ; shimmer: a sparkling source that circles the head
-  if kTime >= kNextSh then
-    ksd random 14, 22
-    event "i", 5, 0, ksd
-    ksg random 25, 45
-    kNextSh = kTime + ksg
-  endif
-endin
-
-; ---------- droplet: bubble chirp + inharmonic porcelain partials ----------
-instr 2
-  irnd random 0, 7.99
-  isemi table int(irnd), giScale
-  ; pitch varies over three octaves (lower ones more likely), slightly detuned each time
-  io random 0, 1
-  ioct = (io < 0.4 ? 0 : (io < 0.8 ? 1 : 2))
-  idet random -0.3, 0.3
-  ifreq = cpsmidinn(62 + isemi + 12*ioct + idet)
-  iamp random 0.04, 0.13
-  ; stereo placement: 30% toward left or right, side chosen at random per drop
-  iside random 0, 1
-  ipan = (iside > 0.5 ? 0.65 : 0.35)
-  ; binaural placement: anywhere around the head, a little above ear level,
-  ; drifting downward as it rings, like a drop falling past you
-  iaz random 0, 360
-  iel random -5, 50
-  kel line iel, p3, iel - 30
-  ; each drop also travels 50-130 degrees around you while it rings
-  itrav random 50, 130
-  itd random 0, 1
-  itrav = (itd > 0.5 ? itrav : -itrav)
-  kaz line iaz, p3, iaz + itrav
-  kaz wrap kaz, 0, 360
-  ; distance: near drops are louder and dry, far drops quieter and wetter
-  inear random 0, 1
-  igain = 0.55 + 1.1*inear
-  idry = 0.35 + 0.9*inear
-  iwet = 0.95 - 0.7*inear
-  kf expseg ifreq*0.62, 0.035, ifreq, p3-0.035, ifreq*1.015
-  aenv expseg 0.0001, 0.004, 1, p3-0.004, 0.0001
-  aen2 expseg 0.0001, 0.003, 1, p3*0.35, 0.0001, p3*0.65, 0.0001
-  a1 poscil aenv, kf
-  a2 poscil aen2*0.2, kf*2.756
-  a3 poscil aen2*0.08, kf*5.404
-  asig = (a1 + a2 + a3) * iamp
-  kbin chnget "bin"
-  kbin port kbin, 0.3
-  ; high cut: soft (3.75 kHz) in stereo; opened up in 3D, because the
-  ; ear's direction cues (above / behind / in front) live above 4 kHz
-  kcut chnget "cut"
-  kcut = (kcut < 200 ? 3750 : kcut)
-  kcut = kcut + (11000 - kcut)*kbin
-  asig butlp asig, kcut
-  asig butlp asig, kcut
-  ; a tiny bright tick at the start of each drop gives the ear an exact position
-  atk expseg 1, 0.006, 0.0001, p3-0.006, 0.0001
-  an noise 1, 0
-  an buthp an, 2500
-  asig = asig + an*atk*iamp*0.5*kbin
-  aSL, aSR pan2 asig, ipan
-  aBL, aBR hrtfmove2 asig*igain, kaz, kel, gSHL, gSHR, 4, 9, sr
-  aL = aSL*(1-kbin) + aBL*kbin*1.4
-  aR = aSR*(1-kbin) + aBR*kbin*1.4
-  RoomSend asig*igain, kaz, (0.6 + 0.8*(1-inear))*kbin
-  kdry = 0.3 + (idry - 0.3)*kbin
-  kwet = 0.85 + (iwet - 0.85)*kbin
-  gaDryL = gaDryL + aL*kdry
-  gaDryR = gaDryR + aR*kdry
-  gaRevL = gaRevL + aL*kwet
-  gaRevR = gaRevR + aR*kwet
-endin
-
-; ---------- water: band-passed noise breathing like waves ----------
-instr 3
-  kw1 oscili 1, 1/11.3
-  kw2 oscili 1, 1/17.9
-  kw3 oscili 1, 1/61
-  kamp = 0.55 + 0.25*kw1 + 0.2*kw2
-  kamp port kamp, 0.4
-  kcf = 380 + 700*kamp + 250*kw3
-  aNL noise 0.5, 0.7
-  aNR noise 0.5, 0.7
-  aL butbp aNL, kcf, kcf*0.7
-  aR butbp aNR, kcf*1.07, kcf*0.7
-  aSh noise 0.04, 0
-  aSh butbp aSh, 3200 + 800*kw2, 1500
-  kgain = kamp*kamp*0.9
-  aL = aL*kgain + aSh*kamp*0.3
-  aR = aR*kgain + aSh*kamp*0.3
-  ; slow wave-like drift between left and right (about 26 s per cycle)
-  kwp oscili 0.36, 1/26
-  kwpan = 0.5 + kwp
-  aL = aL * sqrt(2*(1-kwpan))
-  aR = aR * sqrt(2*kwpan)
-  kbw chnget "bin"
-  kbw port kbw, 0.3
-  kwg = 1 - 0.4*kbw
-  gaDryL = gaDryL + aL*0.55*kwg
-  gaDryR = gaDryR + aR*0.55*kwg
-  gaRevL = gaRevL + aL*0.35*kwg
-  gaRevR = gaRevR + aR*0.35*kwg
-endin
-
-; ---------- tide: slow sine chord tones that swell and fade ----------
-instr 4
-  ifreq = cpsmidinn(p4)
-  ; each chord tone drifts slowly from one side to the other over its life
-  iside random 0, 1
-  ioff random 0.28, 0.42
-  ipanA = (iside > 0.5 ? 0.5 - ioff : 0.5 + ioff)
-  ipanB = 1 - ipanA
-  kpan line ipanA, p3, ipanB
-  ; binaural: each tone travels 60-140 degrees around the head over its life
-  iaz0 random 0, 360
-  isweep random 150, 300
-  idir random 0, 1
-  isweep = (idir > 0.5 ? isweep : -isweep)
-  kaz line iaz0, p3, iaz0 + isweep
-  kaz wrap kaz, 0, 360
-  iel random -10, 25
-  iatt = p3*0.4
-  aenv linseg 0, iatt, 1, p3-2*iatt, 1, iatt, 0
-  irate random 0.05, 0.2
-  kdrift oscili 0.0025, irate
-  ktone oscili 0.5, 1/23
-  a1 poscil 1, ifreq*(1+kdrift)
-  a2 poscil 0.7, ifreq*1.004
-  a3 poscil 0.25, ifreq*2.003
-  a4 poscil 0.08, ifreq*3.01
-  kbin chnget "bin"
-  kbin port kbin, 0.3
-  ; airy upper shimmer (only in 3D): gives the ear something above 2 kHz to track
-  aair noise 1, 0
-  aair butbp aair, ifreq*8, ifreq*1.5
-  aair = aair * (0.5 + 0.5*ktone) * 0.35 * kbin
-  asig = (a1 + a2 + (a3 + a4)*(0.6 + ktone) + aair) * aenv * 0.04
-  aSL, aSR pan2 asig, kpan
-  aBL, aBR hrtfmove2 asig, kaz, iel, gSHL, gSHR, 4, 9, sr
-  RoomSend asig, kaz, 0.7*kbin
-  aL = aSL*(1-kbin) + aBL*kbin*1.25
-  aR = aSR*(1-kbin) + aBR*kbin*1.25
-  gaDryL = gaDryL + aL*0.6
-  gaDryR = gaDryR + aR*0.6
-  gaRevL = gaRevL + aL*0.5
-  gaRevR = gaRevR + aR*0.5
-endin
-
-; ---------- shimmer: sparkles circling the head ----------
-instr 5
-  ; one or two full turns around the listener, rising and dipping
-  iaz random 0, 360
-  iturns random 1, 2
-  idir random 0, 1
-  iturns = (idir > 0.5 ? iturns : -iturns)
-  kaz line iaz, p3, iaz + 360*iturns
-  kaz wrap kaz, 0, 360
-  kel oscili 25, 1/7.3
-  kel = kel + 15
-  aenv linseg 0, p3*0.25, 1, p3*0.5, 1, p3*0.25, 0
-  ; sparse bright grains, tuned to the scale
-  irnd random 0, 7.99
-  isemi table int(irnd), giScale
-  ifreq = cpsmidinn(86 + isemi)
-  kdens randomi 9, 22, 0.5
-  agr dust2 1, kdens
-  ar1 reson agr, ifreq, ifreq*0.02, 1
-  ar2 reson agr, ifreq*2.01, ifreq*0.03, 1
-  ahi buthp agr, 5000
-  asig = (ar1*0.6 + ar2*0.3 + ahi*0.25) * aenv * 0.35
-  kbin chnget "bin"
-  kbin port kbin, 0.3
-  ; stereo: follow the same circle with a simple pan
-  kpan = 0.5 + 0.45*sin(kaz*$M_PI/180)
-  aSL, aSR pan2 asig*0.6, kpan
-  aBL, aBR hrtfmove2 asig, kaz, kel, gSHL, gSHR, 4, 9, sr
-  RoomSend asig, kaz, 0.8*kbin
-  aL = aSL*(1-kbin) + aBL*kbin*1.4
-  aR = aSR*(1-kbin) + aBR*kbin*1.4
-  gaDryL = gaDryL + aL*0.7
-  gaDryR = gaDryR + aR*0.7
-  gaRevL = gaRevL + aL*0.25
-  gaRevR = gaRevR + aR*0.25
-endin
-
-; ---------- room: binaural early reflections + late tail ----------
-; Listener stands in the middle of a 10 x 10 x 3 m room (+x = right, +y = ahead);
-; each bus sounds from 2.2 m away in its quarter.
-instr 98
-  ir = 2.2
-  ic = 5
-  ih = 1.7
-  ip = ir*0.7071
-  a1L, a1R, ilo, ihi, imfp hrtfearly gaQ1, ic+ip, ic+ip, ih, ic, ic, ih, gSHL, gSHR, 1, 8, sr, 1, 1
-  a2L, a2R, i0, i1, i2 hrtfearly gaQ2, ic+ip, ic-ip, ih, ic, ic, ih, gSHL, gSHR, 1, 8, sr, 1, 1
-  a3L, a3R, i3, i4, i5 hrtfearly gaQ3, ic-ip, ic-ip, ih, ic, ic, ih, gSHL, gSHR, 1, 8, sr, 1, 1
-  a4L, a4R, i6, i7, i8 hrtfearly gaQ4, ic-ip, ic+ip, ih, ic, ic, ih, gSHL, gSHR, 1, 8, sr, 1, 1
-  aEL = a1L + a2L + a3L + a4L
-  aER = a1R + a2R + a3R + a4R
-  ; late tail: binaural diffuse reverb, longer than the room's own decay for a dreamy wash
-  aTin = (gaQ1 + gaQ2 + gaQ3 + gaQ4)*0.5
-  aTL, aTR, idel hrtfreverb aTin, 3.2, 1.6, gSHL, gSHR, sr, imfp, 1
-  aTL delay aTL, idel
-  aTR delay aTR, idel
-  gaDryL = gaDryL + aEL*2.2 + aTL*1.1
-  gaDryR = gaDryR + aER*2.2 + aTR*1.1
-  clear gaQ1, gaQ2, gaQ3, gaQ4
-endin
-
-; ---------- master: reverb, volume, fade-in, soft limit ----------
-instr 99
-  kvol chnget "vol"
-  kvol port kvol, 0.25
-  kfade linseg 0, 1.5, 1
-  kbm chnget "bin"
-  kbm port kbm, 0.3
-  aRL, aRR reverbsc gaRevL, gaRevR, 0.9 - 0.08*kbm, 7000 + 4000*kbm
-  krv = 0.9 - 0.55*kbm
-  ; loudness match: the binaural mix measures quieter, so lift it to stereo level
-  kmk = 1 + 0.8*kbm
-  aL = (gaDryL + aRL*krv) * kvol * kfade * kmk
-  aR = (gaDryR + aRR*krv) * kvol * kfade * kmk
-  aL = tanh(aL)
-  aR = tanh(aR)
-  krms rms aL + aR
-  chnset krms, "level"
-  outs aL, aR
-  clear gaDryL, gaDryR, gaRevL, gaRevR
-endin
-</CsInstruments>
-<CsScore>
-i 1 0 z
-i 3 0 z
-i 98 0 z
-i 99 0 z
-</CsScore>
-</CsoundSynthesizer>
-</script>
 <script>
 /*
   Everything visitors read lives in this file.
@@ -633,6 +423,7 @@ window.SITE = {
   ],
 
   research: [
+    ['Tide', 'Generative Music System', '2026–present', 'Composer · Developer'],
     ['Event Matcher', 'Research Project', '2026', 'Researcher'],
     ['Project Prakash', 'Interactive VR', '2024', 'Spatial Audio Designer · Composer'],
     ['CLOUD', 'Electronic Instrument', '2025', 'Developer'],
@@ -1021,6 +812,31 @@ window.SITE = {
     ],
     "links": [],
     "imageWithVideo": true
+   },
+   "tide": {
+    "title": "Tide",
+    "parent": "lab",
+    "sub": "Generative Music System · 2026–present · work in progress",
+    "year": "2026–present",
+    "role": "Composer · Developer",
+    "desc": [
+     "Tide is the music system Zhang is building on top of The Blue Left Spinning, and the sound that plays on this site. In that installation, one machine’s pauses gave the music its phrases and its rests. Tide extends the idea to many: seven voices, each with its own cycle of phrase and rest, slightly different in length, so that they begin together, drift apart, and gather again in a shared silence.",
+     "The harmony has no chord progression in the functional sense. In one mode it follows Debussy: everything sounds in a single scale at a time, whole-tone or pentatonic, and the two alternate, changing only in a shared silence and in a new key, so that no phrase changes colour midway. In the other, darker mode it follows two ideas from Berklee’s Harmony 4. The chords are polychords, a major triad set above a root and fifth a tritone or a sixth away. They move as a constant structure, the same chord shape stepping down a minor third each time, inside the half-whole scale, which is identical at every minor third and so keeps the chord scale constant however the voices overlap. In both modes the bass holds a pedal, phrases end unresolved, and the note that feels like home moves by a small Markov chain.",
+     "For now the voices are driven by the page. The piece is being built to become a kinetic sculpture: a series of machines, each one carrying a voice. It is synthesised live in the browser with Csound; the pitched voices are physical models of a bowed string, a plucked string and an aeolian harp, placed around the listener binaurally."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": [
+     {
+      "label": "Open the full controller at tide.salomezhang.com",
+      "href": "https://tide.salomezhang.com"
+     },
+     {
+      "label": "Code on GitHub",
+      "href": "https://github.com/Lome224/Tide"
+     }
+    ]
    },
    "event-matcher": {
     "title": "Event Matcher",
@@ -2161,12 +1977,30 @@ window.SITE = {
     showTune();
   }
 
-  /* ---------- Tide: generative Csound ---------- */
-  var CSD = $('csd').textContent.trim();
-  var cs = null, muted = false, VOL = 0.8;
+  /* ---------- Tide ----------
+     The piece and its controls are loaded from tide.salomezhang.com (see the end of the page).
+     This site only starts it on ENTER, and quiets it where it has sound of its own. */
   /* Tide plays everywhere except the Listening Room, work pages with video/audio, or while a track plays */
   function quiet() { return current === 'listening-room' || currentQuiet || (typeof player !== 'undefined' && player && !player.paused); }
-  function applyVol() { if (cs) { try { cs.setControlChannel('vol', (muted || quiet()) ? 0 : VOL); } catch (e) {} } }
+  function applyVol() { if (window.Tide) window.Tide.quiet(quiet()); }
+  var tideReady = new Promise(function (res) {
+    if (window.Tide) res(); else window.addEventListener('tide-ready', res, { once: true });
+  });
+  tideReady.then(applyVol);
+  /* the preset menu: one button showing the current sound; it opens the choices Tide provides */
+  (function () {
+    var btn = $('presetBtn'), list = $('presets');
+    function label() {
+      var on = list.querySelector('[aria-pressed="true"]');
+      btn.textContent = (on ? on.textContent : 'CUSTOM') + ' ▾';
+    }
+    function open(yes) { list.hidden = !yes; btn.setAttribute('aria-expanded', yes ? 'true' : 'false'); }
+    new MutationObserver(label).observe(list, { subtree: true, childList: true, attributes: true, attributeFilter: ['aria-pressed'] });
+    btn.addEventListener('click', function (e) { e.stopPropagation(); open(list.hidden); });
+    list.addEventListener('click', function () { open(false); });
+    document.addEventListener('click', function (e) { if (!e.target.closest('.tide-menu')) open(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') open(false); });
+  })();
   function seen() { try { return sessionStorage.getItem('tideSeen') === '1'; } catch (e) { return false; } }
   function markSeen() { try { sessionStorage.setItem('tideSeen', '1'); } catch (e) {} }
   function hideEnter() {
@@ -2181,76 +2015,17 @@ window.SITE = {
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' && $('enter').style.display !== 'none' && $('enter').style.opacity !== '0' && !$('go').disabled) { e.preventDefault(); boot(); }
   });
-  $('snd').addEventListener('click', function () {
-    if (!cs) { boot(); return; }
-    muted = !muted; $('snd').textContent = muted ? 'SOUND OFF' : 'SOUND ON'; applyVol();
-  });
-  $('binBtn').addEventListener('click', function () {
-    bin = bin ? 0 : 1;
-    $('binBtn').textContent = bin ? '3D ON' : '3D OFF';
-    if (cs) { try { cs.setControlChannel('bin', bin); } catch (e) {} }
-  });
-  var codeOpen = false;
-  $('codeBtn').addEventListener('click', function () {
-    var pre = $('codepanel');
-    if (!pre.innerHTML) {
-      pre.innerHTML = '<span style="letter-spacing:.1em">Csound · generated live in your browser, never the same twice</span>\n\n' +
-        CSD.split('\n').map(function (l) {
-          var i = l.indexOf(';');
-          return i < 0 ? esc(l) : esc(l.slice(0, i)) + '<span class="c">' + esc(l.slice(i)) + '</span>';
-        }).join('\n');
-    }
-    codeOpen = !codeOpen;
-    pre.style.display = codeOpen ? 'block' : 'none';
-    $('codeBtn').textContent = codeOpen ? 'HIDE CODE' : 'CODE';
-  });
-  /* HRTF data sets, one per sample rate; 44.1 and 48 kHz are preloaded */
-  var hrtfCache = {};
-  function hrtfSet(rate) {
-    if (!hrtfCache[rate]) {
-      hrtfCache[rate] = Promise.all(['left', 'right'].map(function (ear) {
-        var f = 'hrtf-' + rate + '-' + ear + '.dat';
-        return fetch('media/hrtf/' + f).then(function (r) { if (!r.ok) throw new Error(f); return r.arrayBuffer(); })
-          .then(function (b) { return [f, new Uint8Array(b)]; });
-      }));
-      hrtfCache[rate].catch(function () {});
-    }
-    return hrtfCache[rate];
-  }
-  hrtfSet(44100); hrtfSet(48000);
-  var bin = 1;
-  var modP = import('https://cdn.jsdelivr.net/npm/@csound/browser@6.18.7/dist/csound.js');
-  modP.catch(function () {});
-  async function boot() {
+  function boot() {
     $('go').disabled = true; $('note').textContent = 'starting…';
-    try {
-      var mod = await modP;
-      var make = async function (opts) {
-        var c = await mod.Csound(opts);
-        if (await c.compileCsdText(CSD) !== 0) throw new Error('compile failed');
-        var rate = Math.round(await c.getSr());
-        var set = [44100, 48000, 96000].indexOf(rate) >= 0 ? await hrtfSet(rate) : [];
-        if (!set.length) { bin = 0; $('binBtn').textContent = '3D OFF'; }  /* unusual rate: fall back to stereo */
-        for (var k = 0; k < set.length; k++) await c.fs.writeFile(set[k][0], set[k][1]);
-        await c.setControlChannel('bin', bin);
-        await c.setControlChannel('vol', 0);
-        await c.setControlChannel('cut', 3750);
-        await c.start();
-        return c;
-      };
-      try { cs = await make({}); }
-      catch (e1) { $('note').textContent = 'switching audio mode…'; cs = await make({ useSPN: true }); }
-      muted = false; $('snd').textContent = 'SOUND ON'; applyVol();
-      hideEnter();
-    } catch (e) {
-      console.error('Tide:', e);
-      $('note').textContent = 'Sound could not start in this browser.';
-      setTimeout(hideEnter, 1800);
-    }
+    var done = false;
+    function finish() { if (done) return; done = true; applyVol(); hideEnter(); }
+    tideReady.then(function () { return window.Tide.start(); }).then(finish, finish);
+    setTimeout(finish, 6000);   /* never keep a visitor on the ENTER screen */
   }
 
   route();
 })();
 </script>
+<script type="module" src="https://tide.salomezhang.com/js/main.js"></script>
 </body>
 </html>
