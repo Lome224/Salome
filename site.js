@@ -118,6 +118,12 @@
   };
 
   /* ---------- work pages (third layer) ---------- */
+  /* a document or link under a work. It opens in a new tab (↗), unless it is marked "here":
+     then it opens in this tab (→), so the back button returns to the site. */
+  function docLink(x) {
+    return '<a class="lr-link" href="' + esc(x.href) + '"' + (x.here ? '' : ' target="_blank" rel="noopener"') +
+           (x.download ? ' download' : '') + '>' + esc(x.label) + (x.here ? ' →' : ' ↗') + '</a>';
+  }
   var PARENT = { art: 'Art', lab: 'Lab', 'scoring-post': 'Scoring & Post' };
   function docView(k) {
     var w = S.works && S.works[k], d = w && w.doc;
@@ -134,7 +140,7 @@
       var used = (d.sections || []).map(function (x) { return x.html; }).join(' ');
       var L = (w.docs || []).concat(w.links || []).filter(function (x) { return used.indexOf(x.href) < 0; });
       if (L.length) h += '<div class="wd">' + L.map(function (x) {
-        return '<a class="lr-link" href="' + esc(x.href) + '" target="_blank" rel="noopener"' + (x.download ? ' download' : '') + '>' + esc(x.label) + ' ↗</a>';
+        return docLink(x);
       }).join('') + '</div>';
       if (w.tags && w.tags.length) h += '<div class="tags">' + w.tags.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('') + '</div>';
       return h + '<a class="lr-link" href="#w/' + k + '" style="margin-top:18px">← Back to ' + esc(w.title) + '</a></div>';
@@ -196,7 +202,7 @@
       });
       var L = (w.docs || []).filter(function (d) { return shown.indexOf(d) < 0; }).concat(w.links || []);
       if (L.length) h += '<div class="wd">' + L.map(function (d) {
-        return '<a class="lr-link" href="' + esc(d.href) + '" target="_blank" rel="noopener"' + (d.download ? ' download' : '') + '>' + esc(d.label) + ' ↗</a>';
+        return docLink(d);
       }).join('') + '</div>';
       if (w.tags && w.tags.length) h += '<div class="tags">' + w.tags.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('') + '</div>';
       if (!hasVid && !w.image && !(w.audio && w.audio.length) && !(w.desc && w.desc.length)) h += '<p class="soon">Media coming soon.</p>';

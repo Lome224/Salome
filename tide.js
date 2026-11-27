@@ -12,6 +12,17 @@
   tideReady.then(applyVol);
   window.addEventListener('site-sound', applyVol);
 
+  /* ---------- links to Tide's own page ----------
+     They open in this tab. Tide here is stopped completely first, so the two are never heard
+     together and this page cannot come back from the browser's memory with a broken sound. */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="https://tide.salomezhang.com"]:not([target])');
+    if (!a || !window.Tide) return;
+    e.preventDefault();
+    function go() { location.href = a.href; }
+    window.Tide.stop().then(go, go);
+  });
+
   /* ---------- the Tide window: closed by its dot, dragged by its title bar (not on phones) ---------- */
   $('tideClose').addEventListener('click', function () { if (window.Tide) window.Tide.controller(false); });
   (function () {

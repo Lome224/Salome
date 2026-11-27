@@ -446,7 +446,8 @@ window.SITE = {
     "links": [
      {
       "label": "Open the full controller at tide.salomezhang.com",
-      "href": "https://tide.salomezhang.com"
+      "href": "https://tide.salomezhang.com/#controller",
+      "here": true
      },
      {
       "label": "Code on GitHub",
