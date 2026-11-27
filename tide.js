@@ -39,17 +39,21 @@
   var enter = $('enter');
   function cameBack() { var nav = performance.getEntriesByType('navigation')[0]; return !!nav && nav.type === 'back_forward'; }
   function leaveEnter() {
+    window.dispatchEvent(new Event('site-entered'));                 /* site.js starts the video, if it has not */
     enter.classList.add('leaving');                                  /* fades out (style.css) */
     setTimeout(function () { enter.hidden = true; }, 750);
   }
   function enterWithSound() {
     var done = false;
     function finish() { if (done) return; done = true; applyVol(); leaveEnter(); }
-    $('go').disabled = true; $('note').textContent = 'starting…';
+    /* open the sound inside this click, so the browser lets it begin once it has loaded */
+    if (window.Tide && window.Tide.unlock) window.Tide.unlock();
+    $('go').disabled = true;
+    $('note').textContent = window.Tide && window.Tide.loaded ? 'starting…' : 'loading the sound…';
     tideReady.then(function () { return window.Tide.start(); }).then(finish, finish);
-    setTimeout(finish, 6000);                                        /* never keep a visitor waiting here */
+    setTimeout(finish, 8000);                                        /* never keep a visitor waiting here; the sound follows */
   }
-  if (cameBack()) { enter.hidden = true; $('status').textContent = 'Paused. PLAY starts the sound.'; }
+  if (cameBack()) { enter.hidden = true; window.dispatchEvent(new Event('site-entered')); $('status').textContent = 'Paused. PLAY starts the sound.'; }
   $('go').addEventListener('click', enterWithSound);
   $('skip').addEventListener('click', leaveEnter);
   document.addEventListener('keydown', function (e) {
