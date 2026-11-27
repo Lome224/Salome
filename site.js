@@ -349,16 +349,18 @@
   }
 
   /* ---------- Tide ----------
-     The piece and its controls are loaded from tide.salomezhang.com (see the end of the page).
-     This site only starts it on ENTER, and quiets it where it has sound of its own. */
-  /* Tide plays everywhere except the Listening Room, work pages with video/audio, or while a track plays */
+     The piece and its controller are loaded from tide.salomezhang.com (see the end of index.html).
+     This site only starts it, and quiets it where the site has sound of its own:
+     the Listening Room, work pages with video or audio, and while a track plays. */
   function quiet() { return current === 'listening-room' || currentQuiet || (typeof player !== 'undefined' && player && !player.paused); }
   function applyVol() { if (window.Tide) window.Tide.quiet(quiet()); }
   var tideReady = new Promise(function (res) {
     if (window.Tide) res(); else window.addEventListener('tide-ready', res, { once: true });
   });
   tideReady.then(applyVol);
-  /* the Tide window can be dragged by its title bar (not on phones) */
+
+  /* ---------- the Tide window: closed by its dot, dragged by its title bar (not on phones) ---------- */
+  $('tideClose').addEventListener('click', function () { if (window.Tide) window.Tide.controller(false); });
   (function () {
     var win = $('controller'), bar = win.querySelector('.bar'), from = null;
     bar.addEventListener('pointerdown', function (e) {
@@ -376,28 +378,31 @@
     function end() { from = null; win.classList.remove('dragging'); }
     bar.addEventListener('pointerup', end); bar.addEventListener('pointercancel', end);
   })();
-  $('tideClose').addEventListener('click', function () { if (window.Tide) window.Tide.controller(false); });
-  function seen() { try { return sessionStorage.getItem('tideSeen') === '1'; } catch (e) { return false; } }
-  function markSeen() { try { sessionStorage.setItem('tideSeen', '1'); } catch (e) {} }
-  function hideEnter() {
-    markSeen();
-    $('enter').style.opacity = '0'; $('enter').style.pointerEvents = 'none';
-    setTimeout(function () { $('enter').style.display = 'none'; }, 750);
+
+  /* ---------- the ENTER screen ----------
+     Browsers only allow sound after a click, and ENTER is that click. It is shown once per
+     visit (per tab). Coming back to the page later in the same visit, for example with the
+     back button, goes straight to the desktop with Tide paused; PLAY starts it. */
+  var enter = $('enter');
+  function visited() { try { return sessionStorage.getItem('tideSeen') === '1'; } catch (e) { return false; } }
+  function leaveEnter() {
+    try { sessionStorage.setItem('tideSeen', '1'); } catch (e) {}
+    enter.classList.add('leaving');                                  /* fades out (style.css) */
+    setTimeout(function () { enter.hidden = true; }, 750);
   }
-  function showEnter() { $('enter').style.display = 'flex'; $('enter').style.opacity = '1'; $('enter').style.pointerEvents = 'auto'; }
-  /* ENTER always shows on arrival: browsers only allow sound after a click */
-  $('skip').addEventListener('click', hideEnter);
-  $('go').addEventListener('click', boot);
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter' && $('enter').style.display !== 'none' && $('enter').style.opacity !== '0' && !$('go').disabled) { e.preventDefault(); boot(); }
-  });
-  function boot() {
-    $('go').disabled = true; $('note').textContent = 'starting…';
+  function enterWithSound() {
     var done = false;
-    function finish() { if (done) return; done = true; applyVol(); hideEnter(); }
+    function finish() { if (done) return; done = true; applyVol(); leaveEnter(); }
+    $('go').disabled = true; $('note').textContent = 'starting…';
     tideReady.then(function () { return window.Tide.start(); }).then(finish, finish);
-    setTimeout(finish, 6000);   /* never keep a visitor on the ENTER screen */
+    setTimeout(finish, 6000);                                        /* never keep a visitor waiting here */
   }
+  if (visited()) { enter.hidden = true; $('status').textContent = 'Paused. PLAY starts the sound.'; }
+  $('go').addEventListener('click', enterWithSound);
+  $('skip').addEventListener('click', leaveEnter);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !enter.hidden && !enter.classList.contains('leaving') && !$('go').disabled) { e.preventDefault(); enterWithSound(); }
+  });
 
   route();
 })();

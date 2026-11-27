@@ -16,7 +16,10 @@ button{font:inherit;color:inherit}
 a{color:inherit}
 
 /* backdrop */
-#bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;
+/* backdrop.mp4 has black bars inside it: the picture is the middle 528 of its 720 rows.
+   The video box is made taller than the window by that ratio (720/528), so the bars fall
+   outside and the picture itself covers the window. */
+#bg{position:fixed;left:0;top:-18.2%;width:100%;height:136.4%;object-fit:cover;z-index:0;pointer-events:none;
   filter:brightness(var(--bri)) saturate(var(--sat)) contrast(var(--con));background:#000}
 
 /* shared glass */
@@ -206,16 +209,19 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 .tide-now .meter i{display:block;height:100%;width:0;background:#fff;transition:width .1s}
 /* the Tide window: where it sits. What is inside it, and how that looks, comes from
    tide.salomezhang.com (js/markup.js and controller.css). Drag it by its title bar. */
-#controller{left:50%;top:50%;transform:translate(-50%,-50%);z-index:12;flex-direction:column;
-  width:min(560px, calc(100vw - 24px));max-height:calc(100vh - 150px)}
+/* its size: the controller is drawn in em, so this font-size sets how large all of it is */
+section#controller{left:50%;top:50%;transform:translate(-50%,-50%);z-index:12;flex-direction:column;
+  font-size:14px;width:min(51em, calc(100vw - 24px));max-height:calc(100vh - 110px)}
 #controller > .bar{cursor:grab}
 #controller.dragging > .bar{cursor:grabbing}
 /* phones: under the banner, and clear of the two-row bar at the bottom */
-@media (max-width:600px){ #controller{top:56px;transform:translateX(-50%);max-height:calc(100vh - 176px)} #controller > .bar{cursor:default} }
+@media (max-width:600px){ section#controller{top:56px;transform:translateX(-50%);font-size:11px;max-height:calc(100vh - 176px)} #controller > .bar{cursor:default} }
 
 /* enter screen */
 #enter{position:fixed;inset:0;z-index:100;background:#000;display:flex;flex-direction:column;align-items:center;
   justify-content:center;gap:18px;letter-spacing:.08em;transition:opacity .7s}
+#enter.leaving{opacity:0;pointer-events:none}
+#enter[hidden]{display:none}
 #enter .go{padding:10px 30px;font-size:13px;letter-spacing:.25em;cursor:pointer}
 #enter .sub{opacity:.6;letter-spacing:.04em;margin:0;font-weight:400}
 #enter .skip{background:none;border:0;opacity:.5;text-decoration:underline;cursor:pointer;font-size:12px}
