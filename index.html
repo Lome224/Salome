@@ -189,6 +189,10 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 .sec h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px}
 .ent{display:grid;grid-template-columns:7em 1fr;gap:10px;margin-bottom:10px}
 .ent ul{margin:4px 0 0;padding-left:1.1em}
+.ent a.en{color:inherit;text-decoration:none;border-bottom:1px dotted rgba(0,0,0,.45)}
+.ent a.en:hover,.ent a.el:hover{background:rgba(255,206,110,.35);box-shadow:0 0 0 3px rgba(255,206,110,.35);border-radius:3px;border-bottom-color:transparent}
+.ent .els{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:4px}
+.ent a.el{color:inherit;text-decoration:none;border-bottom:1px dotted rgba(0,0,0,.45);font-size:.95em;opacity:.85}
 .cvlink{display:inline-block;margin-top:16px}
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .contact .k{opacity:.6;margin-bottom:4px}
@@ -1614,26 +1618,33 @@ window.SITE = {
         ['2020–2023', 'University of Toronto', 'Toronto, Canada', 'Bachelor of Music in Composition | GPA 3.8', ['Focused on orchestration, chamber writing, and interdisciplinary collaboration', 'University of Toronto Entrance Scholarship']]
       ] },
       { title: 'Professional Experience', rows: [
-        ['2026', 'THE BLANC', 'New York, USA', 'Confluence: A Berklee Interdisciplinary Arts Institute Showcase', ['Production Assistant', 'Curated and artistically directed by Neil Leonard; the first collaboration between THE BLANC and BIAI.']],
-        ['2025–2026', 'THE BLANC', 'New York, USA', 'Midtown Sound: Listening Legacy', ['Production Assistant', 'Neil Leonard’s inaugural New York solo exhibition and THE BLANC’s inaugural artist-in-residence exhibition.']],
-        ['2025–2026', 'Berklee Interdisciplinary Arts Institute (BIAI)', 'Boston, USA', 'Interdisciplinary Artist / Production Assistant', ['Mentored by Neil Leonard; developed interdisciplinary projects including Connecting Lines, CLOUD, and In-Between, integrating composition, spatial audio, interactive systems, and installation.']]
+        ['2026', 'THE BLANC', 'New York, USA', 'Confluence: A Berklee Interdisciplinary Arts Institute Showcase', ['Production Assistant', 'Curated and artistically directed by Neil Leonard; the first collaboration between THE BLANC and BIAI.'], { href: 'https://www.theblanc.art/pap/confluence' }],
+        ['2025–2026', 'THE BLANC', 'New York, USA', 'Midtown Sound: Listening Legacy', ['Production Assistant', 'Neil Leonard’s inaugural New York solo exhibition and THE BLANC’s inaugural artist-in-residence exhibition.'], { href: 'https://bluemedium.com/news/the-blanc-announces-inaugural-artist-in-residence-neil-leonard-solo-exhibition-midtown-sound-listening-legacy/' }],
+        ['2025–2026', 'Berklee Interdisciplinary Arts Institute (BIAI)', 'Boston, USA', 'Interdisciplinary Artist / Production Assistant', ['Mentored by Neil Leonard; developed interdisciplinary projects including Connecting Lines, CLOUD, and In-Between, integrating composition, spatial audio, interactive systems, and installation.'], { links: [['Connecting Lines', '#w/connecting-lines'], ['CLOUD', '#w/cloud'], ['In-Between', '#w/in-between']] }]
       ] },
-      { title: 'Awards & Honors', rows: [
-        ['2025', 'ICMC Call for student multichannel work', '', '', ['Finalist']],
-        ['2024', 'Vivaldi International Competition', '', '', ['Winner']],
-        ['2024', 'Denny Awards International Electronic Music Competition', '', '', ['Finalist']],
-        ['2023', 'LevelUp Showcase, presented by Ubisoft', '', '', ['Honorable Mention']],
+      { title: 'Awards, Competitions & Juried Selections', rows: [
+        ['2026', 'SMTH International Contest, 5th Edition', 'Spain', 'Poetic Architecture', ['Winner, In-Between (Excerpt)', 'Displayed at 13 venues across Madrid, Alicante, Vitoria, Seville, Bilbao, Murcia, and Barcelona'], { href: 'https://www.smth-art.com/en/product-page/anna-ren', work: ['in-between', 'In-Between'] }],
+        ['2026', 'Cannes Indie Shorts Award', 'Cannes, France', '', ['Semifinalist, In-Between'], { work: ['in-between', 'In-Between'] }],
+        ['2025', 'International Computer Music Conference', '', 'Berklee Call for Student Multichannel Work', ['Finalist']],
+        ['2025', 'Gaia Quartet', 'Toronto, Canada', 'Call for Works', ['Selected Composer, Dawn', 'Featured on the ensemble’s 2025 Canadian tour and presented at the Canadian Music Centre'], { href: 'https://cmccanada.org/event/gaia-quartet-cmc-artists-in-residence-in-time-album-launch-event/', work: ['dawn', 'Dawn'] }],
+        ['2025', 'IMMERSED 2.0, Bedford Trio', 'Toronto, Canada', 'Call for Works', ['Selected Composer, Blue'], { href: 'https://www.bedfordtrio.com/immersed-biographies.html', work: ['blue', 'Blue'] }],
+        ['2024', 'Vivaldi International Competition', '', 'Original Composition / Film & Game Music', ['Absolute First Prize']],
+        ['2024', 'Denny Awards International Electronic Music Competition', '', '', ['Best Film Score, Cheat Code'], { work: ['cheat-code', 'Cheat Code'] }],
+        ['2023', 'LevelUp Showcase, presented by Ubisoft', 'Toronto, Canada', '', ['Honorable Mention, Best Game 2023, Red Herring'], { href: 'https://levelupshowcase.com/awards/', work: ['red-herring', 'Red Herring'] }],
         ['2023', 'Berklee College of Music World Tour Scholarship', '', '', ['Recipient']],
         ['2020', 'University of Toronto Entrance Scholarship', '', '', ['Recipient']]
       ] },
-      { title: 'Selected Works & Recognitions', rows: [
-        ['2025', 'Gaia Quartet', '', '', ['Finalist']],
-        ['2025', 'IMMERSED 2.0 — Bedford Trio', '', '', ['Finalist']]
+      { title: 'Exhibitions & Screenings', rows: [
+        ['2026', 'FLOHAUS Gallery', 'New York, USA', 'The Blue Left Spinning (solo exhibition)', ['Curated by Neil Leonard; guest multimedia visual artist Anna Ren'], { href: 'https://flohaus.nyc/exhibitions/salome-yichi-zhang-the-blue-left-spinning', work: ['the-blue-left-spinning', 'The Blue Left Spinning'], links: [['ArtRabbit', 'https://www.artrabbit.com/events/salome-yichi-zhang-the-blue-left-spinning'], ['Artsy', 'https://www.artsy.net/show/flohaus-gallery-salome-yichi-zhang-the-blue-left-spinning'], ['Artforum Artguide', 'https://artguide.artforum.com/artguide/flowing-space-24818/the-blue-left-spinning-269296']] }],
+        ['2026', 'AURORA Video Art Night (VAN 2026)', 'AT&T Discovery District, Dallas, USA', 'In-Between (Excerpt)', ['Exhibitor'], { href: 'https://dallasaurora.com/VIDEO-ART-NIGHT', work: ['in-between', 'In-Between'] }],
+        ['2025', 'Canadian Music Centre', 'Toronto, Canada', 'Gaia Quartet, CMC Artists in Residence: IN TIME Album Launch', ['Dawn'], { href: 'https://cmccanada.org/event/gaia-quartet-cmc-artists-in-residence-in-time-album-launch-event/', work: ['dawn', 'Dawn'] }]
       ] },
       { title: 'Press & Features', rows: [
-        ['2026', 'Berklee Electronic Production and Design Newsletter', '', '“EPD Graduate in the News”', ['Featured The Blue Left Spinning and its Art Mag coverage']],
-        ['2026', 'Berklee Electronic Production and Design Instagram', '', '“What Are You Making?”', ['Artist Spotlight — The Blue Left Spinning']],
-        ['2026', 'Art Mag', '', '“Salome Yichi Zhang: Blue Left Spinning”', ['Art Critique']]
+        ['2026', 'Art Mag', '', '“Salome Yichi Zhang: Blue Left Spinning”', ['Feature on Zhang’s New York exhibition and interdisciplinary installation practice'], { href: 'https://artmag.org/salome-yichi-zhang-blue-left-spinning/', work: ['the-blue-left-spinning', 'The Blue Left Spinning'] }],
+        ['2026', 'Monday Music', '', '“Documenting The Blue Left Spinning: A Kinetic Sound Sculpture by Salome Yichi Zhang”', ['Documentation'], { href: 'https://www.mondaymusic.net/post/documenting-the-blue-left-spinning-a-kinetic-sound-sculpture-by-salome-yichi-zhang/', work: ['the-blue-left-spinning', 'The Blue Left Spinning'] }],
+        ['2026', 'Berklee Electronic Production and Design Newsletter', '', '“EPD Graduate in the News”', ['Featured The Blue Left Spinning and the Art Mag article “When Broken Porcelain Speaks: Salome Yichi Zhang’s The Blue Left Spinning”'], { work: ['the-blue-left-spinning', 'The Blue Left Spinning'] }],
+        ['2026', 'Berklee Electronic Production and Design Instagram', '', '“What Are You Making?”', ['Featured artist spotlight on The Blue Left Spinning'], { work: ['the-blue-left-spinning', 'The Blue Left Spinning'] }],
+        ['', 'Bedford Trio', '', 'IMMERSED 2.0 Composer Feature', ['Artist biography and project feature for Blue'], { href: 'https://www.bedfordtrio.com/immersed-biographies.html', work: ['blue', 'Blue'] }]
       ] },
       { title: 'Performance & Other Creative Experience', rows: [
         ['2026', 'WaterFire Arts Center', 'Providence, RI, USA', 'RIFT — Yuval Gar', ['Live Electronics & Keyboard Performer']],
@@ -1701,10 +1712,17 @@ window.SITE = {
              '<div class="y">' + esc(r[2]) + '</div><div class="r">' + esc(r[3]) + '</div></div>';
     }).join('') + '</div>';
   }
+  function xlink(label, href) {
+    var ext = !/^#/.test(href);
+    return '<a class="el" href="' + esc(href) + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>' + esc(label) + (ext ? ' ↗' : ' →') + '</a>';
+  }
   function ent(r) {
-    var head = '<b>' + esc(r[1]) + '</b>' + (r[2] ? '<br>' + esc(r[2]) : '') + (r[3] ? '<br><i>' + esc(r[3]) + '</i>' : '');
+    var L = r[5] || {};
+    var name = L.href ? '<a class="en" href="' + esc(L.href) + '" target="_blank" rel="noopener">' + esc(r[1]) + ' ↗</a>' : esc(r[1]);
+    var head = '<b>' + name + '</b>' + (r[2] ? '<br>' + esc(r[2]) : '') + (r[3] ? '<br><i>' + esc(r[3]) + '</i>' : '');
     var pts = r[4] && r[4].length ? '<ul>' + r[4].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' : '';
-    return '<div class="ent"><div>' + esc(r[0]) + '</div><div>' + head + pts + '</div></div>';
+    var more = (L.work ? [xlink(L.work[1], '#w/' + L.work[0])] : []).concat((L.links || []).map(function (x) { return xlink(x[0], x[1]); }));
+    return '<div class="ent"><div>' + esc(r[0]) + '</div><div>' + head + pts + (more.length ? '<div class="els">' + more.join('') + '</div>' : '') + '</div></div>';
   }
   var VIEWS = {
     'art': { title: 'Art', html: function () { return rows(S.art); } },
