@@ -1,5 +1,5 @@
-/* salomezhang.com: the site's behaviour: windows, work pages, players, dragging, and starting Tide.
-   Reads its content from content.js (window.SITE). */
+/* salomezhang.com: the site's behaviour: windows, work pages, players and dragging.
+   Reads its content from content.js (window.SITE). Tide's part is in tide.js. */
 (function () {
   var S = window.SITE;
   var $ = function (id) { return document.getElementById(id); };
@@ -348,61 +348,12 @@
     showTune();
   }
 
-  /* ---------- Tide ----------
-     The piece and its controller are loaded from tide.salomezhang.com (see the end of index.html).
-     This site only starts it, and quiets it where the site has sound of its own:
-     the Listening Room, work pages with video or audio, and while a track plays. */
-  function quiet() { return current === 'listening-room' || currentQuiet || (typeof player !== 'undefined' && player && !player.paused); }
-  function applyVol() { if (window.Tide) window.Tide.quiet(quiet()); }
-  var tideReady = new Promise(function (res) {
-    if (window.Tide) res(); else window.addEventListener('tide-ready', res, { once: true });
-  });
-  tideReady.then(applyVol);
-
-  /* ---------- the Tide window: closed by its dot, dragged by its title bar (not on phones) ---------- */
-  $('tideClose').addEventListener('click', function () { if (window.Tide) window.Tide.controller(false); });
-  (function () {
-    var win = $('controller'), bar = win.querySelector('.bar'), from = null;
-    bar.addEventListener('pointerdown', function (e) {
-      if (innerWidth <= 600 || e.target.closest('button')) return;
-      var r = win.getBoundingClientRect();
-      from = { dx: e.clientX - r.left, dy: e.clientY - r.top };
-      win.style.transform = 'none'; win.style.left = r.left + 'px'; win.style.top = r.top + 'px';
-      win.classList.add('dragging'); bar.setPointerCapture(e.pointerId); e.preventDefault();
-    });
-    bar.addEventListener('pointermove', function (e) {
-      if (!from) return;
-      win.style.left = Math.min(Math.max(e.clientX - from.dx, 8 - win.offsetWidth + 80), innerWidth - 80) + 'px';
-      win.style.top = Math.min(Math.max(e.clientY - from.dy, 52), innerHeight - 40) + 'px';
-    });
-    function end() { from = null; win.classList.remove('dragging'); }
-    bar.addEventListener('pointerup', end); bar.addEventListener('pointercancel', end);
-  })();
-
-  /* ---------- the ENTER screen ----------
-     Browsers only allow sound after a click, and ENTER is that click. It is shown once per
-     visit (per tab). Coming back to the page later in the same visit, for example with the
-     back button, goes straight to the desktop with Tide paused; PLAY starts it. */
-  var enter = $('enter');
-  function visited() { try { return sessionStorage.getItem('tideSeen') === '1'; } catch (e) { return false; } }
-  function leaveEnter() {
-    try { sessionStorage.setItem('tideSeen', '1'); } catch (e) {}
-    enter.classList.add('leaving');                                  /* fades out (style.css) */
-    setTimeout(function () { enter.hidden = true; }, 750);
-  }
-  function enterWithSound() {
-    var done = false;
-    function finish() { if (done) return; done = true; applyVol(); leaveEnter(); }
-    $('go').disabled = true; $('note').textContent = 'starting…';
-    tideReady.then(function () { return window.Tide.start(); }).then(finish, finish);
-    setTimeout(finish, 6000);                                        /* never keep a visitor waiting here */
-  }
-  if (visited()) { enter.hidden = true; $('status').textContent = 'Paused. PLAY starts the sound.'; }
-  $('go').addEventListener('click', enterWithSound);
-  $('skip').addEventListener('click', leaveEnter);
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter' && !enter.hidden && !enter.classList.contains('leaving') && !$('go').disabled) { e.preventDefault(); enterWithSound(); }
-  });
+  /* ---------- the site's own sound ----------
+     Tide plays under everything and goes quiet where the site has sound of its own: the
+     Listening Room, work pages with video or audio, and while a track plays. This says when
+     that is; tide.js listens for the 'site-sound' event and quiets or restores Tide. */
+  S.hasOwnSound = function () { return current === 'listening-room' || currentQuiet || !player.paused; };
+  function applyVol() { window.dispatchEvent(new Event('site-sound')); }
 
   route();
 })();

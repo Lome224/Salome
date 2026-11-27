@@ -211,7 +211,7 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
    tide.salomezhang.com (js/markup.js and controller.css). Drag it by its title bar. */
 /* its size: the controller is drawn in em, so this font-size sets how large all of it is */
 section#controller{left:50%;top:50%;transform:translate(-50%,-50%);z-index:12;flex-direction:column;
-  font-size:14px;width:min(51em, calc(100vw - 24px));max-height:calc(100vh - 110px)}
+  font-size:15px;width:min(51em, calc(100vw - 24px));max-height:calc(100vh - 100px)}
 #controller > .bar{cursor:grab}
 #controller.dragging > .bar{cursor:grabbing}
 /* phones: under the banner, and clear of the two-row bar at the bottom */

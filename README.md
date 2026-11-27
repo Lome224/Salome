@@ -19,7 +19,8 @@ The **Listening Room** plays ten tracks with seekable players.
 | `index.html` | The page's frame: the banner, windows, icons and the Tide bar |
 | `style.css` | How the site looks |
 | `content.js` | Everything visitors read (`window.SITE`): statement, lists, every work page |
-| `site.js` | The site's behaviour: windows, work pages, players, dragging, starting Tide |
+| `site.js` | The site's behaviour: windows, work pages, players, dragging |
+| `tide.js` | Tide on this site: the ENTER screen, the Tide window, quieting Tide where the site has its own sound |
 | `media/backdrop.mp4` | Background video loop |
 | `media/salome.jpg` | About photo |
 | `media/CV_Salome_Zhang.pdf` | CV |
