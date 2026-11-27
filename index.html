@@ -74,11 +74,14 @@ a{color:inherit}
 #readme .body{font-size:13.5px;line-height:1.55}
 #readme p{margin:0 0 1em}#readme p:last-child{margin:0}
 
-#panel{left:50%;top:50%;transform:translate(-50%,-50%) scale(.97);opacity:0;pointer-events:none;
-  width:min(600px, 92vw);max-height:80vh;display:flex;flex-direction:column;transition:opacity .2s, transform .2s}
+/* Center without a transform: transformed, scrolling ancestors can leave embedded
+   players with stale hit-test regions in Chrome, stealing hover from nearby links. */
+#panel{inset:0;margin:auto;height:fit-content;opacity:0;pointer-events:none;
+  width:min(600px, 92vw);max-height:80vh;display:flex;flex-direction:column;transition:opacity .2s}
 #panel.wide{width:min(860px, 94vw)}
-#panel.show{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
-#panel .body{font-size:12px;line-height:1.45}
+#panel.show{opacity:1;pointer-events:auto}
+#panel > .bar{flex-shrink:0}
+#panel .body{min-height:0;font-size:12px;line-height:1.45}
 body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 
 .rows{border-top:1px solid rgba(0,0,0,.75)}
@@ -113,12 +116,6 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 .work .pdf{height:min(78vh,900px);margin:6px 0 8px;border-radius:8px;overflow:hidden;background:#fff;
   box-shadow:inset 0 0 0 1px rgba(0,0,0,.55),0 6px 18px rgba(0,0,0,.18)}
 .work .pdf iframe{width:100%;height:100%;border:0;display:block}
-/* An embedded player or PDF takes the mouse only while the pointer is really over it. Without this, Chrome can
-   hand mouse moves to an embed that has been scrolled away, and links under the pointer lose their hover. */
-@media (hover:hover) and (pointer:fine){
-  .work .vid iframe,.work .pdf iframe{pointer-events:none}
-  .work .vid:hover iframe,.work .pdf:hover iframe{pointer-events:auto}
-}
 .work .pdfcap{margin:12px 0 2px;font-size:12.5px;opacity:.75}
 /* write-up sections */
 .work .sec2{margin:22px 0 8px;padding-top:12px;border-top:1px solid rgba(0,0,0,.75)}
