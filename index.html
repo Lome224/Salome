@@ -44,7 +44,7 @@ a{color:inherit}
   display:flex;align-items:center;user-select:none}
 .banner .track{display:flex;white-space:nowrap;animation:scroll 60s linear infinite;will-change:transform}
 .banner .track span{padding-right:0;font-size:14px;letter-spacing:.02em}
-.banner .track .sep{padding:0 2.4em}
+.banner .track .sep{padding:0 1.6em}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* desktop */
@@ -1651,8 +1651,10 @@ window.SITE = {
   var esc = function (t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
 
   /* ---------- static content ---------- */
-  /* one cycle, then a wider, evenly spaced dot before the next name */
-  var line = '<span class="cy">' + esc(S.name + ' · ' + S.roles.split(' · ').join(' · ')) + '</span><span class="sep" aria-hidden="true">·</span>';
+  /* every item, including the loop point, gets the same dot and the same space */
+  var line = [S.name].concat(S.roles.split(' · ')).map(function (t) {
+    return '<span class="it">' + esc(t) + '</span><span class="sep" aria-hidden="true">·</span>';
+  }).join('');
   var half = '<span>' + line.repeat(8) + '</span>';
   $('track').innerHTML = half + half;
   $('statement').innerHTML = S.statement;
