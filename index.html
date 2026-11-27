@@ -193,77 +193,28 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 /* bottom controls */
 .controls{position:fixed;left:16px;bottom:16px;z-index:30;display:flex;gap:8px}
 .controls button{padding:5px 12px;font-size:11px;letter-spacing:.12em;cursor:pointer}
-/* Tide on the home page: a bar of glass controls, and its controller above it */
+/* Tide on the home page: a small bar (play, volume), and a window that opens from the Tide icon */
 #tide{flex-direction:column;align-items:flex-start;gap:8px;right:16px;pointer-events:none}
 #tide > *{pointer-events:auto}
-.tide-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.tide-bar button,.tide-bar a,.tide-bar label{padding:5px 12px;font-size:11px;letter-spacing:.12em;cursor:pointer;text-decoration:none}
+.tide-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+.tide-bar button,.tide-bar label{padding:5px 12px;font-size:11px;letter-spacing:.12em;cursor:pointer}
 .tide-bar label{display:flex;align-items:center;gap:8px;cursor:default}
 .tide-bar input[type=range]{width:96px;accent-color:#d8d8d8;cursor:pointer}
 .tide-bar output{opacity:.7;min-width:2.6em}
-/* the presets open upward from one button */
-.tide-menu{position:relative;display:inline-flex}
-#presets{position:absolute;left:0;bottom:calc(100% + 8px);display:flex;flex-direction:column;gap:6px;min-width:100%;
-  padding:8px;border-radius:12px;border:1px solid var(--glass-edge);background:rgba(0,0,0,.82);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 12px 34px rgba(0,0,0,.7)}
-#presets[hidden]{display:none}
-#presets button{text-align:left;white-space:nowrap}
-#controller .readmore{align-self:flex-start;color:#e8e8e8;font-size:11px;letter-spacing:.1em;text-decoration:none;
-  border:1px solid #333;border-radius:999px;padding:6px 14px;transition:border-color .2s,color .2s,box-shadow .2s}
-#controller .readmore:hover,#controller .readmore:focus-visible{border-color:#ffd98a;color:#fff6dc;outline:none;box-shadow:0 0 14px rgba(255,200,90,.25)}
-#presets button{background:var(--glass);border:1px solid var(--glass-edge);border-radius:10px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.9);transition:background .25s, border-color .25s, box-shadow .25s, color .25s}
-#presets button:hover,#presets button:focus-visible,#presets button[aria-pressed="true"],#bin[aria-pressed="true"]{
-  background:var(--glow);border-color:var(--glow-edge);color:#fff6dc;outline:none;
-  box-shadow:inset 0 1px 0 rgba(255,244,210,.55), 0 0 18px rgba(255,200,90,.32)}
+.tide-bar input[type=range]{height:14px;margin:0}
+#bin[aria-pressed="true"]{background:var(--glow);border-color:var(--glow-edge);color:#fff6dc}
 .tide-now{font-size:11px;letter-spacing:.04em;text-shadow:0 1px 2px #000;opacity:.85;min-height:1.4em}
 .tide-now b{font-weight:500}
 .tide-now .meter{display:inline-block;width:70px;height:2px;margin:0 8px 3px 0;background:rgba(255,255,255,.2);border-radius:2px;overflow:hidden;vertical-align:middle}
 .tide-now .meter i{display:block;height:100%;width:0;background:#fff;transition:width .1s}
-#controller{flex-direction:column;gap:14px;width:min(660px, calc(100vw - 32px));max-height:calc(100vh - 190px);overflow:auto;
-  padding:14px;border-radius:10px;border:1px solid var(--glass-edge);background:rgba(0,0,0,.84);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 12px 34px rgba(0,0,0,.7);font-size:12px;line-height:1.5}
-#controller .panel{border:1px solid #333;border-radius:10px;padding:12px 14px 10px}
-#controller h2{margin:0 0 8px;font-weight:400;font-size:11px;letter-spacing:.2em;color:#8a8a8a}
-#controller button,#controller select{font:inherit;letter-spacing:.1em;color:#e8e8e8;background:#111;border:1px solid #333;
-  border-radius:999px;padding:6px 14px;cursor:pointer;transition:border-color .2s,color .2s,box-shadow .2s}
-#controller button:hover,#controller button:focus-visible{border-color:#ffd98a;color:#fff6dc;outline:none;box-shadow:0 0 14px rgba(255,200,90,.25)}
-#controller button[aria-pressed="true"]{border-color:#bbb;background:#1c1c1c}
-#controller .grid{display:grid;grid-template-columns:6.4em minmax(0,1fr);gap:6px;align-items:end;margin-top:8px}
-#controller .lab{font-size:10px;letter-spacing:.14em;color:#8a8a8a;align-self:center;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
-#controller .when{display:inline-block;white-space:nowrap;font-size:9px;letter-spacing:.04em;color:#000;background:#9a9a9a;border-radius:4px;padding:0 5px}
-#controller .when.later{background:#ffd98a}
-#controller h2 .when,#controller .hs .when{margin-left:6px}
-#controller .cols{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
-#controller .vbtn{padding:6px 0;font-size:9.5px;letter-spacing:.02em;border-radius:8px;width:100%;overflow:hidden}
-#controller .vbtn .short{display:none}
-#controller .vbtn[aria-pressed="false"]{color:#666;border-color:#222;background:#080808}
-#controller .vbtn.run{box-shadow:inset 0 -3px 0 #ffd98a}
-#controller .ms{display:grid;grid-template-columns:repeat(var(--n,8),minmax(0,1fr));gap:6px;height:84px;touch-action:none;cursor:ns-resize;user-select:none}
-#controller .ms.short{height:64px}
-#controller .ms .b{position:relative;background:#0c0c0c;border:1px solid #222;border-radius:6px;overflow:hidden}
-#controller .ms .b:focus-visible{outline:1px solid #ffd98a}
-#controller .ms .b i{position:absolute;left:0;right:0;bottom:0;background:#cfcfcf;opacity:.85}
-#controller .ms .b.off i{background:#3a3a3a}
-#controller .ms .b.pend{border:1px dashed #ffd98a}
-#controller .ms .b.pend i{background:#ffd98a}
-#controller .ms .b span{position:absolute;left:0;right:0;top:3px;text-align:center;font-size:9px;color:#bbb;mix-blend-mode:difference}
-#controller .ms .b .ft{top:auto;bottom:3px}
-#controller .tabs,#controller .trow{display:flex;gap:6px 16px;flex-wrap:wrap;align-items:center;margin:0 0 8px}
-#controller .trow{margin:10px 0 0}
-#controller .tabs button{padding:4px 10px;font-size:10px;letter-spacing:.06em;border-radius:8px}
-#controller .tabs button[aria-pressed="true"]{background:#d6d6d6;color:#000;border-color:#d6d6d6}
-#controller .hs{display:flex;align-items:center;gap:8px;letter-spacing:.12em;font-size:11px}
-#controller .hs input{width:130px;accent-color:#d8d8d8;cursor:pointer}
-#controller .ends{font-size:10px;color:#8a8a8a;letter-spacing:.02em}
-#controller .hint{font-size:10.5px;color:#8a8a8a;margin:8px 0 0}
-#controller .pendmsg{font-size:10.5px;color:#ffd98a;margin:6px 0 0;min-height:1.4em}
-@media (max-width:600px){
-  #controller .grid{grid-template-columns:minmax(0,1fr)}
-  #controller .vbtn .long{display:none}#controller .vbtn .short{display:inline}
-  #controller .lab{flex-direction:row;align-items:center;gap:6px}
-}
+/* the Tide window: where it sits. What is inside it, and how that looks, comes from
+   tide.salomezhang.com (js/markup.js and controller.css). Drag it by its title bar. */
+#controller{left:50%;top:50%;transform:translate(-50%,-50%);z-index:12;flex-direction:column;
+  width:min(560px, calc(100vw - 24px));max-height:calc(100vh - 150px)}
+#controller > .bar{cursor:grab}
+#controller.dragging > .bar{cursor:grabbing}
+/* phones: under the banner, and clear of the two-row bar at the bottom */
+@media (max-width:600px){ #controller{top:56px;transform:translateX(-50%);max-height:calc(100vh - 176px)} #controller > .bar{cursor:default} }
 
 /* enter screen */
 #enter{position:fixed;inset:0;z-index:100;background:#000;display:flex;flex-direction:column;align-items:center;
@@ -296,6 +247,7 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 }
 @media (prefers-reduced-motion:reduce){.banner .track{animation:none}}
 </style>
+<link rel="stylesheet" href="https://tide.salomezhang.com/controller.css">
 </head>
 <body>
 <video id="bg" muted loop playsinline autoplay preload="auto"></video>
@@ -319,54 +271,19 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 <!-- Tide: the generative piece that plays on this site. Its code lives at tide.salomezhang.com;
      the controls below are wired up by the script loaded at the end of the page. -->
 <div class="controls" id="tide">
-  <div id="controller" hidden style="display:none">
-    <section class="panel" aria-label="Voices">
-      <h2>VOICES · EACH ON ITS OWN CYCLE</h2>
-      <div class="grid"><div class="lab">ON / OFF<span class="when">now</span></div><div class="cols" id="toggles"></div></div>
-      <div class="grid"><div class="lab">ACTIVITY<span class="when later">next phrase</span></div><div class="ms" id="msAct" style="--n:7" role="group" aria-label="Activity per voice"></div></div>
-      <div class="grid"><div class="lab">LEVEL<span class="when">now</span></div><div class="ms" id="msLvl" style="--n:7" role="group" aria-label="Level per voice"></div></div>
-      <p class="pendmsg" id="pendAct"></p>
-      <div class="trow">
-        <label class="hs" for="tonic">ROOT <select id="tonic"></select><span class="when later">next silence</span></label>
-        <label class="hs" for="mood">HARMONY <select id="mood"></select><span class="when later">next silence</span></label>
-      </div>
-      <div class="trow">
-        <label class="hs" for="drift" title="How much longer each voice's phrase is than the one before it">DRIFT
-          <span class="ends">together</span><input type="range" id="drift" min="0" max="1" step="0.01"><span class="ends">apart</span><span class="when later">next phrase</span></label>
-        <label class="hs" for="room" title="How much binaural room">ROOM
-          <span class="ends">dry</span><input type="range" id="room" min="0" max="1" step="0.01"><span class="ends">wet</span><span class="when">now</span></label>
-      </div>
-      <p class="hint">Drag across the bars. A voice's button is underlined while it plays a phrase. A changed
-        bar turns yellow until that voice's next phrase. Changing the root or harmony gathers the voices
-        into a shared silence (about 20 seconds), then the piece begins again in the new key.</p>
-    </section>
-    <section class="panel" aria-label="Rhythm">
-      <h2>RHYTHM · ONE PATTERN PER VOICE<span class="when later">next phrase</span></h2>
-      <div class="tabs" id="divTabs" role="group" aria-label="Voice for rhythm"></div>
-      <div class="ms short" id="msDiv" role="group" aria-label="Notes in each beat"></div>
-      <p class="pendmsg" id="pendDiv"></p>
-      <p class="hint" id="divHint"></p>
-    </section>
-    <section class="panel" aria-label="Breath">
-      <h2>BREATH · ONE PATTERN PER VOICE<span class="when later">next phrase</span></h2>
-      <div class="tabs" id="waitTabs" role="group" aria-label="Voice for breath"></div>
-      <div class="ms" id="msWait" role="group" aria-label="Rest after each phrase"></div>
-      <p class="pendmsg" id="pendWait"></p>
-      <p class="hint">Each bar is how long this voice rests after one of its phrases (about 1 to 9 seconds).
-        A full bar reads WAIT: the voice stays silent until counter, bass and chords are all waiting; then
-        the harmony changes and everyone begins again together.</p>
-    </section>
-    <a class="readmore" href="https://github.com/Lome224/Tide" target="_blank" rel="noopener">READ MORE · how Tide works, and its code, on GitHub</a>
-  </div>
   <div class="tide-now"><span class="meter" aria-hidden="true"><i id="meter"></i></span><span id="status"></span> <span id="now"></span></div>
   <div class="tide-bar">
     <button class="glass glowable" id="play" type="button">PLAY</button>
     <label class="glass" for="vol">VOLUME <input type="range" id="vol" min="0" max="1" step="0.01"><output id="volOut"></output></label>
-    <span class="tide-menu"><button class="glass glowable" id="presetBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="presets" title="Choose a sound">TIDE ▾</button><span id="presets" role="group" aria-label="Sound" hidden></span></span>
     <button class="glass glowable" id="bin" type="button" aria-pressed="true" title="Binaural (HRTF) spatial audio: sounds move around your head. Headphones recommended; switch off for speakers."><span id="binTxt">BINAURAL ON</span></button>
-    <button class="glass glowable" id="ctlBtn" type="button" aria-expanded="false" aria-controls="controller">OPEN CONTROLLER</button>
   </div>
 </div>
+
+<section class="win" id="controller" aria-label="Tide" hidden style="display:none">
+  <div class="bar"><button class="x" id="tideClose" type="button" aria-label="Close"></button>Tide</div>
+  <div class="body" id="controllerBody"></div>
+  </div>
+</section>
 
 <div id="enter">
   <button class="go glass glowable" id="go" type="button">ENTER</button>
@@ -407,13 +324,14 @@ window.SITE = {
     cv: 'media/CV_Salome_Zhang.pdf'
   },
 
-  /* Desktop icons, top to bottom. kind: folder | file | mail. */
+  /* Desktop icons, top to bottom. kind: folder | file | mail | tide (opens the Tide window). */
   icons: [
     { label: 'Art', kind: 'folder', open: 'art' },
     { label: 'Lab', kind: 'folder', open: 'lab' },
     { label: 'Scoring & Post', kind: 'folder', open: 'scoring-post' },
     { label: 'About', kind: 'file', open: 'about' },
-    { label: 'Contact', kind: 'mail', open: 'contact' }
+    { label: 'Contact', kind: 'mail', open: 'contact' },
+    { label: 'Tide', kind: 'tide', tide: true }
   ],
 
   art: [
@@ -824,7 +742,7 @@ window.SITE = {
     "role": "Composer · Developer",
     "desc": [
      "Tide is the music system Zhang is building on top of The Blue Left Spinning, and the sound that plays on this site. In that installation, one machine’s pauses gave the music its phrases and its rests. Tide extends the idea to many: seven voices, each with its own cycle of phrase and rest, slightly different in length, so that they begin together, drift apart, and gather again in a shared silence.",
-     "The harmony has no chord progression in the functional sense. In one mode it follows Debussy: everything sounds in a single scale at a time, whole-tone or pentatonic, and the two alternate, changing only in a shared silence and in a new key, so that no phrase changes colour midway. In the other, darker mode it follows two ideas from Berklee’s Harmony 4. The chords are polychords, a major triad set above a root and fifth a tritone or a sixth away. They move as a constant structure, the same chord shape stepping down a minor third each time, inside the half-whole scale, which is identical at every minor third and so keeps the chord scale constant however the voices overlap. In both modes the bass holds a pedal, phrases end unresolved, and the note that feels like home moves by a small Markov chain.",
+     "The harmony has no chord progression in the functional sense. Everything sounds in a single scale at a time, and the piece alternates between two scales, changing only in a shared silence and in a new key, so that no phrase changes colour midway. The listener chooses the two from ten: the Dorian, Phrygian and Lydian modes, the whole-tone and octatonic scales, the Chinese pentatonic modes gong 宫, yu 羽 and jue 角, and the Japanese iwato 岩戸 and hirajoshi 平調子. Chords are one shape moved in parallel. In the octatonic scale they follow two ideas from Berklee’s Harmony 4: polychords, a major triad set above a root and fifth a tritone or a sixth away, moved as a constant structure, the same shape stepping down a minor third each time, which the octatonic scale allows because it is identical at every minor third. In every scale the bass holds a pedal, phrases end unresolved, and the note that feels like home moves by a small Markov chain.",
      "For now the voices are driven by the page. The piece is being built to become a kinetic sculpture: a series of machines, each one carrying a voice. It is synthesised live in the browser with Csound; the pitched voices are physical models of a bowed string, a plucked string and an aeolian harp, placed around the listener binaurally."
     ],
     "tags": [],
@@ -1658,7 +1576,7 @@ window.SITE = {
   bg.addEventListener('error', function () { bg.removeAttribute('src'); });
   var p = bg.play(); if (p && p.catch) p.catch(function () {});
 
-  var ICON = { folder: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMTA0Ij4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iYmsiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM1YTVhNWEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwYzBjMGMiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImZyIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjOGE4YThhIi8+PHN0b3Agb2Zmc2V0PSIwLjQyIiBzdG9wLWNvbG9yPSIjMmIyYjJiIi8+PHN0b3Agb2Zmc2V0PSIwLjQzIiBzdG9wLWNvbG9yPSIjMTIxMjEyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDAwMDAwIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJnbCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjc1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuMDQiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InBwIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjY2ZjZmNmIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJyaW0iIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNkOGQ4ZDgiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMzYTNhM2EiLz48L2xpbmVhckdyYWRpZW50Pgo8cmFkaWFsR3JhZGllbnQgaWQ9InNoIiBjeD0iMC41IiBjeT0iMC41IiByPSIwLjUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzAwMCIgc3RvcC1vcGFjaXR5PSIwLjYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CjxyYWRpYWxHcmFkaWVudCBpZD0iZ2xvdyIgY3g9IjAuNSIgY3k9IjEiIHI9IjAuNTUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjI4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50Pgo8L2RlZnM+CjxlbGxpcHNlIGN4PSI4MCIgY3k9Ijk4IiByeD0iNjYiIHJ5PSI1LjUiIGZpbGw9InVybCgjc2gpIi8+CjxwYXRoIGQ9Ik0xOCAxNCBRMTggOCAyNCA4IEg1OCBRNjIgOCA2NSAxMSBMNzEgMTcgSDEzNiBRMTQyIDE3IDE0MiAyMyBWODYgSDE4IFoiIGZpbGw9InVybCgjYmspIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yIi8+CjxwYXRoIGQ9Ik0yMCAxNSBRMjAgMTAgMjUgMTAgSDU3IiBzdHJva2U9IiNiZGJkYmQiIHN0cm9rZS1vcGFjaXR5PSIwLjciIHN0cm9rZS13aWR0aD0iMS4yIiBmaWxsPSJub25lIi8+CjxyZWN0IHg9IjMwIiB5PSIyMiIgd2lkdGg9Ijk4IiBoZWlnaHQ9IjUyIiByeD0iMiIgZmlsbD0idXJsKCNwcCkiIHRyYW5zZm9ybT0icm90YXRlKC0zIDc5IDQ4KSIgc3Ryb2tlPSIjOGM4YzhjIiBzdHJva2Utd2lkdGg9IjAuOCIvPgo8cmVjdCB4PSIzNiIgeT0iMjgiIHdpZHRoPSI5MiIgaGVpZ2h0PSI1MCIgcng9IjIiIGZpbGw9IiNmZmZmZmYiIHRyYW5zZm9ybT0icm90YXRlKDIgODIgNTMpIiBzdHJva2U9IiM5YTlhOWEiIHN0cm9rZS13aWR0aD0iMC44Ii8+CjxwYXRoIGQ9Ik0xMCAzOCBRMTAgMzMgMTUgMzMgSDE0NSBRMTUwIDMzIDE1MCAzOCBMMTQ2IDg4IFExNDUuNSA5NCAxMzkuNSA5NCBIMjAuNSBRMTQuNSA5NCAxNCA4OCBaIiBmaWxsPSJ1cmwoI2ZyKSIgc3Ryb2tlPSJ1cmwoI3JpbSkiIHN0cm9rZS13aWR0aD0iMS40Ii8+CjxwYXRoIGQ9Ik0xMC42IDM4IFExMC42IDMzLjYgMTUgMzMuNiBIMTQ1IFExNDkuNCAzMy42IDE0OS40IDM4IEwxNDggNTUgUTgwIDYyIDEyIDU1IFoiIGZpbGw9InVybCgjZ2wpIi8+CjxwYXRoIGQ9Ik0xNCA4OCBMMTIuNSA2NiBRODAgNzQgMTQ3LjUgNjYgTDE0NiA4OCBRMTQ1LjUgOTQgMTM5LjUgOTQgSDIwLjUgUTE0LjUgOTQgMTQgODggWiIgZmlsbD0idXJsKCNnbG93KSIvPgo8cGF0aCBkPSJNMTYgMzQuOCBIMTQ0IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjk1IiBzdHJva2Utd2lkdGg9IjEuMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=', file: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDQgMTI4Ij4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGciIHgxPSIwIiB5MT0iMCIgeDI9IjAuNiIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzVjNWM1YyIvPjxzdG9wIG9mZnNldD0iMC40NSIgc3RvcC1jb2xvcj0iIzFlMWUxZSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwMCIvPjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0iY24iIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM4ZThlOGUiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImdsIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJsbiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIyNiIgeTE9IjAiIHgyPSI3OCIgeTI9IjAiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzhhOGE4YSIvPjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icmltIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZDBkMGQwIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjM2EzYTNhIi8+PC9saW5lYXJHcmFkaWVudD4KPHJhZGlhbEdyYWRpZW50IGlkPSJzaCIgY3g9IjAuNSIgY3k9IjAuNSIgcj0iMC41Ij48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMwMDAiIHN0b3Atb3BhY2l0eT0iMC42Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDAwIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50Pgo8L2RlZnM+CjxlbGxpcHNlIGN4PSI1MiIgY3k9IjEyMiIgcng9IjQwIiByeT0iNSIgZmlsbD0idXJsKCNzaCkiLz4KPHBhdGggZD0iTTE4IDggSDY2IEw5MCAzMiBWMTEyIFE5MCAxMTcgODUgMTE3IEgxOSBRMTQgMTE3IDE0IDExMiBWMTIgUTE0IDggMTggOCBaIiBmaWxsPSJ1cmwoI3BnKSIgc3Ryb2tlPSJ1cmwoI3JpbSkiIHN0cm9rZS13aWR0aD0iMS40Ii8+CjxwYXRoIGQ9Ik02NiA4IFYyNyBRNjYgMzIgNzEgMzIgSDkwIFoiIGZpbGw9InVybCgjY24pIiBzdHJva2U9IiM1NTUiIHN0cm9rZS13aWR0aD0iMS4xIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxnIHN0cm9rZT0idXJsKCNsbikiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjc1Ij4KPHBhdGggZD0iTTI2IDUwIEg3OCIvPjxwYXRoIGQ9Ik0yNiA2MiBINzgiLz48cGF0aCBkPSJNMjYgNzQgSDcwIi8+PHBhdGggZD0iTTI2IDg2IEg3OCIvPjxwYXRoIGQ9Ik0yNiA5OCBINjAiLz4KPC9nPgo8cGF0aCBkPSJNMTggOS41IEg2NSBWMzAgUTUwIDQ0IDE1LjUgNDYgVjEyIFExNS41IDkuNSAxOCA5LjUgWiIgZmlsbD0idXJsKCNnbCkiLz4KPC9zdmc+Cg==', mail: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNTAgMTEyIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iYmQiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM3YTdhN2EiLz48c3RvcCBvZmZzZXQ9IjAuNDUiIHN0b3AtY29sb3I9IiMyNjI2MjYiLz48c3RvcCBvZmZzZXQ9IjAuNDYiIHN0b3AtY29sb3I9IiMxMTEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDAiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImZsIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOWM5YzljIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJnbCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjg1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InJpbSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2QwZDBkMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNhM2EzYSIvPjwvbGluZWFyR3JhZGllbnQ+CjxyYWRpYWxHcmFkaWVudCBpZD0ic2giIGN4PSIwLjUiIGN5PSIwLjUiIHI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDAwIiBzdG9wLW9wYWNpdHk9IjAuNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD4KPHJhZGlhbEdyYWRpZW50IGlkPSJkb3QiIGN4PSIwLjM1IiBjeT0iMC4zIiByPSIwLjc1Ij48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI2JkYmRiZCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNjM2MzYyIvPjwvcmFkaWFsR3JhZGllbnQ+CjwvZGVmcz4KPGVsbGlwc2UgY3g9Ijc1IiBjeT0iMTA1IiByeD0iNjAiIHJ5PSI1IiBmaWxsPSJ1cmwoI3NoKSIvPgo8cmVjdCB4PSIxMiIgeT0iMjIiIHdpZHRoPSIxMjYiIGhlaWdodD0iNzgiIHJ4PSI5IiBmaWxsPSJ1cmwoI2JkKSIgc3Ryb2tlPSJ1cmwoI3JpbSkiIHN0cm9rZS13aWR0aD0iMS40Ii8+CjxwYXRoIGQ9Ik0xNCA5NiBMNjIgNTggUTc1IDQ5IDg4IDU4IEwxMzYgOTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMzUiIHN0cm9rZS13aWR0aD0iMiIvPgo8cGF0aCBkPSJNMTYgMjYgTDY2IDYzIFE3NSA3MCA4NCA2MyBMMTM0IDI2IFExMzIgMjMgMTI4IDIzIEgyMiBRMTggMjMgMTYgMjYgWiIgZmlsbD0idXJsKCNmbCkiIHN0cm9rZT0iIzRhNGE0YSIgc3Ryb2tlLXdpZHRoPSIxLjEiLz4KPHBhdGggZD0iTTIxIDIzLjUgSDEyOSBRMTM0IDIzLjUgMTM1LjUgMjggTDEyOCAzNCBRNzUgNDYgMjIgMzQgTDE0LjUgMjggUTE2IDIzLjUgMjEgMjMuNSBaIiBmaWxsPSJ1cmwoI2dsKSIvPgo8Y2lyY2xlIGN4PSIxMjgiIGN5PSIyNCIgcj0iMTIiIGZpbGw9InVybCgjZG90KSIgc3Ryb2tlPSIjMjIyIiBzdHJva2Utd2lkdGg9IjEuMSIvPgo8ZWxsaXBzZSBjeD0iMTI1IiBjeT0iMTkiIHJ4PSI2IiByeT0iMy41IiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuODUiLz4KPC9zdmc+Cg==' };
+  var ICON = { tide: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNTAgMTEyIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iYmQiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM2YTZhNmEiLz48c3RvcCBvZmZzZXQ9IjAuNDUiIHN0b3AtY29sb3I9IiMxZTFlMWUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDAiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InJpbSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2QwZDBkMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNhM2EzYSIvPjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ2wiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC41Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz48L2xpbmVhckdyYWRpZW50Pgo8cmFkaWFsR3JhZGllbnQgaWQ9InNoIiBjeD0iMC41IiBjeT0iMC41IiByPSIwLjUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzAwMCIgc3RvcC1vcGFjaXR5PSIwLjYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CjwvZGVmcz4KPGVsbGlwc2UgY3g9Ijc1IiBjeT0iMTA1IiByeD0iNTIiIHJ5PSI1IiBmaWxsPSJ1cmwoI3NoKSIvPgo8Y2lyY2xlIGN4PSI3NSIgY3k9IjU0IiByPSI0NiIgZmlsbD0idXJsKCNiZCkiIHN0cm9rZT0idXJsKCNyaW0pIiBzdHJva2Utd2lkdGg9IjEuNCIvPgo8ZyBmaWxsPSJub25lIiBzdHJva2U9IiM5YTlhOWEiIHN0cm9rZS13aWR0aD0iMSI+PGNpcmNsZSBjeD0iNzUiIGN5PSI1NCIgcj0iMTIiLz48Y2lyY2xlIGN4PSI3NSIgY3k9IjU0IiByPSIyMSIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNTQiIHI9IjMwIi8+PGNpcmNsZSBjeD0iNzUiIGN5PSI1NCIgcj0iMzkiLz48L2c+CjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZDk4YSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KPHBhdGggZD0iTTc1IDQyIEExMiAxMiAwIDAgMSA4NS40IDYwIiBzdHJva2Utd2lkdGg9IjMiLz4KPHBhdGggZD0iTTc1IDMzIEEyMSAyMSAwIDEgMSA1Ni44IDY0LjUiIHN0cm9rZS13aWR0aD0iMi40Ii8+CjxwYXRoIGQ9Ik03NSAyNCBBMzAgMzAgMCAwIDEgMTA0LjUgNDguOCIgc3Ryb2tlLXdpZHRoPSIzLjQiLz4KPHBhdGggZD0iTTc1IDE1IEEzOSAzOSAwIDAgMSAxMDguOCA3My41IiBzdHJva2Utd2lkdGg9IjIiLz4KPC9nPgo8cGF0aCBkPSJNNzUgOS41IEE0NC41IDQ0LjUgMCAwIDEgMTE5IDQ3IFE3NSA1OCAzMSA0NyBBNDQuNSA0NC41IDAgMCAxIDc1IDkuNSBaIiBmaWxsPSJ1cmwoI2dsKSIvPgo8L3N2Zz4=', folder: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMTA0Ij4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iYmsiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM1YTVhNWEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwYzBjMGMiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImZyIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjOGE4YThhIi8+PHN0b3Agb2Zmc2V0PSIwLjQyIiBzdG9wLWNvbG9yPSIjMmIyYjJiIi8+PHN0b3Agb2Zmc2V0PSIwLjQzIiBzdG9wLWNvbG9yPSIjMTIxMjEyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDAwMDAwIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJnbCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjc1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuMDQiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InBwIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjY2ZjZmNmIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJyaW0iIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNkOGQ4ZDgiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMzYTNhM2EiLz48L2xpbmVhckdyYWRpZW50Pgo8cmFkaWFsR3JhZGllbnQgaWQ9InNoIiBjeD0iMC41IiBjeT0iMC41IiByPSIwLjUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzAwMCIgc3RvcC1vcGFjaXR5PSIwLjYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CjxyYWRpYWxHcmFkaWVudCBpZD0iZ2xvdyIgY3g9IjAuNSIgY3k9IjEiIHI9IjAuNTUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjI4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50Pgo8L2RlZnM+CjxlbGxpcHNlIGN4PSI4MCIgY3k9Ijk4IiByeD0iNjYiIHJ5PSI1LjUiIGZpbGw9InVybCgjc2gpIi8+CjxwYXRoIGQ9Ik0xOCAxNCBRMTggOCAyNCA4IEg1OCBRNjIgOCA2NSAxMSBMNzEgMTcgSDEzNiBRMTQyIDE3IDE0MiAyMyBWODYgSDE4IFoiIGZpbGw9InVybCgjYmspIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yIi8+CjxwYXRoIGQ9Ik0yMCAxNSBRMjAgMTAgMjUgMTAgSDU3IiBzdHJva2U9IiNiZGJkYmQiIHN0cm9rZS1vcGFjaXR5PSIwLjciIHN0cm9rZS13aWR0aD0iMS4yIiBmaWxsPSJub25lIi8+CjxyZWN0IHg9IjMwIiB5PSIyMiIgd2lkdGg9Ijk4IiBoZWlnaHQ9IjUyIiByeD0iMiIgZmlsbD0idXJsKCNwcCkiIHRyYW5zZm9ybT0icm90YXRlKC0zIDc5IDQ4KSIgc3Ryb2tlPSIjOGM4YzhjIiBzdHJva2Utd2lkdGg9IjAuOCIvPgo8cmVjdCB4PSIzNiIgeT0iMjgiIHdpZHRoPSI5MiIgaGVpZ2h0PSI1MCIgcng9IjIiIGZpbGw9IiNmZmZmZmYiIHRyYW5zZm9ybT0icm90YXRlKDIgODIgNTMpIiBzdHJva2U9IiM5YTlhOWEiIHN0cm9rZS13aWR0aD0iMC44Ii8+CjxwYXRoIGQ9Ik0xMCAzOCBRMTAgMzMgMTUgMzMgSDE0NSBRMTUwIDMzIDE1MCAzOCBMMTQ2IDg4IFExNDUuNSA5NCAxMzkuNSA5NCBIMjAuNSBRMTQuNSA5NCAxNCA4OCBaIiBmaWxsPSJ1cmwoI2ZyKSIgc3Ryb2tlPSJ1cmwoI3JpbSkiIHN0cm9rZS13aWR0aD0iMS40Ii8+CjxwYXRoIGQ9Ik0xMC42IDM4IFExMC42IDMzLjYgMTUgMzMuNiBIMTQ1IFExNDkuNCAzMy42IDE0OS40IDM4IEwxNDggNTUgUTgwIDYyIDEyIDU1IFoiIGZpbGw9InVybCgjZ2wpIi8+CjxwYXRoIGQ9Ik0xNCA4OCBMMTIuNSA2NiBRODAgNzQgMTQ3LjUgNjYgTDE0NiA4OCBRMTQ1LjUgOTQgMTM5LjUgOTQgSDIwLjUgUTE0LjUgOTQgMTQgODggWiIgZmlsbD0idXJsKCNnbG93KSIvPgo8cGF0aCBkPSJNMTYgMzQuOCBIMTQ0IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjk1IiBzdHJva2Utd2lkdGg9IjEuMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=', file: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDQgMTI4Ij4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGciIHgxPSIwIiB5MT0iMCIgeDI9IjAuNiIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzVjNWM1YyIvPjxzdG9wIG9mZnNldD0iMC40NSIgc3RvcC1jb2xvcj0iIzFlMWUxZSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwMCIvPjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0iY24iIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM4ZThlOGUiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImdsIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJsbiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIyNiIgeTE9IjAiIHgyPSI3OCIgeTI9IjAiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzhhOGE4YSIvPjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icmltIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZDBkMGQwIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjM2EzYTNhIi8+PC9saW5lYXJHcmFkaWVudD4KPHJhZGlhbEdyYWRpZW50IGlkPSJzaCIgY3g9IjAuNSIgY3k9IjAuNSIgcj0iMC41Ij48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMwMDAiIHN0b3Atb3BhY2l0eT0iMC42Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDAwIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50Pgo8L2RlZnM+CjxlbGxpcHNlIGN4PSI1MiIgY3k9IjEyMiIgcng9IjQwIiByeT0iNSIgZmlsbD0idXJsKCNzaCkiLz4KPHBhdGggZD0iTTE4IDggSDY2IEw5MCAzMiBWMTEyIFE5MCAxMTcgODUgMTE3IEgxOSBRMTQgMTE3IDE0IDExMiBWMTIgUTE0IDggMTggOCBaIiBmaWxsPSJ1cmwoI3BnKSIgc3Ryb2tlPSJ1cmwoI3JpbSkiIHN0cm9rZS13aWR0aD0iMS40Ii8+CjxwYXRoIGQ9Ik02NiA4IFYyNyBRNjYgMzIgNzEgMzIgSDkwIFoiIGZpbGw9InVybCgjY24pIiBzdHJva2U9IiM1NTUiIHN0cm9rZS13aWR0aD0iMS4xIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxnIHN0cm9rZT0idXJsKCNsbikiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjc1Ij4KPHBhdGggZD0iTTI2IDUwIEg3OCIvPjxwYXRoIGQ9Ik0yNiA2MiBINzgiLz48cGF0aCBkPSJNMjYgNzQgSDcwIi8+PHBhdGggZD0iTTI2IDg2IEg3OCIvPjxwYXRoIGQ9Ik0yNiA5OCBINjAiLz4KPC9nPgo8cGF0aCBkPSJNMTggOS41IEg2NSBWMzAgUTUwIDQ0IDE1LjUgNDYgVjEyIFExNS41IDkuNSAxOCA5LjUgWiIgZmlsbD0idXJsKCNnbCkiLz4KPC9zdmc+Cg==', mail: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNTAgMTEyIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iYmQiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM3YTdhN2EiLz48c3RvcCBvZmZzZXQ9IjAuNDUiIHN0b3AtY29sb3I9IiMyNjI2MjYiLz48c3RvcCBvZmZzZXQ9IjAuNDYiIHN0b3AtY29sb3I9IiMxMTEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDAiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImZsIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOWM5YzljIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJnbCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjg1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InJpbSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2QwZDBkMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNhM2EzYSIvPjwvbGluZWFyR3JhZGllbnQ+CjxyYWRpYWxHcmFkaWVudCBpZD0ic2giIGN4PSIwLjUiIGN5PSIwLjUiIHI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDAwIiBzdG9wLW9wYWNpdHk9IjAuNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD4KPHJhZGlhbEdyYWRpZW50IGlkPSJkb3QiIGN4PSIwLjM1IiBjeT0iMC4zIiByPSIwLjc1Ij48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI2JkYmRiZCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNjM2MzYyIvPjwvcmFkaWFsR3JhZGllbnQ+CjwvZGVmcz4KPGVsbGlwc2UgY3g9Ijc1IiBjeT0iMTA1IiByeD0iNjAiIHJ5PSI1IiBmaWxsPSJ1cmwoI3NoKSIvPgo8cmVjdCB4PSIxMiIgeT0iMjIiIHdpZHRoPSIxMjYiIGhlaWdodD0iNzgiIHJ4PSI5IiBmaWxsPSJ1cmwoI2JkKSIgc3Ryb2tlPSJ1cmwoI3JpbSkiIHN0cm9rZS13aWR0aD0iMS40Ii8+CjxwYXRoIGQ9Ik0xNCA5NiBMNjIgNTggUTc1IDQ5IDg4IDU4IEwxMzYgOTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMzUiIHN0cm9rZS13aWR0aD0iMiIvPgo8cGF0aCBkPSJNMTYgMjYgTDY2IDYzIFE3NSA3MCA4NCA2MyBMMTM0IDI2IFExMzIgMjMgMTI4IDIzIEgyMiBRMTggMjMgMTYgMjYgWiIgZmlsbD0idXJsKCNmbCkiIHN0cm9rZT0iIzRhNGE0YSIgc3Ryb2tlLXdpZHRoPSIxLjEiLz4KPHBhdGggZD0iTTIxIDIzLjUgSDEyOSBRMTM0IDIzLjUgMTM1LjUgMjggTDEyOCAzNCBRNzUgNDYgMjIgMzQgTDE0LjUgMjggUTE2IDIzLjUgMjEgMjMuNSBaIiBmaWxsPSJ1cmwoI2dsKSIvPgo8Y2lyY2xlIGN4PSIxMjgiIGN5PSIyNCIgcj0iMTIiIGZpbGw9InVybCgjZG90KSIgc3Ryb2tlPSIjMjIyIiBzdHJva2Utd2lkdGg9IjEuMSIvPgo8ZWxsaXBzZSBjeD0iMTI1IiBjeT0iMTkiIHJ4PSI2IiByeT0iMy41IiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuODUiLz4KPC9zdmc+Cg==' };
   S.icons.forEach(function (it) {
     var el;
     if (it.link) {
@@ -1668,7 +1586,7 @@ window.SITE = {
     } else {
       el = document.createElement('button');
       el.type = 'button';
-      el.addEventListener('click', function () { openWin(it.open); });
+      el.addEventListener('click', it.tide ? function () { if (window.Tide) window.Tide.controller(); } : function () { openWin(it.open); });
     }
     el.className = 'icon';
     el.innerHTML = '<img src="' + ICON[it.kind] + '" alt=""><span class="label glass">' + esc(it.label) + '</span>';
@@ -1866,7 +1784,7 @@ window.SITE = {
   }
   $('close').addEventListener('click', closeWin);
   document.addEventListener('click', function (e) {
-    if (current && !e.target.closest('#panel, #icons, #banner, .controls, #codepanel, #tune, #enter')) closeWin();
+    if (current && !e.target.closest('#panel, #icons, #banner, .controls, #controller, #tune, #enter')) closeWin();
   });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeWin(); });
   window.addEventListener('hashchange', route);
@@ -1990,20 +1908,25 @@ window.SITE = {
     if (window.Tide) res(); else window.addEventListener('tide-ready', res, { once: true });
   });
   tideReady.then(applyVol);
-  /* the preset menu: one button showing the current sound; it opens the choices Tide provides */
+  /* the Tide window can be dragged by its title bar (not on phones) */
   (function () {
-    var btn = $('presetBtn'), list = $('presets');
-    function label() {
-      var on = list.querySelector('[aria-pressed="true"]');
-      btn.textContent = (on ? on.textContent : 'CUSTOM') + ' ▾';
-    }
-    function open(yes) { list.hidden = !yes; btn.setAttribute('aria-expanded', yes ? 'true' : 'false'); }
-    new MutationObserver(label).observe(list, { subtree: true, childList: true, attributes: true, attributeFilter: ['aria-pressed'] });
-    btn.addEventListener('click', function (e) { e.stopPropagation(); open(list.hidden); });
-    list.addEventListener('click', function () { open(false); });
-    document.addEventListener('click', function (e) { if (!e.target.closest('.tide-menu')) open(false); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') open(false); });
+    var win = $('controller'), bar = win.querySelector('.bar'), from = null;
+    bar.addEventListener('pointerdown', function (e) {
+      if (innerWidth <= 600 || e.target.closest('button')) return;
+      var r = win.getBoundingClientRect();
+      from = { dx: e.clientX - r.left, dy: e.clientY - r.top };
+      win.style.transform = 'none'; win.style.left = r.left + 'px'; win.style.top = r.top + 'px';
+      win.classList.add('dragging'); bar.setPointerCapture(e.pointerId); e.preventDefault();
+    });
+    bar.addEventListener('pointermove', function (e) {
+      if (!from) return;
+      win.style.left = Math.min(Math.max(e.clientX - from.dx, 8 - win.offsetWidth + 80), innerWidth - 80) + 'px';
+      win.style.top = Math.min(Math.max(e.clientY - from.dy, 52), innerHeight - 40) + 'px';
+    });
+    function end() { from = null; win.classList.remove('dragging'); }
+    bar.addEventListener('pointerup', end); bar.addEventListener('pointercancel', end);
   })();
+  $('tideClose').addEventListener('click', function () { if (window.Tide) window.Tide.controller(false); });
   function seen() { try { return sessionStorage.getItem('tideSeen') === '1'; } catch (e) { return false; } }
   function markSeen() { try { sessionStorage.setItem('tideSeen', '1'); } catch (e) {} }
   function hideEnter() {
