@@ -1,0 +1,1264 @@
+/* salomezhang.com: the site's content (window.SITE): statement, icons, lists and every work page.
+   Edit text and works here. site.js turns it into the page. */
+/*
+  Everything visitors read lives in this file.
+  Edit the text here; the layout updates on its own.
+*/
+window.SITE = {
+  name: 'Salome Yichi Zhang',
+  roles: 'Creative Technologist · Researcher · Composer',
+
+  statement:
+    '<p>Hi! I build systems that make music, asking one question: how does sound carry meaning and nuance where words cannot?</p>' +
+    '<p>I pursue it both as an artist and as a researcher, studying how listeners connect sound to image and feeling. In <i>The Blue Left Spinning</i>, porcelain fragments from my family’s kilns become a self-playing composition, where the machine’s pauses are as composed as its sounds. I work by suggestion rather than statement, letting listeners feel what is not said.</p>',
+
+  /* Files the site loads. Put them in the media/ folder with these names. */
+  media: {
+    video: 'media/backdrop.mp4',
+    photo: 'media/salome.jpg',
+    cv: 'media/CV_Salome_Zhang.pdf'
+  },
+
+  /* Desktop icons, top to bottom. kind: folder | file | mail | tide (opens the Tide window). */
+  icons: [
+    { label: 'Art', kind: 'folder', open: 'art' },
+    { label: 'Lab', kind: 'folder', open: 'lab' },
+    { label: 'Scoring & Post', kind: 'folder', open: 'scoring-post' },
+    { label: 'About', kind: 'file', open: 'about' },
+    { label: 'Contact', kind: 'mail', open: 'contact' },
+    { label: 'Tide', kind: 'tide', tide: true }
+  ],
+
+  art: [
+    ['The Blue Left Spinning', 'Kinetic Sound Sculpture', '2026–present', 'Artist · Composer · Creative Technologist'],
+    ['In-Between', 'Audiovisual Work', '2025–present', 'Composer · Sound Designer'],
+    ['The Whispering Room', 'Sound Installation', '2024–2025', 'Composer · Sound Designer'],
+    ['Dawn', 'String Quartet', '2025', 'Composer'],
+    ['Connecting Lines', 'Interactive Installation', '2025', 'Artist · Composer · Creative Technologist'],
+    ['Blue', 'Piano Trio', '2023', 'Composer']
+  ],
+
+  research: [
+    ['Tide', 'Generative Music System', '2026–present', 'Composer · Developer'],
+    ['Event Matcher', 'Research Project', '2026', 'Researcher'],
+    ['Project Prakash', 'Interactive VR', '2024', 'Spatial Audio Designer · Composer'],
+    ['CLOUD', 'Electronic Instrument', '2025', 'Developer'],
+    ['Csound Plugin 01', 'Audio Plugin', '2024', 'Developer'],
+    ['Csound Plugin 02', 'Audio Plugin', '2024', 'Developer'],
+    ['Machine Learning for Musicians', 'Machine Learning Study', '2025', 'Researcher · Developer']
+  ],
+
+  filmSelected: [
+    ['Once Upon a Time in Boston', 'Feature Film', '2025–2026', 'Music Director · Composer · Songwriter'],
+    ['JU', 'Short Film', '2026', 'Composer'],
+    ['1HR22MIN', 'Short Film', '2024', 'Composer · Audio Director'],
+    ['Beyond the Glass', 'Short Film', '2024', 'Composer']
+  ],
+
+  filmAll: [
+    ['The Light Within', 'Animation', '2025', 'Composer'],
+    ['Fetter', 'Short Film', '2025', 'Composer · Dialogue Editing · Sound Design · Foley'],
+    ['In the Blue', 'Feature Film', '2026–present', 'Composer · Sound Team Lead'],
+    ['Farewell the Ocean Wave', 'Short Film', '2026–present', 'Composer · Sound Team Lead · Songwriter'],
+    ['Gift', 'Short Film', '2024', 'Composer'],
+    ['Farewell', 'Animation', '2025', 'Composer · Sound Mixer'],
+    ['Cheat Code', 'Short Film', '2024', 'Composer · Sound Designer'],
+    ['Red Herring', 'Game', '2023', 'Composer · Lead Sound Designer'],
+    ['Enjoy Your Journey', 'Feature Film', '2025', 'Additional Music'],
+    ['The Depth of Wumeng', 'Television Series', '2025', 'Additional Music · Synth Design'],
+    ['Sleep All Day', 'Short Film', '2025', 'Composer'],
+    ['Love Tears and Choice', 'Short Film', '2026', 'Composer'],
+    ['Ochiho’s Theme', 'Short Film', '2023', 'Composer'],
+    ['August Third', 'Short Film', '2025', 'Composer'],
+    ['Rose Garden', 'Short Film', '2024', 'Composer'],
+    ['Mu Dan Yuan', 'Documentary', '2023', 'Composer'],
+    ['Little Buddha Sunshine', 'Documentary', '2023', 'Composer']
+  ],
+
+  /* Post: sound design, foley and post-production work */
+  filmPost: [
+    ['Sound Design Reel', 'Game', '2026', 'Sound Designer · Foley'],
+    ['Blue Planet Outside the Window', 'Documentary', '2025', 'Foley · Sound Post']
+  ],
+
+  /* Rescore: re-scores of existing films */
+  filmRescore: [
+    ['The Wild Robot', 'Rescore', '2026', 'Composer'],
+    ['Farmers of America', 'Rescore', '2025', 'Composer']
+  ],
+
+  /* Work pages (third layer): generated from the works spreadsheet */
+  works: {
+   "the-blue-left-spinning": {
+    "title": "The Blue Left Spinning",
+    "parent": "art",
+    "sub": "Kinetic sound sculpture · Solo exhibition · 2026",
+    "year": "2026–present",
+    "role": "Artist · Composer · Creative Technologist",
+    "note": "Flohaus Gallery, New York · Curated by Neil Leonard",
+    "desc": [
+     "A kinetic sound work in which broken porcelain, mechanical motion, silence, and spatial audio become a shifting compositional system.",
+     "The Blue Left Spinning brings together kinetic sculpture, projection, sensor-driven behavior, and generative sound. Porcelain fragments and motor states become material for a system in which pauses, resets, and restricted rhythmic relationships articulate musical form.",
+     "The work was presented as Zhang’s solo exhibition in New York. The project sits at the center of her current practice: composition is not separated from object, movement, memory, or technology, but distributed across them."
+    ],
+    "tags": [
+     "Kinetic Sound",
+     "Spatial Audio",
+     "Generative System",
+     "Porcelain",
+     "Projection"
+    ],
+    "vimeo": "1246055721",
+    "image": {
+     "src": "media/works/P01_the-blue-left-spinning__spinning-poster.jpg",
+     "alt": "The Blue Left Spinning · Flohaus Gallery exhibition poster"
+    },
+    "audio": [],
+    "docs": [],
+    "links": [
+     {
+      "label": "Max/MSP patch & hardware documentation on GitHub",
+      "href": "https://github.com/Lome224/The-Blue-Left-Spinning"
+     }
+    ],
+    "imageWithVideo": true
+   },
+   "in-between": {
+    "title": "In-Between",
+    "parent": "art",
+    "sub": "Audiovisual / experimental media · 2025—present",
+    "year": "2025–present",
+    "role": "Composer · Sound Designer",
+    "note": "New York · Spain · Dallas · Cannes Indie Shorts semifinalist",
+    "desc": [
+     "An audiovisual work circulating between gallery installation, digital exhibition, and moving-image contexts.",
+     "In-Between has appeared across exhibition and festival contexts, including Cubicten’s The Ultimate Prototype Digital Forest in New York, SMTH’s Poetic Architecture program across multiple Spanish cities, AURORA Video Art Night in Dallas, and the Cannes Indie Shorts Award.",
+     "Its multi-context presentation reflects Zhang’s interest in works that can move between screen, space, and sound without being reduced to a single format."
+    ],
+    "tags": [
+     "Audiovisual",
+     "Experimental Media",
+     "Installation",
+     "Moving Image"
+    ],
+    "vimeo": "1246046014",
+    "image": {
+     "src": "media/works/P03_in-between__in-between.jpg",
+     "alt": "In-Between — still from the project video"
+    },
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "the-whispering-room": {
+    "title": "The Whispering Room",
+    "parent": "art",
+    "sub": "Experimental audiovisual work · Ten-channel spatial sound",
+    "year": "2024–2025",
+    "role": "Composer · Sound Designer",
+    "note": "Whispering Space · Later music version: Perpetuum Interrupted",
+    "desc": [
+     "A ten-channel spatial work developed through choreography, movement, and the instability of perception.",
+     "The Whispering Room explores how sound shifts when listening becomes physical and spatial. The project connects choreography and multichannel composition, treating the listener’s position and attention as part of the work.",
+     "It premiered at Emerson Media Art Studio in Boston and later had a multichannel presentation at the Diapason Sound Art Archive / NYU.",
+     "The audiovisual version is presented as Whispering Space. The later music version is titled Perpetuum Interrupted."
+    ],
+    "tags": [
+     "10-Channel",
+     "Spatial Sound",
+     "Choreography",
+     "Perception"
+    ],
+    "vimeo": "1061473361",
+    "image": {
+     "src": "media/works/P07_the-whispering-room__visual-elements.jpg",
+     "full": "media/works/P07_the-whispering-room__visual-elements-full.jpg",
+     "alt": "Visual elements in Whispering Space · audio-visual interaction in TouchDesigner"
+    },
+    "audio": [
+     {
+      "title": "Perpetuum Interrupted · later music version",
+      "src": "media/works/P07_the-whispering-room__whispering-room.mp3",
+      "dur": 458
+     }
+    ],
+    "docs": [
+     {
+      "label": "System & composition documentation",
+      "href": "media/works/P07_the-whispering-room__documentation.pdf"
+     }
+    ],
+    "links": [],
+    "doc": {
+     "sub": "Technical documentation",
+     "linkLabel": "Technical documentation",
+     "sections": [
+      {
+       "title": "Visual elements",
+       "html": "<figure><a href=\"media/works/P07_the-whispering-room__visual-elements-full.jpg\" target=\"_blank\" rel=\"noopener\" title=\"Open full size\"><img src=\"media/works/P07_the-whispering-room__visual-elements.jpg\" alt=\"Visual elements in Whispering Space · audio-visual interaction in TouchDesigner\" loading=\"lazy\"></a><figcaption>Visual elements in Whispering Space: audio-visual interaction in TouchDesigner. Click to enlarge.</figcaption></figure>"
+      },
+      {
+       "title": "Audio elements and gesture control",
+       "html": "<figure><a href=\"media/works/P07_the-whispering-room__audio-elements-full.jpg\" target=\"_blank\" rel=\"noopener\" title=\"Open full size\"><img src=\"media/works/P07_the-whispering-room__audio-elements.jpg\" alt=\"Audio elements in Whispering Space and the gesture-controlled instrument in TouchDesigner: Max/MSP patches, signal flow and gesture mappings\" loading=\"lazy\"></a><figcaption>Audio elements in Whispering Space, and the gesture-controlled instrument built in TouchDesigner. Click to enlarge.</figcaption></figure><p>The sound has four layers: a generative synthesizer, a soundscape of white noise, intermittent noise, and a sound object player. They are four Max/MSP patches played through a quad speaker setup.</p><p>Salome also built a TouchDesigner patch that turns the performer's hands into a controller for these patches. It was never used in the piece. The hope was to develop it toward actual dance movement, as in the concept video, but the project ended at this demo.</p><div class=\"flow\" role=\"img\" aria-label=\"Signal flow: MediaPipe hand tracking in TouchDesigner, gesture recognition, then Max/MSP\"><div class=\"n\"><b>MediaPipe</b>real-time AI hand tracking from a camera</div><div class=\"a\">→</div><div class=\"n\"><b>Hand tracking</b>detects both hands and gives 3D landmarks for gesture recognition</div><div class=\"a\">→</div><div class=\"n me\"><b>Max/MSP</b>receives the data and changes sound parameters in real time</div></div><h4>What each gesture controls</h4><table class=\"map\"><tr><th>Patch</th><th>Gesture</th><th>Controls</th></tr><tr><td rowspan=\"5\">1 · Generative synthesizer</td><td>Hand 1 Victory, moved along X</td><td>Generative rate</td></tr><tr><td>Hand 1 Thumbs Up, moved along X</td><td>Amplitude</td></tr><tr><td>Hand 1 Thumbs Down, moved along X</td><td>Resonance</td></tr><tr><td>Hand 2 Victory, moved along X</td><td>Cutoff</td></tr><tr><td>Hand 2 Pointing Up, moved along X</td><td>Modulation rate</td></tr><tr><td>2 · Ambient soundscape</td><td>Hand moved horizontally and vertically</td><td>Position on the X and Y axes</td></tr><tr><td>3 · Intermittent noise</td><td>Hand 2 Open Palm, moved along Y</td><td>Volume</td></tr><tr><td>4 · Sound object player</td><td>Hand 1 Closing the Fist</td><td>Sends a bang that triggers a sound object</td></tr></table>"
+      },
+      {
+       "title": "Later music version: Perpetuum, Interrupted",
+       "html": "<div class=\"wa\" style=\"margin-top:0\"><div class=\"track-row\" style=\"border-bottom:0\"><div>Perpetuum Interrupted · later music version</div><div class=\"pl\" data-src=\"media/works/P07_the-whispering-room__whispering-room.mp3\" data-d=\"458\"><button class=\"pb\" type=\"button\" aria-label=\"Play\">▶</button><div class=\"bar\"><i></i></div><span class=\"t\">0:00 / 7:38</span></div></div></div>"
+      },
+      {
+       "title": "System & composition documentation",
+       "html": "<div class=\"pdf\"><iframe src=\"media/works/P07_the-whispering-room__documentation.pdf#view=FitH&navpanes=0\" title=\"System and composition documentation\" loading=\"lazy\"></iframe></div><a class=\"lr-link\" href=\"media/works/P07_the-whispering-room__documentation.pdf\" target=\"_blank\" rel=\"noopener\">Open full document ↗</a>"
+      },
+      {
+       "title": "Credits",
+       "html": "<dl class=\"credits\"><dt>Amber Yang</dt><dd>Concept, choreography, TouchDesigner visuals, projection, concept video</dd><dt>Salome Yichi Zhang</dt><dd>Sound (Max/MSP), gesture control (TouchDesigner)</dd><dt>Ling Ran Zhang</dt><dd>Performer</dd></dl>"
+      }
+     ],
+     "plain": true
+    }
+   },
+   "dawn": {
+    "title": "Dawn",
+    "parent": "art",
+    "sub": "String quartet · 2025",
+    "year": "2025",
+    "role": "Composer",
+    "note": "Gaia Quartet · Canadian tour · Canadian Music Centre",
+    "desc": [
+     "A string quartet connecting Zhang’s concert-composition background with the sensitivity to pacing and color that carries into her film and installation work.",
+     "Dawn was written for Gaia Quartet and premiered in 2025. It was featured on the ensemble’s Canadian tour and presented at the Canadian Music Centre in Toronto."
+    ],
+    "tags": [
+     "String Quartet",
+     "Concert Music",
+     "Gaia Quartet"
+    ],
+    "vimeo": "1238460376",
+    "image": {
+     "src": "media/works/P09_dawn__dawn-gaia-poster.jpg",
+     "alt": "GAIA Quartet Canadian tour concert poster featuring Salome Yichi Zhang at Canadian Music Centre"
+    },
+    "audio": [
+     {
+      "title": "Album Recording",
+      "src": "media/audio/dawn.mp3",
+      "dur": 316
+     }
+    ],
+    "docs": [
+     {
+      "label": "Read the score",
+      "href": "media/works/P09_dawn__dawn-score.pdf"
+     },
+     {
+      "label": "Program & performance notes",
+      "href": "media/works/P09_dawn__dawn-program-note.pdf"
+     }
+    ],
+    "links": [],
+    "imageWithVideo": true
+   },
+   "connecting-lines": {
+    "title": "Connecting Lines",
+    "parent": "art",
+    "sub": "Site-specific interactive installation · 2025",
+    "year": "2025",
+    "role": "Artist · Composer · Creative Technologist",
+    "note": "MassArt collaboration · Cyber Arts Gallery, Boston · THE BLANC, New York",
+    "desc": [
+     "An interactive installation created in collaboration by three artists — Salome, Mariana, and Miaowen — that reimagines public transportation as a space of calm, intimacy, and human connection."
+    ],
+    "tags": [
+     "Max/MSP",
+     "Spatial Sound",
+     "Interactive Installation",
+     "MassArt"
+    ],
+    "vimeo": "1246046020",
+    "image": {
+     "src": "media/works/P06_connecting-lines__connecting-lines.jpg",
+     "alt": "Connecting Lines — still from the project video"
+    },
+    "audio": [],
+    "docs": [],
+    "links": [],
+    "doc": {
+     "sub": "Process and technical documentation",
+     "lead": "Transforming the Train Experience Through Immersive Design",
+     "sections": [
+      {
+       "title": "Reimagining the Journey",
+       "html": "<div class=\"geb\">Abstract</div><p>The public transport experience is rarely designed for the emotional comfort of the passenger. Trains are often cold, depersonalised spaces that make us feel vulnerable and isolated.</p><p>Connecting Lines is an immersive installation that reimagines the experience of travelling by train, transforming a space that often feels cold and distant into a haven of calm and intimacy. Through a combination of sensory design, three-channel projection, and interactive visual and soundscapes, the installation invites visitors to rethink the relationship between movement, space, and well-being.</p>",
+       "gamma": true
+      },
+      {
+       "title": "The Installation Experience",
+       "html": "<p>The installation was presented twice. In each presentation, it was enclosed by a semi-translucent fabric curtain. Inside, a structure with hanging handles—reminiscent of those in a train car—was surrounded by three projection screens and a sound system, creating a soft, immersive atmosphere in contrast to the harshness of conventional transit spaces.</p><p>By placing their hand on a handle, participants activate a series of projections inspired by neuroarchitecture and restorative urban design, generating a continuously evolving environment of visual and spatial comfort.</p><p>The sound—an interplay of field recordings and ambient compositions created with a custom synthesizer designed in Max/MSP—flows through the speakers, subtly weaving the rhythms of train travel into a meditative auditory experience. The interaction between visual and sonic elements is intended to evoke introspection and relief, transforming the everyday act of riding a train into a moment of pause and personal connection.</p><p>Through this work, we explore how design and technology can reimagine public transportation as a more humane, restorative, and welcoming environment.</p>",
+       "gamma": true
+      },
+      {
+       "title": "The Boston, USA Transit Experience",
+       "html": "<p>Since moving to Boston for our degree, we have used public transportation almost daily. Spending so much time on trains and other transit systems has shaped our perspective on city design and on liminal spaces. Public transportation is not only a means of moving from one place to another; it is a shared environment where people coexist, interact, and experience the city together. The rhythm of train travel has prompted us to reflect on movement, infrastructure, and the human experience of urban life.</p><p>In addition, recent social tensions in the United States, the country where we now live, and the debates surrounding deportation policies under the current presidential administration (Donald Trump, 2025–2029) have heightened our awareness of how fragile the structures of everyday life can be. When we ride the train, our minds often drift. It is one of the rare stretches of continuous time when we overthink, observe, or quietly dissociate. We think about the people around us—their lives, their stories, and the invisible worlds they carry.</p><div class=\"gpair\"><figure class=\"g\"><a href=\"media/works/cl/cl-boston-red-line.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"media/works/cl/cl-boston-red-line.jpg\" alt=\"Inside a Boston MBTA Red Line car\" loading=\"lazy\"></a><figcaption>The red line, Boston MBTA, 2025</figcaption></figure><figure class=\"g\"><a href=\"media/works/cl/cl-boston-subway.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"media/works/cl/cl-boston-subway.jpg\" alt=\"A passenger reading on a Boston subway ride\" loading=\"lazy\"></a><figcaption>Moment of Boston subway ride</figcaption></figure></div><p>This awareness drives us to reflect on how design—whether through architecture, public spaces, or media—can serve as a tool for visibility, connection, and resilience.</p>",
+       "gamma": true
+      },
+      {
+       "title": "Public Transportation and Social Equity",
+       "html": "<div class=\"geb\">Why This Matters</div><p>According to Juliana Jurado, architect, interior designer and content creator, \"The worst enemy of inequality is public transportation. A good public transportation system is economical, fast, punctual, safe, and connects a large part of the city. Most importantly, it reduces people's travel time.\"</p><h4>Quality of Life</h4><p>Free time allows us to access a better quality of life, and reinvesting that time in other activities can lead to progress in other social dimensions.</p><h4>Environmental Impact</h4><p>If public transportation is used more, car use is reduced, reducing city traffic and gas emissions, which also leads to better air quality.</p><h4>Social Connection</h4><p>Public spaces shape human interactions, access to opportunities, and the rhythm of daily life.</p><p>We wanted our project to be artistic, interactive, and engaging—something that invites play, exploration, and aesthetic appreciation, while also addressing deeper social questions and telling stories that are meaningful to us and to the communities we are connected to.</p><p>We believe that public spaces, especially transportation systems, are not only functional but deeply cultural. They shape human interactions, access to opportunity, and the rhythm of daily life. Design is a powerful tool for making these spaces more inclusive, engaging, and meaningful. By combining architecture, art, technology, and storytelling, we seek to explore the intersection of movement, connection, and urban experience in a way that is both visually compelling and socially relevant. We aim to contribute to more humane cities—where design fosters connection rather than isolation, and where technology does not replace human encounter but instead enriches it.</p>",
+       "gamma": true
+      },
+      {
+       "title": "Research Framework",
+       "html": "<h4>Central Question</h4><p class=\"gq\">How can an interactive sensory installation transform the emotional perception of public transportation, turning an everyday transit space into a restorative and humane refuge?</p><h4>Sub-Questions</h4><h4>Sensory Stimuli</h4><p>What role do sensory stimuli (light, sound, touch) play in generating calm and introspection in transit spaces?</p><h4>Interaction Design</h4><p>How can interaction (touching the handlebars) reinforce a sense of ownership and privacy in a shared environment?</p><h4>Real-World Application</h4><p>What lessons can be transferred from the art installation to a real-life public transportation context?</p><h4>Objectives</h4><h4>General Objective</h4><p>To explore, through an immersive installation, how sensory design and interactive technology can redefine the experience of train travel, promoting the emotional well-being of users.</p><h4>Specific Objectives</h4><ul><li>To design an immersive space that contrasts with the harsh aesthetics of traditional train cars, using semi-translucent fabrics, projections, and soundscapes.</li><li>To integrate a tactile interaction system that allows visitors to activate visual and aural transformations inspired by neuroarchitectural principles.</li><li>To assess visitors' perceptions of calm, intimacy, and personal connection during the experience.</li><li>To reflect on the applicability of the results in broader urban contexts, such as stations or real-life transportation systems.</li></ul>",
+       "gamma": true
+      },
+      {
+       "title": "Design Principles and Research",
+       "html": "<div class=\"geb\">Theoretical Foundation</div><p>The installation was structured around several interdisciplinary frameworks that informed both the conceptual approach and the practical design decisions:</p><h4>Neuroarchitecture</h4><p>Neuroarchitecture (a term that may come from the book Neuroarchitecture: Learning Through Space by Ana Mombiedro Lozano) refers to an interdisciplinary field that studies how built environments influence human cognition, emotions, and behavior by blending neuroscience with architectural design principles. It seeks to create spaces that promote well-being and enhance experiences by applying an understanding of how design elements like natural light, room layout, and textures affect the brain.</p><h4>Restorative Design</h4><p>For its part, restorative design is a holistic design philosophy focused on creating built environments that actively improve human well-being and restore ecological integrity, rather than just minimizing harm. (The Role of Restorative Design in the Achieving Principles of Industry 5.0, Monika Klein, Ewelina Gutowska) Both are fields that focus on creating environments that promote well-being and mental health.</p><h4>Soundscape Design</h4><p>Soundscape design, the artistic process of creating, modifying, or enhancing the acoustic environment of a place, using desired and unwanted sounds to communicate and express, in order to create a specific atmosphere that affects the perception and well-being of the environment or the listener (How can you design soundscapes for urban environments? by Víctor Martín), also plays a crucial role in creating spaces that positively influence our sensory experience.</p><h4>Third Places</h4><p>In this context, \"third places,\" a concept coined by urban sociologist Ray Oldenburg in his 1989 book \"The Great Good Place,\" refer to community spaces that are neither home nor work, but rather places of encounter and social connection that foster cohesion and a sense of community. Providing a vital space for social and community connection, highlighting the importance of considering the intersection of design, psychology, and community in creating spaces that support human health and well-being and being a space for the creation of hidden narratives in the rhythms of daily life.</p>",
+       "gamma": true
+      },
+      {
+       "title": "Project Development + Exhibition Setup",
+       "html": "<h4>Initial Ideation</h4><p>The first thing we did was sketches and a concept for a sensory \"tent\" designed as a refuge within the gallery. Initially, we wanted to create a structure with PVC pipes and rather opaque fabrics, with the sensor under a cushion to invite people to sit in the center of the structure.</p><figure class=\"g\"><a href=\"media/works/cl/cl-sketches.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"media/works/cl/cl-sketches.jpg\" alt=\"Whiteboard sketches of the first sensory tent prototype\" loading=\"lazy\"></a></figure><p class=\"gcap\">Drafts from the first team meetings where first prototype was sketched</p><h4>Initial Ideation</h4><p>Sensor input is read by the Circuit Playground, programmed via the Arduino IDE, and sent to TouchDesigner. TouchDesigner processes the data, drives visuals, and sends OSC messages to Max/MSP. Max/MSP generates sound and interaction, while OSC feedback can return to TouchDesigner for synchronized audiovisual control.</p><figure class=\"g\"><a href=\"media/works/cl/cl-system-flow.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"media/works/cl/cl-system-flow.jpg\" alt=\"System map: Arduino, TouchDesigner, Max/MSP, sound and video\" loading=\"lazy\"></a></figure><p>We exhibited  the installation twice. The first time, at the CyberArts Gallery in Boston, we adapted the concept to a corner space that was shaped by the presence of a large, pre-installed TV screen. This constraint required us to reconfigure both the spatial layout and the projection design.</p><p>The second presentation took place at The Blanc in New York, where we were assigned a much larger space. This allowed us to install a long metal bar wrapped with sensors and wiring, connected at one end to an Arduino board, enabling a more expansive and physically immersive interaction.</p><figure class=\"g\"><a href=\"media/works/cl/cl-cyberarts-tv.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"media/works/cl/cl-cyberarts-tv.jpg\" alt=\"Miaowen behind the large TV at CyberArts Gallery\" loading=\"lazy\"></a></figure><p class=\"gcap\">➡️: Miaowen at the CyberArts Gallery, standing behind the large TV, used as a reference point to determine whether there was enough space for a pedestal to support the computer running TouchDesigner and Max/MSP.</p><figure class=\"g\"><a href=\"media/works/cl/cl-blanc-wall.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"media/works/cl/cl-blanc-wall.jpg\" alt=\"Miaowen beside a wall at The Blanc, New York\" loading=\"lazy\"></a></figure><p class=\"gcap\">⬆️: Miaowen at The Blanc Gallery, NY, standing beside the wall to gauge the scale of the space.</p><h4>Construction</h4><p>A metal frame with train-like handles, wrapped in semi-translucent fabric to soften the space.</p><figure class=\"g\"><a href=\"media/works/cl/cl-construction.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"media/works/cl/cl-construction.jpg\" alt=\"Constructing the curtained space\" loading=\"lazy\"></a></figure><p class=\"gcap\">Mariana and Miaowen constructing the space</p><h4>Interaction</h4><p>Integration of sensors in the handlebars, connected to a Circuit Playground board, to trigger dynamic projections and sound.</p><figure class=\"g\"><a href=\"media/works/cl/cl-wiring.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"media/works/cl/cl-wiring.jpg\" alt=\"Connecting the sensor wires to the board\" loading=\"lazy\"></a></figure><p class=\"gcap\">Miaowen connecting the wires to the board.</p><h4>Audiovisual</h4><p>Projections of passengers at train stations transformed into abstract visuals, alongside videos of hybrid train–nature landscapes, and a soundscape built from field recordings and ambient compositions using custom synthesizers in Max/MSP.</p><figure class=\"g\"><a href=\"media/works/cl/cl-salome-adjusting.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"media/works/cl/cl-salome-adjusting.jpg\" alt=\"Salome at the laptop adjusting the signal flow\" loading=\"lazy\"></a></figure><p class=\"gcap\">Salome adjusting the Max/MSP and TouchDesigner signal flow.</p>",
+       "gamma": true
+      },
+      {
+       "title": "Visual Elements",
+       "html": "<figure class=\"g\"><video src=\"media/works/cl/cl-td-channel-loop.mp4\" autoplay muted loop playsinline aria-label=\"TouchDesigner output: particles flowing over a scanned train\"></video></figure><h4>1st Channel — TouchDesigner</h4><p>A 3D scan of part of a train forms the visual base of the scene. Images of people moving through train stations are transformed into flowing particles, creating a soft, abstract representation of passengers in motion. When visitors interact with the handles, sensors trigger changes in these particles and in the colors of the train, allowing the environment to gently shift in response. This turns an ordinary train setting into a living, responsive visual landscape that reflects presence, movement, and human connection.</p><figure class=\"g\"><video data-lazy=\"media/works/cl/cl-channel1-scan.mp4\" autoplay muted loop playsinline preload=\"none\" aria-label=\"First channel: a 3D scan of the subway with passengers drifting through it as particles\"></video><figcaption>First channel: a scan of the subway.</figcaption></figure><p>2ed Channel — Projected Video</p><p>The second video consists of a projection of hybrid train–nature landscapes. It reimagines the subway journey as a dreamlike environment, blending elements of transit and nature into a single, flowing scene. Through its shifting colors and soft imagery, the video casts a surreal, atmospheric glow across the entire installation.</p><figure class=\"g\"><video data-lazy=\"media/works/cl/cl-channel2-ride.mp4\" autoplay muted loop playsinline preload=\"none\" aria-label=\"Second channel: a dreamy train ride through hybrid train and nature landscapes\"></video><figcaption>Second channel: a dreamy train ride, starting from the Orange Line.</figcaption></figure>",
+       "gamma": true
+      },
+      {
+       "title": "A Site-Specific Work",
+       "html": "<div class=\"geb\">Conclusion</div><p>Connecting Lines established itself as a profoundly site-specific work: it doesn't exist as an autonomous object, but must be conceived, adapted, and assembled in direct dialogue with the place where it is presented. Unlike a painting or sculpture, which can be moved without altering their essence, this installation only acquires full meaning in a specific setting, when all its components—metal structure, fabrics, sound, projections, and interaction—are configured in a specific environment. This condition turns the piece into a metaphor for our own relationship with spatiality: just as the work depends on physical space to exist, we also depend on the places we inhabit to define our experiences, identities, and connections.</p><p>The experience of Connecting Lines teaches us that even modest interventions can reconfigure the perception of transit spaces, inviting pauses of calm and introspection amidst urban routine.</p><p>The fact that the installation transformed from the initial idea of a \"sensory tent\" to an adaptation in the corner of the gallery demonstrates that the design process was also a process of negotiation with reality, with the technical and architectural conditions of the site. This capacity for adaptation reaffirms the notion that spaces are not mere containers, but active agents that shape our perception.</p><p>Its ephemeral nature—a work that only exists while all its pieces are assembled and active—reinforces the idea that both art and urban life are constituted by the collective and the situational, rather than the permanent or isolated.</p><p>In this sense, the installation not only explores how sensorial design can humanize public transportation, but also reminds us of our dependence on the physical: on the materials, environments, and specific conditions in which we move. Thus, Connecting Lines is not only an exercise in interactive design, but also an embodied reflection on how space and body intertwine to shape our life experience.</p>",
+       "gamma": true
+      },
+      {
+       "title": "Credits",
+       "html": "<dl class=\"credits\">\n<dt>Concept, 2nd channel video, structure</dt><dd>Angie Mariana García</dd>\n<dt>1st channel video and TouchDesigner</dt><dd>Miaowen (Moen) Liu</dd>\n<dt>Sound design, Max/MSP, sensor and projection setup</dt><dd>Salome Yichi Zhang</dd>\n<dt>Sensor–Arduino–TouchDesigner–Max integration</dt><dd>Salome Yichi Zhang and Miaowen (Moen) Liu</dd>\n<dt>Structure &amp; installation</dt><dd>Built together by the team</dd>\n</dl>"
+      },
+      {
+       "title": "Technical documentation",
+       "divider": true,
+       "html": "<p>How the installation works under the surface: the sensors in the handles, the TouchDesigner patch that connects them to image and sound, and the sound system Salome designed and built in Max/MSP.</p>"
+      },
+      {
+       "title": "How it works",
+       "html": "<p>Visitors step behind a semi-translucent curtain into a space framed like a train car, surrounded by projection screens and a stereo pair of speakers. Holding a train handle changes the projections and the sound. Each handle is a capacitive touch sensor, so the gesture needs no instructions: people reach for the handles out of habit.</p>\n<div class=\"flow\" role=\"img\" aria-label=\"Signal flow: train handles to Circuit Playground to TouchDesigner to Max/MSP to speakers\">\n <div class=\"n\"><b>Train handles</b>4 capacitive touch pads</div><div class=\"a\">→</div>\n <div class=\"n\"><b>Circuit Playground</b>Arduino; reads all 4 pads every 100 ms, sends them over serial at 9600 baud</div><div class=\"a\">→</div>\n <div class=\"n\"><b>TouchDesigner</b>processes the data, drives the visuals and sends OSC to Max; OSC can return for synchronized audiovisual control</div><div class=\"a\">→</div>\n <div class=\"n me\"><b>Max/MSP</b>custom synthesizer; OSC on UDP port 8000, values scaled from 1–200 and smoothed</div><div class=\"a\">→</div>\n <div class=\"n\"><b>Speakers</b>stereo pair inside the curtain</div>\n</div>\n<h4>What each handle controls</h4>\n<table class=\"map\"><tr><th>Handle</th><th>Controls</th><th>What you hear</th></tr>\n<tr><td>T1</td><td>Harmony reset</td><td>A touch fires a reset that re-syncs the harmony: all melody voices restart together, then drift apart again.</td></tr>\n<tr><td>T2</td><td>Drum</td><td>Sets the speed of the drum loop and the intensity of its phaser. No touch, no drum; a firmer hold drives the rhythm faster.</td></tr>\n<tr><td>T3</td><td>Foley wheel, X</td><td rowspan=\"2\">Together, T3 and T4 move a cursor across a wheel of four field recordings (waterside, lake, birds, wind), crossfading between them.</td></tr>\n<tr><td>T4</td><td>Foley wheel, Y</td></tr>\n</table>\n<h4>Sound layers</h4>\n<ul>\n<li><b>Ambient melody</b>: a slowly shifting harmonic cloud, articulated by touch.</li>\n<li><b>Drum</b>: the train's mechanical pulse, softened into a filtered, phasing rhythm.</li>\n<li><b>Field recordings</b>: recorded by Salome, including water and other sounds gathered on a trip to the Berkshires, blended so the train and the landscape blur together.</li>\n</ul>"
+      },
+      {
+       "title": "Sensors: calibrating the Circuit Playground",
+       "html": "<figure><a href=\"media/works/P06_connecting-lines__sensor-calibration-full.jpg\" target=\"_blank\" rel=\"noopener\" title=\"Open full size\"><img src=\"media/works/P06_connecting-lines__sensor-calibration.jpg\" alt=\"Arduino sketch that reads four capacitive pads on the Circuit Playground and prints their raw values\" loading=\"lazy\"></a><figcaption>The calibration sketch (Arduino IDE). Click to enlarge.</figcaption></figure><p>Each handle is wired to one capacitive pad on an Adafruit Circuit Playground: pins 9, 2, 12 and 0. The sketch reads all four with <code>CircuitPlayground.readCap()</code> and prints the raw readings as one comma-separated line over serial at 9600 baud, then waits 100 ms, so a new line arrives about ten times a second.</p><p>This is the sketch used to calibrate the handles. Watching the readings in the Serial Monitor shows what each handle reads at rest and when it is held, which is what the rest of the chain is tuned to. Capacitive readings also shift with the room, the cables and the people around them, so a timer prints a marker line every 60 seconds (\"60 seconds have passed\"). The log is split into one-minute blocks, which makes slow drift over a long gallery day easy to see. The same block is where once-a-minute reset code can go.</p>"
+      },
+      {
+       "title": "The TouchDesigner patch",
+       "html": "<p>TouchDesigner sits in the middle of the system: it is the only program that talks to both the hardware and Max/MSP, and it produces the first projection channel. Miaowen created the first-channel video in TouchDesigner, and Mariana created the second-channel video; Salome and Miaowen built the integration between the sensors, the Arduino, TouchDesigner and Max together.</p><div class=\"flow\" role=\"img\" aria-label=\"TouchDesigner signal flow: serial in, sensor data processing, then OSC to Max and the first-channel visuals\"><div class=\"n\"><b>Serial in</b>one line from the Circuit Playground every 100 ms: four readings, one per handle</div><div class=\"a\">→</div><div class=\"n me\"><b>Sensor data processing</b>the line is split into four channels, one per handle, and processed</div><div class=\"a\">→</div><div class=\"n\"><b>OSC out</b>to Max/MSP on UDP port 8000, routed there by channel</div></div><div class=\"flow\" role=\"img\" aria-label=\"The same processed channels drive the first-channel visuals\"><div class=\"n me\"><b>Sensor data processing</b>the same four channels</div><div class=\"a\">→</div><div class=\"n\"><b>Visuals</b>3D scan of the train · passengers as particles · train colors</div><div class=\"a\">→</div><div class=\"n\"><b>Projector</b>first channel</div></div><h4>Input</h4><p>TouchDesigner reads the Circuit Playground's serial stream directly. Each incoming line holds the four raw readings in the order the sketch prints them, so every handle becomes its own control channel.</p><h4>Sound</h4><p>The processed values are sent to Max/MSP as OSC over UDP port 8000. Max receives them, routes them by channel to the harmony reset, the drum and the field-recording wheel, and smooths them (see the sound system below). OSC can also return from Max to TouchDesigner, so image and sound can stay in sync.</p><h4>Image</h4><p>The same channels drive the first projection. A 3D scan of part of a train is the base of the scene. Images of people moving through train stations are turned into flowing particles, a soft, abstract picture of passengers in motion. When a visitor holds a handle, the sensor values change the particles and the colors of the train, so the scene shifts gently in response.</p><p>The second channel, the dreamy train ride by Mariana, is a projected video.</p>"
+      },
+      {
+       "title": "Sound system",
+       "divider": true,
+       "html": "<figure><a href=\"media/works/P06_connecting-lines__max-patch-full.jpg\" target=\"_blank\" rel=\"noopener\" title=\"Open full size\"><img src=\"media/works/P06_connecting-lines__max-patch.jpg\" alt=\"Max/MSP patch: ambient melody, drum, field-recording wheel and OSC receiver\" loading=\"lazy\"></a><figcaption>The Max/MSP patch: ambient melody (left), drum (top), field-recording wheel (bottom) and OSC receiver (right). Click to enlarge.</figcaption></figure>"
+      },
+      {
+       "title": "Sound design intent",
+       "html": "<p>CyberArts Gallery sits right beside the train line: every time a train passes, its noise fills the room. Train stations are usually experienced as hurried, crowded and stressful, so the starting question was whether that same sound world could be turned into a place of rest. The aim was to reimagine the MBTA train as a restorative space, an idea the team framed as <i>urban restorative design</i>.</p>\n<p>The sound design follows from that aim:</p>\n<ul>\n<li><b>Calm but unresolved.</b> C Mixolydian keeps the harmony bright and gentle, while its flattened seventh avoids the strong pull home of a major key. The music stays open, like a journey still under way.</li>\n<li><b>Train rhythm.</b> The six voices pulse at overlapping rates, like wheels and rail joints moving at different speeds, falling in and out of alignment.</li>\n<li><b>Breathing timescale.</b> The slowest cycle and each chord last 8 seconds, close to the length of a slow breath, so the music sets a calm pace instead of reacting with sudden changes.</li>\n</ul>"
+      },
+      {
+       "title": "Inside the Max/MSP patch",
+       "html": "<figure class=\"svgfig\"><svg class=\"fig\" viewBox=\"0 0 740 395\" role=\"img\" aria-label=\"Patch architecture: OSC inputs T1 to T4 drive the ambient melody, drum and field-recording wheel, which mix to a stereo master\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:auto;display:block\"><rect x=\"10\" y=\"14\" width=\"180\" height=\"62\" rx=\"9\" fill=\"rgba(255,255,255,.62)\" stroke=\"rgba(0,0,0,.5)\" stroke-width=\"1\"/><text x=\"20.0\" y=\"31.0\" text-anchor=\"start\" fill=\"#222\" font-size=\"11.5\" font-weight=\"600\" >OSC in · UDP 8000</text><text x=\"20.0\" y=\"47.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >from TouchDesigner</text><text x=\"20.0\" y=\"61.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >scaled 1–200 → range</text><rect x=\"10\" y=\"110\" width=\"180\" height=\"44\" rx=\"9\" fill=\"rgba(255,236,190,.75)\" stroke=\"#a8650f\" stroke-width=\"1\"/><text x=\"20.0\" y=\"127.0\" text-anchor=\"start\" fill=\"#222\" font-size=\"11.5\" font-weight=\"600\" >T1</text><text x=\"20.0\" y=\"143.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >reset · bang</text><rect x=\"10\" y=\"210\" width=\"180\" height=\"44\" rx=\"9\" fill=\"rgba(255,236,190,.75)\" stroke=\"#a8650f\" stroke-width=\"1\"/><text x=\"20.0\" y=\"227.0\" text-anchor=\"start\" fill=\"#222\" font-size=\"11.5\" font-weight=\"600\" >T2</text><text x=\"20.0\" y=\"243.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >0–10 · smoothed 0.98</text><rect x=\"10\" y=\"340\" width=\"180\" height=\"44\" rx=\"9\" fill=\"rgba(255,236,190,.75)\" stroke=\"#a8650f\" stroke-width=\"1\"/><text x=\"20.0\" y=\"357.0\" text-anchor=\"start\" fill=\"#222\" font-size=\"11.5\" font-weight=\"600\" >T3 / T4</text><text x=\"20.0\" y=\"373.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >X / Y · smoothed</text><rect x=\"260\" y=\"90\" width=\"250\" height=\"96\" rx=\"9\" fill=\"rgba(255,255,255,.62)\" stroke=\"rgba(0,0,0,.5)\" stroke-width=\"1\"/><text x=\"270.0\" y=\"107.0\" text-anchor=\"start\" fill=\"#222\" font-size=\"11.5\" font-weight=\"600\" >Ambient melody</text><text x=\"270.0\" y=\"123.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >6 gen~ voices × 16 channels</text><text x=\"270.0\" y=\"137.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >polyrhythm: voice k every 8/k s</text><text x=\"270.0\" y=\"151.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >new chord each cycle · C Mixolydian</text><text x=\"270.0\" y=\"165.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >resonator bank · 750 ms delay</text><rect x=\"260\" y=\"200\" width=\"250\" height=\"62\" rx=\"9\" fill=\"rgba(255,255,255,.62)\" stroke=\"rgba(0,0,0,.5)\" stroke-width=\"1\"/><text x=\"270.0\" y=\"217.0\" text-anchor=\"start\" fill=\"#222\" font-size=\"11.5\" font-weight=\"600\" >Drum</text><text x=\"270.0\" y=\"233.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >kick loop · speed = T2</text><text x=\"270.0\" y=\"247.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >6 phase-inverting phaser stages</text><rect x=\"260\" y=\"282\" width=\"250\" height=\"96\" rx=\"9\" fill=\"rgba(255,255,255,.62)\" stroke=\"rgba(0,0,0,.5)\" stroke-width=\"1\"/><text x=\"270.0\" y=\"299.0\" text-anchor=\"start\" fill=\"#222\" font-size=\"11.5\" font-weight=\"600\" >Field-recording wheel</text><text x=\"270.0\" y=\"315.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >4 zones: Waterside · Lake</text><text x=\"270.0\" y=\"329.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >Bird · Wind (12 s loops,</text><text x=\"270.0\" y=\"343.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >300 ms crossfades)</text><text x=\"270.0\" y=\"357.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >zone 1 also plays the train</text><rect x=\"565\" y=\"180\" width=\"170\" height=\"80\" rx=\"9\" fill=\"rgba(255,255,255,.62)\" stroke=\"rgba(0,0,0,.5)\" stroke-width=\"1\"/><text x=\"575.0\" y=\"197.0\" text-anchor=\"start\" fill=\"#222\" font-size=\"11.5\" font-weight=\"600\" >Master</text><text x=\"575.0\" y=\"213.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >stereo mixdown</text><text x=\"575.0\" y=\"227.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >tanh soft clip</text><text x=\"575.0\" y=\"241.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10.5\" >→ 2 speakers</text><path d=\"M190,132 C225.0,132 225.0,132 254,132\" fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.4\"/><path d=\"M253,128 L260,132 L253,136\" fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.4\"/><path d=\"M190,232 C225.0,232 225.0,232 254,232\" fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.4\"/><path d=\"M253,228 L260,232 L253,236\" fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.4\"/><path d=\"M190,362 C225.0,362 225.0,342 254,342\" fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.4\"/><path d=\"M253,338 L260,342 L253,346\" fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.4\"/><text x=\"225.0\" y=\"124.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >resync</text><text x=\"225.0\" y=\"224.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >speed</text><text x=\"225.0\" y=\"346.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >position</text><path d=\"M510,138 C537.5,138 537.5,206 559,206\" fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.4\"/><path d=\"M558,202 L565,206 L558,210\" fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.4\"/><path d=\"M510,231 C537.5,231 537.5,220 559,220\" fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.4\"/><path d=\"M558,216 L565,220 L558,224\" fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.4\"/><path d=\"M510,330 C537.5,330 537.5,236 559,236\" fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.4\"/><path d=\"M558,232 L565,236 L558,240\" fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.4\"/><path d=\"M100,76 L100,104\" stroke=\"#5c5c5c\" stroke-width=\"1.2\" stroke-dasharray=\"3 3\"/></svg><figcaption>The patch at a glance. Amber boxes are the inputs that come from touch.</figcaption></figure>\n<h4>1 · Ambient melody: a polyrhythmic grain cloud</h4>\n<p>The melody is not a sequence of notes but a cloud of short grains. Six <code>mc.gen~</code> voices, each running 16 channels, are written as custom gen~ code. On every cycle of its sync signal, a voice picks a new random octave (×1, ×2, ×4 or ×8 of its note) and a slight detune, then plays a pulse wave shaped by a sin⁴ window, so each event fades in and out softly instead of starting with a click.</p><figure class=\"svgfig\"><svg class=\"fig\" viewBox=\"0 0 740 184\" role=\"img\" aria-label=\"One grain: a pulse wave shaped by a sin to the fourth power window\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:auto;display:block\"><line x1=\"60\" y1=\"75.0\" x2=\"720\" y2=\"75.0\" stroke=\"rgba(0,0,0,.16)\"/><polyline fill=\"none\" stroke=\"#222\" stroke-width=\"1\" points=\"60.0,75.0 61.1,75.0 62.2,75.0 63.3,75.0 64.4,75.0 65.5,75.0 66.6,75.0 67.7,75.0 68.8,75.0 69.9,75.0 71.0,75.0 72.1,75.0 73.2,75.0 74.3,75.0 75.4,75.0 76.5,75.0 77.6,75.0 78.7,75.0 79.8,75.0 80.9,75.0 82.0,75.0 83.1,75.0 84.2,75.0 85.3,75.0 86.4,75.0 87.5,75.0 88.6,75.0 89.7,75.0 90.8,75.0 91.9,75.0 93.0,75.0 94.1,75.0 95.2,75.0 96.3,75.0 97.4,75.0 98.5,75.1 99.6,75.1 100.7,75.1 101.8,74.9 102.9,74.9 104.0,74.9 105.1,74.9 106.2,74.9 107.3,74.9 108.4,74.9 109.5,74.9 110.6,74.8 111.7,74.8 112.8,74.8 113.9,74.8 115.0,74.8 116.1,74.8 117.2,74.7 118.3,74.7 119.4,74.7 120.5,74.7 121.6,74.7 122.7,75.4 123.8,75.4 124.9,75.4 126.0,75.5 127.1,75.5 128.2,75.5 129.3,75.5 130.4,75.6 131.5,75.6 132.6,75.7 133.7,75.7 134.8,75.7 135.9,75.8 137.0,75.8 138.1,75.9 139.2,75.9 140.3,76.0 141.4,76.0 142.5,73.9 143.6,73.9 144.7,73.8 145.8,73.8 146.9,73.7 148.0,73.6 149.1,73.6 150.2,73.5 151.3,73.4 152.4,73.4 153.5,73.3 154.6,73.2 155.7,73.1 156.8,73.1 157.9,73.0 159.0,72.9 160.1,72.8 161.2,72.7 162.3,72.6 163.4,77.5 164.5,77.6 165.6,77.7 166.7,77.8 167.8,77.9 168.9,78.0 170.0,78.1 171.1,78.2 172.2,78.3 173.3,78.4 174.4,78.6 175.5,78.7 176.6,78.8 177.7,78.9 178.8,79.1 179.9,79.2 181.0,79.4 182.1,79.5 183.2,79.6 184.3,70.2 185.4,70.1 186.5,69.9 187.6,69.7 188.7,69.6 189.8,69.4 190.9,69.3 192.0,69.1 193.1,68.9 194.2,68.7 195.3,68.6 196.4,68.4 197.5,68.2 198.6,68.0 199.7,67.8 200.8,67.6 201.9,67.4 203.0,67.2 204.1,67.0 205.2,83.2 206.3,83.4 207.4,83.6 208.5,83.8 209.6,84.0 210.7,84.2 211.8,84.5 212.9,84.7 214.0,84.9 215.1,85.2 216.2,85.4 217.3,85.6 218.4,85.9 219.5,86.1 220.6,86.4 221.7,86.6 222.8,86.9 223.9,87.1 225.0,62.6 226.1,62.4 227.2,62.1 228.3,61.8 229.4,61.6 230.5,61.3 231.6,61.0 232.7,60.7 233.8,60.5 234.9,60.2 236.0,59.9 237.1,59.6 238.2,59.3 239.3,59.0 240.4,58.7 241.5,58.5 242.6,58.2 243.7,57.9 244.8,57.6 245.9,92.8 247.0,93.1 248.1,93.4 249.2,93.7 250.3,94.0 251.4,94.3 252.5,94.6 253.6,94.9 254.7,95.2 255.8,95.6 256.9,95.9 258.0,96.2 259.1,96.5 260.2,96.9 261.3,97.2 262.4,97.5 263.5,97.8 264.6,98.2 265.7,98.5 266.8,51.2 267.9,50.8 269.0,50.5 270.1,50.2 271.2,49.8 272.3,49.5 273.4,49.2 274.5,48.8 275.6,48.5 276.7,48.2 277.8,47.8 278.9,47.5 280.0,47.2 281.1,46.8 282.2,46.5 283.3,46.1 284.4,45.8 285.5,45.5 286.6,45.1 287.7,105.2 288.8,105.5 289.9,105.9 291.0,106.2 292.1,106.5 293.2,106.9 294.3,107.2 295.4,107.5 296.5,107.9 297.6,108.2 298.7,108.5 299.8,108.8 300.9,109.2 302.0,109.5 303.1,109.8 304.2,110.1 305.3,110.4 306.4,110.7 307.5,38.9 308.6,38.6 309.7,38.3 310.8,38.0 311.9,37.7 313.0,37.4 314.1,37.1 315.2,36.8 316.3,36.5 317.4,36.2 318.5,35.9 319.6,35.6 320.7,35.3 321.8,35.1 322.9,34.8 324.0,34.5 325.1,34.2 326.2,34.0 327.3,33.7 328.4,116.6 329.5,116.8 330.6,117.1 331.7,117.3 332.8,117.6 333.9,117.8 335.0,118.1 336.1,118.3 337.2,118.6 338.3,118.8 339.4,119.0 340.5,119.3 341.6,119.5 342.7,119.7 343.8,119.9 344.9,120.1 346.0,120.3 347.1,120.5 348.2,120.7 349.3,29.1 350.4,28.9 351.5,28.7 352.6,28.6 353.7,28.4 354.8,28.2 355.9,28.1 357.0,27.9 358.1,27.7 359.2,27.6 360.3,27.4 361.4,27.3 362.5,27.2 363.6,27.0 364.7,26.9 365.8,26.8 366.9,26.7 368.0,26.6 369.1,26.5 370.2,123.6 371.3,123.7 372.4,123.8 373.5,123.9 374.6,124.0 375.7,124.0 376.8,124.1 377.9,124.2 379.0,124.2 380.1,124.3 381.2,124.3 382.3,124.4 383.4,124.4 384.5,124.4 385.6,124.5 386.7,124.5 387.8,124.5 388.9,124.5 390.0,25.5 391.1,25.5 392.2,25.5 393.3,25.5 394.4,25.5 395.5,25.6 396.6,25.6 397.7,25.6 398.8,25.7 399.9,25.7 401.0,25.8 402.1,25.8 403.2,25.9 404.3,26.0 405.4,26.0 406.5,26.1 407.6,26.2 408.7,26.3 409.8,26.4 410.9,123.5 412.0,123.4 413.1,123.3 414.2,123.2 415.3,123.1 416.4,123.0 417.5,122.8 418.6,122.7 419.7,122.6 420.8,122.4 421.9,122.3 423.0,122.1 424.1,121.9 425.2,121.8 426.3,121.6 427.4,121.4 428.5,121.3 429.6,121.1 430.7,120.9 431.8,29.3 432.9,29.5 434.0,29.7 435.1,29.9 436.2,30.1 437.3,30.3 438.4,30.5 439.5,30.7 440.6,31.0 441.7,31.2 442.8,31.4 443.9,31.7 445.0,31.9 446.1,32.2 447.2,32.4 448.3,32.7 449.4,32.9 450.5,33.2 451.6,33.4 452.7,116.3 453.8,116.0 454.9,115.8 456.0,115.5 457.1,115.2 458.2,114.9 459.3,114.7 460.4,114.4 461.5,114.1 462.6,113.8 463.7,113.5 464.8,113.2 465.9,112.9 467.0,112.6 468.1,112.3 469.2,112.0 470.3,111.7 471.4,111.4 472.5,38.9 473.6,39.3 474.7,39.6 475.8,39.9 476.9,40.2 478.0,40.5 479.1,40.8 480.2,41.2 481.3,41.5 482.4,41.8 483.5,42.1 484.6,42.5 485.7,42.8 486.8,43.1 487.9,43.5 489.0,43.8 490.1,44.1 491.2,44.5 492.3,44.8 493.4,104.9 494.5,104.5 495.6,104.2 496.7,103.9 497.8,103.5 498.9,103.2 500.0,102.8 501.1,102.5 502.2,102.2 503.3,101.8 504.4,101.5 505.5,101.2 506.6,100.8 507.7,100.5 508.8,100.2 509.9,99.8 511.0,99.5 512.1,99.2 513.2,98.8 514.3,51.5 515.4,51.8 516.5,52.2 517.6,52.5 518.7,52.8 519.8,53.1 520.9,53.5 522.0,53.8 523.1,54.1 524.2,54.4 525.3,54.8 526.4,55.1 527.5,55.4 528.6,55.7 529.7,56.0 530.8,56.3 531.9,56.6 533.0,56.9 534.1,57.2 535.2,92.4 536.3,92.1 537.4,91.8 538.5,91.5 539.6,91.3 540.7,91.0 541.8,90.7 542.9,90.4 544.0,90.1 545.1,89.8 546.2,89.5 547.3,89.3 548.4,89.0 549.5,88.7 550.6,88.4 551.7,88.2 552.8,87.9 553.9,87.6 555.0,62.6 556.1,62.9 557.2,63.1 558.3,63.4 559.4,63.6 560.5,63.9 561.6,64.1 562.7,64.4 563.8,64.6 564.9,64.8 566.0,65.1 567.1,65.3 568.2,65.5 569.3,65.8 570.4,66.0 571.5,66.2 572.6,66.4 573.7,66.6 574.8,66.8 575.9,83.0 577.0,82.8 578.1,82.6 579.2,82.4 580.3,82.2 581.4,82.0 582.5,81.8 583.6,81.6 584.7,81.4 585.8,81.3 586.9,81.1 588.0,80.9 589.1,80.7 590.2,80.6 591.3,80.4 592.4,80.3 593.5,80.1 594.6,79.9 595.7,79.8 596.8,70.4 597.9,70.5 599.0,70.6 600.1,70.8 601.2,70.9 602.3,71.1 603.4,71.2 604.5,71.3 605.6,71.4 606.7,71.6 607.8,71.7 608.9,71.8 610.0,71.9 611.1,72.0 612.2,72.1 613.3,72.2 614.4,72.3 615.5,72.4 616.6,72.5 617.7,77.4 618.8,77.3 619.9,77.2 621.0,77.1 622.1,77.0 623.2,76.9 624.3,76.9 625.4,76.8 626.5,76.7 627.6,76.6 628.7,76.6 629.8,76.5 630.9,76.4 632.0,76.4 633.1,76.3 634.2,76.2 635.3,76.2 636.4,76.1 637.5,73.9 638.6,74.0 639.7,74.0 640.8,74.1 641.9,74.1 643.0,74.2 644.1,74.2 645.2,74.3 646.3,74.3 647.4,74.3 648.5,74.4 649.6,74.4 650.7,74.5 651.8,74.5 652.9,74.5 654.0,74.5 655.1,74.6 656.2,74.6 657.3,74.6 658.4,75.3 659.5,75.3 660.6,75.3 661.7,75.3 662.8,75.3 663.9,75.2 665.0,75.2 666.1,75.2 667.2,75.2 668.3,75.2 669.4,75.2 670.5,75.1 671.6,75.1 672.7,75.1 673.8,75.1 674.9,75.1 676.0,75.1 677.1,75.1 678.2,75.1 679.3,74.9 680.4,74.9 681.5,74.9 682.6,75.0 683.7,75.0 684.8,75.0 685.9,75.0 687.0,75.0 688.1,75.0 689.2,75.0 690.3,75.0 691.4,75.0 692.5,75.0 693.6,75.0 694.7,75.0 695.8,75.0 696.9,75.0 698.0,75.0 699.1,75.0 700.2,75.0 701.3,75.0 702.4,75.0 703.5,75.0 704.6,75.0 705.7,75.0 706.8,75.0 707.9,75.0 709.0,75.0 710.1,75.0 711.2,75.0 712.3,75.0 713.4,75.0 714.5,75.0 715.6,75.0 716.7,75.0 717.8,75.0 718.9,75.0 720.0,75.0\"/><polyline fill=\"none\" stroke=\"#a8650f\" stroke-width=\"2\" points=\"60.0,75.0 61.1,75.0 62.2,75.0 63.3,75.0 64.4,75.0 65.5,75.0 66.6,75.0 67.7,75.0 68.8,75.0 69.9,75.0 71.0,75.0 72.1,75.0 73.2,75.0 74.3,75.0 75.4,75.0 76.5,75.0 77.6,75.0 78.7,75.0 79.8,75.0 80.9,75.0 82.0,75.0 83.1,75.0 84.2,75.0 85.3,75.0 86.4,75.0 87.5,75.0 88.6,75.0 89.7,75.0 90.8,75.0 91.9,75.0 93.0,75.0 94.1,75.0 95.2,75.0 96.3,75.0 97.4,74.9 98.5,74.9 99.6,74.9 100.7,74.9 101.8,74.9 102.9,74.9 104.0,74.9 105.1,74.9 106.2,74.9 107.3,74.9 108.4,74.9 109.5,74.8 110.6,74.8 111.7,74.8 112.8,74.8 113.9,74.8 115.0,74.8 116.1,74.7 117.2,74.7 118.3,74.7 119.4,74.7 120.5,74.6 121.6,74.6 122.7,74.6 123.8,74.6 124.9,74.5 126.0,74.5 127.1,74.5 128.2,74.4 129.3,74.4 130.4,74.4 131.5,74.3 132.6,74.3 133.7,74.2 134.8,74.2 135.9,74.1 137.0,74.1 138.1,74.0 139.2,74.0 140.3,73.9 141.4,73.9 142.5,73.8 143.6,73.8 144.7,73.7 145.8,73.6 146.9,73.6 148.0,73.5 149.1,73.4 150.2,73.3 151.3,73.3 152.4,73.2 153.5,73.1 154.6,73.0 155.7,72.9 156.8,72.9 157.9,72.8 159.0,72.7 160.1,72.6 161.2,72.5 162.3,72.4 163.4,72.3 164.5,72.1 165.6,72.0 166.7,71.9 167.8,71.8 168.9,71.7 170.0,71.6 171.1,71.4 172.2,71.3 173.3,71.2 174.4,71.0 175.5,70.9 176.6,70.8 177.7,70.6 178.8,70.5 179.9,70.3 181.0,70.2 182.1,70.0 183.2,69.8 184.3,69.7 185.4,69.5 186.5,69.3 187.6,69.2 188.7,69.0 189.8,68.8 190.9,68.6 192.0,68.4 193.1,68.2 194.2,68.0 195.3,67.9 196.4,67.7 197.5,67.4 198.6,67.2 199.7,67.0 200.8,66.8 201.9,66.6 203.0,66.4 204.1,66.1 205.2,65.9 206.3,65.7 207.4,65.5 208.5,65.2 209.6,65.0 210.7,64.7 211.8,64.5 212.9,64.2 214.0,64.0 215.1,63.7 216.2,63.5 217.3,63.2 218.4,62.9 219.5,62.7 220.6,62.4 221.7,62.1 222.8,61.8 223.9,61.5 225.0,61.3 226.1,61.0 227.2,60.7 228.3,60.4 229.4,60.1 230.5,59.8 231.6,59.5 232.7,59.2 233.8,58.9 234.9,58.5 236.0,58.2 237.1,57.9 238.2,57.6 239.3,57.3 240.4,56.9 241.5,56.6 242.6,56.3 243.7,55.9 244.8,55.6 245.9,55.3 247.0,54.9 248.1,54.6 249.2,54.3 250.3,53.9 251.4,53.6 252.5,53.2 253.6,52.9 254.7,52.5 255.8,52.2 256.9,51.8 258.0,51.4 259.1,51.1 260.2,50.7 261.3,50.4 262.4,50.0 263.5,49.6 264.6,49.3 265.7,48.9 266.8,48.5 267.9,48.2 269.0,47.8 270.1,47.4 271.2,47.0 272.3,46.7 273.4,46.3 274.5,45.9 275.6,45.6 276.7,45.2 277.8,44.8 278.9,44.4 280.0,44.1 281.1,43.7 282.2,43.3 283.3,42.9 284.4,42.6 285.5,42.2 286.6,41.8 287.7,41.4 288.8,41.1 289.9,40.7 291.0,40.3 292.1,40.0 293.2,39.6 294.3,39.2 295.4,38.9 296.5,38.5 297.6,38.1 298.7,37.8 299.8,37.4 300.9,37.1 302.0,36.7 303.1,36.3 304.2,36.0 305.3,35.6 306.4,35.3 307.5,34.9 308.6,34.6 309.7,34.2 310.8,33.9 311.9,33.6 313.0,33.2 314.1,32.9 315.2,32.6 316.3,32.2 317.4,31.9 318.5,31.6 319.6,31.3 320.7,30.9 321.8,30.6 322.9,30.3 324.0,30.0 325.1,29.7 326.2,29.4 327.3,29.1 328.4,28.8 329.5,28.5 330.6,28.2 331.7,27.9 332.8,27.7 333.9,27.4 335.0,27.1 336.1,26.9 337.2,26.6 338.3,26.3 339.4,26.1 340.5,25.8 341.6,25.6 342.7,25.3 343.8,25.1 344.9,24.9 346.0,24.7 347.1,24.4 348.2,24.2 349.3,24.0 350.4,23.8 351.5,23.6 352.6,23.4 353.7,23.2 354.8,23.0 355.9,22.8 357.0,22.7 358.1,22.5 359.2,22.3 360.3,22.2 361.4,22.0 362.5,21.9 363.6,21.7 364.7,21.6 365.8,21.4 366.9,21.3 368.0,21.2 369.1,21.1 370.2,21.0 371.3,20.9 372.4,20.8 373.5,20.7 374.6,20.6 375.7,20.5 376.8,20.4 377.9,20.4 379.0,20.3 380.1,20.2 381.2,20.2 382.3,20.1 383.4,20.1 384.5,20.1 385.6,20.0 386.7,20.0 387.8,20.0 388.9,20.0 390.0,20.0 391.1,20.0 392.2,20.0 393.3,20.0 394.4,20.0 395.5,20.1 396.6,20.1 397.7,20.1 398.8,20.2 399.9,20.2 401.0,20.3 402.1,20.4 403.2,20.4 404.3,20.5 405.4,20.6 406.5,20.7 407.6,20.8 408.7,20.9 409.8,21.0 410.9,21.1 412.0,21.2 413.1,21.3 414.2,21.4 415.3,21.6 416.4,21.7 417.5,21.9 418.6,22.0 419.7,22.2 420.8,22.3 421.9,22.5 423.0,22.7 424.1,22.8 425.2,23.0 426.3,23.2 427.4,23.4 428.5,23.6 429.6,23.8 430.7,24.0 431.8,24.2 432.9,24.4 434.0,24.7 435.1,24.9 436.2,25.1 437.3,25.3 438.4,25.6 439.5,25.8 440.6,26.1 441.7,26.3 442.8,26.6 443.9,26.9 445.0,27.1 446.1,27.4 447.2,27.7 448.3,27.9 449.4,28.2 450.5,28.5 451.6,28.8 452.7,29.1 453.8,29.4 454.9,29.7 456.0,30.0 457.1,30.3 458.2,30.6 459.3,30.9 460.4,31.3 461.5,31.6 462.6,31.9 463.7,32.2 464.8,32.6 465.9,32.9 467.0,33.2 468.1,33.6 469.2,33.9 470.3,34.2 471.4,34.6 472.5,34.9 473.6,35.3 474.7,35.6 475.8,36.0 476.9,36.3 478.0,36.7 479.1,37.1 480.2,37.4 481.3,37.8 482.4,38.1 483.5,38.5 484.6,38.9 485.7,39.2 486.8,39.6 487.9,40.0 489.0,40.3 490.1,40.7 491.2,41.1 492.3,41.4 493.4,41.8 494.5,42.2 495.6,42.6 496.7,42.9 497.8,43.3 498.9,43.7 500.0,44.1 501.1,44.4 502.2,44.8 503.3,45.2 504.4,45.6 505.5,45.9 506.6,46.3 507.7,46.7 508.8,47.0 509.9,47.4 511.0,47.8 512.1,48.2 513.2,48.5 514.3,48.9 515.4,49.3 516.5,49.6 517.6,50.0 518.7,50.4 519.8,50.7 520.9,51.1 522.0,51.4 523.1,51.8 524.2,52.2 525.3,52.5 526.4,52.9 527.5,53.2 528.6,53.6 529.7,53.9 530.8,54.3 531.9,54.6 533.0,54.9 534.1,55.3 535.2,55.6 536.3,55.9 537.4,56.3 538.5,56.6 539.6,56.9 540.7,57.3 541.8,57.6 542.9,57.9 544.0,58.2 545.1,58.5 546.2,58.9 547.3,59.2 548.4,59.5 549.5,59.8 550.6,60.1 551.7,60.4 552.8,60.7 553.9,61.0 555.0,61.2 556.1,61.5 557.2,61.8 558.3,62.1 559.4,62.4 560.5,62.7 561.6,62.9 562.7,63.2 563.8,63.5 564.9,63.7 566.0,64.0 567.1,64.2 568.2,64.5 569.3,64.7 570.4,65.0 571.5,65.2 572.6,65.5 573.7,65.7 574.8,65.9 575.9,66.1 577.0,66.4 578.1,66.6 579.2,66.8 580.3,67.0 581.4,67.2 582.5,67.4 583.6,67.7 584.7,67.9 585.8,68.0 586.9,68.2 588.0,68.4 589.1,68.6 590.2,68.8 591.3,69.0 592.4,69.2 593.5,69.3 594.6,69.5 595.7,69.7 596.8,69.8 597.9,70.0 599.0,70.2 600.1,70.3 601.2,70.5 602.3,70.6 603.4,70.8 604.5,70.9 605.6,71.0 606.7,71.2 607.8,71.3 608.9,71.4 610.0,71.6 611.1,71.7 612.2,71.8 613.3,71.9 614.4,72.0 615.5,72.1 616.6,72.3 617.7,72.4 618.8,72.5 619.9,72.6 621.0,72.7 622.1,72.8 623.2,72.9 624.3,72.9 625.4,73.0 626.5,73.1 627.6,73.2 628.7,73.3 629.8,73.3 630.9,73.4 632.0,73.5 633.1,73.6 634.2,73.6 635.3,73.7 636.4,73.8 637.5,73.8 638.6,73.9 639.7,73.9 640.8,74.0 641.9,74.0 643.0,74.1 644.1,74.1 645.2,74.2 646.3,74.2 647.4,74.3 648.5,74.3 649.6,74.4 650.7,74.4 651.8,74.4 652.9,74.5 654.0,74.5 655.1,74.5 656.2,74.6 657.3,74.6 658.4,74.6 659.5,74.6 660.6,74.7 661.7,74.7 662.8,74.7 663.9,74.7 665.0,74.8 666.1,74.8 667.2,74.8 668.3,74.8 669.4,74.8 670.5,74.8 671.6,74.9 672.7,74.9 673.8,74.9 674.9,74.9 676.0,74.9 677.1,74.9 678.2,74.9 679.3,74.9 680.4,74.9 681.5,74.9 682.6,74.9 683.7,75.0 684.8,75.0 685.9,75.0 687.0,75.0 688.1,75.0 689.2,75.0 690.3,75.0 691.4,75.0 692.5,75.0 693.6,75.0 694.7,75.0 695.8,75.0 696.9,75.0 698.0,75.0 699.1,75.0 700.2,75.0 701.3,75.0 702.4,75.0 703.5,75.0 704.6,75.0 705.7,75.0 706.8,75.0 707.9,75.0 709.0,75.0 710.1,75.0 711.2,75.0 712.3,75.0 713.4,75.0 714.5,75.0 715.6,75.0 716.7,75.0 717.8,75.0 718.9,75.0 720.0,75.0\"/><text x=\"535.2\" y=\"50.0\" text-anchor=\"start\" fill=\"#a8650f\" font-size=\"10.5\" font-weight=\"600\" >sin⁴ window</text><text x=\"60.0\" y=\"148.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10\" >start of sync cycle</text><text x=\"720.0\" y=\"148.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10\" >end of cycle</text><text x=\"60.0\" y=\"164.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10\" >Illustration of one grain: a pulse wave at a randomly chosen octave (×1, ×2, ×4 or ×8)</text><text x=\"60.0\" y=\"178.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10\" >and detune, faded in and out by a sin⁴ window.</text></svg><figcaption>One grain (illustration).</figcaption></figure>\n<p>The six voices share one <code>mc.phasor~</code> whose channels run in harmonic ratios of 0.125 Hz: voice 1 pulses every 8 seconds, voice 2 every 4, voice 3 every 2.7, and so on up to voice 6 every 1.3 seconds. Because the periods are whole-number ratios, the voices fall in and out of phase and periodically land together, a six-layer polyrhythm. Touching T1 sends a single reset that restarts every voice at once.</p><figure class=\"svgfig\"><svg class=\"fig\" viewBox=\"0 0 740 258\" role=\"img\" aria-label=\"Polyrhythm: six voices pulse every 8, 4, 2.7, 2, 1.6 and 1.3 seconds; chords change every 8 seconds; a T1 touch restarts all voices together\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:auto;display:block\"><line x1=\"70.0\" y1=\"22\" x2=\"70.0\" y2=\"206\" stroke=\"rgba(0,0,0,.16)\" stroke-width=\"1\"/><text x=\"70.0\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >0s</text><line x1=\"124.2\" y1=\"22\" x2=\"124.2\" y2=\"206\" stroke=\"rgba(0,0,0,.16)\" stroke-width=\"1\"/><text x=\"124.2\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >2s</text><line x1=\"178.3\" y1=\"22\" x2=\"178.3\" y2=\"206\" stroke=\"rgba(0,0,0,.16)\" stroke-width=\"1\"/><text x=\"178.3\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >4s</text><line x1=\"232.5\" y1=\"22\" x2=\"232.5\" y2=\"206\" stroke=\"rgba(0,0,0,.16)\" stroke-width=\"1\"/><text x=\"232.5\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >6s</text><line x1=\"286.7\" y1=\"22\" x2=\"286.7\" y2=\"206\" stroke=\"rgba(0,0,0,.16)\" stroke-width=\"1\"/><text x=\"286.7\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >8s</text><line x1=\"340.8\" y1=\"22\" x2=\"340.8\" y2=\"206\" stroke=\"rgba(0,0,0,.16)\" stroke-width=\"1\"/><text x=\"340.8\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >10s</text><line x1=\"395.0\" y1=\"22\" x2=\"395.0\" y2=\"206\" stroke=\"rgba(0,0,0,.16)\" stroke-width=\"1\"/><text x=\"395.0\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >12s</text><line x1=\"449.2\" y1=\"22\" x2=\"449.2\" y2=\"206\" stroke=\"rgba(0,0,0,.16)\" stroke-width=\"1\"/><text x=\"449.2\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >14s</text><line x1=\"503.3\" y1=\"22\" x2=\"503.3\" y2=\"206\" stroke=\"rgba(0,0,0,.16)\" stroke-width=\"1\"/><text x=\"503.3\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >16s</text><line x1=\"557.5\" y1=\"22\" x2=\"557.5\" y2=\"206\" stroke=\"rgba(0,0,0,.16)\" stroke-width=\"1\"/><text x=\"557.5\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >18s</text><line x1=\"611.7\" y1=\"22\" x2=\"611.7\" y2=\"206\" stroke=\"rgba(0,0,0,.16)\" stroke-width=\"1\"/><text x=\"611.7\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >20s</text><line x1=\"665.8\" y1=\"22\" x2=\"665.8\" y2=\"206\" stroke=\"rgba(0,0,0,.16)\" stroke-width=\"1\"/><text x=\"665.8\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >22s</text><line x1=\"720.0\" y1=\"22\" x2=\"720.0\" y2=\"206\" stroke=\"rgba(0,0,0,.16)\" stroke-width=\"1\"/><text x=\"720.0\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >24s</text><line x1=\"70.0\" y1=\"16\" x2=\"70.0\" y2=\"206\" stroke=\"#3f72a8\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><line x1=\"286.7\" y1=\"16\" x2=\"286.7\" y2=\"206\" stroke=\"#3f72a8\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><line x1=\"638.8\" y1=\"16\" x2=\"638.8\" y2=\"206\" stroke=\"#3f72a8\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><text x=\"290.7\" y=\"14.0\" text-anchor=\"start\" fill=\"#3f72a8\" font-size=\"10\" >new chord</text><line x1=\"422.1\" y1=\"16\" x2=\"422.1\" y2=\"206\" stroke=\"#a8650f\" stroke-width=\"2\"/><text x=\"426.1\" y=\"14.0\" text-anchor=\"start\" fill=\"#a8650f\" font-size=\"10\" font-weight=\"600\" >T1 touch: reset</text><text x=\"62.0\" y=\"34.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\" >voice 1</text><line x1=\"70\" y1=\"30\" x2=\"720\" y2=\"30\" stroke=\"rgba(0,0,0,.12)\" stroke-width=\"1\"/><g><title>voice 1: grain at 0.00 s (period 8.00 s)</title><rect x=\"68.5\" y=\"22\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 1: grain at 8.00 s (period 8.00 s)</title><rect x=\"285.2\" y=\"22\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 1: grain at 13.00 s (period 8.00 s)</title><rect x=\"420.6\" y=\"22\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#a8650f\"/></g><g><title>voice 1: grain at 21.00 s (period 8.00 s)</title><rect x=\"637.2\" y=\"22\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><text x=\"62.0\" y=\"64.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\" >voice 2</text><line x1=\"70\" y1=\"60\" x2=\"720\" y2=\"60\" stroke=\"rgba(0,0,0,.12)\" stroke-width=\"1\"/><g><title>voice 2: grain at 0.00 s (period 4.00 s)</title><rect x=\"68.5\" y=\"52\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 2: grain at 4.00 s (period 4.00 s)</title><rect x=\"176.8\" y=\"52\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 2: grain at 8.00 s (period 4.00 s)</title><rect x=\"285.2\" y=\"52\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 2: grain at 12.00 s (period 4.00 s)</title><rect x=\"393.5\" y=\"52\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 2: grain at 13.00 s (period 4.00 s)</title><rect x=\"420.6\" y=\"52\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#a8650f\"/></g><g><title>voice 2: grain at 17.00 s (period 4.00 s)</title><rect x=\"528.9\" y=\"52\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 2: grain at 21.00 s (period 4.00 s)</title><rect x=\"637.2\" y=\"52\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><text x=\"62.0\" y=\"94.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\" >voice 3</text><line x1=\"70\" y1=\"90\" x2=\"720\" y2=\"90\" stroke=\"rgba(0,0,0,.12)\" stroke-width=\"1\"/><g><title>voice 3: grain at 0.00 s (period 2.67 s)</title><rect x=\"68.5\" y=\"82\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 3: grain at 2.67 s (period 2.67 s)</title><rect x=\"140.7\" y=\"82\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 3: grain at 5.33 s (period 2.67 s)</title><rect x=\"212.9\" y=\"82\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 3: grain at 8.00 s (period 2.67 s)</title><rect x=\"285.2\" y=\"82\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 3: grain at 10.67 s (period 2.67 s)</title><rect x=\"357.4\" y=\"82\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 3: grain at 13.00 s (period 2.67 s)</title><rect x=\"420.6\" y=\"82\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#a8650f\"/></g><g><title>voice 3: grain at 15.67 s (period 2.67 s)</title><rect x=\"492.8\" y=\"82\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 3: grain at 18.33 s (period 2.67 s)</title><rect x=\"565.0\" y=\"82\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 3: grain at 21.00 s (period 2.67 s)</title><rect x=\"637.2\" y=\"82\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 3: grain at 23.67 s (period 2.67 s)</title><rect x=\"709.5\" y=\"82\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><text x=\"62.0\" y=\"124.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\" >voice 4</text><line x1=\"70\" y1=\"120\" x2=\"720\" y2=\"120\" stroke=\"rgba(0,0,0,.12)\" stroke-width=\"1\"/><g><title>voice 4: grain at 0.00 s (period 2.00 s)</title><rect x=\"68.5\" y=\"112\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 4: grain at 2.00 s (period 2.00 s)</title><rect x=\"122.7\" y=\"112\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 4: grain at 4.00 s (period 2.00 s)</title><rect x=\"176.8\" y=\"112\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 4: grain at 6.00 s (period 2.00 s)</title><rect x=\"231.0\" y=\"112\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 4: grain at 8.00 s (period 2.00 s)</title><rect x=\"285.2\" y=\"112\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 4: grain at 10.00 s (period 2.00 s)</title><rect x=\"339.3\" y=\"112\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 4: grain at 12.00 s (period 2.00 s)</title><rect x=\"393.5\" y=\"112\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 4: grain at 13.00 s (period 2.00 s)</title><rect x=\"420.6\" y=\"112\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#a8650f\"/></g><g><title>voice 4: grain at 15.00 s (period 2.00 s)</title><rect x=\"474.8\" y=\"112\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 4: grain at 17.00 s (period 2.00 s)</title><rect x=\"528.9\" y=\"112\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 4: grain at 19.00 s (period 2.00 s)</title><rect x=\"583.1\" y=\"112\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 4: grain at 21.00 s (period 2.00 s)</title><rect x=\"637.2\" y=\"112\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 4: grain at 23.00 s (period 2.00 s)</title><rect x=\"691.4\" y=\"112\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><text x=\"62.0\" y=\"154.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\" >voice 5</text><line x1=\"70\" y1=\"150\" x2=\"720\" y2=\"150\" stroke=\"rgba(0,0,0,.12)\" stroke-width=\"1\"/><g><title>voice 5: grain at 0.00 s (period 1.60 s)</title><rect x=\"68.5\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 1.60 s (period 1.60 s)</title><rect x=\"111.8\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 3.20 s (period 1.60 s)</title><rect x=\"155.2\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 4.80 s (period 1.60 s)</title><rect x=\"198.5\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 6.40 s (period 1.60 s)</title><rect x=\"241.8\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 8.00 s (period 1.60 s)</title><rect x=\"285.2\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 9.60 s (period 1.60 s)</title><rect x=\"328.5\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 11.20 s (period 1.60 s)</title><rect x=\"371.8\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 12.80 s (period 1.60 s)</title><rect x=\"415.2\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 13.00 s (period 1.60 s)</title><rect x=\"420.6\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#a8650f\"/></g><g><title>voice 5: grain at 14.60 s (period 1.60 s)</title><rect x=\"463.9\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 16.20 s (period 1.60 s)</title><rect x=\"507.2\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 17.80 s (period 1.60 s)</title><rect x=\"550.6\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 19.40 s (period 1.60 s)</title><rect x=\"593.9\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 21.00 s (period 1.60 s)</title><rect x=\"637.3\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 5: grain at 22.60 s (period 1.60 s)</title><rect x=\"680.6\" y=\"142\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><text x=\"62.0\" y=\"184.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\" >voice 6</text><line x1=\"70\" y1=\"180\" x2=\"720\" y2=\"180\" stroke=\"rgba(0,0,0,.12)\" stroke-width=\"1\"/><g><title>voice 6: grain at 0.00 s (period 1.33 s)</title><rect x=\"68.5\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 1.33 s (period 1.33 s)</title><rect x=\"104.6\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 2.67 s (period 1.33 s)</title><rect x=\"140.7\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 4.00 s (period 1.33 s)</title><rect x=\"176.8\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 5.33 s (period 1.33 s)</title><rect x=\"212.9\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 6.67 s (period 1.33 s)</title><rect x=\"249.1\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 8.00 s (period 1.33 s)</title><rect x=\"285.2\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 9.33 s (period 1.33 s)</title><rect x=\"321.3\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 10.67 s (period 1.33 s)</title><rect x=\"357.4\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 12.00 s (period 1.33 s)</title><rect x=\"393.5\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 13.00 s (period 1.33 s)</title><rect x=\"420.6\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#a8650f\"/></g><g><title>voice 6: grain at 14.33 s (period 1.33 s)</title><rect x=\"456.7\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 15.67 s (period 1.33 s)</title><rect x=\"492.8\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 17.00 s (period 1.33 s)</title><rect x=\"528.9\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 18.33 s (period 1.33 s)</title><rect x=\"565.0\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 19.67 s (period 1.33 s)</title><rect x=\"601.1\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 21.00 s (period 1.33 s)</title><rect x=\"637.2\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 22.33 s (period 1.33 s)</title><rect x=\"673.4\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><g><title>voice 6: grain at 23.67 s (period 1.33 s)</title><rect x=\"709.5\" y=\"172\" width=\"3\" height=\"16\" rx=\"1.5\" fill=\"#222\"/></g><text x=\"70.0\" y=\"236.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10\" >Each mark is a grain. Voice k repeats every 8/k s, so the voices drift in and out of phase.</text><text x=\"70.0\" y=\"250.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10\" >A T1 touch restarts all six together, and the chord cycle restarts with them.</text></svg><figcaption>24 seconds of the melody layer, with a T1 touch at 13 s.</figcaption></figure>\n<p>Each time the slowest voice completes a cycle, a chord generator (<code>p chra</code>) chooses six new notes. Random numbers are quantised through a lookup table to C Mixolydian (C D E F G A B♭), and each voice draws from its own register, so the chord always spans five octaves from a low C to the upper middle register.</p><figure class=\"svgfig\"><svg class=\"fig\" viewBox=\"0 0 740 256\" role=\"img\" aria-label=\"Pitch map: each of six voices draws notes from C Mixolydian in its own register, from C1 to E5\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:auto;display:block\"><line x1=\"90.0\" y1=\"14\" x2=\"90.0\" y2=\"196\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"90.0\" y=\"212.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >C1</text><line x1=\"216.0\" y1=\"14\" x2=\"216.0\" y2=\"196\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"216.0\" y=\"212.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >C2</text><line x1=\"342.0\" y1=\"14\" x2=\"342.0\" y2=\"196\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"342.0\" y=\"212.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >C3</text><line x1=\"468.0\" y1=\"14\" x2=\"468.0\" y2=\"196\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"468.0\" y=\"212.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >C4</text><line x1=\"594.0\" y1=\"14\" x2=\"594.0\" y2=\"196\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"594.0\" y=\"212.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >C5</text><line x1=\"720.0\" y1=\"14\" x2=\"720.0\" y2=\"196\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"720.0\" y=\"212.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >C6</text><text x=\"82.0\" y=\"30.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\" >voice 1</text><line x1=\"90.0\" y1=\"26\" x2=\"142.5\" y2=\"26\" stroke=\"#3f72a8\" stroke-width=\"2\" stroke-linecap=\"round\" opacity=\".45\"/><g><title>voice 1: C1 (MIDI 24)</title><circle cx=\"90.0\" cy=\"26\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"90.0\" y=\"17.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >C</text><g><title>voice 1: D1 (MIDI 26)</title><circle cx=\"111.0\" cy=\"26\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"111.0\" y=\"17.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >D</text><g><title>voice 1: E1 (MIDI 28)</title><circle cx=\"132.0\" cy=\"26\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"132.0\" y=\"17.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >E</text><g><title>voice 1: F1 (MIDI 29)</title><circle cx=\"142.5\" cy=\"26\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"142.5\" y=\"17.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >F</text><text x=\"82.0\" y=\"60.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\" >voice 2</text><line x1=\"258.0\" y1=\"56\" x2=\"321.0\" y2=\"56\" stroke=\"#3f72a8\" stroke-width=\"2\" stroke-linecap=\"round\" opacity=\".45\"/><g><title>voice 2: E2 (MIDI 40)</title><circle cx=\"258.0\" cy=\"56\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"258.0\" y=\"47.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >E</text><g><title>voice 2: F2 (MIDI 41)</title><circle cx=\"268.5\" cy=\"56\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"268.5\" y=\"47.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >F</text><g><title>voice 2: G2 (MIDI 43)</title><circle cx=\"289.5\" cy=\"56\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"289.5\" y=\"47.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >G</text><g><title>voice 2: A2 (MIDI 45)</title><circle cx=\"310.5\" cy=\"56\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"310.5\" y=\"47.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >A</text><g><title>voice 2: B♭2 (MIDI 46)</title><circle cx=\"321.0\" cy=\"56\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"321.0\" y=\"47.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >B♭</text><text x=\"82.0\" y=\"90.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\" >voice 3</text><line x1=\"342.0\" y1=\"86\" x2=\"394.5\" y2=\"86\" stroke=\"#3f72a8\" stroke-width=\"2\" stroke-linecap=\"round\" opacity=\".45\"/><g><title>voice 3: C3 (MIDI 48)</title><circle cx=\"342.0\" cy=\"86\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"342.0\" y=\"77.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >C</text><g><title>voice 3: D3 (MIDI 50)</title><circle cx=\"363.0\" cy=\"86\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"363.0\" y=\"77.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >D</text><g><title>voice 3: E3 (MIDI 52)</title><circle cx=\"384.0\" cy=\"86\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"384.0\" y=\"77.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >E</text><g><title>voice 3: F3 (MIDI 53)</title><circle cx=\"394.5\" cy=\"86\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"394.5\" y=\"77.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >F</text><text x=\"82.0\" y=\"120.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\" >voice 4</text><line x1=\"384.0\" y1=\"116\" x2=\"447.0\" y2=\"116\" stroke=\"#3f72a8\" stroke-width=\"2\" stroke-linecap=\"round\" opacity=\".45\"/><g><title>voice 4: E3 (MIDI 52)</title><circle cx=\"384.0\" cy=\"116\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"384.0\" y=\"107.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >E</text><g><title>voice 4: F3 (MIDI 53)</title><circle cx=\"394.5\" cy=\"116\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"394.5\" y=\"107.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >F</text><g><title>voice 4: G3 (MIDI 55)</title><circle cx=\"415.5\" cy=\"116\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"415.5\" y=\"107.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >G</text><g><title>voice 4: A3 (MIDI 57)</title><circle cx=\"436.5\" cy=\"116\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"436.5\" y=\"107.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >A</text><g><title>voice 4: B♭3 (MIDI 58)</title><circle cx=\"447.0\" cy=\"116\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"447.0\" y=\"107.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >B♭</text><text x=\"82.0\" y=\"150.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\" >voice 5</text><line x1=\"468.0\" y1=\"146\" x2=\"489.0\" y2=\"146\" stroke=\"#3f72a8\" stroke-width=\"2\" stroke-linecap=\"round\" opacity=\".45\"/><g><title>voice 5: C4 (MIDI 60)</title><circle cx=\"468.0\" cy=\"146\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"468.0\" y=\"137.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >C</text><g><title>voice 5: D4 (MIDI 62)</title><circle cx=\"489.0\" cy=\"146\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"489.0\" y=\"137.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >D</text><text x=\"82.0\" y=\"180.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\" >voice 6</text><line x1=\"594.0\" y1=\"176\" x2=\"636.0\" y2=\"176\" stroke=\"#3f72a8\" stroke-width=\"2\" stroke-linecap=\"round\" opacity=\".45\"/><g><title>voice 6: C5 (MIDI 72)</title><circle cx=\"594.0\" cy=\"176\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"594.0\" y=\"167.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >C</text><g><title>voice 6: D5 (MIDI 74)</title><circle cx=\"615.0\" cy=\"176\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"615.0\" y=\"167.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >D</text><g><title>voice 6: E5 (MIDI 76)</title><circle cx=\"636.0\" cy=\"176\" r=\"5\" fill=\"#3f72a8\" stroke=\"#e4e4e4\" stroke-width=\"2\"/></g><text x=\"636.0\" y=\"167.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"9\" >E</text><text x=\"90.0\" y=\"232.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10\" >Possible notes per voice. Random choices are quantised to C Mixolydian (C D E F G A B♭);</text><text x=\"90.0\" y=\"246.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10\" >together the six voices span five octaves.</text></svg><figcaption>Possible notes for each voice.</figcaption></figure>\n<p>All 96 channels then pass through a second gen~ stage: a resonant filter bank tuned to the bass note (its harmonics ×1 to ×8, randomly modulated), dispersion delays whose lengths follow two hand-drawn envelope curves, and a 750 ms feedback delay with tanh saturation in the loop. This is what turns the grains into a continuous, breathing texture.</p>\n<h4>2 · Drum</h4>\n<p>A recorded kick loop plays through <code>groove~</code>, and its playback speed comes directly from T2 (0 to 10 after scaling). With no hand on the handle the loop stands still; holding it brings the pulse in and speeds it up. The loop then runs through six chained phaser stages: each inverts the phase of a delayed copy and adds it back, filtered by a state-variable filter swept by a 10 Hz LFO. T2 also sets the phaser depth, feedback and resonance, so pressure changes both tempo and timbre.</p>\n<h4>3 · Field-recording wheel</h4><figure class=\"svgfig\"><svg class=\"fig\" viewBox=\"0 0 740 300\" role=\"img\" aria-label=\"Field-recording wheel: four overlapping zones, Waterside, Lake, Bird and Wind, crossfaded by the X and Y position from handles T3 and T4\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:auto;display:block\"><defs><clipPath id=\"wc\"><rect x=\"40\" y=\"25\" width=\"250\" height=\"250\" rx=\"6\"/></clipPath></defs><rect x=\"40\" y=\"25\" width=\"250\" height=\"250\" rx=\"6\" fill=\"rgba(255,255,255,.45)\" stroke=\"rgba(0,0,0,.45)\"/><g clip-path=\"url(#wc)\"><g><title>Zone 1: Waterside</title><circle cx=\"100.0\" cy=\"82.5\" r=\"56.1\" fill=\"#a8650f\" fill-opacity=\".14\" stroke=\"#a8650f\" stroke-width=\"1.5\"/></g><g><title>Zone 2: Lake</title><circle cx=\"237.2\" cy=\"79.0\" r=\"71.4\" fill=\"#3f72a8\" fill-opacity=\".14\" stroke=\"#3f72a8\" stroke-width=\"1.5\"/></g><g><title>Zone 3: Bird</title><circle cx=\"90.0\" cy=\"216.2\" r=\"82.4\" fill=\"#3f72a8\" fill-opacity=\".14\" stroke=\"#3f72a8\" stroke-width=\"1.5\"/></g><g><title>Zone 4: Wind</title><circle cx=\"229.2\" cy=\"226.8\" r=\"76.0\" fill=\"#3f72a8\" fill-opacity=\".14\" stroke=\"#3f72a8\" stroke-width=\"1.5\"/></g></g><text x=\"100.0\" y=\"86.5\" text-anchor=\"middle\" fill=\"#222\" font-size=\"11\" font-weight=\"600\" >1 · Waterside</text><text x=\"237.2\" y=\"83.0\" text-anchor=\"middle\" fill=\"#222\" font-size=\"11\" font-weight=\"600\" >2 · Lake</text><text x=\"90.0\" y=\"220.2\" text-anchor=\"middle\" fill=\"#222\" font-size=\"11\" font-weight=\"600\" >3 · Bird</text><text x=\"229.2\" y=\"230.8\" text-anchor=\"middle\" fill=\"#222\" font-size=\"11\" font-weight=\"600\" >4 · Wind</text><circle cx=\"170.0\" cy=\"142.5\" r=\"5\" fill=\"#222\"/><circle cx=\"170.0\" cy=\"142.5\" r=\"9\" fill=\"none\" stroke=\"#222\"/><text x=\"165.0\" y=\"293.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10.5\" >X  ←  T3</text><text x=\"28.0\" y=\"150.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10.5\" transform=\"rotate(-90 28 150.0)\">Y  ←  T4</text><text x=\"330.0\" y=\"45.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"11\" >The cursor's position sets how loud each</text><text x=\"330.0\" y=\"61.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"11\" >recording is: the closer it is to a zone's</text><text x=\"330.0\" y=\"77.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"11\" >centre, the more of that recording you hear.</text><text x=\"330.0\" y=\"93.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"11\" >Overlapping zones blend into each other.</text><text x=\"330.0\" y=\"109.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"11\" ></text><text x=\"330.0\" y=\"125.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"11\" >Each recording loops a 12-second section</text><text x=\"330.0\" y=\"141.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"11\" >with 300 ms crossfades, so it never clicks.</text><text x=\"330.0\" y=\"157.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"11\" ></text><text x=\"330.0\" y=\"173.0\" text-anchor=\"start\" fill=\"#a8650f\" font-size=\"11\" >Moving into zone 1 (Waterside) also plays</text><text x=\"330.0\" y=\"189.0\" text-anchor=\"start\" fill=\"#a8650f\" font-size=\"11\" >a recording of a passing train.</text></svg><figcaption>The four zones and their positions, as laid out in the patch.</figcaption></figure>\n<p>Four field recordings sit on a <code>nodes</code> object. The cursor position, from T3 (X) and T4 (Y), sets each recording's level according to how far the cursor is inside that zone. Each recording plays through a crossfade abstraction that loops a 12-second section with 300 ms fades and a 0.4 fade curve. When the cursor enters zone 1, a change detector fires a one-shot recording of a passing train.</p><figure><img src=\"media/works/P06_connecting-lines__field-recording-berkshires.jpg\" alt=\"Salome crouched at the water's edge recording, a lake and autumn forest beyond\" loading=\"lazy\"><figcaption>Recording water sounds for Connecting Lines in the Berkshires, October 2025.</figcaption></figure>\n<h4>4 · From sensor to sound: scaling and smoothing</h4>\n<p>Raw capacitive readings arrive as values from 1 to 200. Max rescales them to each control's range (0 to 10 for the drum, 0 to 1 for the wheel), discards repeated values with <code>change</code>, and passes them through a one-pole low-pass filter written as a small subpatch: <i>y = (1 − a)·x + a·y<sub>previous</sub></i>. The coefficient sets the feel. At a = 0.98 the drum and one wheel axis glide over many messages, so the sound swells rather than jumps; at a = 0.5 the other axis follows the hand almost immediately. Without this stage the sound changed so fast it never settled, which is noted in the patch itself: \"No resting mood, continuously bangs the signal\".</p><figure class=\"svgfig\"><svg class=\"fig\" viewBox=\"0 0 740 240\" role=\"img\" aria-label=\"Smoothing: response to a sudden full touch. With coefficient 0.5 the value arrives in about 5 messages; with 0.98 it takes about 149\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:auto;display:block\"><line x1=\"60\" y1=\"190.0\" x2=\"700\" y2=\"190.0\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"52.0\" y=\"194.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10\" >0%</text><line x1=\"60\" y1=\"147.5\" x2=\"700\" y2=\"147.5\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"52.0\" y=\"151.5\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10\" >25%</text><line x1=\"60\" y1=\"105.0\" x2=\"700\" y2=\"105.0\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"52.0\" y=\"109.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10\" >50%</text><line x1=\"60\" y1=\"62.5\" x2=\"700\" y2=\"62.5\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"52.0\" y=\"66.5\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10\" >75%</text><line x1=\"60\" y1=\"20.0\" x2=\"700\" y2=\"20.0\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"52.0\" y=\"24.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10\" >100%</text><text x=\"60.0\" y=\"206.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >0</text><text x=\"140.0\" y=\"206.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >25</text><text x=\"220.0\" y=\"206.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >50</text><text x=\"300.0\" y=\"206.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >75</text><text x=\"380.0\" y=\"206.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >100</text><text x=\"460.0\" y=\"206.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >125</text><text x=\"540.0\" y=\"206.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >150</text><text x=\"620.0\" y=\"206.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >175</text><text x=\"700.0\" y=\"206.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >200</text><text x=\"380.0\" y=\"222.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\" >OSC messages received after the touch</text><polyline fill=\"none\" stroke=\"#a8650f\" stroke-width=\"2\" stroke-linejoin=\"round\" points=\"60.0,190.0 63.2,105.0 66.4,62.5 69.6,41.2 72.8,30.6 76.0,25.3 79.2,22.7 82.4,21.3 85.6,20.7 88.8,20.3 92.0,20.2 95.2,20.1 98.4,20.0 101.6,20.0 104.8,20.0 108.0,20.0 111.2,20.0 114.4,20.0 117.6,20.0 120.8,20.0 124.0,20.0 127.2,20.0 130.4,20.0 133.6,20.0 136.8,20.0 140.0,20.0 143.2,20.0 146.4,20.0 149.6,20.0 152.8,20.0 156.0,20.0 159.2,20.0 162.4,20.0 165.6,20.0 168.8,20.0 172.0,20.0 175.2,20.0 178.4,20.0 181.6,20.0 184.8,20.0 188.0,20.0 191.2,20.0 194.4,20.0 197.6,20.0 200.8,20.0 204.0,20.0 207.2,20.0 210.4,20.0 213.6,20.0 216.8,20.0 220.0,20.0 223.2,20.0 226.4,20.0 229.6,20.0 232.8,20.0 236.0,20.0 239.2,20.0 242.4,20.0 245.6,20.0 248.8,20.0 252.0,20.0 255.2,20.0 258.4,20.0 261.6,20.0 264.8,20.0 268.0,20.0 271.2,20.0 274.4,20.0 277.6,20.0 280.8,20.0 284.0,20.0 287.2,20.0 290.4,20.0 293.6,20.0 296.8,20.0 300.0,20.0 303.2,20.0 306.4,20.0 309.6,20.0 312.8,20.0 316.0,20.0 319.2,20.0 322.4,20.0 325.6,20.0 328.8,20.0 332.0,20.0 335.2,20.0 338.4,20.0 341.6,20.0 344.8,20.0 348.0,20.0 351.2,20.0 354.4,20.0 357.6,20.0 360.8,20.0 364.0,20.0 367.2,20.0 370.4,20.0 373.6,20.0 376.8,20.0 380.0,20.0 383.2,20.0 386.4,20.0 389.6,20.0 392.8,20.0 396.0,20.0 399.2,20.0 402.4,20.0 405.6,20.0 408.8,20.0 412.0,20.0 415.2,20.0 418.4,20.0 421.6,20.0 424.8,20.0 428.0,20.0 431.2,20.0 434.4,20.0 437.6,20.0 440.8,20.0 444.0,20.0 447.2,20.0 450.4,20.0 453.6,20.0 456.8,20.0 460.0,20.0 463.2,20.0 466.4,20.0 469.6,20.0 472.8,20.0 476.0,20.0 479.2,20.0 482.4,20.0 485.6,20.0 488.8,20.0 492.0,20.0 495.2,20.0 498.4,20.0 501.6,20.0 504.8,20.0 508.0,20.0 511.2,20.0 514.4,20.0 517.6,20.0 520.8,20.0 524.0,20.0 527.2,20.0 530.4,20.0 533.6,20.0 536.8,20.0 540.0,20.0 543.2,20.0 546.4,20.0 549.6,20.0 552.8,20.0 556.0,20.0 559.2,20.0 562.4,20.0 565.6,20.0 568.8,20.0 572.0,20.0 575.2,20.0 578.4,20.0 581.6,20.0 584.8,20.0 588.0,20.0 591.2,20.0 594.4,20.0 597.6,20.0 600.8,20.0 604.0,20.0 607.2,20.0 610.4,20.0 613.6,20.0 616.8,20.0 620.0,20.0 623.2,20.0 626.4,20.0 629.6,20.0 632.8,20.0 636.0,20.0 639.2,20.0 642.4,20.0 645.6,20.0 648.8,20.0 652.0,20.0 655.2,20.0 658.4,20.0 661.6,20.0 664.8,20.0 668.0,20.0 671.2,20.0 674.4,20.0 677.6,20.0 680.8,20.0 684.0,20.0 687.2,20.0 690.4,20.0 693.6,20.0 696.8,20.0 700.0,20.0\"/><g><title>a=0.5: 97% after 5 messages</title><circle cx=\"76.0\" cy=\"25.3\" r=\"7\" fill=\"transparent\"/></g><g><title>a=0.5: 100% after 25 messages</title><circle cx=\"140.0\" cy=\"20.0\" r=\"7\" fill=\"transparent\"/></g><g><title>a=0.5: 100% after 50 messages</title><circle cx=\"220.0\" cy=\"20.0\" r=\"7\" fill=\"transparent\"/></g><g><title>a=0.5: 100% after 100 messages</title><circle cx=\"380.0\" cy=\"20.0\" r=\"7\" fill=\"transparent\"/></g><g><title>a=0.5: 100% after 149 messages</title><circle cx=\"536.8\" cy=\"20.0\" r=\"7\" fill=\"transparent\"/></g><polyline fill=\"none\" stroke=\"#3f72a8\" stroke-width=\"2\" stroke-linejoin=\"round\" points=\"60.0,190.0 63.2,186.6 66.4,183.3 69.6,180.0 72.8,176.8 76.0,173.7 79.2,170.6 82.4,167.6 85.6,164.6 88.8,161.7 92.0,158.9 95.2,156.1 98.4,153.4 101.6,150.7 104.8,148.1 108.0,145.6 111.2,143.0 114.4,140.6 117.6,138.2 120.8,135.8 124.0,133.5 127.2,131.2 130.4,129.0 133.6,126.8 136.8,124.7 140.0,122.6 143.2,120.5 146.4,118.5 149.6,116.6 152.8,114.6 156.0,112.7 159.2,110.9 162.4,109.1 165.6,107.3 168.8,105.5 172.0,103.8 175.2,102.1 178.4,100.5 181.6,98.9 184.8,97.3 188.0,95.8 191.2,94.3 194.4,92.8 197.6,91.3 200.8,89.9 204.0,88.5 207.2,87.1 210.4,85.8 213.6,84.5 216.8,83.2 220.0,81.9 223.2,80.7 226.4,79.5 229.6,78.3 232.8,77.1 236.0,76.0 239.2,74.8 242.4,73.7 245.6,72.7 248.8,71.6 252.0,70.6 255.2,69.6 258.4,68.6 261.6,67.6 264.8,66.7 268.0,65.7 271.2,64.8 274.4,63.9 277.6,63.0 280.8,62.2 284.0,61.3 287.2,60.5 290.4,59.7 293.6,58.9 296.8,58.1 300.0,57.4 303.2,56.6 306.4,55.9 309.6,55.2 312.8,54.5 316.0,53.8 319.2,53.1 322.4,52.4 325.6,51.8 328.8,51.1 332.0,50.5 335.2,49.9 338.4,49.3 341.6,48.7 344.8,48.2 348.0,47.6 351.2,47.0 354.4,46.5 357.6,46.0 360.8,45.5 364.0,44.9 367.2,44.4 370.4,44.0 373.6,43.5 376.8,43.0 380.0,42.5 383.2,42.1 386.4,41.7 389.6,41.2 392.8,40.8 396.0,40.4 399.2,40.0 402.4,39.6 405.6,39.2 408.8,38.8 412.0,38.4 415.2,38.1 418.4,37.7 421.6,37.3 424.8,37.0 428.0,36.7 431.2,36.3 434.4,36.0 437.6,35.7 440.8,35.4 444.0,35.1 447.2,34.8 450.4,34.5 453.6,34.2 456.8,33.9 460.0,33.6 463.2,33.3 466.4,33.1 469.6,32.8 472.8,32.5 476.0,32.3 479.2,32.1 482.4,31.8 485.6,31.6 488.8,31.3 492.0,31.1 495.2,30.9 498.4,30.7 501.6,30.5 504.8,30.3 508.0,30.0 511.2,29.8 514.4,29.7 517.6,29.5 520.8,29.3 524.0,29.1 527.2,28.9 530.4,28.7 533.6,28.5 536.8,28.4 540.0,28.2 543.2,28.0 546.4,27.9 549.6,27.7 552.8,27.6 556.0,27.4 559.2,27.3 562.4,27.1 565.6,27.0 568.8,26.8 572.0,26.7 575.2,26.6 578.4,26.4 581.6,26.3 584.8,26.2 588.0,26.1 591.2,25.9 594.4,25.8 597.6,25.7 600.8,25.6 604.0,25.5 607.2,25.4 610.4,25.3 613.6,25.2 616.8,25.1 620.0,25.0 623.2,24.9 626.4,24.8 629.6,24.7 632.8,24.6 636.0,24.5 639.2,24.4 642.4,24.3 645.6,24.2 648.8,24.1 652.0,24.0 655.2,24.0 658.4,23.9 661.6,23.8 664.8,23.7 668.0,23.7 671.2,23.6 674.4,23.5 677.6,23.4 680.8,23.4 684.0,23.3 687.2,23.2 690.4,23.2 693.6,23.1 696.8,23.1 700.0,23.0\"/><g><title>a=0.98: 10% after 5 messages</title><circle cx=\"76.0\" cy=\"173.7\" r=\"7\" fill=\"transparent\"/></g><g><title>a=0.98: 40% after 25 messages</title><circle cx=\"140.0\" cy=\"122.6\" r=\"7\" fill=\"transparent\"/></g><g><title>a=0.98: 64% after 50 messages</title><circle cx=\"220.0\" cy=\"81.9\" r=\"7\" fill=\"transparent\"/></g><g><title>a=0.98: 87% after 100 messages</title><circle cx=\"380.0\" cy=\"42.5\" r=\"7\" fill=\"transparent\"/></g><g><title>a=0.98: 95% after 149 messages</title><circle cx=\"536.8\" cy=\"28.4\" r=\"7\" fill=\"transparent\"/></g><text x=\"104.8\" y=\"47.2\" text-anchor=\"start\" fill=\"#a8650f\" font-size=\"10.5\" font-weight=\"600\" >X (a = 0.5): 95% in 5 messages</text><text x=\"284.0\" y=\"77.3\" text-anchor=\"start\" fill=\"#3f72a8\" font-size=\"10.5\" font-weight=\"600\" >T2 and Y (a = 0.98): 95% after 149 messages</text></svg><figcaption>How quickly each smoothed control reaches a new value after a sudden full touch.</figcaption></figure>\n<h4>5 · Output</h4>\n<p>The melody's 96 channels are mixed down to stereo with automatic gain, passed through a tanh soft clipper so that peaks round off instead of distorting harshly, and summed with the drum, the four recordings and the train at the output.</p>"
+      },
+      {
+       "title": "The crossfade subpatch",
+       "html": "<figure><a href=\"media/works/P06_connecting-lines__crossfade-full.jpg\" target=\"_blank\" rel=\"noopener\" title=\"Open full size\"><img src=\"media/works/P06_connecting-lines__crossfade.jpg\" alt=\"Max/MSP crossfade subpatch with two alternating stereo players\" loading=\"lazy\"></a><figcaption>The <code>crossfade</code> subpatch. Click to enlarge.</figcaption></figure><p>Each of the four field recordings plays through <code>crossfade</code>, a small subpatch that turns a section of a recording into a seamless loop and lets different recordings blend smoothly. A single player looping the same section would click at the loop point. Instead, two stereo players take turns, and each new one fades in while the previous one fades out.</p><ul><li><b>One list sets everything:</b> start time, duration, fade time in ms and fade curve. In the patch each zone holds 0, 12000, 300 and 0.4: start at the beginning, play 12 seconds, fade over 300 ms, curve 0.4.</li><li><b>Timing:</b> a <code>metro</code> fires every duration minus fade time (11.7 s). Each tick flips a toggle, and <code>sel 0 1</code> sends the trigger to player A or player B in turn.</li><li><b>Each player</b> (<code>p play_stereo</code>) starts <code>play~</code> at the start time and shapes it with a <code>line~</code> envelope: fade in over the fade time, hold for the duration minus two fade times, fade out over the fade time.</li><li><b>The overlap:</b> the next player starts exactly when the current one begins to fade out, so the two overlap for the length of the fade.</li><li><b>The curve:</b> the envelope is raised to the fade-curve power with <code>pow~</code>. Two different moments of a recording add up as power, so straight-line fades would make the sound dip by about 3 dB in the middle of every overlap. With a curve of 0.4 the fades bow outward and the combined level stays within 0.6 dB.</li><li><b>One subpatch, four recordings:</b> the buffer name is passed in as an argument (<code>crossfade env1</code> to <code>env4</code>), so the same subpatch serves all four zones.</li></ul><figure class=\"svgfig\"><svg class=\"fig\" viewBox=\"0 0 740 330\" role=\"img\" aria-label=\"Crossfade: two players alternate every 11.7 seconds and overlap for 0.3 seconds; with a fade curve of 0.4 the combined loudness stays within 0.6 dB, while straight-line fades would dip by 3 dB\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;height:auto;display:block\"><line x1=\"90.0\" y1=\"22\" x2=\"90.0\" y2=\"86\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"90.0\" y=\"100.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\">0s</text><line x1=\"195.0\" y1=\"22\" x2=\"195.0\" y2=\"86\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"195.0\" y=\"100.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\">6s</text><line x1=\"300.0\" y1=\"22\" x2=\"300.0\" y2=\"86\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"300.0\" y=\"100.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\">12s</text><line x1=\"405.0\" y1=\"22\" x2=\"405.0\" y2=\"86\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"405.0\" y=\"100.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\">18s</text><line x1=\"510.0\" y1=\"22\" x2=\"510.0\" y2=\"86\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"510.0\" y=\"100.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\">24s</text><line x1=\"615.0\" y1=\"22\" x2=\"615.0\" y2=\"86\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"615.0\" y=\"100.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\">30s</text><line x1=\"720.0\" y1=\"22\" x2=\"720.0\" y2=\"86\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"720.0\" y=\"100.0\" text-anchor=\"middle\" fill=\"#5c5c5c\" font-size=\"10\">36s</text><text x=\"10.0\" y=\"14.0\" text-anchor=\"start\" fill=\"#222\" font-size=\"11.5\" font-weight=\"600\">Two players take turns</text><text x=\"82.0\" y=\"40.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\">player A</text><g><title>player A: plays 0.0–12.0 s (fade in 0.3 s, hold 11.4 s, fade out 0.3 s)</title><rect x=\"90.0\" y=\"28\" width=\"210.0\" height=\"16\" rx=\"4\" fill=\"#3f72a8\" fill-opacity=\".85\"/></g><g><title>player A: plays 23.4–35.4 s (fade in 0.3 s, hold 11.4 s, fade out 0.3 s)</title><rect x=\"499.5\" y=\"28\" width=\"210.0\" height=\"16\" rx=\"4\" fill=\"#3f72a8\" fill-opacity=\".85\"/></g><text x=\"82.0\" y=\"70.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10.5\">player B</text><g><title>player B: plays 11.7–23.7 s (fade in 0.3 s, hold 11.4 s, fade out 0.3 s)</title><rect x=\"294.8\" y=\"58\" width=\"210.0\" height=\"16\" rx=\"4\" fill=\"#a8650f\" fill-opacity=\".85\"/></g><g><title>player B: plays 35.1–47.1 s (fade in 0.3 s, hold 11.4 s, fade out 0.3 s)</title><rect x=\"704.2\" y=\"58\" width=\"15.8\" height=\"16\" rx=\"4\" fill=\"#a8650f\" fill-opacity=\".85\"/></g><text x=\"297.8\" y=\"118.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10\">new player every 12 − 0.3 = 11.7 s; each overlap lasts 0.3 s</text><text x=\"50.0\" y=\"150.0\" text-anchor=\"start\" fill=\"#222\" font-size=\"11.5\" font-weight=\"600\">Inside one overlap: the two fades</text><line x1=\"90\" y1=\"290.0\" x2=\"360\" y2=\"290.0\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"84.0\" y=\"293.5\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10\">0</text><line x1=\"90\" y1=\"225.0\" x2=\"360\" y2=\"225.0\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"84.0\" y=\"228.5\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10\">0.5</text><line x1=\"90\" y1=\"160.0\" x2=\"360\" y2=\"160.0\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"84.0\" y=\"163.5\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10\">1</text><text x=\"90.0\" y=\"305.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10\">start of overlap</text><text x=\"360.0\" y=\"305.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10\">end (0.3 s)</text><polyline fill=\"none\" stroke=\"#3f72a8\" stroke-width=\"2\"  points=\"90.0,160.0 92.7,160.5 95.4,161.0 98.1,161.6 100.8,162.1 103.5,162.6 106.2,163.2 108.9,163.7 111.6,164.3 114.3,164.8 117.0,165.4 119.7,165.9 122.4,166.5 125.1,167.0 127.8,167.6 130.5,168.2 133.2,168.8 135.9,169.3 138.6,169.9 141.3,170.5 144.0,171.1 146.7,171.7 149.4,172.3 152.1,172.9 154.8,173.5 157.5,174.1 160.2,174.8 162.9,175.4 165.6,176.0 168.3,176.6 171.0,177.3 173.7,177.9 176.4,178.6 179.1,179.2 181.8,179.9 184.5,180.6 187.2,181.3 189.9,181.9 192.6,182.6 195.3,183.3 198.0,184.0 200.7,184.7 203.4,185.5 206.1,186.2 208.8,186.9 211.5,187.6 214.2,188.4 216.9,189.2 219.6,189.9 222.3,190.7 225.0,191.5 227.7,192.3 230.4,193.1 233.1,193.9 235.8,194.7 238.5,195.5 241.2,196.4 243.9,197.2 246.6,198.1 249.3,199.0 252.0,199.9 254.7,200.8 257.4,201.7 260.1,202.7 262.8,203.6 265.5,204.6 268.2,205.6 270.9,206.6 273.6,207.6 276.3,208.6 279.0,209.7 281.7,210.8 284.4,211.9 287.1,213.0 289.8,214.2 292.5,215.3 295.2,216.5 297.9,217.8 300.6,219.1 303.3,220.4 306.0,221.7 308.7,223.1 311.4,224.5 314.1,226.0 316.8,227.5 319.5,229.1 322.2,230.8 324.9,232.5 327.6,234.3 330.3,236.2 333.0,238.2 335.7,240.4 338.4,242.7 341.1,245.1 343.8,247.8 346.5,250.8 349.2,254.1 351.9,258.0 354.6,262.8 357.3,269.4 360.0,290.0\"/><text x=\"279.0\" y=\"186.0\" text-anchor=\"start\" fill=\"#3f72a8\" font-size=\"10\" font-weight=\"600\">A out</text><polyline fill=\"none\" stroke=\"#a8650f\" stroke-width=\"2\"  points=\"90.0,290.0 92.7,269.4 95.4,262.8 98.1,258.0 100.8,254.1 103.5,250.8 106.2,247.8 108.9,245.1 111.6,242.7 114.3,240.4 117.0,238.2 119.7,236.2 122.4,234.3 125.1,232.5 127.8,230.8 130.5,229.1 133.2,227.5 135.9,226.0 138.6,224.5 141.3,223.1 144.0,221.7 146.7,220.4 149.4,219.1 152.1,217.8 154.8,216.5 157.5,215.3 160.2,214.2 162.9,213.0 165.6,211.9 168.3,210.8 171.0,209.7 173.7,208.6 176.4,207.6 179.1,206.6 181.8,205.6 184.5,204.6 187.2,203.6 189.9,202.7 192.6,201.7 195.3,200.8 198.0,199.9 200.7,199.0 203.4,198.1 206.1,197.2 208.8,196.4 211.5,195.5 214.2,194.7 216.9,193.9 219.6,193.1 222.3,192.3 225.0,191.5 227.7,190.7 230.4,189.9 233.1,189.2 235.8,188.4 238.5,187.6 241.2,186.9 243.9,186.2 246.6,185.5 249.3,184.7 252.0,184.0 254.7,183.3 257.4,182.6 260.1,181.9 262.8,181.3 265.5,180.6 268.2,179.9 270.9,179.2 273.6,178.6 276.3,177.9 279.0,177.3 281.7,176.6 284.4,176.0 287.1,175.4 289.8,174.8 292.5,174.1 295.2,173.5 297.9,172.9 300.6,172.3 303.3,171.7 306.0,171.1 308.7,170.5 311.4,169.9 314.1,169.3 316.8,168.8 319.5,168.2 322.2,167.6 324.9,167.0 327.6,166.5 330.3,165.9 333.0,165.4 335.7,164.8 338.4,164.3 341.1,163.7 343.8,163.2 346.5,162.6 349.2,162.1 351.9,161.6 354.6,161.0 357.3,160.5 360.0,160.0\"/><text x=\"122.4\" y=\"261.4\" text-anchor=\"start\" fill=\"#a8650f\" font-size=\"10\" font-weight=\"600\">B in</text><polyline fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\" points=\"90.0,160.0 92.7,161.3 95.4,162.6 98.1,163.9 100.8,165.2 103.5,166.5 106.2,167.8 108.9,169.1 111.6,170.4 114.3,171.7 117.0,173.0 119.7,174.3 122.4,175.6 125.1,176.9 127.8,178.2 130.5,179.5 133.2,180.8 135.9,182.1 138.6,183.4 141.3,184.7 144.0,186.0 146.7,187.3 149.4,188.6 152.1,189.9 154.8,191.2 157.5,192.5 160.2,193.8 162.9,195.1 165.6,196.4 168.3,197.7 171.0,199.0 173.7,200.3 176.4,201.6 179.1,202.9 181.8,204.2 184.5,205.5 187.2,206.8 189.9,208.1 192.6,209.4 195.3,210.7 198.0,212.0 200.7,213.3 203.4,214.6 206.1,215.9 208.8,217.2 211.5,218.5 214.2,219.8 216.9,221.1 219.6,222.4 222.3,223.7 225.0,225.0 227.7,226.3 230.4,227.6 233.1,228.9 235.8,230.2 238.5,231.5 241.2,232.8 243.9,234.1 246.6,235.4 249.3,236.7 252.0,238.0 254.7,239.3 257.4,240.6 260.1,241.9 262.8,243.2 265.5,244.5 268.2,245.8 270.9,247.1 273.6,248.4 276.3,249.7 279.0,251.0 281.7,252.3 284.4,253.6 287.1,254.9 289.8,256.2 292.5,257.5 295.2,258.8 297.9,260.1 300.6,261.4 303.3,262.7 306.0,264.0 308.7,265.3 311.4,266.6 314.1,267.9 316.8,269.2 319.5,270.5 322.2,271.8 324.9,273.1 327.6,274.4 330.3,275.7 333.0,277.0 335.7,278.3 338.4,279.6 341.1,280.9 343.8,282.2 346.5,283.5 349.2,284.8 351.9,286.1 354.6,287.4 357.3,288.7 360.0,290.0\"/><text x=\"241.2\" y=\"274.4\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10\">straight-line fade</text><text x=\"430.0\" y=\"150.0\" text-anchor=\"start\" fill=\"#222\" font-size=\"11.5\" font-weight=\"600\">Combined loudness</text><line x1=\"470\" y1=\"264.0\" x2=\"720\" y2=\"264.0\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"464.0\" y=\"267.5\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10\">−3 dB</text><line x1=\"470\" y1=\"186.0\" x2=\"720\" y2=\"186.0\" stroke=\"rgba(0,0,0,.16)\"/><text x=\"464.0\" y=\"189.5\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10\">0 dB</text><text x=\"470.0\" y=\"305.0\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10\">start of overlap</text><text x=\"720.0\" y=\"305.0\" text-anchor=\"end\" fill=\"#5c5c5c\" font-size=\"10\">end (0.3 s)</text><polyline fill=\"none\" stroke=\"#a8650f\" stroke-width=\"2\"  points=\"470.0,186.0 472.5,184.1 475.0,182.9 477.5,182.0 480.0,181.1 482.5,180.4 485.0,179.7 487.5,179.1 490.0,178.6 492.5,178.0 495.0,177.6 497.5,177.1 500.0,176.7 502.5,176.3 505.0,175.9 507.5,175.5 510.0,175.2 512.5,174.8 515.0,174.5 517.5,174.2 520.0,174.0 522.5,173.7 525.0,173.5 527.5,173.2 530.0,173.0 532.5,172.8 535.0,172.6 537.5,172.4 540.0,172.2 542.5,172.0 545.0,171.9 547.5,171.7 550.0,171.6 552.5,171.4 555.0,171.3 557.5,171.2 560.0,171.1 562.5,171.0 565.0,170.9 567.5,170.8 570.0,170.7 572.5,170.6 575.0,170.6 577.5,170.5 580.0,170.5 582.5,170.4 585.0,170.4 587.5,170.4 590.0,170.4 592.5,170.4 595.0,170.3 597.5,170.4 600.0,170.4 602.5,170.4 605.0,170.4 607.5,170.4 610.0,170.5 612.5,170.5 615.0,170.6 617.5,170.6 620.0,170.7 622.5,170.8 625.0,170.9 627.5,171.0 630.0,171.1 632.5,171.2 635.0,171.3 637.5,171.4 640.0,171.6 642.5,171.7 645.0,171.9 647.5,172.0 650.0,172.2 652.5,172.4 655.0,172.6 657.5,172.8 660.0,173.0 662.5,173.2 665.0,173.5 667.5,173.7 670.0,174.0 672.5,174.2 675.0,174.5 677.5,174.8 680.0,175.2 682.5,175.5 685.0,175.9 687.5,176.3 690.0,176.7 692.5,177.1 695.0,177.6 697.5,178.0 700.0,178.6 702.5,179.1 705.0,179.7 707.5,180.4 710.0,181.1 712.5,182.0 715.0,182.9 717.5,184.1 720.0,186.0\"/><text x=\"525.0\" y=\"163.9\" text-anchor=\"start\" fill=\"#a8650f\" font-size=\"10\" font-weight=\"600\">curve 0.4: peaks +0.6 dB</text><polyline fill=\"none\" stroke=\"#5c5c5c\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\" points=\"470.0,186.0 472.5,188.3 475.0,190.5 477.5,192.8 480.0,195.0 482.5,197.3 485.0,199.5 487.5,201.8 490.0,204.0 492.5,206.2 495.0,208.4 497.5,210.6 500.0,212.8 502.5,215.0 505.0,217.1 507.5,219.2 510.0,221.4 512.5,223.4 515.0,225.5 517.5,227.5 520.0,229.5 522.5,231.5 525.0,233.5 527.5,235.4 530.0,237.2 532.5,239.1 535.0,240.9 537.5,242.6 540.0,244.3 542.5,245.9 545.0,247.5 547.5,249.0 550.0,250.5 552.5,251.9 555.0,253.3 557.5,254.5 560.0,255.7 562.5,256.9 565.0,257.9 567.5,258.9 570.0,259.8 572.5,260.7 575.0,261.4 577.5,262.1 580.0,262.7 582.5,263.1 585.0,263.5 587.5,263.9 590.0,264.1 592.5,264.2 595.0,264.3 597.5,264.2 600.0,264.1 602.5,263.9 605.0,263.5 607.5,263.1 610.0,262.7 612.5,262.1 615.0,261.4 617.5,260.7 620.0,259.8 622.5,258.9 625.0,257.9 627.5,256.9 630.0,255.7 632.5,254.5 635.0,253.3 637.5,251.9 640.0,250.5 642.5,249.0 645.0,247.5 647.5,245.9 650.0,244.3 652.5,242.6 655.0,240.9 657.5,239.1 660.0,237.2 662.5,235.4 665.0,233.5 667.5,231.5 670.0,229.5 672.5,227.5 675.0,225.5 677.5,223.4 680.0,221.4 682.5,219.2 685.0,217.1 687.5,215.0 690.0,212.8 692.5,210.6 695.0,208.4 697.5,206.2 700.0,204.0 702.5,201.8 705.0,199.5 707.5,197.3 710.0,195.0 712.5,192.8 715.0,190.5 717.5,188.3 720.0,186.0\"/><text x=\"545.0\" y=\"283.5\" text-anchor=\"start\" fill=\"#5c5c5c\" font-size=\"10\">straight lines: dips −3 dB</text></svg><figcaption>Top: the two players alternating. Bottom: one 0.3-second overlap, and the combined loudness with the 0.4 curve compared with straight-line fades.</figcaption></figure>"
+      },
+      {
+       "title": "Speaker setup (CyberArts, Boston)",
+       "html": "<figure><a href=\"media/works/P06_connecting-lines__speaker-plan.jpg\" target=\"_blank\" rel=\"noopener\" title=\"Open full size\"><img src=\"media/works/P06_connecting-lines__speaker-plan.jpg\" alt=\"Floor plan: two speakers at the wide corners of a triangular space, 9 feet 7 inches apart, with two seated viewers between them at ear level\" loading=\"lazy\"></a><figcaption>Floor plan for the audio setup, drawn by Salome. Speakers 9′7″ apart, roughly in line with the viewers' ear level.</figcaption></figure><p>Salome planned and set up the sound system for the space. Two stereo speakers from MassArt stand at the two widest corners of the triangular space, angled toward the center. The stands put them at the ear level of a seated viewer, about 1 m, and keep them off the walls to reduce reflections.</p><ul><li>Playback source: a Windows laptop.</li><li>Interface: Focusrite Scarlett 2i2, connected over USB.</li><li>Speakers: left and right outputs to each speaker over 10 ft 1/4″ TRS to XLR cables.</li><li>Sound check: speaker gain starts low, then the interface output is raised slowly and the two channels are balanced.</li></ul><p><a class=\"lr-link\" href=\"media/works/P06_connecting-lines__audio-setup.pdf\" target=\"_blank\" rel=\"noopener\">Audio setup guide (PDF) ↗</a></p>"
+      },
+      {
+       "title": "From Boston to New York",
+       "html": "<p>The piece was first shown at CyberArts Gallery, inside a Boston train station, in spring 2025, then rebuilt for THE BLANC in New York (opening November 8, 2025). New York offered a much larger space: instead of individual handles in a gallery corner, a long metal bar wrapped with sensors and wiring ran through the installation, surrounded by three projection screens. The sound system was reworked to match:</p>\n<ul>\n<li><b>Simpler OSC addressing.</b> Messages moved from named addresses (<code>/T1 /T2 /movX /movY</code>) to numbered channels, with each sensor's raw 1–200 range scaled directly to the control it drives.</li>\n<li><b>Ready on load.</b> Every control now initializes when the patch opens, so the room sounds right from the first moment, before anyone touches a handle.</li>\n<li><b>Tuned smoothing.</b> Each control got its own smoothing coefficient (see section 4 above), so the drum swells while the wheel can still follow the hand.</li>\n<li><b>Sensor calibration.</b> The Arduino sketch gained a one-minute marker in its log, so drift in the capacitive pads can be seen and the system tuned to it.</li>\n</ul>"
+      },
+      {
+       "title": "Problems and fixes",
+       "html": "<ul>\n<li><b>A grounded sensor bar.</b> In New York the sensor wiring ran along the metal bar, and the bar touched the floor. The capacitive readings were disrupted, and extensive troubleshooting traced the problem to that contact. Insulating it with electrical tape, found the night before the opening, made the readings usable again.</li>\n<li><b>Sensor drift.</b> The capacitive pads sometimes stopped responding during long gallery days. The calibration sketch makes this visible by logging every pad's raw reading with a marker each minute, and smoothing on the Max side keeps small fluctuations out of the sound.</li>\n<li><b>One computer, two heavy programs.</b> TouchDesigner and Max/MSP competed for resources on the same machine, and the sensor data had to pass through both. The final chain runs in one direction (Arduino to TouchDesigner to Max/MSP to the speakers), with Max receiving the values as OSC on a single port.</li>\n<li><b>Change you can hear.</b> Early tests were too subtle, so the melody and drum layers were reworked to respond more audibly when a handle is held.</li>\n</ul>"
+      },
+      {
+       "title": "Reflection and next steps",
+       "html": "<p>Building Connecting Lines meant building a small piece of architecture, a space that resembles a train car, and every physical decision affected the sound. The most valuable lesson was that in an interactive installation, the electronics, the materials and the room are part of the instrument, and they need as much testing as the patch.</p>\n<p><b>Next:</b> a version in which the sound adapts to each visitor, responding to how long and how they hold the handles, rather than mapping touch to the same response for everyone. Building that system in Wwise rather than Max/MSP could also make it more stable for long-running exhibitions.</p><p>The signal chain itself could be advanced. In this version every reading travels from the sensor through the Arduino and TouchDesigner before it reaches Max, so each touch passes through three programs on its way to the sound.</p>"
+      }
+     ],
+     "links": [
+      {
+       "label": "Download the sound system (Max patches + Arduino sketch)",
+       "href": "media/works/P06_connecting-lines__sound-system.zip"
+      },
+      {
+       "label": "Arduino sketch (.ino)",
+       "href": "media/works/P06_connecting-lines__handle-sensors.ino"
+      }
+     ]
+    }
+   },
+   "blue": {
+    "title": "Blue",
+    "parent": "art",
+    "sub": "Piano trio · 2023",
+    "year": "2023",
+    "role": "Composer",
+    "note": "Bedford Trio · IMMERSED 2.0",
+    "desc": [
+     "A piano trio written for Bedford Trio and selected through the IMMERSED 2.0 call for works.",
+     "Blue sits within Zhang’s recurring use of blue as a visual and emotional motif across otherwise different media."
+    ],
+    "tags": [
+     "Piano Trio",
+     "Concert Music",
+     "Bedford Trio"
+    ],
+    "vimeo": "977413062",
+    "image": {
+     "src": "media/works/P14_blue__blue-bedford-poster.jpg",
+     "alt": "Bedford Trio presents Immersed 2.0 · April 2, 2023 · 918 Bathurst Street, Toronto"
+    },
+    "audio": [],
+    "docs": [
+     {
+      "label": "Read the score",
+      "href": "media/works/P14_blue__blue-score.pdf"
+     }
+    ],
+    "links": [],
+    "imageWithVideo": true
+   },
+   "tide": {
+    "title": "Tide",
+    "parent": "lab",
+    "sub": "Generative Music System · 2026–present · work in progress",
+    "year": "2026–present",
+    "role": "Composer · Developer",
+    "desc": [
+     "Tide is the music system Zhang is building on top of The Blue Left Spinning, and the sound that plays on this site. In that installation, one machine’s pauses gave the music its phrases and its rests. Tide extends the idea to many: seven voices, each with its own cycle of phrase and rest, slightly different in length, so that they begin together, drift apart, and gather again in a shared silence.",
+     "The harmony has no chord progression in the functional sense. Everything sounds in a single scale at a time, and the piece alternates between two scales, changing only in a shared silence and in a new key, so that no phrase changes colour midway. The listener chooses the two from ten: the Dorian, Phrygian and Lydian modes, the whole-tone and octatonic scales, the Chinese pentatonic modes gong 宫, yu 羽 and jue 角, and the Japanese iwato 岩戸 and hirajoshi 平調子. Chords are one shape moved in parallel. In the octatonic scale they follow two ideas from Berklee’s Harmony 4: polychords, a major triad set above a root and fifth a tritone or a sixth away, moved as a constant structure, the same shape stepping down a minor third each time, which the octatonic scale allows because it is identical at every minor third. In every scale the bass holds a pedal, phrases end unresolved, and the note that feels like home moves by a small Markov chain.",
+     "For now the voices are driven by the page. The piece is being built to become a kinetic sculpture: a series of machines, each one carrying a voice. It is synthesised live in the browser with Csound; the pitched voices are physical models of a bowed string, a plucked string and an aeolian harp, placed around the listener binaurally."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": [
+     {
+      "label": "Open the full controller at tide.salomezhang.com",
+      "href": "https://tide.salomezhang.com"
+     },
+     {
+      "label": "Code on GitHub",
+      "href": "https://github.com/Lome224/Tide"
+     }
+    ]
+   },
+   "event-matcher": {
+    "title": "Event Matcher",
+    "parent": "lab",
+    "sub": "Research Project · 2026",
+    "year": "2026",
+    "role": "Researcher",
+    "desc": [
+     "An early-stage research proposal on how directors and musicians communicate musical intent through emotional, contextual and metaphorical language, and how those descriptions might relate to interpretable changes in music. The proposal grows out of Zhang’s film-scoring collaborations and her interest in the relationship between music cognition, emotion and creative decision-making. It is presented as a research concept."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "project-prakash": {
+    "title": "Project Prakash",
+    "parent": "lab",
+    "sub": "MIT collaboration · Spatial Audio Designer",
+    "year": "2024",
+    "role": "Spatial Audio Designer · Composer",
+    "note": "Unity · Wwise · Csound · VR accessibility",
+    "desc": [
+     "Spatial-audio designer and composer for a VR research collaboration supporting visually impaired children transitioning to sight.",
+     "Zhang designed and implemented a 3D spatial sound system in Unity and Wwise, developed generative audio prototypes in Csound, and worked with custom Foley recordings for virtual navigation.",
+     "The project demonstrates her technical practice in service of accessibility, perception, and embodied interaction rather than technology as an end in itself."
+    ],
+    "tags": [
+     "MIT",
+     "Unity",
+     "Wwise",
+     "Csound",
+     "VR",
+     "Accessibility"
+    ],
+    "vimeo": "1246046027",
+    "image": {
+     "src": "media/works/P08_project-prakash__project-prakash.jpg",
+     "alt": "Project Prakash VR prototype · space environment and interactive meteor assessment"
+    },
+    "audio": [],
+    "docs": [],
+    "links": [
+     {
+      "label": "Unity project packages",
+      "href": "https://drive.google.com/drive/folders/1DS9XRKzQWYaVILkY6YolrEa85-rEwiU5"
+     }
+    ]
+   },
+   "cloud": {
+    "title": "CLOUD",
+    "parent": "lab",
+    "sub": "Electronic Instrument · 2025",
+    "year": "2025",
+    "role": "Developer",
+    "desc": [
+     "A custom electronic instrument combining Max/MSP, an Arduino Uno and photoresistors to connect sensor input with sound control. The prototype was presented at Fenway Art Studio in Boston in March 2025, bringing together Zhang’s interests in physical interaction, instrument building and electronic sound."
+    ],
+    "tags": [],
+    "vimeo": "1246046036",
+    "image": {
+     "src": "media/works/L05_cloud__cloud-performance.jpg",
+     "alt": "CLOUD instrument performance"
+    },
+    "audio": [],
+    "docs": [
+     {
+      "label": "Download original CLOUD Max patch",
+      "href": "media/works/L05_cloud__cloud.maxpat",
+      "download": true
+     }
+    ],
+    "links": []
+   },
+   "csound-plugin-01": {
+    "title": "Csound Plugin 01",
+    "parent": "lab",
+    "sub": "Audio Plugin · 2024",
+    "year": "2024",
+    "role": "Developer",
+    "desc": [
+     "A sampler prototype developed in Csound and Cabbage, bringing sample playback, envelope control and delay processing into a single interface. The project connects code with listening through adjustable sound parameters and documents Zhang’s exploration of sample processing and custom audio tools."
+    ],
+    "tags": [],
+    "image": {
+     "src": "media/works/L03_csound-plugin-01__csound-sampler-interface.png",
+     "alt": "Original sampler interface"
+    },
+    "audio": [
+     {
+      "title": "Reconstructed playback-core demonstration; not an archival plugin recording",
+      "src": "media/works/L03_csound-plugin-01__RECONSTRUCTED-sampler-demo.mp3",
+      "dur": 12
+     }
+    ],
+    "docs": [
+     {
+      "label": "Sampler · interface, playback & Csound code",
+      "href": "media/works/L03_csound-plugin-01__csound-sampler.csd",
+      "download": true
+     }
+    ],
+    "links": []
+   },
+   "csound-plugin-02": {
+    "title": "Csound Plugin 02",
+    "parent": "lab",
+    "sub": "Audio Plugin · 2024",
+    "year": "2024",
+    "role": "Developer",
+    "desc": [
+     "An FM synthesis instrument developed in Csound and Cabbage, with independent carrier and modulation envelopes, presets and output metering. The project translates synthesis logic into a playable interface, exploring electronic timbre through modulation and envelope shaping. Its documentation includes the original audio demonstration, interface and complete source code."
+    ],
+    "tags": [],
+    "image": {
+     "src": "media/works/L04_csound-plugin-02__csound-fm.png",
+     "alt": "FM Synthesis · original interface"
+    },
+    "audio": [
+     {
+      "title": "FM Synthesis · original demo",
+      "src": "media/works/L04_csound-plugin-02__csound-fm-demo.mp3",
+      "dur": 21
+     }
+    ],
+    "docs": [
+     {
+      "label": "Download complete FM instrument source",
+      "href": "media/works/L04_csound-plugin-02__csound-fm.csd",
+      "download": true
+     }
+    ],
+    "links": []
+   },
+   "machine-learning-for-musicians": {
+    "title": "Machine Learning for Musicians",
+    "parent": "lab",
+    "sub": "Machine Learning Study · 2025",
+    "year": "2025",
+    "role": "Researcher · Developer",
+    "desc": [
+     "A midterm experiment in machine learning for musicians, using a convolutional neural network to classify ten music genres. Audio is converted into mel-spectrograms, with separate notebooks covering preprocessing, training and prediction. Example predictions and a confusion matrix help examine the patterns learned by the model and the genres it still confuses."
+    ],
+    "tags": [],
+    "image": {
+     "src": "media/works/L07_machine-learning-for-musicians__ml-musicians-classification.png",
+     "alt": "Music genre classifier · original midterm prediction example"
+    },
+    "image2": {
+     "src": "media/works/L07_machine-learning-for-musicians__ml-musicians-confusion.png",
+     "alt": "Original midterm classifier confusion matrix"
+    },
+    "audio": [],
+    "docs": [
+     {
+      "label": "Explore the classifier and results",
+      "href": "media/works/L07_machine-learning-for-musicians__ml-musicians-notes.html"
+     },
+     {
+      "label": "Download midterm notebooks and documentation",
+      "href": "media/works/L07_machine-learning-for-musicians__machine-learning-for-musicians-source.zip",
+      "download": true
+     }
+    ],
+    "links": []
+   },
+   "once-upon-a-time-in-boston": {
+    "title": "Once Upon a Time in Boston",
+    "parent": "scoring-post",
+    "sub": "Feature film · Music Director / Composer / Songwriter",
+    "year": "2025–2026",
+    "role": "Music Director · Composer · Songwriter",
+    "note": "2h 44m · More than one hour of original music · 2 original theme songs",
+    "desc": [
+     "A large-scale feature score spanning more than one hour of original music, with Zhang overseeing the musical direction of the film and writing two original theme songs.",
+     "As Music Director and Composer, Zhang is responsible for the film’s overall musical language across a 2 hour 44 minute runtime. The project includes more than one hour of original music and two original theme songs.",
+     "The film has received an award at a Beijing film festival."
+    ],
+    "tags": [
+     "Feature Film",
+     "Music Direction",
+     "Original Score",
+     "Songwriting"
+    ],
+    "image": {
+     "src": "media/works/P02_once-upon-a-time-in-boston__boston-poster.jpg",
+     "alt": "Once Upon a Time in Boston · original film poster"
+    },
+    "audio": [
+     {
+      "title": "Before Rain · score excerpt",
+      "src": "media/audio/before-rain.mp3",
+      "dur": 329
+     }
+    ],
+    "docs": [],
+    "links": [],
+    "imageWithVideo": true
+   },
+   "ju": {
+    "title": "JU",
+    "parent": "scoring-post",
+    "sub": "Short film · Composer",
+    "year": "2026",
+    "role": "Composer",
+    "note": "Hybrid scoring · Extensive synth design",
+    "desc": [
+     "A hybrid score centered on synthesis, designed texture, and the friction between electronic and cinematic gesture.",
+     "JU is one of Zhang’s strongest examples of hybrid scoring and custom synthesis. Its palette is built not only through composition but through extensive sound design inside the score itself."
+    ],
+    "tags": [
+     "Hybrid Score",
+     "Synth Design",
+     "Film Music"
+    ],
+    "vimeo": "1238273066",
+    "image": {
+     "src": "media/works/P05_ju__ju.jpg",
+     "alt": "JU — still from the project video"
+    },
+    "audio": [
+     {
+      "title": "JU · original music",
+      "src": "media/works/P05_ju__ju-score.mp3",
+      "dur": 713
+     }
+    ],
+    "docs": [],
+    "links": []
+   },
+   "1hr22min": {
+    "title": "1HR22MIN",
+    "parent": "scoring-post",
+    "sub": "Short Film · 2024",
+    "year": "2024",
+    "role": "Composer · Audio Director",
+    "note": "Directed by Andy Liu · 11 min original score · 5.1 surround",
+    "desc": [
+     "An original score and 5.1 surround sound project for Andy Liu’s film 1HR22MIN. As composer and audio director, Zhang wrote eleven minutes of original music and collaborated with Zhang Yimou’s post-production team and Los Angeles film studio 24K Onions. The project combines composition with multichannel mixing to shape the film’s spatial sound, using Frame.io to coordinate post-production."
+    ],
+    "tags": [],
+    "vimeo": "1061083725",
+    "audio": [],
+    "docs": [],
+    "links": [
+     {
+      "label": "1HR22MIN · original music",
+      "href": "https://drive.google.com/file/d/17-QD_70OyJvn48OFeMkXjjZ0IjTyt45K/view"
+     }
+    ]
+   },
+   "beyond-the-glass": {
+    "title": "Beyond the Glass",
+    "parent": "scoring-post",
+    "sub": "Short film · Composer",
+    "year": "2024",
+    "role": "Composer",
+    "note": "Ambient / minimalist score · LA Shorts selection · Nollywood selection",
+    "desc": [
+     "A restrained ambient score built around space, atmosphere, and minimal musical intervention.",
+     "Beyond the Glass represents the quieter end of Zhang’s film language: an ambient, minimalist approach in which the score supports emotional space rather than continuously announcing narrative direction.",
+     "The film was selected by LA Shorts and a Nollywood festival."
+    ],
+    "tags": [
+     "Film Score",
+     "Ambient",
+     "Minimalism"
+    ],
+    "vimeo": "1061076055",
+    "image": {
+     "src": "media/works/P04_beyond-the-glass__beyond-the-glass-poster.jpg",
+     "alt": "Beyond the Glass · film poster"
+    },
+    "audio": [
+     {
+      "title": "Beyond the Glass · original music · extended credits version",
+      "src": "media/works/P04_beyond-the-glass__beyond-the-glass.mp3",
+      "dur": 1234
+     }
+    ],
+    "docs": [],
+    "links": [],
+    "imageWithVideo": true
+   },
+   "the-light-within": {
+    "title": "The Light Within",
+    "parent": "scoring-post",
+    "sub": "Animation · Orchestral score · 2025",
+    "year": "2025",
+    "role": "Composer",
+    "desc": [
+     "An orchestral, acoustic score in the warm, character-driven spirit of Pixar animation, written for the story of Lyra, a newborn star.",
+     "At her first Night Light Festival, Lyra is told only that she must light up the night sky. But as the moon swells from crescent to full, her light dims, and the harder she tries to glow, the fainter she becomes.",
+     "The film opens as Lyra prepares to enter the festival a second time, afraid of failing again. When she sees her friend Luna's light fading as the moon reaches its crescent, Lyra rushes to fill the sky, other stars join in, and together they complete the night. Sharing a smile with Luna, Lyra realizes that she only had to wait for her moment to shine, and that her dimming at the last festival was meant to happen.",
+     "The music follows that arc from nervousness and frustration to warmth and quiet understanding."
+    ],
+    "tags": [],
+    "vimeo": "1115617499",
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "fetter": {
+    "title": "Fetter",
+    "parent": "scoring-post",
+    "sub": "Short Film · 2025",
+    "year": "2025",
+    "role": "Composer · Dialogue Editing · Sound Design · Foley",
+    "note": "Screen / post-production work",
+    "desc": [
+     "Set in northeastern China under the one-child policy and the looming threat of unemployment and coal shortages, Fetter follows Yufen and her daughter under the weight of her husband’s oppression and his disappointment at not having a son. His unexpected death brings an anticlimactic end to the conflict, leaving no act of revenge.",
+     "Zhang’s work spans composition, dialogue editing, sound design and Foley. The restrained score combines live free improvisation for drum kit and piano, shaped by Chinese musical influences, with Beijing opera and improvised vocals."
+    ],
+    "tags": [],
+    "vimeo": "1101136410",
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "in-the-blue": {
+    "title": "In the Blue",
+    "parent": "scoring-post",
+    "sub": "Upcoming feature · Composer / Sound Team Lead",
+    "year": "2026–present",
+    "role": "Composer · Sound Team Lead",
+    "note": "~1 hour feature · Los Angeles-based production",
+    "desc": [
+     "An upcoming feature for which Zhang is responsible for both the original music and the broader sound team.",
+     "In the Blue extends Zhang’s role beyond composition into responsibility for the film’s larger sonic identity. She is composing the score while leading the sound team across the project."
+    ],
+    "tags": [
+     "Feature Film",
+     "Composition",
+     "Sound Leadership",
+     "Upcoming"
+    ],
+    "image": {
+     "src": "media/works/P10_in-the-blue__in-the-blue-still.jpg",
+     "alt": "In the Blue · supplied film still"
+    },
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "farewell-the-ocean-wave": {
+    "title": "Farewell the Ocean Wave",
+    "parent": "scoring-post",
+    "sub": "Upcoming mid-length film · Composer / Sound Team Lead / Songwriter",
+    "year": "2026–present",
+    "role": "Composer · Sound Team Lead · Songwriter",
+    "note": "~40 minutes · Original score · Theme song",
+    "desc": [
+     "An upcoming mid-length narrative project combining original score, full sound responsibility, and an original theme song.",
+     "For Farewell the Ocean Wave, Zhang is responsible for the music and the wider sound team, while also writing an original theme song. The project demonstrates an increasingly integrated approach to narrative sound."
+    ],
+    "tags": [
+     "Mid-Length Film",
+     "Music",
+     "Sound",
+     "Songwriting",
+     "Upcoming"
+    ],
+    "image": {
+     "src": "media/works/P11_farewell-the-ocean-wave__farewell-ocean-poster.jpg",
+     "alt": "Farewell, the Ocean Waves · supplied poster"
+    },
+    "audio": [],
+    "docs": [],
+    "links": [],
+    "imageWithVideo": true
+   },
+   "gift": {
+    "title": "Gift",
+    "parent": "scoring-post",
+    "sub": "Film · Composer",
+    "year": "2024",
+    "role": "Composer",
+    "note": "String quartet + piano · Tokyo film festival semifinalist",
+    "desc": [
+     "A chamber-led film score using string quartet and piano as its primary emotional language.",
+     "Gift shows the acoustic side of Zhang’s film practice, translating chamber-writing instincts into screen music through a focused palette of string quartet and piano."
+    ],
+    "tags": [
+     "Film Score",
+     "String Quartet",
+     "Piano",
+     "Chamber Music"
+    ],
+    "vimeo": "971152713",
+    "image": {
+     "src": "media/works/P12_gift__gift-poster.jpg",
+     "alt": "Gift · film poster"
+    },
+    "audio": [],
+    "docs": [],
+    "links": [],
+    "imageWithVideo": true
+   },
+   "farewell": {
+    "title": "Farewell",
+    "parent": "scoring-post",
+    "sub": "Animation · Composer / Sound Mixer",
+    "year": "2025",
+    "role": "Composer · Sound Mixer",
+    "note": "Minimalist piano writing · Ghibli-influenced aesthetic",
+    "desc": [
+     "An intimate animated short shaped by restrained piano writing and a soft, hand-drawn emotional world.",
+     "Farewell pairs minimalist piano writing with Zhang’s responsibility for sound mixing. Its musical language is intentionally small-scale and emotionally direct."
+    ],
+    "tags": [
+     "Animation",
+     "Piano",
+     "Minimalism",
+     "Sound Mixing"
+    ],
+    "vimeo": "1115618350",
+    "image": {
+     "src": "media/works/P13_farewell__farewell-still.jpg",
+     "alt": "Farewell — animation still"
+    },
+    "audio": [
+     {
+      "title": "Farewell · master audio",
+      "src": "media/works/P13_farewell__farewell.mp3",
+      "dur": 180
+     }
+    ],
+    "docs": [],
+    "links": []
+   },
+   "cheat-code": {
+    "title": "Cheat Code",
+    "parent": "scoring-post",
+    "sub": "Short Film · 2024",
+    "year": "2024",
+    "role": "Composer · Sound Designer",
+    "note": "Denny Awards — Best Film Score",
+    "desc": [
+     "A film project bringing together original composition and sound design. Zhang composed the score and contributed sound design for Jiting Yao’s Cheat Code. The score received the Best Film Score award at the Denny Awards International Electronic Music Competition."
+    ],
+    "tags": [],
+    "vimeo": "1002630267",
+    "audio": [
+     {
+      "title": "Cheat Code · original music",
+      "src": "media/works/F03_cheat-code__cheat-code-score.mp3",
+      "dur": 874
+     }
+    ],
+    "docs": [],
+    "links": []
+   },
+   "red-herring": {
+    "title": "Red Herring",
+    "parent": "scoring-post",
+    "sub": "Game · 2023",
+    "year": "2023",
+    "role": "Composer · Lead Sound Designer",
+    "note": "Unity + Wwise adaptive game audio",
+    "desc": [
+     "A game-audio project built around adaptive music and sound-based puzzles. As composer and lead sound designer, Zhang developed music systems in Unity and Wwise that respond to gameplay and integrated sound into puzzle design. Red Herring received an Honorable Mention for Best Game 2023 at the LevelUp Showcase presented by Ubisoft."
+    ],
+    "tags": [],
+    "vimeo": "871135172",
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "enjoy-your-journey": {
+    "title": "Enjoy Your Journey",
+    "parent": "scoring-post",
+    "sub": "Feature Film · 2025",
+    "year": "2025",
+    "role": "Additional Music",
+    "note": "Feature film contribution",
+    "desc": [
+     "Additional music for the feature film Enjoy Your Journey. Zhang contributed through Shi Music Studio under music director Shimu Chen, bringing her work in film composition into a larger collaborative scoring process."
+    ],
+    "tags": [],
+    "image": {
+     "src": "media/works/F06_enjoy-your-journey__enjoy-your-journey-poster.jpg",
+     "alt": "Enjoy Your Journey· release poster"
+    },
+    "audio": [],
+    "docs": [],
+    "links": [
+     {
+      "label": "Film details · IMDb",
+      "href": "https://www.imdb.com/title/tt28106059/"
+     }
+    ],
+    "imageWithVideo": true
+   },
+   "the-depth-of-wumeng": {
+    "title": "The Depth of Wumeng",
+    "parent": "scoring-post",
+    "sub": "Television Series · 2025",
+    "year": "2025",
+    "role": "Additional Music · Synth Design",
+    "note": "Television series",
+    "desc": [
+     "Television scoring that combines original composition with electronic sound creation. Zhang contributed additional music and synthesizer sound design to The Depth of Wumeng, working on both musical material and the creation of electronic timbres."
+    ],
+    "tags": [],
+    "image": {
+     "src": "media/works/F07_the-depth-of-wumeng__wumeng-poster.jpg",
+     "alt": "· poster"
+    },
+    "audio": [],
+    "docs": [],
+    "links": [
+     {
+      "label": "Watch on CCTV",
+      "href": "https://tv.cctv.com/2025/12/17/VIDEXPixngcGkSBYqqNW1Vk3251217.shtml"
+     }
+    ],
+    "imageWithVideo": true
+   },
+   "sleep-all-day": {
+    "title": "Sleep All Day",
+    "parent": "scoring-post",
+    "sub": "Film music",
+    "year": "2025",
+    "role": "Composer",
+    "note": "Greenpoint Festival · 2026",
+    "desc": [
+     "Original music for Sleep All Day, presented as an audio-only score so listeners can experience Zhang’s music independently of the film. The film was selected for the 2026 Greenpoint Film Festival."
+    ],
+    "tags": [],
+    "vimeo": "1026021118",
+    "audio": [
+     {
+      "title": "Sleep All Day · original music",
+      "src": "media/works/F08_sleep-all-day__sleep-all-day-score.mp3",
+      "dur": 816
+     }
+    ],
+    "docs": [],
+    "links": []
+   },
+   "love-tears-and-choice": {
+    "title": "Love Tears and Choice",
+    "parent": "scoring-post",
+    "sub": "Film music",
+    "year": "2026",
+    "role": "Composer",
+    "note": "Directed by Hazel Gu",
+    "desc": [
+     "Original music for Love Tears and Choice, directed by Hazel Gu. The music-only presentation offers a way to hear Zhang’s score independently of the film’s dialogue and images."
+    ],
+    "tags": [],
+    "vimeo": "1210659346",
+    "audio": [
+     {
+      "title": "Love Tears and Choice · original music",
+      "src": "media/works/F09_love-tears-and-choice__love-tears-choice-score.mp3",
+      "dur": 776
+     }
+    ],
+    "docs": [],
+    "links": []
+   },
+   "ochihos-theme": {
+    "title": "Ochiho’s Theme",
+    "parent": "scoring-post",
+    "sub": "Theme music",
+    "year": "2023",
+    "role": "Composer",
+    "desc": [
+     "A piano-sextet theme for the debut short by Toronto-based director Anthony Francis. The music gently traces the protagonist’s struggle between his own desires and the expectations of his family, particularly his father. The film takes a magical-realist turn when he encounters an omnipresent god who is ultimately revealed to be himself."
+    ],
+    "tags": [],
+    "audio": [
+     {
+      "title": "Ochiho’s Theme · score cue",
+      "src": "media/works/A01_ochihos-theme__ochihos-theme.mp3",
+      "dur": 196
+     }
+    ],
+    "docs": [],
+    "links": []
+   },
+   "august-third": {
+    "title": "August Third",
+    "parent": "scoring-post",
+    "sub": "Original music · 2025 · Sunni Mo · Premiered at SAIC",
+    "year": "2025",
+    "role": "Composer",
+    "desc": [
+     "Original music for Sunni Mo’s film August Third, composed in 2025 and premiered at the School of the Art Institute of Chicago (SAIC). Presented here without the film, the score offers a standalone listening experience."
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": [
+     {
+      "label": "August Third · original music · 2025",
+      "href": "https://drive.google.com/file/d/1n9cq0RvysR4FjqOH_eMn6YYYsasPZexA/view?usp=sharing"
+     }
+    ]
+   },
+   "rose-garden": {
+    "title": "Rose Garden",
+    "parent": "scoring-post",
+    "sub": "Short film · Piano and cello · 2024",
+    "year": "2024",
+    "role": "Composer",
+    "desc": [
+     "A theme for director and actor Katherine Landry's thesis short. Written as an intimate, waltz-like duet for piano and cello, the music accompanies a scene in which the protagonists dance together."
+    ],
+    "tags": [],
+    "audio": [
+     {
+      "title": "Rose Garden Dance",
+      "src": "media/works/rose-garden/rose-garden-dance.mp3",
+      "dur": 100
+     },
+     {
+      "title": "Adagio Faye",
+      "src": "media/works/rose-garden/adagio-faye.mp3",
+      "dur": 118
+     }
+    ],
+    "docs": [],
+    "links": []
+   },
+   "mu-dan-yuan": {
+    "title": "Mu Dan Yuan",
+    "parent": "scoring-post",
+    "sub": "Documentary · 2023",
+    "year": "2023",
+    "role": "Composer",
+    "desc": [
+     "Music for Director Sifan Liu’s film, a documentary about the life of a gay couple in Beijing, China, the film is selected as USC"
+    ],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "little-buddha-sunshine": {
+    "title": "Little Buddha Sunshine",
+    "parent": "scoring-post",
+    "sub": "Documentary · 2023",
+    "year": "2023",
+    "role": "Composer",
+    "desc": [],
+    "tags": [],
+    "vimeo": "871141918",
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "the-wild-robot": {
+    "title": "The Wild Robot",
+    "parent": "scoring-post",
+    "sub": "Rescore · 2026",
+    "year": "2026",
+    "role": "Composer",
+    "desc": [
+     "An orchestral rescoring study using scenes from The Wild Robot, featuring cue 1m27, I Can Use a Boost, and cue 1m36, Robot vs. the Wild. The project explores the relationship between orchestral music and animated images through newly composed scores, with full notation, synchronized video and standalone audio."
+    ],
+    "tags": [],
+    "vimeo": "1246046047",
+    "image": {
+     "src": "media/works/L01_the-wild-robot__wild-robot-1m27.jpg",
+     "alt": "The Wild Robot · 1m27 I Can Use a Boost"
+    },
+    "audio": [
+     {
+      "title": "1m36 · Robot vs. the Wild · audio",
+      "src": "media/works/L01_the-wild-robot__wild-robot-1m36.mp3",
+      "dur": 102
+     }
+    ],
+    "docs": [
+     {
+      "label": "1m27 · I Can Use a Boost · full score",
+      "href": "media/works/L01_the-wild-robot__wild-robot-1m27-score.pdf"
+     },
+     {
+      "label": "1m36 · Robot vs. the Wild · full score",
+      "href": "media/works/L01_the-wild-robot__wild-robot-1m36-score.pdf"
+     }
+    ],
+    "links": []
+   },
+   "farmers-of-america": {
+    "title": "Farmers of America",
+    "parent": "scoring-post",
+    "sub": "Rescore · 2025",
+    "year": "2025",
+    "role": "Composer",
+    "desc": [],
+    "tags": [],
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "sound-design-reel": {
+    "title": "Sound Design Reel",
+    "parent": "scoring-post",
+    "sub": "Game · 2026",
+    "year": "2026",
+    "role": "Sound Designer · Foley",
+    "desc": [
+     "A sound-design reel developed from Zhang’s Elden Ring sound-redesign study. The project rebuilds sound against existing game footage and brings the exercise into a focused presentation of her approach to game sound redesign."
+    ],
+    "tags": [],
+    "vimeo": "1238505077",
+    "audio": [],
+    "docs": [],
+    "links": []
+   },
+   "blue-planet-outside-the-window": {
+    "title": "Blue Planet Outside the Window",
+    "parent": "scoring-post",
+    "sub": "Documentary · 2025",
+    "year": "2025",
+    "role": "Foley · Sound Post",
+    "note": "CCTV",
+    "desc": [
+     "Sound post-production for the space documentary Blue Planet Outside the Window. Zhang’s work included Foley, sound effects, recording synchronization, editing, sound design and mixing, connecting detailed sound work with the screen image. Built around footage captured by astronauts aboard China’s space station, the film presents life in space and a view of Earth from orbit."
+    ],
+    "tags": [],
+    "image": {
+     "src": "media/works/F05_blue-planet-outside-the-window__blue-planet-poster.jpg",
+     "alt": "Blue Planet Outside the Window · poster"
+    },
+    "audio": [],
+    "docs": [],
+    "links": [],
+    "imageWithVideo": true
+   }
+  },
+
+  /* Listening Room: title, style, file in media/audio/, length in seconds */
+  tracks: [
+    ['Before Rain', 'Acoustic · Youthful · Wistful', 'media/audio/before-rain.mp3', 329],
+    ['Dawn', 'String Quartet · Contemporary Classical', 'media/audio/dawn.mp3', 316],
+    ['Embarking', 'Epic · Orchestral', 'media/audio/embarking.mp3', 121],
+    ['Family', 'Asian-influenced Electronic · Dark Ambient · Vocal', 'media/audio/family.mp3', 218],
+    ['Flowing Sun', 'Ambient Electronics · Cinematic', 'media/audio/flowing-sun.mp3', 153],
+    ['In the Threshold', 'Electroacoustic · Experimental', 'media/audio/in-the-threshold.mp3', 305],
+    ['Memory of our Bonds', 'Asian-influenced Electronic · Dark Ambient · Hybrid Score', 'media/audio/memory-of-our-bonds.mp3', 257],
+    ['Once Upon a Time In Boston', 'Orchestral · Acoustic · Film Score', 'media/audio/once-upon-a-time-in-boston.mp3', 204],
+    ['Truth or Dare', 'Hybrid Score · Tension / Thriller · Jazz', 'media/audio/truth-or-dare.mp3', 210],
+    ['Wind Across the Ocean Plane', 'Ambient Acoustics · Melancholy · Witty', 'media/audio/wind-across-the-ocean-plane.mp3', 163]
+  ],
+
+  contact: {
+    email: 'asnadlome@gmail.com',
+    phone: '(857) 200-9009',
+    based: 'Toronto / Vancouver'
+  },
+
+  about: {
+    bio: [
+      'Salome Yichi Zhang (b. 2002) is an award-winning Chinese-Canadian composer and sound artist working across sound art, film, and music technology. In New York City, her multichannel and multimedia works have been presented at THE BLANC, Flohaus Gallery, and NYU’s Audio Lab, including work produced by Michael Schumacher. While studying in Boston, her work was presented at Cyber Arts Gallery, Emerson Media Art Studio, and Fenway Art Studio.',
+      'Zhang began her composition studies at the University of Toronto on a top-level scholarship before transferring to Berklee College of Music as a recipient of its World Tour Scholarship Award. She earned a B.M. in Electronic Production and Design and Film Scoring and was mentored by Neil Leonard at the Berklee Interdisciplinary Arts Institute. After graduation, she continued working with Leonard as a production assistant on <i>Midtown Sound: Listening Legacy</i>, his solo exhibition at THE BLANC.',
+      'She has contributed music and sound to independent features, television productions, and more than 20 short films and animations. She was one of the sound designers on <i>Blue Planet Outside the Window</i>, the first live-action 8K documentary filmed entirely in space, and contributed to <i>Hope You Have a Good Trip</i>, the final feature by internationally acclaimed Tibetan filmmaker Pema Tseden, alongside projects with iQIYI and MIT’s Project Prakash. In 2025, her string quartet composition was featured on the Gaia Quartet’s Canadian tour and presented at the Canadian Music Centre in Toronto.'
+    ],
+    sections: [
+      { title: 'Research', text: [
+        'Zhang studies how music carries meaning where words cannot, especially where it meets image and machines. Her research combines music perception with machine learning to understand how composers and listeners align sound with picture, down to where a film’s musical accents land. She also studies how an autonomous system can make music that still feels intentional. Her goal is to build tools that extend a composer’s intuition rather than replace it.'
+      ] },
+      { title: 'Education', rows: [
+        ['2023–2026', 'Berklee College of Music', 'Boston, USA', 'Bachelor of Music in Electronic Production and Design & Film Scoring | GPA 3.7', ['Minor in Creative Coding', 'Specialization in Sound Design for Video Games', 'Affiliation: Berklee Interdisciplinary Arts Institute', 'Berklee College of Music World Tour Scholarship']],
+        ['2020–2023', 'University of Toronto', 'Toronto, Canada', 'Bachelor of Music in Composition | GPA 3.8', ['Focused on orchestration, chamber writing, and interdisciplinary collaboration', 'University of Toronto Entrance Scholarship']]
+      ] },
+      { title: 'Professional Experience', rows: [
+        ['2026', 'THE BLANC', 'New York, USA', 'Confluence: A Berklee Interdisciplinary Arts Institute Showcase', ['Production Assistant', 'Curated and artistically directed by Neil Leonard; the first collaboration between THE BLANC and BIAI.'], { href: 'https://www.theblanc.art/pap/confluence' }],
+        ['2025–2026', 'THE BLANC', 'New York, USA', 'Midtown Sound: Listening Legacy', ['Production Assistant', 'Neil Leonard’s inaugural New York solo exhibition and THE BLANC’s inaugural artist-in-residence exhibition.'], { href: 'https://bluemedium.com/news/the-blanc-announces-inaugural-artist-in-residence-neil-leonard-solo-exhibition-midtown-sound-listening-legacy/' }],
+        ['2025–2026', 'Berklee Interdisciplinary Arts Institute (BIAI)', 'Boston, USA', 'Interdisciplinary Artist / Production Assistant', ['Mentored by Neil Leonard; developed interdisciplinary projects including Connecting Lines, CLOUD, and In-Between, integrating composition, spatial audio, interactive systems, and installation.'], { links: [['Connecting Lines', '#w/connecting-lines'], ['CLOUD', '#w/cloud'], ['In-Between', '#w/in-between']] }]
+      ] },
+      { title: 'Awards, Competitions & Juried Selections', rows: [
+        ['2026', 'SMTH International Contest, 5th Edition', 'Spain', 'Poetic Architecture', ['Winner, In-Between (Excerpt)', 'Displayed at 13 venues across Madrid, Alicante, Vitoria, Seville, Bilbao, Murcia, and Barcelona'], { href: 'https://www.smth-art.com/en/product-page/anna-ren', work: ['in-between', 'In-Between'] }],
+        ['2026', 'Cannes Indie Shorts Award', 'Cannes, France', '', ['Semifinalist, In-Between'], { work: ['in-between', 'In-Between'], links: [['Poster with laurels', 'media/press/in-between-poster-laurels.jpg'], ['Anna Ren’s project page', 'https://www.annarenhe.com/project-15.html']] }],
+        ['2025', 'International Computer Music Conference', '', 'Berklee Call for Student Multichannel Work', ['Finalist']],
+        ['2025', 'Gaia Quartet', 'Toronto, Canada', 'Call for Works', ['Selected Composer, Dawn', 'Featured on the ensemble’s 2025 Canadian tour and presented at the Canadian Music Centre'], { href: 'https://cmccanada.org/event/gaia-quartet-cmc-artists-in-residence-in-time-album-launch-event/', work: ['dawn', 'Dawn'] }],
+        ['2025', 'IMMERSED 2.0, Bedford Trio', 'Toronto, Canada', 'Call for Works', ['Selected Composer, Blue'], { href: 'https://www.bedfordtrio.com/immersed-biographies.html', work: ['blue', 'Blue'] }],
+        ['2024', 'Vivaldi International Music Competition', 'Season III', 'Cheat Code', ['Absolute First Prize, Film/Game Music', 'Absolute First Prize, Original Composition'], { href: 'https://vivaldicompetition.com', work: ['cheat-code', 'Cheat Code'], links: [['Winner announcement', 'media/press/vivaldi-2024-cheat-code.jpg']] }],
+        ['2024', 'Denny Awards International Electronic Music Competition', '', '', ['Best Film Score, Cheat Code'], { work: ['cheat-code', 'Cheat Code'] }],
+        ['2023', 'LevelUp Showcase, presented by Ubisoft', 'Toronto, Canada', '', ['Honorable Mention, Best Game 2023, Red Herring'], { href: 'https://levelupshowcase.com/awards/', work: ['red-herring', 'Red Herring'] }],
+        ['2023', 'Berklee College of Music World Tour Scholarship', '', '', ['Recipient']],
+        ['2020', 'University of Toronto Entrance Scholarship', '', '', ['Recipient']]
+      ] },
+      { title: 'Exhibitions & Screenings', rows: [
+        ['2026', 'FLOHAUS Gallery', 'New York, USA', 'The Blue Left Spinning (solo exhibition)', ['Curated by Neil Leonard; guest multimedia visual artist Anna Ren'], { href: 'https://flohaus.nyc/exhibitions/salome-yichi-zhang-the-blue-left-spinning', work: ['the-blue-left-spinning', 'The Blue Left Spinning'], links: [['ArtRabbit', 'https://www.artrabbit.com/events/salome-yichi-zhang-the-blue-left-spinning'], ['Artsy', 'https://www.artsy.net/show/flohaus-gallery-salome-yichi-zhang-the-blue-left-spinning'], ['Artforum Artguide', 'https://artguide.artforum.com/artguide/flowing-space-24818/the-blue-left-spinning-269296']] }],
+        ['2026', 'Digerati Experimental Media Festival', '', 'Replay', ['Official Selection, In-Between'], { work: ['in-between', 'In-Between'], links: [['Poster with laurels', 'media/press/in-between-poster-laurels.jpg']] }],
+        ['2026', 'Cubicten', 'New York, USA', 'The Ultimate Prototype Digital Forest', ['Exhibitor, In-Between'], { work: ['in-between', 'In-Between'] }],
+        ['2026', 'AURORA Video Art Night (VAN 2026)', 'AT&T Discovery District, Dallas, USA', 'In-Between (Excerpt)', ['Exhibitor'], { href: 'https://dallasaurora.com/VIDEO-ART-NIGHT', work: ['in-between', 'In-Between'] }],
+        ['2025', 'Canadian Music Centre', 'Toronto, Canada', 'Gaia Quartet, CMC Artists in Residence: IN TIME Album Launch', ['Dawn'], { href: 'https://cmccanada.org/event/gaia-quartet-cmc-artists-in-residence-in-time-album-launch-event/', work: ['dawn', 'Dawn'] }]
+      ] },
+      { title: 'Press & Features', rows: [
+        ['2026', 'Art Mag', '', '“Salome Yichi Zhang: Blue Left Spinning”', ['Feature on Zhang’s New York exhibition and interdisciplinary installation practice'], { href: 'https://artmag.org/salome-yichi-zhang-blue-left-spinning/', work: ['the-blue-left-spinning', 'The Blue Left Spinning'] }],
+        ['2026', 'Monday Music', '', '“Documenting The Blue Left Spinning: A Kinetic Sound Sculpture by Salome Yichi Zhang”', ['Documentation'], { href: 'https://www.mondaymusic.net/post/documenting-the-blue-left-spinning-a-kinetic-sound-sculpture-by-salome-yichi-zhang/', work: ['the-blue-left-spinning', 'The Blue Left Spinning'] }],
+        ['2026', 'Berklee Electronic Production and Design Newsletter', '', '“EPD Graduate in the News”', ['Featured The Blue Left Spinning and the Art Mag article “When Broken Porcelain Speaks: Salome Yichi Zhang’s The Blue Left Spinning”'], { work: ['the-blue-left-spinning', 'The Blue Left Spinning'], links: [['Newsletter excerpt', 'media/press/epd-newsletter-2026.jpg'], ['Art Mag article', 'https://artmag.org/salome-yichi-zhang-blue-left-spinning/']] }],
+        ['2026', 'Berklee Electronic Production and Design Instagram', '', '“What Are You Making?”', ['Featured artist spotlight on The Blue Left Spinning'], { work: ['the-blue-left-spinning', 'The Blue Left Spinning'] }],
+        ['', 'Bedford Trio', '', 'IMMERSED 2.0 Composer Feature', ['Artist biography and project feature for Blue'], { href: 'https://www.bedfordtrio.com/immersed-biographies.html', work: ['blue', 'Blue'] }]
+      ] },
+      { title: 'Performance & Other Creative Experience', rows: [
+        ['2026', 'WaterFire Arts Center', 'Providence, RI, USA', 'RIFT — Yuval Gar', ['Live Electronics & Keyboard Performer']],
+        ['2025', 'THE BLANC', 'New York, USA', 'Metamorphosis — Ophelia Ariadne', ['Pianist']],
+        ['2023–2024', 'El Mocambo / Queen Elizabeth Theatre / Victoria College', 'Toronto, Canada', 'Indie Rock Band Performances', ['Bass Guitarist']]
+      ] }
+    ]
+  }
+};

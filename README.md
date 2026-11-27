@@ -16,7 +16,10 @@ The **Listening Room** plays ten tracks with seekable players.
 
 | Path | What it is |
 | --- | --- |
-| `index.html` | The whole site: layout, styles, content and scripts |
+| `index.html` | The page's frame: the banner, windows, icons and the Tide bar |
+| `style.css` | How the site looks |
+| `content.js` | Everything visitors read (`window.SITE`): statement, lists, every work page |
+| `site.js` | The site's behaviour: windows, work pages, players, dragging, starting Tide |
 | `media/backdrop.mp4` | Background video loop |
 | `media/salome.jpg` | About photo |
 | `media/CV_Salome_Zhang.pdf` | CV |
@@ -25,7 +28,7 @@ The **Listening Room** plays ten tracks with seekable players.
 
 ## Editing
 
-All text lives in the `window.SITE` object near the top of the second `<script>` in `index.html`: statement, project lists, Listening Room tracks, About bio and contact. Change it there and push; GitHub Pages redeploys in about a minute.
+All text lives in the `window.SITE` object in `content.js`: statement, project lists, Listening Room tracks, About bio and contact. Change it there and push; GitHub Pages redeploys in about a minute.
 
 Add `?tune` to the URL to open a panel for adjusting the video brightness, saturation, contrast and icon grey.
 
