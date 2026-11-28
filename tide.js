@@ -23,8 +23,19 @@
     window.Tide.stop().then(go, go);
   });
 
-  /* ---------- the Tide window: closed by its dot, dragged by its title bar (not on phones) ---------- */
-  $('tideClose').addEventListener('click', function () { if (window.Tide) window.Tide.controller(false); });
+  /* ---------- the Tide window ----------
+     Closed by its dot, by a click on the background (as the other windows are), or when
+     another window opens, since it would sit on top of that one; dragged by
+     its title bar (not on phones). A click only counts as "on the background" if it also began
+     there, so letting go of a knob or the pad outside the window does not close it. */
+  function closeTide() { if (window.Tide) window.Tide.controller(false); }
+  $('tideClose').addEventListener('click', closeTide);
+  window.addEventListener('site-window', closeTide);   /* another window opened (site.js): make way for it */
+  var OUTSIDE = '#controller, #panel, #readme, #icons, #banner, .controls, #tune, #enter', beganOutside = false;
+  document.addEventListener('pointerdown', function (e) { beganOutside = !e.target.closest(OUTSIDE); });
+  document.addEventListener('click', function (e) {
+    if (beganOutside && !e.target.closest(OUTSIDE) && !$('controller').hidden) closeTide();
+  });
   (function () {
     var win = $('controller'), bar = win.querySelector('.bar'), from = null;
     bar.addEventListener('pointerdown', function (e) {

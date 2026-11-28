@@ -235,6 +235,7 @@
     $('panel').classList.toggle('wide', !!v.wide);
     $('panel').classList.add('show');
     document.body.classList.add('has-window');
+    window.dispatchEvent(new Event('site-window'));   /* tide.js closes the Tide window, which would cover this one */
     if (location.hash !== '#' + name) { try { history.replaceState(null, '', '#' + name); } catch (e) {} }
     applyVol();
   }
