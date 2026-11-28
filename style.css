@@ -199,6 +199,8 @@ body.has-window #readme,body.has-window .icons{opacity:0;pointer-events:none}
 .tide-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
 .tide-bar button,.tide-bar label{padding:5px 12px;font-size:11px;letter-spacing:.12em;cursor:pointer}
 .tide-bar label{display:flex;align-items:center;gap:8px;cursor:default}
+/* PLAY and BINAURAL are one size, whatever they say (PLAY or PAUSE, ON or OFF) */
+.tide-bar #play,.tide-bar #bin{width:11em;text-align:center;white-space:nowrap}
 .tide-bar input[type=range]{width:96px;accent-color:#d8d8d8;cursor:pointer}
 .tide-bar output{opacity:.7;min-width:2.6em}
 .tide-bar input[type=range]{height:14px;margin:0}
